@@ -942,5 +942,68 @@ document.getElementById('btn-enviar').addEventListener('click',()=>{
 });
 </script>
 
+<!-- ===== Consentimento LGPD + coletor de tráfego (BI próprio, sem Google) ===== -->
+<style>
+.lgpd{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:80;max-width:var(--container);margin:0 auto;
+  display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  background:var(--grafite-deep);color:var(--osso);border:1px solid rgba(244,240,232,.14);border-radius:12px;
+  padding:1rem 1.25rem;box-shadow:0 18px 50px rgba(20,22,26,.35);
+  transform:translateY(160%);opacity:0;transition:transform .55s cubic-bezier(.16,1,.3,1),opacity .4s}
+.lgpd.on{transform:none;opacity:1}
+.lgpd p{font-size:.82rem;line-height:1.5;color:var(--osso-soft);margin:0;max-width:56ch}
+.lgpd p a{color:var(--azul-luz);text-decoration:underline}
+.lgpd-b{display:flex;gap:.6rem;flex-shrink:0}
+.lgpd-btn{font:600 .8rem var(--display);border-radius:8px;padding:.6rem 1.1rem;cursor:pointer;border:1px solid transparent}
+.lgpd-btn.ok{background:var(--azul);color:#fff}
+.lgpd-btn.ghost{background:transparent;color:var(--osso-soft);border-color:rgba(244,240,232,.28)}
+@media(max-width:640px){.lgpd{flex-direction:column;align-items:stretch}.lgpd-b{justify-content:stretch}.lgpd-btn{flex:1}}
+</style>
+<div class="lgpd" id="lgpd" role="dialog" aria-label="Aviso de privacidade">
+  <p>Usamos só dados de navegação para medir o alcance do site — sem Google, sem venda de dados. Você decide. <a href="#" data-priv>Política de privacidade</a>.</p>
+  <div class="lgpd-b">
+    <button type="button" class="lgpd-btn ghost" id="lgpd-ess">Apenas essenciais</button>
+    <button type="button" class="lgpd-btn ok" id="lgpd-ok">Aceitar</button>
+  </div>
+</div>
+<script>
+(function(){
+  var TRACK='https://m5group.pages.dev/api/public/track';
+  function vid(){var k='r360-vid',v=localStorage.getItem(k);
+    if(!v){v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2);localStorage.setItem(k,v);}return v;}
+  function q(n){try{return new URLSearchParams(location.search).get(n);}catch(e){return null;}}
+  // Coletor: só dispara com consentimento explícito. text/plain = requisição CORS
+  // "simples" (sem preflight); o servidor lê o corpo e faz JSON.parse.
+  window.r360track=function(ev){
+    if(localStorage.getItem('lgpd-consent')!=='accepted')return;
+    try{
+      var p=JSON.stringify({evento:ev||'pageview',path:location.pathname,referrer:document.referrer||null,
+        visitor_id:vid(),utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign')});
+      if(navigator.sendBeacon){navigator.sendBeacon(TRACK,new Blob([p],{type:'text/plain'}));}
+      else{fetch(TRACK,{method:'POST',body:p,headers:{'Content-Type':'text/plain'},keepalive:true}).catch(function(){});}
+    }catch(e){}
+  };
+  if(localStorage.getItem('lgpd-consent')==='accepted')window.r360track('pageview');
+  var b=document.getElementById('lgpd');
+  // O banner é inserido depois do script que liga [data-priv]; religa o link dele.
+  var dlg=document.getElementById('dlg-priv');
+  if(b&&dlg)b.querySelectorAll('[data-priv]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();if(dlg.showModal)dlg.showModal();});});
+  if(!localStorage.getItem('lgpd-consent')){setTimeout(function(){b.classList.add('on');},700);}else if(b){b.remove();}
+  function fechar(escolha){localStorage.setItem('lgpd-consent',escolha);
+    if(escolha==='accepted')window.r360track('pageview');
+    b.classList.remove('on');setTimeout(function(){if(b)b.remove();},550);}
+  var ok=document.getElementById('lgpd-ok'),ess=document.getElementById('lgpd-ess');
+  if(ok)ok.addEventListener('click',function(){fechar('accepted');});
+  if(ess)ess.addEventListener('click',function(){fechar('essential');});
+  // Eventos: clique em e-mail e envio do formulário.
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(a&&(a.getAttribute('href')||'').indexOf('mailto:')===0)window.r360track('click_email');
+  });
+  var env=document.getElementById('btn-enviar');
+  if(env)env.addEventListener('click',function(){window.r360track('form_enviado');});
+})();
+</script>
+
 </body>
 </html>
