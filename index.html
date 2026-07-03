@@ -107,7 +107,7 @@ nav.menu a.on::after{content:'';position:absolute;left:0;right:0;bottom:-6px;hei
 #arco text{font-family:var(--display);font-weight:600}
 #arco .num{font-size:12px;fill:var(--steel-soft)}
 #arco .mval{font-size:14px;font-weight:700;fill:var(--azul)}
-#arco .big360{font-size:48px;font-weight:700;fill:var(--grafite);letter-spacing:-.02em}
+#arco .big360{font-size:40px;font-weight:700;fill:var(--azul);letter-spacing:-.02em}
 .arco-replay{margin-top:.2rem;font:600 .62rem var(--display);letter-spacing:.06em;text-transform:uppercase;background:transparent;border:1px solid var(--linha);color:var(--steel-soft);border-radius:999px;padding:.35rem .8rem;cursor:pointer}
 .arco-replay:hover{border-color:var(--azul);color:var(--azul)}
 
@@ -837,7 +837,8 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
   // opacidade dos documentos ao longo do ciclo (e = ms decorridos, p = progresso do arco)
   function docsOpacidade(e,p){
     if(e<INTRO) return clamp(e/500);                     // 1º: aparecem sozinhos, sem nada escrito
-    return 1-clamp(p/.44);                               // esmaecem SUAVE enquanto a régua reta surge e percorre; somem antes de dobrar
+    const t=clamp(p/.29);                                // 20 cm da régua ≈ p .29 (a metade)
+    return (1-t)*(1-t)*(1-t);                            // some RÁPIDO: quando a régua percorre já é muito pouco; zerado na metade
   }
   function play(){
     cancelAnimationFrame(raf); clearTimeout(loopT);
