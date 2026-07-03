@@ -294,12 +294,12 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 /* ===== #1 documentos atrás da plaqueta do herói ===== */
 .hero-anim{isolation:isolate}
 .hero-docs{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.hero-docs i{position:absolute;border:1px solid var(--linha);background:#fff;border-radius:6px;box-shadow:0 18px 40px -28px rgba(0,0,0,.35);opacity:0;animation:docIn .8s ease forwards}
-.hero-docs i::before{content:'';position:absolute;left:12%;right:20%;top:16%;height:6px;background:var(--osso-soft);box-shadow:0 12px 0 var(--osso-soft),0 24px 0 var(--osso-soft),0 36px 0 var(--osso-soft)}
-.hero-docs i.d1{inset:-14px -22px auto auto;width:64%;height:70%;transform:rotate(5deg);animation-delay:.15s}
-.hero-docs i.d2{inset:auto auto -16px -20px;width:58%;height:64%;transform:rotate(-6deg);animation-delay:.32s}
-.hero-docs i.d3{inset:-8px auto auto -14px;width:46%;height:52%;transform:rotate(-2deg);animation-delay:.5s}
-@keyframes docIn{to{opacity:.55}}
+.hero-docs i{position:absolute;opacity:0;animation:docIn .8s ease forwards}
+.hero-docs i svg{width:100%;height:100%;display:block;filter:drop-shadow(0 16px 30px rgba(0,0,0,.22))}
+.hero-docs i.d1{inset:-16px -30px auto auto;width:58%;height:76%;transform:rotate(5deg);animation-delay:.15s}
+.hero-docs i.d2{inset:auto auto -20px -26px;width:52%;height:66%;transform:rotate(-6deg);animation-delay:.32s}
+.hero-docs i.d3{inset:-12px auto auto -18px;width:40%;height:50%;transform:rotate(-2deg);animation-delay:.5s}
+@keyframes docIn{to{opacity:.72}}
 
 /* ===== #2 Auditoria ao vivo — varredura da prestação ===== */
 .scan-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:2.5rem;align-items:start}
@@ -335,21 +335,29 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 .card-motif svg [data-fl]{fill:rgba(244,240,232,.10)}
 .card-motif svg [data-ac]{stroke:var(--azul-luz);opacity:.5}
 
-/* ===== #5 Onde já atuamos (animado) ===== */
+/* ===== #5 Onde já atuamos — mapa do Brasil + atuação por ponto ===== */
 .mapa{background:linear-gradient(150deg,var(--grafite-soft),var(--grafite-deep));border-radius:6px;padding:1.8rem;color:var(--osso);position:relative;overflow:hidden}
-.mapa .mt{font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.55);margin-bottom:1rem}
-.mapa-svg{width:100%;height:auto;display:block}
-.mapa-svg .uf{fill:rgba(90,168,198,.18);stroke:rgba(90,168,198,.5);stroke-width:.6}
-.mapa-svg .dot{fill:var(--azul-luz);opacity:0}
-.mapa.on .mapa-svg .dot{animation:pino .5s ease forwards}
-.mapa-ufs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.3rem}
-.mapa-ufs span{font:600 .68rem var(--display);letter-spacing:.06em;border:1px solid rgba(244,240,232,.2);border-radius:999px;padding:.35rem .8rem;color:rgba(244,240,232,.8);opacity:0;transform:translateY(8px)}
+.mapa .mt{font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.55)}
+.mapa .msub{font-size:.8rem;color:rgba(244,240,232,.6);margin:.4rem 0 1.2rem;line-height:1.55;max-width:44ch}
+.mapa-wrap{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:center}
+@media(max-width:520px){.mapa-wrap{grid-template-columns:1fr;justify-items:center}}
+.mapa-svg{width:168px;max-width:46vw;height:auto;display:block}
+.mapa-br{fill:rgba(90,168,198,.06);stroke:rgba(90,168,198,.32);stroke-width:1.1;stroke-linejoin:round}
+.mapa-dot{fill:var(--azul-luz);opacity:.28;transition:opacity .35s}
+.mapa-dot.on{opacity:1}
+.mapa-halo{fill:none;stroke:var(--azul-luz);stroke-width:1.4;opacity:0;transform-box:fill-box;transform-origin:center}
+.mapa-halo.go{animation:halo 1.5s ease-out}
+@keyframes halo{0%{opacity:.7;transform:scale(.5)}100%{opacity:0;transform:scale(3.4)}}
+.mapa-cap{min-height:3.6em}
+.mapa-cap .cu{font:700 .72rem var(--display);letter-spacing:.1em;color:var(--azul-luz)}
+.mapa-cap .cw{display:block;font-size:.95rem;color:var(--osso);margin-top:.2rem;line-height:1.35;transition:opacity .3s}
+.mapa-ufs{display:flex;flex-wrap:wrap;gap:.42rem;margin-top:1.3rem}
+.mapa-ufs span{font:600 .62rem var(--display);letter-spacing:.06em;border:1px solid rgba(244,240,232,.2);border-radius:999px;padding:.28rem .66rem;color:rgba(244,240,232,.72);opacity:0;transform:translateY(8px)}
 .mapa.on .mapa-ufs span{animation:ufIn .45s ease forwards}
 @keyframes ufIn{to{opacity:1;transform:none}}
-@keyframes pino{to{opacity:.9}}
-.mapa-num{display:flex;gap:2rem;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(244,240,232,.12)}
-.mapa-num .n{font-family:var(--display);font-weight:700;font-size:1.7rem;color:var(--azul-luz);font-variant-numeric:tabular-nums;line-height:1}
-.mapa-num .l{font-size:.66rem;color:rgba(244,240,232,.55);margin-top:.25rem}
+.mapa-num{display:flex;gap:1.8rem;margin-top:1.3rem;padding-top:1.2rem;border-top:1px solid rgba(244,240,232,.12)}
+.mapa-num .n{font-family:var(--display);font-weight:700;font-size:1.55rem;color:var(--azul-luz);font-variant-numeric:tabular-nums;line-height:1}
+.mapa-num .l{font-size:.62rem;color:rgba(244,240,232,.55);margin-top:.25rem}
 
 /* ===== #6 Como funciona — timeline vertical ===== */
 .timeline{max-width:760px;margin-top:1rem;position:relative;padding-left:2.4rem}
@@ -408,6 +416,13 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
     <line x1="30" y1="2.4" x2="30" y2="12.8" stroke="#2E7D99" stroke-width="2.8" stroke-linecap="round"/>
   </g>
   <g id="skyline"><path fill="#F4F0E8" d="M0 120 L0 70 L18 70 L18 45 L38 45 L38 62 L58 62 L58 30 L82 30 L82 55 L104 55 L104 40 L128 40 L128 66 L150 66 L150 20 L176 20 L176 58 L200 58 L200 48 L224 48 L224 70 L248 70 L248 38 L272 38 L272 64 L300 64 L300 120 Z"/></g>
+  <g id="doc-mini">
+    <rect x="1" y="1" width="118" height="148" rx="5" fill="#fff" stroke="rgba(52,56,61,.16)"/>
+    <path d="M1 6 a5 5 0 0 1 5 -5 h108 a5 5 0 0 1 5 5 v5 h-118 z" fill="#1C5A73" opacity=".45"/>
+    <g fill="#8A8F96"><rect x="12" y="24" width="72" height="5" rx="2.5"/><rect x="12" y="40" width="96" height="3" rx="1.5" opacity=".7"/><rect x="12" y="51" width="82" height="3" rx="1.5" opacity=".7"/><rect x="12" y="62" width="92" height="3" rx="1.5" opacity=".7"/><rect x="12" y="73" width="58" height="3" rx="1.5" opacity=".7"/><rect x="12" y="84" width="88" height="3" rx="1.5" opacity=".7"/><rect x="12" y="95" width="70" height="3" rx="1.5" opacity=".7"/></g>
+    <circle cx="93" cy="122" r="16" fill="none" stroke="#1C5A73" stroke-width="2" opacity=".55"/>
+    <path d="M85 122 l6 6 l12 -13" fill="none" stroke="#1C5A73" stroke-width="2.4" opacity=".6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
 </defs></svg>
 
 <header class="topo">
@@ -435,7 +450,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
         <p class="hero-micro">Diagnóstico em até 30 dias · análise inicial de 1 documento, sem custo</p>
       </div>
       <div class="hero-anim">
-        <div class="hero-docs" aria-hidden="true"><i class="d1"></i><i class="d2"></i><i class="d3"></i></div>
+        <div class="hero-docs" aria-hidden="true"><i class="d1"><svg viewBox="0 0 120 150" preserveAspectRatio="none"><use href="#doc-mini"/></svg></i><i class="d2"><svg viewBox="0 0 120 150" preserveAspectRatio="none"><use href="#doc-mini"/></svg></i><i class="d3"><svg viewBox="0 0 120 150" preserveAspectRatio="none"><use href="#doc-mini"/></svg></i></div>
         <span class="pc tl"></span><span class="pc tr"></span><span class="pc bl"></span><span class="pc br"></span>
         <div class="hero-steps"><b id="st-medir">medir</b><i>→</i><b id="st-padrao">padrão</b><i>→</i><b id="st-conforme">conforme</b></div>
         <svg id="arco" viewBox="0 0 400 400" role="img" aria-label="Uma régua de medição dobrando em 360 graus até virar o símbolo do Regula360">
@@ -600,27 +615,34 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
       <div class="olhares"><span>Olhar de <b>proprietário</b></span><span>de <b>administrador</b></span><span>de <b>locatário</b></span></div>
     </div>
     <div class="mapa" id="mapa">
-      <div class="mt">Onde já atuamos</div>
-      <svg class="mapa-svg" viewBox="0 0 300 190" role="img" aria-label="Presença em nove estados brasileiros">
-        <g stroke="rgba(90,168,198,.22)" stroke-width="1" fill="none">
-          <line x1="150" y1="70" x2="196" y2="120"/><line x1="196" y1="120" x2="214" y2="96"/><line x1="196" y1="120" x2="176" y2="150"/><line x1="176" y1="150" x2="150" y2="168"/><line x1="214" y1="96" x2="236" y2="70"/><line x1="150" y1="70" x2="120" y2="52"/><line x1="196" y1="120" x2="232" y2="132"/>
-        </g>
-        <circle class="dot" cx="196" cy="120" r="6" style="animation-delay:.05s"/>
-        <circle class="dot" cx="214" cy="96" r="5" style="animation-delay:.15s"/>
-        <circle class="dot" cx="176" cy="150" r="5" style="animation-delay:.25s"/>
-        <circle class="dot" cx="150" cy="168" r="5" style="animation-delay:.35s"/>
-        <circle class="dot" cx="236" cy="70" r="5" style="animation-delay:.45s"/>
-        <circle class="dot" cx="150" cy="70" r="5" style="animation-delay:.55s"/>
-        <circle class="dot" cx="120" cy="52" r="5" style="animation-delay:.65s"/>
-        <circle class="dot" cx="232" cy="132" r="5" style="animation-delay:.75s"/>
-        <circle class="dot" cx="118" cy="120" r="5" style="animation-delay:.85s"/>
-      </svg>
-      <div class="mapa-ufs">
-        <span style="animation-delay:.1s">SP</span><span style="animation-delay:.18s">RJ</span><span style="animation-delay:.26s">MG</span><span style="animation-delay:.34s">PR</span><span style="animation-delay:.42s">SC</span><span style="animation-delay:.5s">RS</span><span style="animation-delay:.58s">BA</span><span style="animation-delay:.66s">GO</span><span style="animation-delay:.74s">DF</span>
+      <div class="mt">Onde os sócios já atuaram</div>
+      <div class="msub">45 anos somados, mexendo em tudo — obras, auditoria, documentação, elétrica, incêndio, contratos — em vários estados.</div>
+      <div class="mapa-wrap">
+        <svg class="mapa-svg" viewBox="0 0 240 260" role="img" aria-label="Mapa do Brasil com pontos de atuação dos sócios">
+          <path class="mapa-br" d="M120 10 L150 22 L168 40 L160 58 L188 70 L214 104 L206 126 L190 150 L182 172 L170 190 L156 202 L150 216 L146 232 L128 244 L110 230 L108 208 L92 188 L84 164 L66 150 L30 138 L44 118 L40 96 L58 76 L72 56 L96 36 L104 20 Z"/>
+          <circle class="mapa-halo" id="mapa-halo" r="6"/>
+          <circle class="mapa-dot" data-uf="SP" data-w="Auditoria de prestações de contas" cx="150" cy="196" r="3.4"/>
+          <circle class="mapa-dot" data-uf="RJ" data-w="Retrofit e regularização de fachada" cx="166" cy="188" r="3.4"/>
+          <circle class="mapa-dot" data-uf="MG" data-w="Vencimentos: AVCB, SPDA e PMOC" cx="160" cy="168" r="3.4"/>
+          <circle class="mapa-dot" data-uf="DF" data-w="Due diligence documental" cx="146" cy="150" r="3.4"/>
+          <circle class="mapa-dot" data-uf="GO" data-w="Laudo elétrico (NR-10) e termografia" cx="134" cy="160" r="3.4"/>
+          <circle class="mapa-dot" data-uf="BA" data-w="Potabilidade e qualidade do ar" cx="188" cy="140" r="3.4"/>
+          <circle class="mapa-dot" data-uf="PE" data-w="Inspeção predial (NBR 16747)" cx="202" cy="116" r="3.4"/>
+          <circle class="mapa-dot" data-uf="PR" data-w="Conferência de boletos condominiais" cx="140" cy="208" r="3.4"/>
+          <circle class="mapa-dot" data-uf="SC" data-w="Contratos de facilities revisados" cx="146" cy="218" r="3.4"/>
+          <circle class="mapa-dot" data-uf="RS" data-w="Recuperação de despesas auditadas" cx="128" cy="232" r="3.4"/>
+        </svg>
+        <div>
+          <div class="mapa-cap" id="mapa-cap"><span class="cu">SP</span><span class="cw">Auditoria de prestações de contas</span></div>
+          <div class="mapa-ufs">
+            <span style="animation-delay:.1s">SP</span><span style="animation-delay:.16s">RJ</span><span style="animation-delay:.22s">MG</span><span style="animation-delay:.28s">DF</span><span style="animation-delay:.34s">GO</span><span style="animation-delay:.4s">BA</span><span style="animation-delay:.46s">PE</span><span style="animation-delay:.52s">PR</span><span style="animation-delay:.58s">SC</span><span style="animation-delay:.64s">RS</span>
+          </div>
+        </div>
       </div>
       <div class="mapa-num">
         <div><div class="n" data-conta="72">0</div><div class="l">centros de custo na base</div></div>
         <div><div class="n" data-conta="9">0</div><div class="l">estados acompanhados</div></div>
+        <div><div class="n">todas</div><div class="l">as áreas técnicas</div></div>
       </div>
     </div>
   </div></div></section>
@@ -782,25 +804,33 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
     marker.setAttribute('opacity',Math.min(clamp((p-.14)/.05), 1-clamp((p-.42)/.05)));
     mval.textContent=(mf*40).toFixed(0)+' cm';
     ring.setAttribute('stroke-dashoffset',RING_LEN*(1-clamp((p-.56)/.28)));
-    big.setAttribute('opacity',Math.min(clamp((p-.80)/.08), 1-clamp((p-.94)/.06)));  // "360°" no fecho
+    big.setAttribute('opacity',clamp((p-.80)/.08));  // "360°" aparece e PERMANECE no centro
     ind.setAttribute('opacity',clamp((p-.86)/.14));
     // passos medir → padrão → conforme acendem conforme anima
     stMedir.classList.toggle('on',p<.46);
     stPadrao.classList.toggle('on',p>=.46&&p<.80);
     stConforme.classList.toggle('on',p>=.80);
   }
-  let raf;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let raf, loopT, visible=true;
   function play(){
-    cancelAnimationFrame(raf);
-    if(matchMedia('(prefers-reduced-motion: reduce)').matches){render(1);return;}
+    cancelAnimationFrame(raf); clearTimeout(loopT);
+    if(reduced){render(1);return;}                       // estático, com o "360°" no lugar
     const t0=performance.now(), dur=4200;                // mais lenta
-    (function step(t){const p=Math.min((t-t0)/dur,1);render(p);if(p<1)raf=requestAnimationFrame(step);})(t0);
+    (function step(t){const p=Math.min((t-t0)/dur,1);render(p);
+      if(p<1){raf=requestAnimationFrame(step);}
+      else if(visible){loopT=setTimeout(play,3500);}     // refaz a cada ~3,5s
+    })(t0);
   }
   render(0);
   const start=()=>setTimeout(play,500);
   if(document.readyState==='complete')start(); else window.addEventListener('load',start);
   document.getElementById('arco-replay').addEventListener('click',play);
   svg.addEventListener('click',play);
+  // pausa o loop quando o herói sai da tela (economia); retoma ao voltar
+  new IntersectionObserver(es=>{const v=es[0].isIntersecting;
+    if(v&&!visible&&!reduced){visible=true;play();} else {visible=v;}
+  },{threshold:.15}).observe(svg);
 })();
 const _fmt=n=>Math.round(n).toLocaleString('pt-BR');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&e.target.hasAttribute('data-conta')){conta(e.target);io.unobserve(e.target)}}),{threshold:.5});
@@ -809,21 +839,54 @@ function conta(el){const alvo=+el.dataset.conta,t0=performance.now();
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.childNodes[0].nodeValue=_fmt(alvo);return}
   (function tick(t){const p=Math.min((t-t0)/1300,1);el.childNodes[0].nodeValue=_fmt(alvo*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(t0)}
 
-/* Auditoria ao vivo — a régua varre a prestação e as rubricas acendem */
+/* Auditoria ao vivo — a régua varre a prestação e as rubricas acendem, EM LOOP */
 (function(){const scan=document.getElementById('scan');if(!scan)return;
   const rows=[].slice.call(scan.querySelectorAll('.rub'));
   const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const run=()=>{scan.classList.add('on');
+  const dur=3000, espera=4000;      // varre em 3s, espera 4s, refaz
+  let timers=[], loopT, visible=false;
+  const parar=()=>{timers.forEach(clearTimeout);clearTimeout(loopT);timers=[];};
+  const run=()=>{
+    parar();
+    scan.classList.remove('on');rows.forEach(r=>r.classList.remove('lit'));
+    void scan.offsetWidth;          // reflow: reinicia a animação da linha de varredura
+    scan.classList.add('on');
     if(red){rows.forEach(r=>r.classList.add('lit'));return;}
-    const dur=3000;rows.forEach((r,i)=>setTimeout(()=>r.classList.add('lit'),160+i*(dur-500)/rows.length));};
-  const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){run();o.disconnect();}}),{threshold:.3});
-  o.observe(scan);})();
+    timers=rows.map((r,i)=>setTimeout(()=>r.classList.add('lit'),160+i*(dur-500)/rows.length));
+    loopT=setTimeout(()=>{if(visible)run();},dur+espera);
+  };
+  new IntersectionObserver(es=>{visible=es[0].isIntersecting;
+    if(visible)run(); else parar();
+  },{threshold:.3}).observe(scan);})();
 
-/* revelação no scroll — Onde atuamos + timeline (escalonada) */
-(function(){const mapa=document.getElementById('mapa');
-  if(mapa){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){mapa.classList.add('on');o.disconnect();}}),{threshold:.3});o.observe(mapa);}
+/* revelação no scroll — timeline (escalonada) */
+(function(){
   const tl=[].slice.call(document.querySelectorAll('.tl-item.rev'));
   if(tl.length){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=tl.indexOf(e.target);setTimeout(()=>e.target.classList.add('in'),i*140);o.unobserve(e.target);}}),{threshold:.3});tl.forEach(el=>o.observe(el));}
+})();
+
+/* Onde os sócios atuaram — holofote gira pelos pontos, cada um conta o que foi feito */
+(function(){
+  const mapa=document.getElementById('mapa'); if(!mapa)return;
+  const dots=[].slice.call(mapa.querySelectorAll('.mapa-dot'));
+  const halo=document.getElementById('mapa-halo'), cap=document.getElementById('mapa-cap');
+  const capU=cap.querySelector('.cu'), capW=cap.querySelector('.cw');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i=-1, t, visible=false;
+  function step(){
+    i=(i+1)%dots.length;
+    const d=dots[i];
+    dots.forEach(x=>x.classList.remove('on')); d.classList.add('on');
+    halo.setAttribute('cx',d.getAttribute('cx')); halo.setAttribute('cy',d.getAttribute('cy'));
+    halo.classList.remove('go'); requestAnimationFrame(()=>requestAnimationFrame(()=>halo.classList.add('go')));
+    capW.style.opacity=0;
+    setTimeout(()=>{capU.textContent=d.dataset.uf; capW.textContent=d.dataset.w; capW.style.opacity=1;},180);
+    t=setTimeout(step,2000);
+  }
+  function start(){ mapa.classList.add('on'); if(reduced){dots.forEach(x=>x.classList.add('on'));return;} clearTimeout(t); step(); }
+  new IntersectionObserver(es=>{visible=es[0].isIntersecting;
+    if(visible)start(); else clearTimeout(t);
+  },{threshold:.3}).observe(mapa);
 })();
 const dlg=document.getElementById('dlg-priv');
 document.querySelectorAll('[data-priv]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();dlg.showModal()}));
