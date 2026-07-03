@@ -839,8 +839,8 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
   // opacidade dos documentos ao longo do ciclo (e = ms decorridos, p = progresso do arco)
   function docsOpacidade(e,p){
     if(e<INTRO) return clamp(e/500);                     // 1º: aparecem sozinhos, sem nada escrito
-    const t=clamp(p/.26);                                // some cedo, mas com um tiquinho a mais de tempo
-    return (1-t)*(1-t)*(1-t);                            // queda rápida (cúbica): quase nada quando a régua começa a percorrer
+    const t=clamp(p/.24);                                // meio-termo: some cedo, sem arrastar
+    return (1-t)*(1-t)*(1-t);                            // queda rápida (cúbica)
   }
   function play(){
     cancelAnimationFrame(raf); clearTimeout(loopT);
