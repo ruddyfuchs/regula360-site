@@ -837,8 +837,8 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
   // opacidade dos documentos ao longo do ciclo (e = ms decorridos, p = progresso do arco)
   function docsOpacidade(e,p){
     if(e<INTRO) return clamp(e/500);                     // 1º: aparecem sozinhos, sem nada escrito
-    const t=clamp(p/.29);                                // 20 cm da régua ≈ p .29 (a metade)
-    return (1-t)*(1-t)*(1-t);                            // some RÁPIDO: quando a régua percorre já é muito pouco; zerado na metade
+    const t=clamp(p/.22);                                // some ainda mais cedo (~antes de percorrer)
+    return (1-t)*(1-t)*(1-t)*(1-t);                      // queda bem rápida: já sumidos logo que a régua começa
   }
   function play(){
     cancelAnimationFrame(raf); clearTimeout(loopT);
