@@ -291,7 +291,93 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 .rodape .cnpj{font-family:var(--display);font-variant-numeric:tabular-nums}
 .rodape-base{max-width:var(--container);margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(244,240,232,.1);font-size:.75rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ===== #1 documentos atrás da plaqueta do herói ===== */
+.hero-anim{isolation:isolate}
+.hero-docs{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero-docs i{position:absolute;border:1px solid var(--linha);background:#fff;border-radius:6px;box-shadow:0 18px 40px -28px rgba(0,0,0,.35);opacity:0;animation:docIn .8s ease forwards}
+.hero-docs i::before{content:'';position:absolute;left:12%;right:20%;top:16%;height:6px;background:var(--osso-soft);box-shadow:0 12px 0 var(--osso-soft),0 24px 0 var(--osso-soft),0 36px 0 var(--osso-soft)}
+.hero-docs i.d1{inset:-14px -22px auto auto;width:64%;height:70%;transform:rotate(5deg);animation-delay:.15s}
+.hero-docs i.d2{inset:auto auto -16px -20px;width:58%;height:64%;transform:rotate(-6deg);animation-delay:.32s}
+.hero-docs i.d3{inset:-8px auto auto -14px;width:46%;height:52%;transform:rotate(-2deg);animation-delay:.5s}
+@keyframes docIn{to{opacity:.55}}
+
+/* ===== #2 Auditoria ao vivo — varredura da prestação ===== */
+.scan-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:2.5rem;align-items:start}
+@media(max-width:900px){.scan-grid{grid-template-columns:1fr}}
+.scan-doc{position:relative;background:#fff;border:1px solid var(--linha);border-radius:8px;padding:1.3rem 1.5rem;box-shadow:0 26px 54px -34px rgba(0,0,0,.28);overflow:hidden}
+.scan-doc-top{display:flex;justify-content:space-between;font:600 .62rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--steel);border-bottom:1px solid var(--linha);padding-bottom:.7rem;margin-bottom:.2rem}
+.rub{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.48rem 0;border-bottom:1px dotted var(--linha);font-size:.8rem}
+.rub:last-of-type{border-bottom:none}
+.rub .rn{color:var(--steel)}
+.rub .rv{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--grafite);font-weight:600}
+.rub .ok{font-size:.6rem;color:var(--verde);margin-left:.45rem;opacity:0;transition:opacity .35s}
+.rub .badge{display:inline-block;font:600 .56rem var(--display);color:var(--vermelho);background:rgba(178,58,46,.09);border-radius:3px;padding:.14rem .5rem;margin-left:.45rem;opacity:0;transform:translateX(8px);transition:opacity .35s,transform .35s}
+.rub.achado .rn,.rub.achado .rv{color:var(--vermelho);font-weight:700}
+.rub.lit .ok{opacity:1}
+.rub.lit.achado .badge{opacity:1;transform:none}
+.scanline{position:absolute;left:0;right:0;top:-46px;height:46px;pointer-events:none;opacity:0;
+  background:linear-gradient(180deg,rgba(28,90,115,0),rgba(28,90,115,.10) 62%,rgba(28,90,115,.20));
+  border-bottom:2px solid var(--azul)}
+.scan-grid.on .scanline{animation:varre 3s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes varre{0%{opacity:1;top:-46px}90%{opacity:1}100%{opacity:0;top:100%}}
+.veredito{background:var(--grafite);color:var(--osso);border-radius:8px;padding:1.6rem;position:sticky;top:96px}
+.veredito .vt{font:600 .6rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.55)}
+.veredito .vv{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--ambar);margin:.25rem 0 1.1rem;line-height:1.15}
+.veredito .vlin{display:flex;justify-content:space-between;gap:1rem;font-size:.76rem;padding:.55rem 0;border-top:1px solid rgba(244,240,232,.12);color:rgba(244,240,232,.7)}
+.veredito .vlin b{color:var(--osso);font-variant-numeric:tabular-nums;font-weight:600}
+.veredito .veco{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid rgba(244,240,232,.12);font-size:.68rem;letter-spacing:.02em;color:rgba(244,240,232,.55)}
+.veredito .veco b{display:block;font-family:var(--display);font-weight:700;font-size:1.7rem;color:var(--azul-luz);font-variant-numeric:tabular-nums;margin-bottom:.15rem}
+
+/* ===== #3 motivos distintos por cartão de serviço ===== */
+.card-motif{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,var(--grafite-soft),var(--grafite-deep));overflow:hidden}
+.card-motif svg{position:absolute;inset:0;width:100%;height:100%}
+.card-motif svg [data-ln]{stroke:rgba(244,240,232,.20);stroke-width:1.2;fill:none}
+.card-motif svg [data-fl]{fill:rgba(244,240,232,.10)}
+.card-motif svg [data-ac]{stroke:var(--azul-luz);opacity:.5}
+
+/* ===== #5 Onde já atuamos (animado) ===== */
+.mapa{background:linear-gradient(150deg,var(--grafite-soft),var(--grafite-deep));border-radius:6px;padding:1.8rem;color:var(--osso);position:relative;overflow:hidden}
+.mapa .mt{font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.55);margin-bottom:1rem}
+.mapa-svg{width:100%;height:auto;display:block}
+.mapa-svg .uf{fill:rgba(90,168,198,.18);stroke:rgba(90,168,198,.5);stroke-width:.6}
+.mapa-svg .dot{fill:var(--azul-luz);opacity:0}
+.mapa.on .mapa-svg .dot{animation:pino .5s ease forwards}
+.mapa-ufs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.3rem}
+.mapa-ufs span{font:600 .68rem var(--display);letter-spacing:.06em;border:1px solid rgba(244,240,232,.2);border-radius:999px;padding:.35rem .8rem;color:rgba(244,240,232,.8);opacity:0;transform:translateY(8px)}
+.mapa.on .mapa-ufs span{animation:ufIn .45s ease forwards}
+@keyframes ufIn{to{opacity:1;transform:none}}
+@keyframes pino{to{opacity:.9}}
+.mapa-num{display:flex;gap:2rem;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(244,240,232,.12)}
+.mapa-num .n{font-family:var(--display);font-weight:700;font-size:1.7rem;color:var(--azul-luz);font-variant-numeric:tabular-nums;line-height:1}
+.mapa-num .l{font-size:.66rem;color:rgba(244,240,232,.55);margin-top:.25rem}
+
+/* ===== #6 Como funciona — timeline vertical ===== */
+.timeline{max-width:760px;margin-top:1rem;position:relative;padding-left:2.4rem}
+.timeline::before{content:'';position:absolute;left:11px;top:.6rem;bottom:.6rem;width:2px;background:repeating-linear-gradient(var(--azul) 0 6px,transparent 6px 12px)}
+.tl-item{position:relative;padding:0 0 2.2rem}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-2.4rem;top:.15rem;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--azul);box-shadow:0 0 0 5px var(--papel)}
+.tl-item .tl-n{position:absolute;left:-2.4rem;top:.15rem;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font:700 .72rem var(--display);color:var(--azul);z-index:1}
+.tl-item h3{font-weight:600;font-size:1.2rem;margin-bottom:.4rem}
+.tl-item p{font-size:.92rem;color:var(--steel);line-height:1.65;max-width:58ch}
+.tl-item .metrica{font-family:var(--display);font-weight:700;color:var(--azul);font-style:normal}
+.tl-item.rev{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.tl-item.rev.in{opacity:1;transform:none}
+.cf-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start}
+@media(max-width:900px){.cf-grid{grid-template-columns:1fr;gap:2.5rem}}
+.cf-grid .timeline{margin-top:0}
+.cf-recap{background:var(--papel);border:1px solid var(--linha);border-radius:8px;padding:2.2rem;position:relative}
+.cf-recap .rr{font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--steel)}
+.cf-recap .big{font-family:var(--display);font-weight:700;font-size:2.6rem;color:var(--azul);margin:.2rem 0 .1rem;line-height:1;letter-spacing:-.02em}
+.cf-recap h3{font-weight:600;font-size:1.2rem;margin:.6rem 0 .5rem}
+.cf-recap p{font-size:.9rem;color:var(--steel);line-height:1.6}
+.cf-recap ul{margin:1.3rem 0 0;padding:1.2rem 0 0 0;border-top:1px solid var(--linha);list-style:none;font-size:.88rem;color:var(--steel);line-height:1.5}
+.cf-recap ul li{display:flex;gap:.6rem;padding:.35rem 0}
+.cf-recap ul li::before{content:'✓';color:var(--azul);font-weight:700}
+.cf-recap ul b{color:var(--grafite);font-weight:600}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .hero-docs i{opacity:.5}.rub .ok,.rub.achado .badge{opacity:1;transform:none}.mapa-ufs span,.tl-item.rev{opacity:1;transform:none}.mapa-svg .dot{opacity:.9}}
 </style>
 </head>
 <body>
@@ -349,6 +435,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
         <p class="hero-micro">Diagnóstico em até 30 dias · análise inicial de 1 documento, sem custo</p>
       </div>
       <div class="hero-anim">
+        <div class="hero-docs" aria-hidden="true"><i class="d1"></i><i class="d2"></i><i class="d3"></i></div>
         <span class="pc tl"></span><span class="pc tr"></span><span class="pc bl"></span><span class="pc br"></span>
         <div class="hero-steps"><b id="st-medir">medir</b><i>→</i><b id="st-padrao">padrão</b><i>→</i><b id="st-conforme">conforme</b></div>
         <svg id="arco" viewBox="0 0 400 400" role="img" aria-label="Uma régua de medição dobrando em 360 graus até virar o símbolo do Regula360">
@@ -383,10 +470,10 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
   <section class="sec" id="servicos" style="padding-top:0">
     <div class="sec-cab"><p class="sec-olho">O que entregamos</p><h2 class="sec-titulo">Quatro frentes, com <em>excelência.</em></h2><p class="sec-desc">Você começa onde a dor é maior. Em todas: analisamos documentos, controlamos vencimentos e auditamos as contas contra a nossa base.</p></div>
     <div class="servicos-grid">
-      <div class="card-serv"><div class="foto"><svg class="skyline" viewBox="0 0 300 120" preserveAspectRatio="none"><use href="#skyline"/></svg></div><span class="prazo">até 30 dias</span><div class="num">01</div><h3>Diagnóstico &amp; Painel</h3><p>A operação inteira numa tela: base única por unidade, cidade e região, com painel vivo de vencimentos e criticidade.</p><div class="recebe">Você recebe</div><ul><li>Inventário de 120+ tipos de documento</li><li>Painel + relatório executivo</li><li>Plano de regularização priorizado</li></ul></div>
-      <div class="card-serv"><div class="foto"><svg class="skyline" viewBox="0 0 300 120" preserveAspectRatio="none"><use href="#skyline"/></svg></div><span class="prazo">contínuo</span><div class="num">02</div><h3>Regularização &amp; gestão ativa</h3><p>Assumimos as pendências: priorização por risco e interface direta com os órgãos.</p><div class="recebe">Você recebe</div><ul><li>Condução junto aos órgãos</li><li>Painel em tempo real + reporte mensal</li><li>Ponto único de contato</li></ul></div>
-      <div class="card-serv"><div class="foto"><svg class="skyline" viewBox="0 0 300 120" preserveAspectRatio="none"><use href="#skyline"/></svg></div><span class="prazo">mensal</span><div class="num">03</div><h3>Gestão mensal de boletos</h3><p>Conferência técnica de cada boleto antes do pagamento, mês a mês.</p><div class="recebe">Você recebe</div><ul><li>Conferência antes de pagar</li><li>Parecer: aprovar · ressalvas · não aprovar</li><li>Registro de divergências</li></ul></div>
-      <div class="card-serv"><div class="foto"><svg class="skyline" viewBox="0 0 300 120" preserveAspectRatio="none"><use href="#skyline"/></svg></div><span class="prazo">24–36 meses</span><div class="num">04</div><h3>Auditoria &amp; recuperação</h3><p>Auditoria histórica linha a linha, com economia comprovada — uma auditoria que se paga.</p><div class="recebe">Você recebe</div><ul><li>Cada achado com evidências</li><li>Dossiê de contestação</li><li>Acompanhamento da recuperação</li></ul></div>
+      <div class="card-serv"><div class="card-motif"><svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid slice"><rect data-ln x="24" y="34" width="70" height="40" rx="4"/><rect data-ln x="106" y="34" width="70" height="40" rx="4"/><rect data-fl x="40" y="48" width="30" height="6" rx="3"/><rect data-fl x="122" y="48" width="30" height="6" rx="3"/><rect data-ln x="24" y="86" width="152" height="120" rx="4"/><polyline data-ac points="40,182 74,150 108,166 168,118" stroke-width="2"/></svg></div><span class="prazo">até 30 dias</span><div class="num">01</div><h3>Diagnóstico &amp; Painel</h3><p>A operação inteira numa tela: base única por unidade, cidade e região, com painel vivo de vencimentos e criticidade.</p><div class="recebe">Você recebe</div><ul><li>Inventário de 120+ tipos de documento</li><li>Painel + relatório executivo</li><li>Plano de regularização priorizado</li></ul></div>
+      <div class="card-serv"><div class="card-motif"><svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid slice"><rect data-ln x="40" y="30" width="120" height="164" rx="4"/><line data-ln x1="56" y1="58" x2="144" y2="58"/><line data-ln x1="56" y1="74" x2="144" y2="74"/><line data-ln x1="56" y1="90" x2="120" y2="90"/><line data-ln x1="56" y1="106" x2="144" y2="106"/><circle data-ac cx="134" cy="150" r="26" stroke-width="2"/><path data-ac d="M122 150 l8 9 l17 -19" stroke-width="2.4"/></svg></div><span class="prazo">contínuo</span><div class="num">02</div><h3>Regularização &amp; gestão ativa</h3><p>Assumimos as pendências: priorização por risco e interface direta com os órgãos.</p><div class="recebe">Você recebe</div><ul><li>Condução junto aos órgãos</li><li>Painel em tempo real + reporte mensal</li><li>Ponto único de contato</li></ul></div>
+      <div class="card-serv"><div class="card-motif"><svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid slice"><rect data-ln x="34" y="56" width="124" height="82" rx="4" transform="rotate(-5 96 97)"/><rect data-ln x="46" y="84" width="124" height="82" rx="4" transform="rotate(3 108 125)"/><g data-ln stroke-width="2"><line x1="64" y1="150" x2="64" y2="178"/><line x1="70" y1="150" x2="70" y2="178"/><line x1="76" y1="150" x2="76" y2="178"/><line x1="84" y1="150" x2="84" y2="178"/><line x1="90" y1="150" x2="90" y2="178"/><line x1="98" y1="150" x2="98" y2="178"/><line x1="106" y1="150" x2="106" y2="178"/><line x1="114" y1="150" x2="114" y2="178"/><line x1="122" y1="150" x2="122" y2="178"/></g></svg></div><span class="prazo">mensal</span><div class="num">03</div><h3>Gestão mensal de boletos</h3><p>Conferência técnica de cada boleto antes do pagamento, mês a mês.</p><div class="recebe">Você recebe</div><ul><li>Conferência antes de pagar</li><li>Parecer: aprovar · ressalvas · não aprovar</li><li>Registro de divergências</li></ul></div>
+      <div class="card-serv"><div class="card-motif"><svg viewBox="0 0 200 240" preserveAspectRatio="xMidYMid slice"><line data-ln x1="30" y1="60" x2="150" y2="60"/><line data-ln x1="30" y1="82" x2="150" y2="82"/><line data-ln x1="30" y1="104" x2="118" y2="104"/><line data-ln x1="30" y1="126" x2="150" y2="126"/><line data-ln x1="30" y1="148" x2="108" y2="148"/><circle data-ac cx="122" cy="140" r="34" stroke-width="2.4"/><line data-ac x1="146" y1="164" x2="176" y2="194" stroke-width="3.4"/></svg></div><span class="prazo">24–36 meses</span><div class="num">04</div><h3>Auditoria &amp; recuperação</h3><p>Auditoria histórica linha a linha, com economia comprovada — uma auditoria que se paga.</p><div class="recebe">Você recebe</div><ul><li>Cada achado com evidências</li><li>Dossiê de contestação</li><li>Acompanhamento da recuperação</li></ul></div>
     </div>
     <div class="mod-livre"><span class="selo">Contrate 1 ou todas</span><span><b>Cada frente é independente.</b> Comece só pelo Diagnóstico e ligue as outras quando quiser — o painel cresce com você.</span></div>
   </section>
@@ -416,6 +503,37 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
     </div>
   </div></div></section>
 
+  <!-- AUDITORIA AO VIVO (varredura) -->
+  <section class="sec" id="ao-vivo">
+    <div class="sec-cab"><p class="sec-olho">Auditoria ao vivo</p><h2 class="sec-titulo">Veja a régua <em>passar</em> na prestação.</h2><p class="sec-desc">É o que fazemos com cada prestação de contas: comparamos linha a linha com a nossa base. O que está dentro da referência recebe o ✓. O que destoa vira <b>achado</b> — com o motivo. No fim, um veredito.</p></div>
+    <div class="scan-grid" id="scan">
+      <div class="scan-doc">
+        <div class="scan-doc-top"><span>Prestação de contas · exemplo</span><span>Competência 05/2026</span></div>
+        <div class="rub"><span class="rn">Limpeza e conservação<span class="ok">✓ na referência</span></span><span class="rv">R$ 18.450</span></div>
+        <div class="rub"><span class="rn">Segurança patrimonial<span class="ok">✓ na referência</span></span><span class="rv">R$ 32.780</span></div>
+        <div class="rub achado"><span class="rn">Manutenção predial<span class="badge">ACHADO 1 · acima da referência da tipologia</span></span><span class="rv">R$ 39.680</span></div>
+        <div class="rub"><span class="rn">Administração<span class="ok">✓ na referência</span></span><span class="rv">R$ 8.900</span></div>
+        <div class="rub"><span class="rn">Água e esgoto<span class="ok">✓ na referência</span></span><span class="rv">R$ 9.870</span></div>
+        <div class="rub"><span class="rn">Energia (áreas comuns)<span class="ok">✓ na referência</span></span><span class="rv">R$ 14.220</span></div>
+        <div class="rub achado"><span class="rn">Conservação de elevadores<span class="badge">ACHADO 2 · duplicidade — mesmo contrato, dois lançamentos</span></span><span class="rv">R$ 6.400</span></div>
+        <div class="rub"><span class="rn">Jardinagem<span class="ok">✓ na referência</span></span><span class="rv">R$ 3.150</span></div>
+        <div class="rub"><span class="rn">Seguros<span class="ok">✓ na referência</span></span><span class="rv">R$ 2.980</span></div>
+        <div class="rub achado"><span class="rn">Serviços eventuais<span class="badge">ACHADO 3 · sem lastro contratual localizado</span></span><span class="rv">R$ 7.600</span></div>
+        <div class="rub"><span class="rn">Fundo de reserva<span class="ok">✓ na referência</span></span><span class="rv">R$ 5.000</span></div>
+        <div class="rub"><span class="rn">Despesas bancárias<span class="ok">✓ na referência</span></span><span class="rv">R$ 640</span></div>
+        <div class="scanline" aria-hidden="true"></div>
+      </div>
+      <aside class="veredito" aria-label="Veredito do exemplo">
+        <div class="vt">Veredito do mês</div>
+        <div class="vv">Aprovar com ressalvas</div>
+        <div class="vlin"><span>Rubricas conferidas</span><b>12</b></div>
+        <div class="vlin"><span>Dentro da referência</span><b>9</b></div>
+        <div class="vlin"><span>Achados</span><b style="color:var(--vermelho)">3</b></div>
+        <div class="veco"><b data-conta="53680">0</b>em revisão — o que entra em contestação neste exemplo (R$)</div>
+      </aside>
+    </div>
+  </section>
+
   <!-- STATS -->
   <section class="stats"><div class="stats-in">
     <div class="stat"><div class="n"><em>+</em><span data-conta="45">0</span></div><div class="l">anos somados pelos sócios</div></div>
@@ -439,10 +557,10 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
     <div class="painel">
       <div class="painel-top"><div class="t"><svg class="logo-regua" viewBox="0 0 60 60"><use href="#sym-regua"/></svg> Painel Regula360</div><div class="filtros"><span class="on">PORTFÓLIO</span><span>CIDADE</span></div></div>
       <div class="painel-kpis">
-        <div class="pk ok"><div class="v" data-conta="78">0<span style="font-size:.5em">%</span></div><div class="l">Em dia</div></div>
+        <div class="pk ok"><div class="v" data-conta="78">0<span style="font-size:.5em">%</span></div><div class="l">Conformidade</div></div>
         <div class="pk cr"><div class="v" data-conta="3">0</div><div class="l">Vencidos</div></div>
-        <div class="pk al"><div class="v" data-conta="7">0</div><div class="l">Vencendo 90d</div></div>
-        <div class="pk cr"><div class="v" data-conta="2">0</div><div class="l">Precisa de ação</div></div>
+        <div class="pk al"><div class="v" data-conta="7">0</div><div class="l">A vencer 90d</div></div>
+        <div class="pk cr"><div class="v" data-conta="2">0</div><div class="l">Em risco</div></div>
       </div>
       <div class="painel-lista">
         <div class="pl-item"><span class="dn">AVCB — Corpo de Bombeiros</span><span class="st ok">EM DIA · 14M</span><span class="du">Unidade Faria Lima</span></div>
@@ -481,16 +599,52 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
       <div class="diretor"><b>Diretor — Auditoria, obras &amp; custos</b><span>+30 anos em operações nacionais, de áreas técnicas à diretoria.</span></div>
       <div class="olhares"><span>Olhar de <b>proprietário</b></span><span>de <b>administrador</b></span><span>de <b>locatário</b></span></div>
     </div>
-    <div class="qs-foto foto"><svg class="skyline" viewBox="0 0 300 120" preserveAspectRatio="none"><use href="#skyline"/></svg></div>
+    <div class="mapa" id="mapa">
+      <div class="mt">Onde já atuamos</div>
+      <svg class="mapa-svg" viewBox="0 0 300 190" role="img" aria-label="Presença em nove estados brasileiros">
+        <g stroke="rgba(90,168,198,.22)" stroke-width="1" fill="none">
+          <line x1="150" y1="70" x2="196" y2="120"/><line x1="196" y1="120" x2="214" y2="96"/><line x1="196" y1="120" x2="176" y2="150"/><line x1="176" y1="150" x2="150" y2="168"/><line x1="214" y1="96" x2="236" y2="70"/><line x1="150" y1="70" x2="120" y2="52"/><line x1="196" y1="120" x2="232" y2="132"/>
+        </g>
+        <circle class="dot" cx="196" cy="120" r="6" style="animation-delay:.05s"/>
+        <circle class="dot" cx="214" cy="96" r="5" style="animation-delay:.15s"/>
+        <circle class="dot" cx="176" cy="150" r="5" style="animation-delay:.25s"/>
+        <circle class="dot" cx="150" cy="168" r="5" style="animation-delay:.35s"/>
+        <circle class="dot" cx="236" cy="70" r="5" style="animation-delay:.45s"/>
+        <circle class="dot" cx="150" cy="70" r="5" style="animation-delay:.55s"/>
+        <circle class="dot" cx="120" cy="52" r="5" style="animation-delay:.65s"/>
+        <circle class="dot" cx="232" cy="132" r="5" style="animation-delay:.75s"/>
+        <circle class="dot" cx="118" cy="120" r="5" style="animation-delay:.85s"/>
+      </svg>
+      <div class="mapa-ufs">
+        <span style="animation-delay:.1s">SP</span><span style="animation-delay:.18s">RJ</span><span style="animation-delay:.26s">MG</span><span style="animation-delay:.34s">PR</span><span style="animation-delay:.42s">SC</span><span style="animation-delay:.5s">RS</span><span style="animation-delay:.58s">BA</span><span style="animation-delay:.66s">GO</span><span style="animation-delay:.74s">DF</span>
+      </div>
+      <div class="mapa-num">
+        <div><div class="n" data-conta="72">0</div><div class="l">centros de custo na base</div></div>
+        <div><div class="n" data-conta="9">0</div><div class="l">estados acompanhados</div></div>
+      </div>
+    </div>
   </div></div></section>
 
   <!-- COMO FUNCIONA -->
   <section class="sec" id="como-funciona">
     <div class="sec-cab"><p class="sec-olho">Como funciona</p><h2 class="sec-titulo">Três passos. O <em>primeiro</em> é seu.</h2></div>
-    <div class="passos">
-      <div class="passo"><div class="n">01</div><h3>Você envia 1 documento</h3><p>De preferência a última prestação de contas. Com ela, três dados que você sabe de cabeça: metragem, nº de unidades e tipo de imóvel. Confidencial.</p></div>
-      <div class="passo"><div class="n">02</div><h3>Conferimos contra a régua</h3><p>O sistema compara seus custos com a base — por m² e por tipologia — e um sócio revisa pessoalmente cada apontamento.</p></div>
-      <div class="passo"><div class="n">03</div><h3>Parecer em <span class="metrica">5 dias úteis</span></h3><p>Apresentado numa conversa de 20 minutos, sem compromisso. O diagnóstico completo sai em até 30 dias.</p></div>
+    <div class="cf-grid">
+      <div class="timeline">
+        <div class="tl-item rev"><span class="tl-n">1</span><h3>Você envia 1 documento</h3><p>De preferência a última prestação de contas. Com ela, três dados que você sabe de cabeça: metragem, nº de unidades e tipo de imóvel. Confidencial.</p></div>
+        <div class="tl-item rev"><span class="tl-n">2</span><h3>Conferimos contra a régua</h3><p>O sistema compara seus custos com a base — por m² e por tipologia — e um sócio revisa pessoalmente cada apontamento.</p></div>
+        <div class="tl-item rev"><span class="tl-n">3</span><h3>Parecer em <span class="metrica">5 dias úteis</span></h3><p>Apresentado numa conversa de 20 minutos, sem compromisso. O diagnóstico completo sai em até 30 dias.</p></div>
+      </div>
+      <aside class="cf-recap">
+        <div class="rr">No fim</div>
+        <div class="big">5 dias</div>
+        <h3>Um parecer, assinado por um sócio.</h3>
+        <p>Nada sai daqui como "equipe técnica". Você recebe os apontamentos numa conversa de 20 minutos, sem compromisso — e só marcamos se houver achado concreto na mesa.</p>
+        <ul>
+          <li><b>1 documento</b> basta para começar</li>
+          <li>Confidencial, tratado sob a <b>LGPD</b></li>
+          <li>Diagnóstico completo em até <b>30 dias</b></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -648,11 +802,29 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
   document.getElementById('arco-replay').addEventListener('click',play);
   svg.addEventListener('click',play);
 })();
+const _fmt=n=>Math.round(n).toLocaleString('pt-BR');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&e.target.hasAttribute('data-conta')){conta(e.target);io.unobserve(e.target)}}),{threshold:.5});
 document.querySelectorAll('[data-conta]').forEach(el=>io.observe(el));
 function conta(el){const alvo=+el.dataset.conta,t0=performance.now();
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.childNodes[0].nodeValue=alvo;return}
-  (function tick(t){const p=Math.min((t-t0)/1300,1);el.childNodes[0].nodeValue=Math.round(alvo*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(t0)}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.childNodes[0].nodeValue=_fmt(alvo);return}
+  (function tick(t){const p=Math.min((t-t0)/1300,1);el.childNodes[0].nodeValue=_fmt(alvo*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(t0)}
+
+/* Auditoria ao vivo — a régua varre a prestação e as rubricas acendem */
+(function(){const scan=document.getElementById('scan');if(!scan)return;
+  const rows=[].slice.call(scan.querySelectorAll('.rub'));
+  const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const run=()=>{scan.classList.add('on');
+    if(red){rows.forEach(r=>r.classList.add('lit'));return;}
+    const dur=3000;rows.forEach((r,i)=>setTimeout(()=>r.classList.add('lit'),160+i*(dur-500)/rows.length));};
+  const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){run();o.disconnect();}}),{threshold:.3});
+  o.observe(scan);})();
+
+/* revelação no scroll — Onde atuamos + timeline (escalonada) */
+(function(){const mapa=document.getElementById('mapa');
+  if(mapa){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){mapa.classList.add('on');o.disconnect();}}),{threshold:.3});o.observe(mapa);}
+  const tl=[].slice.call(document.querySelectorAll('.tl-item.rev'));
+  if(tl.length){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=tl.indexOf(e.target);setTimeout(()=>e.target.classList.add('in'),i*140);o.unobserve(e.target);}}),{threshold:.3});tl.forEach(el=>o.observe(el));}
+})();
 const dlg=document.getElementById('dlg-priv');
 document.querySelectorAll('[data-priv]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();dlg.showModal()}));
 document.getElementById('fechar-priv').addEventListener('click',()=>dlg.close());
