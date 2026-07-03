@@ -837,8 +837,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
   // opacidade dos documentos ao longo do ciclo (e = ms decorridos, p = progresso do arco)
   function docsOpacidade(e,p){
     if(e<INTRO) return clamp(e/500);                     // 1º: aparecem sozinhos, sem nada escrito
-    const dim=0.4+0.6*(1-clamp(p/.10));                  // a régua surge → esmaecem p/ ~.4
-    return dim*(1-clamp((p-.40)/.20));                   // e somem quando o logo se forma
+    return 1-clamp(p/.44);                               // esmaecem SUAVE enquanto a régua reta surge e percorre; somem antes de dobrar
   }
   function play(){
     cancelAnimationFrame(raf); clearTimeout(loopT);
