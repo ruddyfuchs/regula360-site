@@ -839,7 +839,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
   // opacidade dos documentos ao longo do ciclo (e = ms decorridos, p = progresso do arco)
   function docsOpacidade(e,p){
     if(e<INTRO) return clamp(e/500);                     // 1º: aparecem sozinhos, sem nada escrito
-    const t=clamp(p/.24);                                // meio-termo: some cedo, sem arrastar
+    const t=clamp(p/.26);                                // ponto do Ruddy: some cedo, sem sumir cedo demais
     return (1-t)*(1-t)*(1-t);                            // queda rápida (cúbica)
   }
   function play(){
