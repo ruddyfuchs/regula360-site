@@ -794,7 +794,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
     const ix=cx+(R-len)*Math.cos(ang), iy=cy+(R-len)*Math.sin(ang);
     const el=document.createElementNS(NS,'line');
     el.setAttribute('class','tk'+(maj?' maj':'')); el.setAttribute('stroke-width',maj?'1.6':'0.9');
-    gTicks.appendChild(el); ticks.push({el,lin,cir:{x1:ox,y1:oy,x2:ix,y2:iy}});
+    gTicks.appendChild(el); ticks.push({el,maj,lin,cir:{x1:ox,y1:oy,x2:ix,y2:iy}});
   }
   // números de MEDIDA (cm) — régua de tamanho, não de graus
   const nums=[];
@@ -808,7 +808,9 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
   });
   function render(p){
     const fold=ease(clamp((p-.46)/.34));                 // dobra 0.46→0.80
-    for(const t of ticks){t.el.setAttribute('x1',lerp(t.lin.x1,t.cir.x1,fold));t.el.setAttribute('y1',lerp(t.lin.y1,t.cir.y1,fold));t.el.setAttribute('x2',lerp(t.lin.x2,t.cir.x2,fold));t.el.setAttribute('y2',lerp(t.lin.y2,t.cir.y2,fold));t.el.setAttribute('opacity',clamp((p-.02)/.12));}
+    const kAzul=clamp((p-.80)/.15);   // traços MAIORES acendem em azul quando o logo fecha
+    for(const t of ticks){t.el.setAttribute('x1',lerp(t.lin.x1,t.cir.x1,fold));t.el.setAttribute('y1',lerp(t.lin.y1,t.cir.y1,fold));t.el.setAttribute('x2',lerp(t.lin.x2,t.cir.x2,fold));t.el.setAttribute('y2',lerp(t.lin.y2,t.cir.y2,fold));t.el.setAttribute('opacity',clamp((p-.02)/.12));
+      if(t.maj)t.el.style.stroke=`rgb(${Math.round(lerp(52,28,kAzul))},${Math.round(lerp(56,90,kAzul))},${Math.round(lerp(61,115,kAzul))})`;}
     const numOp=Math.min(clamp((p-.02)/.12), 1-clamp((p-.64)/.14));   // some antes de encostar no topo
     for(const n of nums){n.el.setAttribute('x',lerp(n.lin.x,n.cir.x,fold));n.el.setAttribute('y',lerp(n.lin.y,n.cir.y,fold));n.el.setAttribute('opacity',numOp);}
     base.setAttribute('opacity',Math.min(clamp(p/.1), 1-clamp((p-.46)/.12)));
