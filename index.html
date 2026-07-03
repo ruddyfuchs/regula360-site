@@ -292,7 +292,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 /* ===== #1 documentos NOMEADOS empilhados atrás da plaqueta do herói ===== */
 .hero-anim{isolation:isolate}
 .hero-docs{position:absolute;inset:-10% -12%;z-index:-1;pointer-events:none;opacity:0}
-.hero-docs i{position:absolute;width:40%;aspect-ratio:3/4;background:#fff;border:1px solid var(--linha);border-radius:6px;box-shadow:0 18px 34px -22px rgba(0,0,0,.45);transform:rotate(var(--r,0deg))}
+.hero-docs i{position:absolute;width:40%;aspect-ratio:3/4;background:#fff;border:1px solid var(--steel-soft);border-radius:6px;box-shadow:0 20px 38px -20px rgba(0,0,0,.55);transform:rotate(var(--r,0deg))}
 .hero-docs i::before{content:attr(data-n);position:absolute;top:9%;left:10%;right:10%;font:700 .62rem var(--display);color:var(--azul);letter-spacing:.01em;line-height:1.2}
 .hero-docs i::after{content:'';position:absolute;left:10%;right:24%;top:32%;height:3px;border-radius:2px;background:rgba(138,143,150,.5);box-shadow:0 8px 0 rgba(138,143,150,.42),0 16px 0 rgba(138,143,150,.34),0 24px 0 rgba(138,143,150,.26),0 32px 0 rgba(138,143,150,.2)}
 .hero-docs i.d1{top:-4%;right:0%;--r:7deg}
@@ -300,6 +300,8 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 .hero-docs i.d3{bottom:-2%;left:10%;--r:-3deg}
 .hero-docs i.d4{bottom:2%;right:2%;--r:5deg}
 .hero-docs i.d5{top:-8%;left:26%;--r:-1deg}
+/* escritas do herói escondidas até a animação as revelar (JS controla a opacidade) */
+.hero-steps,.hero-payoff,.hero-tag,.arco-replay{opacity:0}
 
 /* ===== #2 Auditoria ao vivo — varredura da prestação ===== */
 .scan-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:2.5rem;align-items:start}
@@ -386,7 +388,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 .cf-recap ul b{color:var(--grafite);font-weight:600}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
-  .hero-docs i{opacity:.5}.rub .ok,.rub.achado .badge{opacity:1;transform:none}.mapa-ufs span,.tl-item.rev{opacity:1;transform:none}.mapa-svg .dot{opacity:.9}}
+  .hero-docs{opacity:0}.hero-steps,.hero-payoff,.hero-tag,.arco-replay{opacity:1}.rub .ok,.rub.achado .badge{opacity:1;transform:none}.mapa-ufs span,.tl-item.rev{opacity:1;transform:none}.mapa-svg .dot{opacity:.9}}
 </style>
 </head>
 <body>
@@ -774,7 +776,9 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
         ind=document.getElementById('a-ind'), marker=document.getElementById('a-marker'),
         mval=marker.querySelector('.mval'), big=document.getElementById('a-360'),
         stMedir=document.getElementById('st-medir'), stPadrao=document.getElementById('st-padrao'), stConforme=document.getElementById('st-conforme'),
-        heroDocs=document.querySelector('.hero-docs');
+        heroDocs=document.querySelector('.hero-docs'), heroSteps=document.querySelector('.hero-steps'),
+        heroPayoff=document.querySelector('.hero-payoff'), heroTag=document.querySelector('.hero-tag'),
+        heroReplay=document.getElementById('arco-replay');
   const N=36, cx=200, cy=200, R=120, RING_LEN=754, X0=44, X1=356, YB=210;
   const clamp=(x)=>Math.max(0,Math.min(1,x));
   const lerp=(a,b,t)=>a+(b-a)*t;
@@ -815,23 +819,38 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
     mval.textContent=(mf*40).toFixed(0)+' cm';
     ring.setAttribute('stroke-dashoffset',RING_LEN*(1-clamp((p-.56)/.28)));
     big.setAttribute('opacity',clamp((p-.80)/.08));  // "360°" aparece e PERMANECE no centro
-    // documentos aparecem no início (medindo) e SOMEM conforme o logo se forma
-    if(heroDocs)heroDocs.style.opacity=Math.min(clamp(p/.08), 1-clamp((p-.40)/.18));
     ind.setAttribute('opacity',clamp((p-.86)/.14));
+    // ESCRITAS entram durante a dobra: passos primeiro; depois 360°/payoff/tag/replay
+    if(heroSteps)heroSteps.style.opacity=clamp((p-.34)/.16);
+    const fecho=clamp((p-.80)/.12);
+    if(heroPayoff)heroPayoff.style.opacity=fecho;
+    if(heroTag)heroTag.style.opacity=fecho;
+    if(heroReplay)heroReplay.style.opacity=fecho;
     // passos medir → padrão → conforme acendem conforme anima
     stMedir.classList.toggle('on',p<.46);
     stPadrao.classList.toggle('on',p>=.46&&p<.80);
     stConforme.classList.toggle('on',p>=.80);
   }
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const INTRO=1200, ARCO=4200, CYCLE=10000;   // 1,2s só docs · 4,2s a régua vira 360° · segura · repete em 10s
   let raf, loopT, visible=true;
+  // opacidade dos documentos ao longo do ciclo (e = ms decorridos, p = progresso do arco)
+  function docsOpacidade(e,p){
+    if(e<INTRO) return clamp(e/500);                     // 1º: aparecem sozinhos, sem nada escrito
+    const dim=0.4+0.6*(1-clamp(p/.10));                  // a régua surge → esmaecem p/ ~.4
+    return dim*(1-clamp((p-.40)/.20));                   // e somem quando o logo se forma
+  }
   function play(){
     cancelAnimationFrame(raf); clearTimeout(loopT);
-    if(reduced){render(1);return;}                       // estático, com o "360°" no lugar
-    const t0=performance.now(), dur=4200;                // mais lenta
-    (function step(t){const p=Math.min((t-t0)/dur,1);render(p);
-      if(p<1){raf=requestAnimationFrame(step);}
-      else if(visible){loopT=setTimeout(play,3500);}     // refaz a cada ~3,5s
+    if(reduced){ render(1); if(heroDocs)heroDocs.style.opacity=0; return; }
+    const t0=performance.now();
+    (function step(t){
+      const e=t-t0;
+      const p = e<INTRO ? 0 : Math.min((e-INTRO)/ARCO, 1);
+      render(p);
+      if(heroDocs)heroDocs.style.opacity=docsOpacidade(e,p);
+      if(e<CYCLE){ raf=requestAnimationFrame(step); }
+      else if(visible){ play(); }                        // repete a cada 10s
     })(t0);
   }
   render(0);
