@@ -832,7 +832,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
     stConforme.classList.toggle('on',p>=.80);
   }
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const INTRO=1200, ARCO=4200, CYCLE=10000;   // 1,2s só docs · 4,2s a régua vira 360° · segura · repete em 10s
+  const INTRO=1200, ARCO=4200, CYCLE=15000;   // 1,2s só docs · 4,2s a régua vira 360° · segura no logo · repete em 15s
   let raf, loopT, visible=true;
   // opacidade dos documentos ao longo do ciclo (e = ms decorridos, p = progresso do arco)
   function docsOpacidade(e,p){
