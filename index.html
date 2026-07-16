@@ -732,9 +732,13 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
         <div class="campo"><label>Tipo de imóvel</label><select id="f-tipo"><option>Selecione…</option><option>Residencial padrão</option><option>Residencial alto padrão</option><option>Comercial</option><option>Uso misto</option><option>Logístico / galpão</option></select></div>
         <div class="campo"><label>Área <small>(m²)</small></label><input type="text" inputmode="numeric" id="f-m2"></div>
       </div>
-      <div class="campo"><label>Documento <small>(PDF · ou envie por e-mail)</small></label><input type="file" accept=".pdf"></div>
+      <div class="campo"><label>Documento <small>(PDF · ou envie por e-mail)</small></label><input type="file" id="f-doc" accept=".pdf,application/pdf"></div>
+      <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <label class="lgpd"><input type="checkbox" id="f-lgpd"> Autorizo o uso destes dados exclusivamente para a análise solicitada. <a href="#" data-priv>Política de privacidade</a></label>
       <button class="btn btn-azul" id="btn-enviar" type="button" style="width:100%;justify-content:center">Enviar para análise confidencial</button>
+      <div id="f-ok" role="status" style="display:none;margin-top:14px;padding:14px 16px;border:1px solid #1C5A73;background:#EAF3F6;border-radius:10px;font-size:.95rem;line-height:1.5;color:#12303b">
+        <b>✓ Recebido.</b> Seu protocolo é <b id="f-proto">—</b>. Um sócio confere contra a base e retorna em até 5 dias úteis — sem compromisso.
+      </div>
       <div class="depois">
         <div class="p"><b>1</b> Recebemos e você ganha um protocolo na hora.</div>
         <div class="p"><b>2</b> Um sócio confere contra a base e revisa pessoalmente.</div>
@@ -941,13 +945,45 @@ document.querySelectorAll('.med-botoes button').forEach(b=>b.addEventListener('c
   document.querySelectorAll('.med-botoes button').forEach(x=>x.setAttribute('aria-pressed','false'));
   b.setAttribute('aria-pressed','true');pont.style.transform=`rotate(${b.dataset.ang}deg)`;
   const r=REC[b.dataset.v];mv.textContent=r[0];mv.style.color=r[1];mr.innerHTML=r[2]}));
-document.getElementById('btn-enviar').addEventListener('click',()=>{
+document.getElementById('btn-enviar').addEventListener('click',async ()=>{
   const v=id=>(document.getElementById(id)?.value||'').trim();
+  const btn=document.getElementById('btn-enviar');
+  // Honeypot: bot preencheu o campo escondido → finge sucesso e não faz nada.
+  if(document.getElementById('f-gotcha').value){return}
   if(!document.getElementById('f-lgpd').checked){alert('Confirme a autorização de uso dos dados (LGPD).');return}
   const nome=v('f-nome'),email=v('f-email');
   if(!nome||!email){alert('Preencha ao menos nome e e-mail.');return}
-  const corpo=[`Nome: ${nome}`,`E-mail: ${email}`,`Tipo: ${v('f-tipo')}`,`Área (m²): ${v('f-m2')}`,'','(Anexe a prestação de contas ou o boleto.)'].join('%0D%0A');
-  window.location.href=`mailto:documentos@regula360.com.br?subject=${encodeURIComponent('Abertura de análise — '+nome)}&body=${corpo}`;
+  const tipo=v('f-tipo'),m2=v('f-m2');
+  const fd=new FormData();
+  fd.append('nome',nome);
+  fd.append('email',email);
+  fd.append('servico','Abertura de análise');
+  if(tipo&&tipo!=='Selecione…')fd.append('tipo_imovel',tipo);
+  if(m2)fd.append('area_m2',m2);
+  const ctx=[]; if(tipo&&tipo!=='Selecione…')ctx.push('Tipo: '+tipo); if(m2)ctx.push('Área: '+m2+' m²');
+  if(ctx.length)fd.append('mensagem',ctx.join(' · '));
+  const arq=document.getElementById('f-doc'),file=arq&&arq.files&&arq.files[0];
+  if(file)fd.append('anexo',file);
+  btn.disabled=true; const txt=btn.textContent; btn.textContent='Enviando…';
+  try{
+    const res=await fetch('https://m5group.pages.dev/api/public/lead-regula',{method:'POST',body:fd,headers:{Accept:'application/json'}});
+    const data=await res.json().catch(()=>({}));
+    if(res.ok){
+      const proto=(data.id?String(data.id).slice(0,8):Date.now().toString(36)).toUpperCase();
+      const pe=document.getElementById('f-proto'); if(pe)pe.textContent='#'+proto;
+      ['f-nome','f-email','f-tipo','f-m2','f-doc'].forEach(id=>{const c=document.getElementById(id)?.closest('.campo'); if(c)c.style.display='none';});
+      const dupla=document.querySelector('.ficha .dupla'); if(dupla)dupla.style.display='none';
+      const lg=document.querySelector('.ficha .lgpd'); if(lg)lg.style.display='none';
+      btn.style.display='none';
+      const ok=document.getElementById('f-ok'); if(ok)ok.style.display='block';
+    }else{
+      btn.disabled=false; btn.textContent=txt;
+      alert((data&&data.message)||'Não foi possível enviar agora. Tente de novo ou escreva para documentos@regula360.com.br.');
+    }
+  }catch{
+    btn.disabled=false; btn.textContent=txt;
+    alert('Não foi possível enviar agora. Verifique a conexão e tente de novo, ou escreva para documentos@regula360.com.br.');
+  }
 });
 </script>
 
