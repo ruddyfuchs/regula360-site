@@ -23,7 +23,7 @@
 <meta name="twitter:title" content="Regula360 — Governança documental e auditoria para condomínios e imóveis">
 <meta name="twitter:description" content="Organiza, valida e audita a documentação do seu patrimônio: vencimentos à vista, auditoria de boletos e conferência de prestações de contas.">
 <meta name="twitter:image" content="https://www.regula360.com.br/og-image.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Ccircle%20cx='16'%20cy='16'%20r='12'%20fill='none'%20stroke='%231C5A73'%20stroke-width='3'/%3E%3Crect%20x='14.5'%20y='1'%20width='3'%20height='6'%20rx='1'%20fill='%231C5A73'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M18.9%204.36%20A12%2012%200%201%201%2013.1%204.36%27%20fill%3D%27none%27%20stroke%3D%27%231C5A73%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3Cline%20x1%3D%2716%27%20y1%3D%272.6%27%20x2%3D%2716%27%20y2%3D%279%27%20stroke%3D%27%23C0653A%27%20stroke-width%3D%272.4%27%2F%3E%3Ccircle%20cx%3D%2716%27%20cy%3D%272.2%27%20r%3D%271.9%27%20fill%3D%27%23C0653A%27%2F%3E%3C%2Fsvg%3E">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Regula360","description":"Governança documental e auditoria para condomínios e imóveis: vencimentos à vista, auditoria de boletos e conferência de prestações de contas.","url":"https://www.regula360.com.br/","areaServed":{"@type":"City","name":"São Paulo"},"address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"}}
 </script>
@@ -403,29 +403,22 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <line id="rtick" x1="30" y1="6.2" x2="30" y2="9.9" stroke="currentColor" stroke-width="0.75"/>
-  <line id="rtickM" x1="30" y1="6.2" x2="30" y2="12.2" stroke="currentColor" stroke-width="1.1"/>
+  <line id="rtick" x1="30" y1="10.86" x2="30" y2="13.06" stroke="currentColor" stroke-width="0.79"/>
+  <line id="rlar" x1="30" y1="10.46" x2="30" y2="15.37" stroke="#C0653A" stroke-width="1.78"/>
   <g id="sym-regua">
-    <circle cx="30" cy="30" r="24" fill="none" stroke="currentColor" stroke-width="2.2"/>
-    <use href="#rtick" transform="rotate(10 30 30)"/><use href="#rtick" transform="rotate(20 30 30)"/>
-    <use href="#rtickM" transform="rotate(30 30 30)"/><use href="#rtick" transform="rotate(40 30 30)"/>
-    <use href="#rtick" transform="rotate(50 30 30)"/><use href="#rtickM" transform="rotate(60 30 30)"/>
-    <use href="#rtick" transform="rotate(70 30 30)"/><use href="#rtick" transform="rotate(80 30 30)"/>
-    <use href="#rtickM" transform="rotate(90 30 30)"/><use href="#rtick" transform="rotate(100 30 30)"/>
-    <use href="#rtick" transform="rotate(110 30 30)"/><use href="#rtickM" transform="rotate(120 30 30)"/>
-    <use href="#rtick" transform="rotate(130 30 30)"/><use href="#rtick" transform="rotate(140 30 30)"/>
-    <use href="#rtickM" transform="rotate(150 30 30)"/><use href="#rtick" transform="rotate(160 30 30)"/>
-    <use href="#rtick" transform="rotate(170 30 30)"/><use href="#rtickM" transform="rotate(180 30 30)"/>
-    <use href="#rtick" transform="rotate(190 30 30)"/><use href="#rtick" transform="rotate(200 30 30)"/>
-    <use href="#rtickM" transform="rotate(210 30 30)"/><use href="#rtick" transform="rotate(220 30 30)"/>
-    <use href="#rtick" transform="rotate(230 30 30)"/><use href="#rtickM" transform="rotate(240 30 30)"/>
-    <use href="#rtick" transform="rotate(250 30 30)"/><use href="#rtick" transform="rotate(260 30 30)"/>
-    <use href="#rtickM" transform="rotate(270 30 30)"/><use href="#rtick" transform="rotate(280 30 30)"/>
-    <use href="#rtick" transform="rotate(290 30 30)"/><use href="#rtickM" transform="rotate(300 30 30)"/>
-    <use href="#rtick" transform="rotate(310 30 30)"/><use href="#rtick" transform="rotate(320 30 30)"/>
-    <use href="#rtickM" transform="rotate(330 30 30)"/><use href="#rtick" transform="rotate(340 30 30)"/>
-    <use href="#rtick" transform="rotate(350 30 30)"/>
-    <line x1="30" y1="2.4" x2="30" y2="12.8" stroke="#2E7D99" stroke-width="2.8" stroke-linecap="round"/>
+    <!-- anel com VAO no topo (+-10deg). Geometria medida no simbolo oficial
+         04_Marca-Marketing/logo-regula360-simbolo-grafite.png -->
+    <path d="M33.82 8.334 A22.0 22.0 0 1 1 26.18 8.334" fill="none" stroke="currentColor"
+          stroke-width="2.57" stroke-linecap="round"/>
+    <use href="#rtick" transform="rotate(10 30 30)"/> <use href="#rtick" transform="rotate(20 30 30)"/> <use href="#rtick" transform="rotate(30 30 30)"/> <use href="#rtick" transform="rotate(40 30 30)"/> <use href="#rtick" transform="rotate(50 30 30)"/> <use href="#rtick" transform="rotate(60 30 30)"/>
+    <use href="#rtick" transform="rotate(70 30 30)"/> <use href="#rtick" transform="rotate(80 30 30)"/> <use href="#rtick" transform="rotate(100 30 30)"/> <use href="#rtick" transform="rotate(110 30 30)"/> <use href="#rtick" transform="rotate(120 30 30)"/> <use href="#rtick" transform="rotate(130 30 30)"/>
+    <use href="#rtick" transform="rotate(140 30 30)"/> <use href="#rtick" transform="rotate(150 30 30)"/> <use href="#rtick" transform="rotate(160 30 30)"/> <use href="#rtick" transform="rotate(170 30 30)"/> <use href="#rtick" transform="rotate(190 30 30)"/> <use href="#rtick" transform="rotate(200 30 30)"/>
+    <use href="#rtick" transform="rotate(210 30 30)"/> <use href="#rtick" transform="rotate(220 30 30)"/> <use href="#rtick" transform="rotate(230 30 30)"/> <use href="#rtick" transform="rotate(240 30 30)"/> <use href="#rtick" transform="rotate(250 30 30)"/> <use href="#rtick" transform="rotate(260 30 30)"/>
+    <use href="#rtick" transform="rotate(280 30 30)"/> <use href="#rtick" transform="rotate(290 30 30)"/> <use href="#rtick" transform="rotate(300 30 30)"/> <use href="#rtick" transform="rotate(310 30 30)"/> <use href="#rtick" transform="rotate(320 30 30)"/> <use href="#rtick" transform="rotate(330 30 30)"/>
+    <use href="#rtick" transform="rotate(340 30 30)"/> <use href="#rtick" transform="rotate(350 30 30)"/>
+    <use href="#rlar" transform="rotate(90 30 30)"/> <use href="#rlar" transform="rotate(180 30 30)"/> <use href="#rlar" transform="rotate(270 30 30)"/>
+    <line x1="30" y1="4.04" x2="30" y2="13.94" stroke="#C0653A" stroke-width="1.78"/>
+    <circle cx="30" cy="2.83" r="1.45" fill="#C0653A"/>
   </g>
   <g id="skyline"><path fill="#F4F0E8" d="M0 120 L0 70 L18 70 L18 45 L38 45 L38 62 L58 62 L58 30 L82 30 L82 55 L104 55 L104 40 L128 40 L128 66 L150 66 L150 20 L176 20 L176 58 L200 58 L200 48 L224 48 L224 70 L248 70 L248 38 L272 38 L272 64 L300 64 L300 120 Z"/></g>
   <g id="doc-mini">
