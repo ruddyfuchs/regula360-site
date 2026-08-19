@@ -460,12 +460,12 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
         <div class="hero-steps"><b id="st-medir">medir</b><i>→</i><b id="st-padrao">padrão</b><i>→</i><b id="st-conforme">conforme</b></div>
         <svg id="arco" viewBox="0 0 400 400" role="img" aria-label="Uma régua de medição dobrando em 360 graus até virar o símbolo do Regula360">
           <line class="base" id="a-base" x1="40" y1="210" x2="360" y2="210" stroke-width="2" opacity="0"/>
-          <circle class="ring" id="a-ring" cx="200" cy="200" r="120" fill="none" stroke-width="2.4" stroke-dasharray="754" stroke-dashoffset="754"/>
+          <path class="ring" id="a-ring" d="M220.84 81.82 A120 120 0 1 1 179.16 81.82" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="712" stroke-dashoffset="712"/>
           <g id="a-ticks"></g>
           <g id="a-nums"></g>
           <g id="a-marker" opacity="0"><path d="M0 -8 L7 4 L-7 4 Z" fill="#2E7D99"/><text class="mval" y="-16" text-anchor="middle">0°</text></g>
           <text id="a-360" class="big360" x="200" y="214" text-anchor="middle" opacity="0">360°</text>
-          <line id="a-ind" x1="200" y1="64" x2="200" y2="104" stroke="#2E7D99" stroke-width="4.6" stroke-linecap="round" opacity="0"/>
+          <g id="a-lar" opacity="0"><line x1="320" y1="200" x2="298" y2="200" stroke="#C0653A" stroke-width="3"/><line x1="200" y1="320" x2="200" y2="298" stroke="#C0653A" stroke-width="3"/><line x1="80" y1="200" x2="102" y2="200" stroke="#C0653A" stroke-width="3"/></g><circle id="a-dot" cx="200" cy="62" r="4.6" fill="#C0653A" opacity="0"/><line id="a-ind" x1="200" y1="64" x2="200" y2="104" stroke="#C0653A" stroke-width="4.6" stroke-linecap="round" opacity="0"/>
         </svg>
         <div class="hero-payoff">360° · visão completa e contínua</div>
         <div class="hero-tag">Da régua à regra. Da regra à regularidade.</div>
@@ -779,13 +779,13 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
   const NS='http://www.w3.org/2000/svg';
   const gTicks=document.getElementById('a-ticks'), gNums=document.getElementById('a-nums'),
         ring=document.getElementById('a-ring'), base=document.getElementById('a-base'),
-        ind=document.getElementById('a-ind'), marker=document.getElementById('a-marker'),
+        ind=document.getElementById('a-ind'), lar=document.getElementById('a-lar'), dot=document.getElementById('a-dot'), marker=document.getElementById('a-marker'),
         mval=marker.querySelector('.mval'), big=document.getElementById('a-360'),
         stMedir=document.getElementById('st-medir'), stPadrao=document.getElementById('st-padrao'), stConforme=document.getElementById('st-conforme'),
         heroDocs=document.querySelector('.hero-docs'), heroSteps=document.querySelector('.hero-steps'),
         heroPayoff=document.querySelector('.hero-payoff'), heroTag=document.querySelector('.hero-tag'),
         heroReplay=document.getElementById('arco-replay');
-  const N=36, cx=200, cy=200, R=120, RING_LEN=754, X0=44, X1=356, YB=210;
+  const N=36, cx=200, cy=200, R=120, RING_LEN=712, X0=44, X1=356, YB=210;
   const clamp=(x)=>Math.max(0,Math.min(1,x));
   const lerp=(a,b,t)=>a+(b-a)*t;
   const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
@@ -827,7 +827,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
     mval.textContent=(mf*40).toFixed(0)+' cm';
     ring.setAttribute('stroke-dashoffset',RING_LEN*(1-clamp((p-.56)/.28)));
     big.setAttribute('opacity',clamp((p-.80)/.08));  // "360°" aparece e PERMANECE no centro
-    ind.setAttribute('opacity',clamp((p-.86)/.14));
+    const oLogo=clamp((p-.86)/.14); ind.setAttribute('opacity',oLogo); lar.setAttribute('opacity',oLogo); dot.setAttribute('opacity',oLogo);
     // ESCRITAS entram durante a dobra: passos primeiro; depois 360°/payoff/tag/replay
     if(heroSteps)heroSteps.style.opacity=clamp((p-.34)/.16);
     const fecho=clamp((p-.80)/.12);
