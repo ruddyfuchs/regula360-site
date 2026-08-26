@@ -729,6 +729,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
       <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <label class="lgpd"><input type="checkbox" id="f-lgpd"> Autorizo o uso destes dados exclusivamente para a análise solicitada. <a href="#" data-priv>Política de privacidade</a></label>
       <button class="btn btn-azul" id="btn-enviar" type="button" style="width:100%;justify-content:center">Enviar para análise confidencial</button>
+      <div id="f-erro" role="alert" style="display:none;margin-top:14px;padding:14px 16px;border:1px solid #B23A2E;background:#FBECEA;border-radius:10px;font-size:.95rem;line-height:1.5;color:#7A2318"></div>
       <div id="f-ok" role="status" style="display:none;margin-top:14px;padding:14px 16px;border:1px solid #1C5A73;background:#EAF3F6;border-radius:10px;font-size:.95rem;line-height:1.5;color:#12303b">
         <b>✓ Recebido.</b> Seu protocolo é <b id="f-proto">—</b>. Um sócio confere contra a base e retorna em até 5 dias úteis — sem compromisso.
       </div>
@@ -938,14 +939,39 @@ document.querySelectorAll('.med-botoes button').forEach(b=>b.addEventListener('c
   document.querySelectorAll('.med-botoes button').forEach(x=>x.setAttribute('aria-pressed','false'));
   b.setAttribute('aria-pressed','true');pont.style.transform=`rotate(${b.dataset.ang}deg)`;
   const r=REC[b.dataset.v];mv.textContent=r[0];mv.style.color=r[1];mr.innerHTML=r[2]}));
+// Teto do anexo no servidor (LEADS_ANEXO_MAX_BYTES). Repetido aqui só para
+// avisar ANTES de subir o arquivo — quem manda prestação de contas escaneada
+// passa de 10 MB com facilidade e não vai esperar o upload pra descobrir.
+const ANEXO_MAX=10*1024*1024;
+const fErro=document.getElementById('f-erro');
+function limparErro(){if(fErro)fErro.style.display='none'}
+function mostrarErro(msg){
+  if(!fErro)return;
+  fErro.innerHTML=msg;
+  fErro.style.display='block';
+  const r=fErro.getBoundingClientRect();
+  if(r.top<0||r.bottom>window.innerHeight)fErro.scrollIntoView({block:'center',behavior:'smooth'});
+}
+// O servidor recusa por motivo; sem traduzir, o site dizia "tente de novo" e a
+// pessoa repetia o mesmo arquivo pra sempre sem saber o que estava errado.
+function motivoDaRecusa(data,status){
+  const cod=data&&(data.error||data.erro);
+  if(cod==='arquivo_grande'||status===413)
+    return 'O PDF passa de 10 MB. Envie uma versão mais leve, ou mande o arquivo direto para <b>documentos@regula360.com.br</b> — a análise é a mesma.';
+  if(cod==='tipo_invalido'||status===415)
+    return 'O documento precisa estar em PDF. Se o seu arquivo for imagem ou planilha, mande para <b>documentos@regula360.com.br</b>.';
+  return 'Não foi possível enviar agora. Tente de novo ou escreva para <b>documentos@regula360.com.br</b>.';
+}
+
 document.getElementById('btn-enviar').addEventListener('click',async ()=>{
   const v=id=>(document.getElementById(id)?.value||'').trim();
   const btn=document.getElementById('btn-enviar');
   // Honeypot: bot preencheu o campo escondido → finge sucesso e não faz nada.
   if(document.getElementById('f-gotcha').value){return}
-  if(!document.getElementById('f-lgpd').checked){alert('Confirme a autorização de uso dos dados (LGPD).');return}
+  limparErro();
+  if(!document.getElementById('f-lgpd').checked){mostrarErro('Confirme a autorização de uso dos dados (LGPD) para continuar.');return}
   const nome=v('f-nome'),email=v('f-email');
-  if(!nome||!email){alert('Preencha ao menos nome e e-mail.');return}
+  if(!nome||!email){mostrarErro('Preencha ao menos nome e e-mail.');return}
   const tipo=v('f-tipo'),m2=v('f-m2');
   const fd=new FormData();
   fd.append('nome',nome);
@@ -956,6 +982,7 @@ document.getElementById('btn-enviar').addEventListener('click',async ()=>{
   const ctx=[]; if(tipo&&tipo!=='Selecione…')ctx.push('Tipo: '+tipo); if(m2)ctx.push('Área: '+m2+' m²');
   if(ctx.length)fd.append('mensagem',ctx.join(' · '));
   const arq=document.getElementById('f-doc'),file=arq&&arq.files&&arq.files[0];
+  if(file&&file.size>ANEXO_MAX){mostrarErro(motivoDaRecusa({error:'arquivo_grande'}));return}
   if(file)fd.append('anexo',file);
   btn.disabled=true; const txt=btn.textContent; btn.textContent='Enviando…';
   try{
@@ -971,11 +998,11 @@ document.getElementById('btn-enviar').addEventListener('click',async ()=>{
       const ok=document.getElementById('f-ok'); if(ok)ok.style.display='block';
     }else{
       btn.disabled=false; btn.textContent=txt;
-      alert((data&&data.message)||'Não foi possível enviar agora. Tente de novo ou escreva para documentos@regula360.com.br.');
+      mostrarErro(motivoDaRecusa(data,res.status));
     }
   }catch{
     btn.disabled=false; btn.textContent=txt;
-    alert('Não foi possível enviar agora. Verifique a conexão e tente de novo, ou escreva para documentos@regula360.com.br.');
+    mostrarErro('Não foi possível enviar agora. Verifique a conexão e tente de novo, ou escreva para <b>documentos@regula360.com.br</b>.');
   }
 });
 </script>
