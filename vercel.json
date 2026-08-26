@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "https://m5group.pages.dev/api/:path*" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

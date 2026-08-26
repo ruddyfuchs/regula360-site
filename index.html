@@ -959,7 +959,7 @@ document.getElementById('btn-enviar').addEventListener('click',async ()=>{
   if(file)fd.append('anexo',file);
   btn.disabled=true; const txt=btn.textContent; btn.textContent='Enviando…';
   try{
-    const res=await fetch('https://m5group.pages.dev/api/public/lead-regula',{method:'POST',body:fd,headers:{Accept:'application/json'}});
+    const res=await fetch('/api/public/lead-regula',{method:'POST',body:fd,headers:{Accept:'application/json'}});
     const data=await res.json().catch(()=>({}));
     if(res.ok){
       const proto=(data.id?String(data.id).slice(0,8):Date.now().toString(36)).toUpperCase();
@@ -1005,7 +1005,7 @@ document.getElementById('btn-enviar').addEventListener('click',async ()=>{
 </div>
 <script>
 (function(){
-  var TRACK='https://m5group.pages.dev/api/public/track';
+  var TRACK='/api/public/track';
   function vid(){var k='r360-vid',v=localStorage.getItem(k);
     if(!v){v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2);localStorage.setItem(k,v);}return v;}
   function q(n){try{return new URLSearchParams(location.search).get(n);}catch(e){return null;}}
