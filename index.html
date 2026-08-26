@@ -85,7 +85,11 @@ nav.menu a.on::after{content:'';position:absolute;left:0;right:0;bottom:-6px;hei
 .foto::after{content:'IMAGEM';position:absolute;top:10px;right:12px;font:600 .58rem var(--display);letter-spacing:.14em;color:rgba(244,240,232,.4)}
 
 /* hero */
-.hero{padding:6rem var(--gutter) 4rem;max-width:var(--container);margin:0 auto}
+/* clip (e não hidden): contém os documentos decorativos do herói, que a
+   rotação alarga pra fora da seção e faziam a página rolar de lado uns 5px.
+   Só eles passam da borda — o resto do herói cabe. hidden criaria contexto de
+   rolagem e quebraria os blocos grudados (sticky) da página. */
+.hero{padding:6rem var(--gutter) 4rem;max-width:var(--container);margin:0 auto;overflow-x:clip}
 .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:center}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2.5rem}}
 .hero .olho{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--azul);margin-bottom:1.4rem}
@@ -309,6 +313,18 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 .hero-docs i.d3{bottom:-2%;left:10%;--r:-3deg}
 .hero-docs i.d4{bottom:2%;right:2%;--r:5deg}
 .hero-docs i.d5{top:-8%;left:26%;--r:-1deg}
+/* Até 900px a coluna do herói vira largura cheia (ver .hero-grid). Aí o -12%
+   lateral acima passa a apontar pra FORA da tela e os documentos decorativos
+   empurram a página: o tablet ficava com 831px de conteúdo numa tela de 768 e
+   rolava de lado. Sem folga horizontal, e com os dois documentos das pontas
+   puxados pra dentro, tudo fica dentro da coluna.
+   ⚠️ Esta regra precisa vir DEPOIS de .hero-docs — mesma especificidade, quem
+   vem por último vence, media query ou não. */
+@media(max-width:900px){
+  .hero-docs{inset:-10% 0}
+  .hero-docs i.d1{right:2%}
+  .hero-docs i.d4{right:4%}
+}
 /* escritas do herói escondidas até a animação as revelar (JS controla a opacidade) */
 .hero-steps,.hero-payoff,.hero-tag,.arco-replay{opacity:0}
 
