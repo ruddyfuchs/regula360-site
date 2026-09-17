@@ -1,0 +1,44 @@
+# Regula360
+
+> Governança documental e auditoria de custos para condomínios, imóveis e portfólios multiunidade, em São Paulo e nos estados onde os clientes operam. Mantém a documentação em dia e confere cada despesa contra base própria. CNPJ 67.239.086/0001-80.
+
+A Regula360 é a camada permanente que mantém imóveis — de uma unidade a um portfólio inteiro — regulares na documentação e com o custo medido. Tudo numa só tela: um painel vivo com o que vence, o que está em risco e o que já foi recuperado.
+
+O trabalho segue três pilares: **visibilidade** (mapear a situação documental e financeira por unidade, cidade e região), **controle** (acompanhar vencimentos, pendências e inconsistências antes de virarem passivo) e **otimização** (regularizar, validar despesas e auditar o histórico).
+
+Diagnóstico em até 30 dias. A análise inicial de 1 documento é sem custo.
+
+Contato: contato@regula360.com.br · documentos@regula360.com.br
+
+## As quatro frentes
+
+Cada frente é independente — o cliente começa pela dor maior e liga as outras quando quiser.
+
+- [Diagnóstico & Painel](https://www.regula360.com.br/) — até 30 dias. A operação inteira numa tela: base única por unidade, cidade e região, inventário de mais de 120 tipos de documento, painel de vencimentos por criticidade e plano de regularização priorizado.
+- [Regularização & gestão ativa](https://www.regula360.com.br/) — contínuo. A Regula360 assume as pendências: priorização por risco, interface direta com os órgãos, painel em tempo real, reporte mensal e ponto único de contato.
+- [Gestão mensal de boletos](https://www.regula360.com.br/) — mensal. Conferência técnica de cada boleto antes do pagamento, com parecer em três posições: aprovar, aprovar com ressalvas ou não aprovar. Divergências ficam registradas.
+- [Auditoria & recuperação](https://www.regula360.com.br/) — 24 a 36 meses. Auditoria histórica linha a linha, cada achado com evidência, dossiê de contestação e acompanhamento da recuperação.
+
+## O que é conferido
+
+- **Governança documental** — mais de 120 tipos de documento por unidade, cada um com base legal, status e vencimento. Documento vencido ou incompatível com o uso vira risco de interdição, multa e seguro negado.
+- **Segurança e incêndio** — AVCB, CLCB, CA, extintores, hidrantes, brigada, iluminação de emergência.
+- **Elétrica e SPDA** — laudo SPDA (NBR 5419), termografia, ART (NR-10), grupo gerador.
+- **Predial e civil** — habite-se, inspeção predial, fachada, ART/RRT, elevadores.
+- **Ambiental e saúde** — PMOC, potabilidade da água, qualidade do ar, controle de pragas, resíduos.
+- **Jurídico e condominial** — matrícula, averbações, convenção, regimento, atas, alvará.
+- **Contratos e seguros** — apólice predial e de responsabilidade civil, contratos de facilities, locação, certidões.
+- **Auditoria de despesas** — 22 categorias auditadas contra base própria, com mais de 16 referências legais.
+
+## Quem somos
+
+Empresa nova, com décadas de operação real por trás. Os sócios somam mais de 45 anos gerindo, fiscalizando e cobrando fornecedores de portfólios multiunidade — com o olhar de proprietário, de administrador e de locatário. Um diretor de operações e governança, com mais de 18 anos em facilities e mercado imobiliário; outro de auditoria, obras e custos, com mais de 30 anos em operações nacionais.
+
+## Páginas
+
+- [Início](https://www.regula360.com.br/) — as quatro frentes, o painel, a governança documental e quem somos.
+- [Política de Privacidade](https://www.regula360.com.br/privacidade) — tratamento de dados conforme a LGPD (Lei 13.709/2018).
+
+## Detalhes
+
+- [Versão completa deste arquivo](https://www.regula360.com.br/llms-full.txt): o mesmo conteúdo com o texto integral de cada frente.
