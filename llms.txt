@@ -14,10 +14,10 @@ Contato: contato@regula360.com.br · documentos@regula360.com.br
 
 Cada frente é independente — o cliente começa pela dor maior e liga as outras quando quiser.
 
-- [Diagnóstico & Painel](https://www.regula360.com.br/) — até 30 dias. A operação inteira numa tela: base única por unidade, cidade e região, inventário de mais de 120 tipos de documento, painel de vencimentos por criticidade e plano de regularização priorizado.
-- [Regularização & gestão ativa](https://www.regula360.com.br/) — contínuo. A Regula360 assume as pendências: priorização por risco, interface direta com os órgãos, painel em tempo real, reporte mensal e ponto único de contato.
-- [Gestão mensal de boletos](https://www.regula360.com.br/) — mensal. Conferência técnica de cada boleto antes do pagamento, com parecer em três posições: aprovar, aprovar com ressalvas ou não aprovar. Divergências ficam registradas.
-- [Auditoria & recuperação](https://www.regula360.com.br/) — 24 a 36 meses. Auditoria histórica linha a linha, cada achado com evidência, dossiê de contestação e acompanhamento da recuperação.
+- [Diagnóstico & Painel](https://www.regula360.com.br/diagnostico-e-painel) — até 30 dias. A operação inteira numa tela: base única por unidade, cidade e região, inventário de mais de 120 tipos de documento, painel de vencimentos por criticidade e plano de regularização priorizado.
+- [Regularização & gestão ativa](https://www.regula360.com.br/regularizacao-e-gestao-ativa) — contínuo. A Regula360 assume as pendências: priorização por risco, interface direta com os órgãos, painel em tempo real, reporte mensal e ponto único de contato.
+- [Gestão mensal de boletos](https://www.regula360.com.br/gestao-mensal-de-boletos) — mensal. Conferência técnica de cada boleto antes do pagamento, com parecer em três posições: aprovar, aprovar com ressalvas ou não aprovar. Divergências ficam registradas.
+- [Auditoria & recuperação](https://www.regula360.com.br/auditoria-e-recuperacao) — 24 a 36 meses. Auditoria histórica linha a linha, cada achado com evidência, dossiê de contestação e acompanhamento da recuperação.
 
 ## O que é conferido
 
@@ -37,6 +37,10 @@ Empresa nova, com décadas de operação real por trás. Os sócios somam mais d
 ## Páginas
 
 - [Início](https://www.regula360.com.br/) — as quatro frentes, o painel, a governança documental e quem somos.
+- [Diagnóstico & Painel](https://www.regula360.com.br/diagnostico-e-painel) — a frente 01 em detalhe: como funciona, o que você recebe, perguntas e o formulário de contato.
+- [Regularização & gestão ativa](https://www.regula360.com.br/regularizacao-e-gestao-ativa) — a frente 02 em detalhe: como funciona, o que você recebe, perguntas e o formulário de contato.
+- [Gestão mensal de boletos](https://www.regula360.com.br/gestao-mensal-de-boletos) — a frente 03 em detalhe: como funciona, o que você recebe, perguntas e o formulário de contato.
+- [Auditoria & recuperação](https://www.regula360.com.br/auditoria-e-recuperacao) — a frente 04 em detalhe: como funciona, o que você recebe, perguntas e o formulário de contato.
 - [Política de Privacidade](https://www.regula360.com.br/privacidade) — tratamento de dados conforme a LGPD (Lei 13.709/2018).
 
 ## Detalhes
