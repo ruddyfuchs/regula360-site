@@ -28,11 +28,15 @@ Cada frente é independente. O cliente começa onde a dor é maior e liga as out
 
 ### 01 — Diagnóstico & Painel (até 30 dias)
 
+Página: https://www.regula360.com.br/diagnostico-e-painel
+
 A operação inteira numa tela: base única por unidade, cidade e região, com painel vivo de vencimentos e criticidade.
 
 O cliente recebe: inventário de mais de 120 tipos de documento; painel e relatório executivo; plano de regularização priorizado.
 
 ### 02 — Regularização & gestão ativa (contínuo)
+
+Página: https://www.regula360.com.br/regularizacao-e-gestao-ativa
 
 A Regula360 assume as pendências, com priorização por risco e interface direta com os órgãos.
 
@@ -40,11 +44,15 @@ O cliente recebe: condução junto aos órgãos; painel em tempo real e reporte 
 
 ### 03 — Gestão mensal de boletos (mensal)
 
+Página: https://www.regula360.com.br/gestao-mensal-de-boletos
+
 Conferência técnica de cada boleto antes do pagamento, mês a mês.
 
 O cliente recebe: conferência antes de pagar; parecer em três posições — aprovar, aprovar com ressalvas ou não aprovar; registro de divergências.
 
 ### 04 — Auditoria & recuperação (24 a 36 meses)
+
+Página: https://www.regula360.com.br/auditoria-e-recuperacao
 
 Auditoria histórica linha a linha, com economia comprovada — uma auditoria que se paga.
 

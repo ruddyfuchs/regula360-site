@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Auditoria de boletos de condomínio | Regula360</title>
+<meta name="description" content="Conferência de cada boleto e da prestação de contas do condomínio antes do pagamento, linha a linha. Parecer mensal: aprovar, ressalvas ou não aprovar.">
+<link rel="canonical" href="https://www.regula360.com.br/gestao-mensal-de-boletos">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1C5A73">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Regula360">
+<meta property="og:title" content="Auditoria de boletos de condomínio | Regula360">
+<meta property="og:description" content="Conferência de cada boleto e da prestação de contas do condomínio antes do pagamento, linha a linha. Parecer mensal: aprovar, ressalvas ou não aprovar.">
+<meta property="og:url" content="https://www.regula360.com.br/gestao-mensal-de-boletos">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://www.regula360.com.br/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Regula360 — governança documental e auditoria para condomínios e imóveis">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Auditoria de boletos de condomínio | Regula360">
+<meta name="twitter:description" content="Conferência de cada boleto e da prestação de contas do condomínio antes do pagamento, linha a linha. Parecer mensal: aprovar, ressalvas ou não aprovar.">
+<meta name="twitter:image" content="https://www.regula360.com.br/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M18.9%204.36%20A12%2012%200%201%201%2013.1%204.36%27%20fill%3D%27none%27%20stroke%3D%27%231C5A73%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3Cline%20x1%3D%2716%27%20y1%3D%272.6%27%20x2%3D%2716%27%20y2%3D%279%27%20stroke%3D%27%23C0653A%27%20stroke-width%3D%272.4%27%2F%3E%3Ccircle%20cx%3D%2716%27%20cy%3D%272.2%27%20r%3D%271.9%27%20fill%3D%27%23C0653A%27%2F%3E%3C%2Fsvg%3E">
+<style>
+/* ===========================================================
+   REGULA360 — identidade própria · base clara e quente ·
+   grafite-CINZA · marca AZUL (auditoria/confiança) ·
+   FAROL verde/âmbar/vermelho é semântico (separado da marca) ·
+   régua como fio condutor
+   =========================================================== */
+:root{
+  --osso:#F4F0E8; --osso-soft:#EBE5D8; --papel:#FAF7F1;
+  --grafite:#34383D; --grafite-soft:#454A50; --grafite-deep:#2A2E33;
+  --steel:#5A5F66; --steel-soft:#8A8F96;
+  --azul:#1C5A73; --azul-deep:#143F52; --azul-luz:#5AA8C6;
+  --verde:#2E7D52; --ambar:#B7791F; --vermelho:#B23A2E;
+  --linha:rgba(52,56,61,.12); --linha-soft:rgba(52,56,61,.06);
+  --display:'Montserrat','Segoe UI',system-ui,-apple-system,sans-serif;
+  --sans:'Montserrat','Segoe UI',system-ui,-apple-system,sans-serif;
+  --container:1280px; --gutter:clamp(1.5rem,4vw,4rem);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:#fff;color:var(--grafite);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-weight:300}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--linha-soft) 1px,transparent 1px),linear-gradient(90deg,var(--linha-soft) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;z-index:0;opacity:.5}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:1.12}
+:focus-visible{outline:2px solid var(--azul);outline-offset:3px}
+.logo-regua{display:block}
+
+/* régua fio condutor — divisor de marca */
+.regua-fio{height:16px;max-width:var(--container);margin:0 auto;background:repeating-linear-gradient(90deg,var(--linha) 0 1px,transparent 1px 14px);border-bottom:1px solid var(--linha);position:relative}
+.regua-fio::after{content:'';position:absolute;left:0;top:-1px;width:22%;height:2px;background:var(--azul)}
+
+/* header */
+header.topo{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha-soft)}
+.topo-in{max-width:var(--container);margin:0 auto;padding:1.1rem var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.marca{display:flex;align-items:center;gap:.7rem}
+.marca .logo-regua{width:38px;height:38px;color:var(--grafite)}
+.marca .nome{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.02em}
+.marca .nome b{color:var(--azul);font-weight:700}
+nav.menu{display:flex;gap:2rem;margin-left:auto;font-size:.92rem}
+nav.menu a{color:var(--steel);transition:color .3s}
+nav.menu a:hover,nav.menu a.on{color:var(--grafite)}
+nav.menu a.on{position:relative}
+nav.menu a.on::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--azul)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:600;font-size:.9rem;padding:.85rem 1.5rem;border-radius:2px;transition:.3s;cursor:pointer;border:none}
+.btn-azul{background:var(--azul);color:#fff}
+.btn-azul:hover{background:var(--azul-deep)}
+.btn-linha{border:1px solid var(--grafite);color:var(--grafite);background:transparent}
+.btn-linha:hover{background:var(--grafite);color:var(--osso)}
+.btn-topo{padding:.7rem 1.3rem;font-size:.85rem}
+@media(max-width:880px){nav.menu{display:none}}
+
+/* foto placeholder */
+.foto{position:relative;background:linear-gradient(135deg,var(--grafite-soft),var(--grafite-deep));overflow:hidden}
+.foto svg.skyline{position:absolute;bottom:0;left:0;width:100%;height:58%;opacity:.22}
+.foto::after{content:'IMAGEM';position:absolute;top:10px;right:12px;font:600 .58rem var(--display);letter-spacing:.14em;color:rgba(244,240,232,.4)}
+
+/* hero */
+/* clip (e não hidden): contém os documentos decorativos do herói, que a
+   rotação alarga pra fora da seção e faziam a página rolar de lado uns 5px.
+   Só eles passam da borda — o resto do herói cabe. hidden criaria contexto de
+   rolagem e quebraria os blocos grudados (sticky) da página. */
+.hero{padding:6rem var(--gutter) 4rem;max-width:var(--container);margin:0 auto;overflow-x:clip}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:2.5rem}}
+.hero .olho{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--azul);margin-bottom:1.4rem}
+.hero h1{font-size:clamp(2.4rem,5.2vw,3.7rem);margin-bottom:1.6rem}
+.hero h1 em{font-style:italic;font-weight:300;color:var(--azul)}
+.hero-sub{font-size:1.02rem;color:var(--steel);max-width:46ch;margin-bottom:2.2rem;line-height:1.7}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-micro{margin-top:1.3rem;font-family:var(--display);font-weight:500;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--steel-soft)}
+.hero-foto{aspect-ratio:4/5;border-radius:3px;box-shadow:0 30px 60px -25px rgba(0,0,0,.4)}
+/* animação: régua reta → arco calibrado (o porquê do nome) */
+.hero-anim{position:relative;border:1px solid var(--linha);border-radius:8px;background:var(--papel);padding:1.5rem 1.4rem 1.3rem;display:flex;flex-direction:column;align-items:center;gap:.35rem;box-shadow:0 26px 54px -32px rgba(0,0,0,.28)}
+.hero-anim .pc{position:absolute;width:9px;height:9px;border:1px solid var(--steel-soft);opacity:.5}
+.hero-anim .pc.tl{top:8px;left:8px;border-right:0;border-bottom:0}
+.hero-anim .pc.tr{top:8px;right:8px;border-left:0;border-bottom:0}
+.hero-anim .pc.bl{bottom:8px;left:8px;border-right:0;border-top:0}
+.hero-anim .pc.br{bottom:8px;right:8px;border-left:0;border-top:0}
+.hero-steps{display:flex;align-items:center;gap:.55rem;font:600 .66rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--steel-soft)}
+.hero-steps b{font-weight:600;transition:color .35s}
+.hero-steps b.on{color:var(--azul)}
+.hero-steps i{font-style:normal;color:var(--linha)}
+.hero-payoff{font:700 .76rem var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--azul);margin-top:.2rem}
+.hero-tag{font-family:var(--display);font-style:italic;font-weight:300;font-size:1rem;color:var(--grafite);text-align:center;line-height:1.4;max-width:30ch}
+#arco{width:100%;max-width:340px;cursor:pointer}
+#arco .ring{stroke:var(--grafite)}
+#arco .base{stroke:var(--grafite)}
+#arco .tk{stroke:var(--grafite);stroke-linecap:round}
+#arco .tk.maj{stroke:var(--grafite)}
+#arco text{font-family:var(--display);font-weight:600}
+#arco .num{font-size:12px;fill:var(--steel-soft)}
+#arco .mval{font-size:14px;font-weight:700;fill:var(--azul)}
+#arco .big360{font-size:40px;font-weight:700;fill:var(--azul);letter-spacing:-.02em}
+.arco-replay{margin-top:.2rem;font:600 .62rem var(--display);letter-spacing:.06em;text-transform:uppercase;background:transparent;border:1px solid var(--linha);color:var(--steel-soft);border-radius:999px;padding:.35rem .8rem;cursor:pointer}
+.arco-replay:hover{border-color:var(--azul);color:var(--azul)}
+
+/* seção base */
+.sec{padding:6rem var(--gutter);max-width:var(--container);margin:0 auto}
+.sec-cab{max-width:56ch;margin-bottom:3rem}
+.sec-olho{font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--azul);margin-bottom:1rem}
+h2.sec-titulo{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:1rem}
+h2.sec-titulo em{font-style:italic;font-weight:300;color:var(--azul)}
+.sec-desc{color:var(--steel);font-size:1rem;line-height:1.7}
+.sec-desc b{color:var(--grafite);font-weight:600}
+
+/* pilares — Como pensamos */
+.pilares-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1rem}
+@media(max-width:760px){.pilares-grid{grid-template-columns:1fr}}
+.pilar{background:var(--papel);border:1px solid var(--linha);border-radius:4px;padding:2rem}
+.pilar .n{font-family:var(--display);font-style:italic;font-weight:300;font-size:1.8rem;color:var(--azul)}
+.pilar h3{font-weight:600;font-size:1.3rem;margin:.5rem 0 .6rem}
+.pilar p{font-size:.92rem;color:var(--steel);line-height:1.6}
+.pilar-fecho{font-family:var(--display);font-style:italic;font-weight:300;font-size:1.15rem;color:var(--grafite);margin-top:1.8rem}
+
+/* serviços */
+.servicos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media(max-width:760px){.servicos-grid{grid-template-columns:1fr}}
+.card-serv{position:relative;border:1px solid var(--linha);border-radius:6px;padding:1.9rem;background:var(--papel);color:var(--grafite);display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card-serv:hover{transform:translateY(-4px);box-shadow:0 24px 44px -24px rgba(0,0,0,.16);border-color:var(--azul)}
+.cs-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.card-serv .prazo{font:600 .58rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--steel);border:1px solid var(--linha);padding:.32rem .7rem;border-radius:999px;white-space:nowrap;margin-top:.6rem}
+.card-serv .num{font-family:var(--display);font-style:italic;font-weight:300;font-size:2.3rem;color:var(--azul);line-height:1}
+.card-serv h3{font-weight:600;font-size:1.3rem;margin:.4rem 0 .6rem;color:var(--grafite)}
+.card-serv p{font-size:.9rem;line-height:1.55;color:var(--steel);max-width:42ch}
+.card-serv .recebe{margin-top:1.2rem;font:600 .58rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--steel-soft)}
+.card-serv ul{margin:.5rem 0 0;padding-left:1.1rem;font-size:.82rem;color:var(--steel);line-height:1.7}
+.mod-livre{margin-top:1.4rem;font-size:.92rem;color:var(--steel);display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.mod-livre .selo{font:600 .62rem var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--azul);border:1px solid var(--azul);border-radius:999px;padding:.4rem .8rem}
+.mod-livre b{color:var(--grafite);font-weight:600}
+
+/* medidor de parecer (elemento distintivo — farol semântico) */
+.parecer{background:var(--papel);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.parecer-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center}
+@media(max-width:820px){.parecer-grid{grid-template-columns:1fr}}
+.medidor{background:#fff;border:1px solid var(--linha);border-radius:8px;padding:1.8rem;text-align:center;box-shadow:0 20px 44px -26px rgba(0,0,0,.3)}
+.medidor .mt{font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:.4rem}
+.medidor svg{width:100%;max-width:240px;display:block;margin:0 auto}
+.med-arco{fill:none;stroke-width:13;stroke-linecap:butt}
+.med-ponteiro{transform-origin:120px 108px;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.med-valor{font-family:var(--display);font-weight:700;font-size:1.15rem;margin-top:.2rem}
+.med-botoes{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}
+.med-botoes button{font:600 .6rem var(--display);letter-spacing:.04em;border:1px solid var(--linha);background:transparent;color:var(--steel);border-radius:5px;padding:.5rem .7rem;cursor:pointer;transition:.2s}
+.med-botoes button[data-v="ok"][aria-pressed="true"]{border-color:var(--verde);color:var(--verde);background:rgba(46,125,82,.08)}
+.med-botoes button[data-v="rs"][aria-pressed="true"]{border-color:var(--ambar);color:var(--ambar);background:rgba(183,121,31,.1)}
+.med-botoes button[data-v="no"][aria-pressed="true"]{border-color:var(--vermelho);color:var(--vermelho);background:rgba(178,58,46,.09)}
+.med-reco{font-size:.8rem;color:var(--steel);margin-top:.9rem}
+.med-reco b{color:var(--grafite);font-weight:600}
+
+/* stats (cinza) */
+.stats{background:var(--grafite);color:var(--osso);padding:5rem var(--gutter)}
+.stats-in{max-width:var(--container);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+@media(max-width:760px){.stats-in{grid-template-columns:1fr 1fr;gap:2.5rem 1rem}}
+.stat{padding:0 1rem;border-left:1px solid rgba(244,240,232,.15)}
+.stat:first-child{border-left:none;padding-left:0}
+.stat .n{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .n em{font-style:italic;font-weight:300;color:var(--azul-luz)}
+.stat .l{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,240,232,.6);margin-top:.75rem}
+
+/* gestão à vista */
+.gv{background:var(--papel);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.gv-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+@media(max-width:900px){.gv-grid{grid-template-columns:1fr}}
+.painel{background:#fff;border:1px solid var(--linha);border-radius:6px;box-shadow:0 24px 50px -28px rgba(0,0,0,.3);overflow:hidden}
+.painel-top{background:var(--grafite);color:var(--osso);padding:.9rem 1.2rem;display:flex;align-items:center;justify-content:space-between}
+.painel-top .t{display:flex;align-items:center;gap:.6rem;font:600 .72rem var(--display);letter-spacing:.1em;text-transform:uppercase}
+.painel-top .t .logo-regua{width:18px;height:18px;color:var(--osso)}
+.painel-top .filtros{display:flex;gap:.4rem}
+.painel-top .filtros span{font:600 .56rem var(--display);letter-spacing:.06em;border:1px solid rgba(244,240,232,.25);border-radius:999px;padding:.25rem .6rem;color:rgba(244,240,232,.7)}
+.painel-top .filtros span.on{background:var(--azul);border-color:var(--azul);color:#fff}
+.painel-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha)}
+.pk{background:#fff;padding:1.1rem}
+.pk .v{font-family:var(--display);font-weight:700;font-size:1.6rem;line-height:1;font-variant-numeric:tabular-nums}
+.pk.ok .v{color:var(--verde)}.pk.al .v{color:var(--ambar)}.pk.cr .v{color:var(--vermelho)}
+.pk .l{font-size:.66rem;color:var(--steel);margin-top:.4rem;line-height:1.35}
+.painel-lista{padding:1rem 1.2rem}
+.pl-item{display:grid;grid-template-columns:1fr auto;gap:.2rem .8rem;padding:.7rem 0;border-bottom:1px solid var(--linha-soft)}
+.pl-item:last-child{border-bottom:none}
+.pl-item .dn{font-family:var(--display);font-weight:600;font-size:.8rem}
+.pl-item .du{font-size:.68rem;color:var(--steel-soft)}
+.pl-item .st{align-self:center;font:600 .58rem var(--display);letter-spacing:.05em;padding:.3rem .6rem;border-radius:3px;white-space:nowrap}
+.st.ok{color:var(--verde);border:1px solid rgba(46,125,82,.35)}
+.st.al{color:var(--ambar);border:1px solid rgba(183,121,31,.35)}
+.st.cr{color:var(--vermelho);border:1px solid rgba(178,58,46,.4)}
+.painel-nota{font-size:.64rem;color:var(--steel-soft);padding:.7rem 1.2rem;border-top:1px solid var(--linha-soft)}
+.gv-vias{margin-top:1.8rem;display:flex;flex-direction:column;gap:.9rem}
+.gv-via{display:flex;gap:.8rem;align-items:flex-start;font-size:.92rem;color:var(--steel)}
+.gv-via b{color:var(--grafite);font-family:var(--display);font-weight:600}
+.gv-via .d{width:8px;height:8px;border-radius:50%;background:var(--azul);margin-top:.45rem;flex:none}
+
+/* governança documental */
+.categorias{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+@media(max-width:760px){.categorias{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.categorias{grid-template-columns:1fr}}
+.cat{background:var(--papel);border:1px solid var(--linha);border-radius:4px;padding:1.1rem 1.2rem}
+.cat b{font-family:var(--display);font-weight:600;font-size:.85rem;display:block;margin-bottom:.3rem}
+.cat span{font-size:.76rem;color:var(--steel);line-height:1.5}
+.doc-nums{display:flex;gap:clamp(1.5rem,4vw,3rem);flex-wrap:wrap;margin-top:2.4rem}
+.doc-num .n{font-family:var(--display);font-weight:700;font-size:clamp(2rem,4.5vw,3rem);color:var(--grafite);font-variant-numeric:tabular-nums}
+.doc-num .n em{font-style:normal;color:var(--azul)}
+.doc-num .l{font-size:.78rem;color:var(--steel);max-width:20ch;margin-top:.2rem}
+
+/* quem somos */
+.qs-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:3.5rem;align-items:center}
+@media(max-width:900px){.qs-grid{grid-template-columns:1fr}}
+.qs-foto{aspect-ratio:4/3;border-radius:3px}
+.diretor{border-left:2px solid var(--azul);padding:.3rem 0 .3rem 1rem;margin-top:1.3rem}
+.diretor b{font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.03em;text-transform:uppercase;display:block}
+.diretor span{font-size:.9rem;color:var(--steel)}
+.olhares{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.6rem}
+.olhares span{font:600 .68rem var(--display);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--linha);background:var(--papel);border-radius:999px;padding:.5rem 1rem;color:var(--steel)}
+.olhares span b{color:var(--azul)}
+
+/* como funciona */
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1rem}
+@media(max-width:760px){.passos{grid-template-columns:1fr}}
+.passo .n{font-family:var(--display);font-style:italic;font-weight:300;font-size:2.2rem;color:var(--azul)}
+.passo h3{font-weight:600;font-size:1.2rem;margin:.6rem 0 .5rem}
+.passo p{font-size:.9rem;color:var(--steel);line-height:1.6}
+.passo .metrica{font-family:var(--display);font-weight:700;color:var(--azul);font-style:normal}
+
+/* como cobramos */
+.anexo{max-width:720px;border:1px solid var(--linha);padding:clamp(1.6rem,4vw,2.6rem);background:var(--papel)}
+.anexo .rot{font:600 .68rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--steel-soft);margin-bottom:1.4rem}
+.clausula{display:flex;gap:1rem;margin-bottom:1.1rem;color:var(--steel);font-size:.95rem}
+.clausula .num{font-family:var(--display);font-weight:700;font-size:.85rem;color:var(--azul);white-space:nowrap}
+.clausula b{color:var(--grafite);font-weight:600}
+.clausula .fecho{font:600 .78rem var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--grafite)}
+.clausula u{text-decoration:none;border-bottom:2px solid var(--azul);padding-bottom:1px}
+
+/* faq */
+.faq{max-width:720px}
+details{border-bottom:1px solid var(--linha)}
+summary{font-family:var(--display);font-weight:600;font-size:1.05rem;padding:1.2rem 2rem 1.2rem 0;cursor:pointer;list-style:none;position:relative;color:var(--grafite)}
+summary::after{content:'+';position:absolute;right:0;top:50%;translate:0 -50%;color:var(--azul);font-size:1.4rem;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:0 0 1.2rem;color:var(--steel);font-size:.92rem;max-width:64ch;line-height:1.6}
+
+/* contato */
+.contato{background:var(--grafite);color:var(--osso)}
+.contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+@media(max-width:880px){.contato-grid{grid-template-columns:1fr}}
+.contato .sec-olho{color:var(--azul-luz)}
+.contato h2{color:var(--osso)}
+.contato h2 em{color:var(--azul-luz);font-style:italic;font-weight:300}
+.contato .frase{font-family:var(--display);font-style:italic;font-size:1.1rem;color:rgba(244,240,232,.7);border-left:2px solid var(--azul-luz);padding-left:1rem;margin:1.4rem 0;max-width:40ch}
+.contato .canal{font-size:.85rem;color:rgba(244,240,232,.7);margin-top:1.2rem}
+.contato .canal b{font-family:var(--display);color:var(--osso)}
+.ficha{background:var(--grafite-soft);border:1px solid rgba(244,240,232,.1);border-radius:6px;padding:2.2rem}
+.ficha .rot{font:600 .72rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.6);margin-bottom:.3rem}
+.ficha .rsub{font-size:.8rem;color:rgba(244,240,232,.6);margin-bottom:1.4rem;line-height:1.5}
+.campo{margin-bottom:1rem}
+.dupla{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media(max-width:420px){.dupla{grid-template-columns:1fr}}
+.campo label{display:block;font:600 .64rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:rgba(244,240,232,.6);margin-bottom:.4rem}
+.campo input,.campo select,.campo textarea{width:100%;box-sizing:border-box;background:rgba(0,0,0,.15);border:1px solid rgba(244,240,232,.18);border-radius:3px;color:var(--osso);font:300 16px var(--sans);padding:.7rem}
+.campo select{background:var(--grafite)}
+.campo small{color:rgba(244,240,232,.5);text-transform:none;letter-spacing:0;font-weight:300}
+.lgpd{display:flex;gap:.6rem;align-items:flex-start;font-size:.76rem;color:rgba(244,240,232,.7);margin:1rem 0}
+.lgpd a{color:var(--azul-luz)}
+.depois{margin-top:1rem;display:flex;flex-direction:column;gap:.5rem}
+.depois .p{display:flex;gap:.6rem;font-size:.74rem;color:rgba(244,240,232,.65)}
+.depois .p b{font:600 .62rem var(--display);color:var(--osso);border:1px solid rgba(244,240,232,.2);border-radius:3px;padding:.1rem .4rem;flex:none;height:fit-content}
+
+/* footer */
+footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:4rem var(--gutter) 2.5rem}
+.rodape-in{max-width:var(--container);margin:0 auto;display:grid;grid-template-columns:2fr 1.1fr 1fr 1fr;gap:2.5rem}@media(max-width:1000px){.rodape-in{grid-template-columns:1fr 1fr}}.rodape .serv a{display:block;margin-bottom:.45rem;line-height:1.35}
+@media(max-width:760px){.rodape-in{grid-template-columns:1fr}}
+.rodape .marca .nome{color:var(--osso)}
+.rodape .rot{font:600 .66rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--steel-soft);margin-bottom:.7rem}
+.rodape b{color:var(--osso);font-weight:600}
+.rodape a{color:var(--azul-luz)}
+.rodape .cnpj{font-family:var(--display);font-variant-numeric:tabular-nums}
+.rodape-base{max-width:var(--container);margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(244,240,232,.1);font-size:.75rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* ===== #1 documentos NOMEADOS empilhados atrás da plaqueta do herói ===== */
+.hero-anim{isolation:isolate}
+.hero-docs{position:absolute;inset:-10% -12%;z-index:-1;pointer-events:none;opacity:0}
+.hero-docs i{position:absolute;width:40%;aspect-ratio:3/4;background:#fff;border:1px solid var(--steel-soft);border-radius:6px;box-shadow:0 20px 38px -20px rgba(0,0,0,.55);transform:rotate(var(--r,0deg))}
+.hero-docs i::before{content:attr(data-n);position:absolute;top:9%;left:10%;right:10%;font:700 .62rem var(--display);color:var(--azul);letter-spacing:.01em;line-height:1.2}
+.hero-docs i::after{content:'';position:absolute;left:10%;right:24%;top:32%;height:3px;border-radius:2px;background:rgba(138,143,150,.5);box-shadow:0 8px 0 rgba(138,143,150,.42),0 16px 0 rgba(138,143,150,.34),0 24px 0 rgba(138,143,150,.26),0 32px 0 rgba(138,143,150,.2)}
+.hero-docs i.d1{top:-4%;right:0%;--r:7deg}
+.hero-docs i.d2{top:8%;left:-2%;--r:-8deg}
+.hero-docs i.d3{bottom:-2%;left:10%;--r:-3deg}
+.hero-docs i.d4{bottom:2%;right:2%;--r:5deg}
+.hero-docs i.d5{top:-8%;left:26%;--r:-1deg}
+/* Até 900px a coluna do herói vira largura cheia (ver .hero-grid). Aí o -12%
+   lateral acima passa a apontar pra FORA da tela e os documentos decorativos
+   empurram a página: o tablet ficava com 831px de conteúdo numa tela de 768 e
+   rolava de lado. Sem folga horizontal, e com os dois documentos das pontas
+   puxados pra dentro, tudo fica dentro da coluna.
+   ⚠️ Esta regra precisa vir DEPOIS de .hero-docs — mesma especificidade, quem
+   vem por último vence, media query ou não. */
+@media(max-width:900px){
+  .hero-docs{inset:-10% 0}
+  .hero-docs i.d1{right:2%}
+  .hero-docs i.d4{right:4%}
+}
+/* escritas do herói escondidas até a animação as revelar (JS controla a opacidade) */
+.hero-steps,.hero-payoff,.hero-tag,.arco-replay{opacity:0}
+
+/* ===== #2 Auditoria ao vivo — varredura da prestação ===== */
+.scan-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:2.5rem;align-items:start}
+@media(max-width:900px){.scan-grid{grid-template-columns:1fr}}
+.scan-doc{position:relative;background:#fff;border:1px solid var(--linha);border-radius:8px;padding:1.3rem 1.5rem;box-shadow:0 26px 54px -34px rgba(0,0,0,.28);overflow:hidden}
+.scan-doc-top{display:flex;justify-content:space-between;font:600 .62rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--steel);border-bottom:1px solid var(--linha);padding-bottom:.7rem;margin-bottom:.2rem}
+.rub{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.48rem 0;border-bottom:1px dotted var(--linha);font-size:.8rem}
+.rub:last-of-type{border-bottom:none}
+.rub .rn{color:var(--steel)}
+.rub .rv{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--grafite);font-weight:600}
+.rub .ok{font-size:.6rem;color:var(--verde);margin-left:.45rem;opacity:0;transition:opacity .35s}
+.rub .badge{display:inline-block;font:600 .56rem var(--display);color:var(--vermelho);background:rgba(178,58,46,.09);border-radius:3px;padding:.14rem .5rem;margin-left:.45rem;opacity:0;transform:translateX(8px);transition:opacity .35s,transform .35s}
+.rub.achado .rn,.rub.achado .rv{color:var(--vermelho);font-weight:700}
+.rub.lit .ok{opacity:1}
+.rub.lit.achado .badge{opacity:1;transform:none}
+.scanline{position:absolute;left:0;right:0;top:-46px;height:46px;pointer-events:none;opacity:0;
+  background:linear-gradient(180deg,rgba(28,90,115,0),rgba(28,90,115,.10) 62%,rgba(28,90,115,.20));
+  border-bottom:2px solid var(--azul)}
+.scan-grid.on .scanline{animation:varre 3s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes varre{0%{opacity:1;top:-46px}90%{opacity:1}100%{opacity:0;top:100%}}
+.veredito{background:var(--grafite);color:var(--osso);border-radius:8px;padding:1.6rem;position:sticky;top:96px}
+.veredito .vt{font:600 .6rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.55)}
+.veredito .vv{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--ambar);margin:.25rem 0 1.1rem;line-height:1.15}
+.veredito .vlin{display:flex;justify-content:space-between;gap:1rem;font-size:.76rem;padding:.55rem 0;border-top:1px solid rgba(244,240,232,.12);color:rgba(244,240,232,.7)}
+.veredito .vlin b{color:var(--osso);font-variant-numeric:tabular-nums;font-weight:600}
+.veredito .veco{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid rgba(244,240,232,.12);font-size:.68rem;letter-spacing:.02em;color:rgba(244,240,232,.55)}
+.veredito .veco b{display:block;font-family:var(--display);font-weight:700;font-size:1.7rem;color:var(--azul-luz);font-variant-numeric:tabular-nums;margin-bottom:.15rem}
+
+/* ===== #3 motivos distintos por cartão de serviço ===== */
+.card-motif{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,var(--grafite-soft),var(--grafite-deep));overflow:hidden}
+.card-motif svg{position:absolute;inset:0;width:100%;height:100%}
+.card-motif svg [data-ln]{stroke:rgba(244,240,232,.20);stroke-width:1.2;fill:none}
+.card-motif svg [data-fl]{fill:rgba(244,240,232,.10)}
+.card-motif svg [data-ac]{stroke:var(--azul-luz);opacity:.5}
+
+/* ===== #5 Onde já atuamos — mapa do Brasil + atuação por ponto ===== */
+.mapa{background:linear-gradient(150deg,var(--grafite-soft),var(--grafite-deep));border-radius:6px;padding:1.8rem;color:var(--osso);position:relative;overflow:hidden}
+.mapa .mt{font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.55)}
+.mapa .msub{font-size:.8rem;color:rgba(244,240,232,.6);margin:.4rem 0 1.2rem;line-height:1.55;max-width:44ch}
+.mapa-wrap{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:center}
+@media(max-width:520px){.mapa-wrap{grid-template-columns:1fr;justify-items:center}}
+.mapa-svg{width:210px;max-width:54vw;height:auto;display:block}
+.mapa-br{fill:rgba(90,168,198,.12);stroke:rgba(90,168,198,.5);stroke-width:1;stroke-linejoin:round}
+.mapa-dot{fill:var(--azul-luz);opacity:.32;transition:opacity .35s;filter:drop-shadow(0 0 4px rgba(90,168,198,.7))}
+.mapa-dot.on{opacity:1}
+.mapa-dot.pres{opacity:.2}
+.mapa-halo{fill:none;stroke:var(--azul-luz);stroke-width:1.4;opacity:0;transform-box:fill-box;transform-origin:center}
+.mapa-halo.go{animation:halo 1.5s ease-out}
+@keyframes halo{0%{opacity:.7;transform:scale(.5)}100%{opacity:0;transform:scale(3.4)}}
+.mapa-cap{min-height:3.6em}
+.mapa-cap .cu{font:700 .72rem var(--display);letter-spacing:.1em;color:var(--azul-luz)}
+.mapa-cap .cw{display:block;font-size:.95rem;color:var(--osso);margin-top:.2rem;line-height:1.35;transition:opacity .3s}
+.mapa-ufs{display:flex;flex-wrap:wrap;gap:.42rem;margin-top:1.3rem}
+.mapa-ufs span{font:600 .62rem var(--display);letter-spacing:.06em;border:1px solid rgba(244,240,232,.2);border-radius:999px;padding:.28rem .66rem;color:rgba(244,240,232,.72);opacity:0;transform:translateY(8px)}
+.mapa.on .mapa-ufs span{animation:ufIn .45s ease forwards}
+@keyframes ufIn{to{opacity:1;transform:none}}
+.mapa-num{display:flex;gap:1.8rem;margin-top:1.3rem;padding-top:1.2rem;border-top:1px solid rgba(244,240,232,.12)}
+.mapa-num .n{font-family:var(--display);font-weight:700;font-size:1.55rem;color:var(--azul-luz);font-variant-numeric:tabular-nums;line-height:1}
+.mapa-num .l{font-size:.62rem;color:rgba(244,240,232,.55);margin-top:.25rem}
+
+/* ===== #6 Como funciona — timeline vertical ===== */
+.timeline{max-width:760px;margin-top:1rem;position:relative;padding-left:2.4rem}
+.timeline::before{content:'';position:absolute;left:11px;top:.6rem;bottom:.6rem;width:2px;background:repeating-linear-gradient(var(--azul) 0 6px,transparent 6px 12px)}
+.tl-item{position:relative;padding:0 0 2.2rem}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:'';position:absolute;left:-2.4rem;top:.15rem;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--azul);box-shadow:0 0 0 5px var(--papel)}
+.tl-item .tl-n{position:absolute;left:-2.4rem;top:.15rem;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font:700 .72rem var(--display);color:var(--azul);z-index:1}
+.tl-item h3{font-weight:600;font-size:1.2rem;margin-bottom:.4rem}
+.tl-item p{font-size:.92rem;color:var(--steel);line-height:1.65;max-width:58ch}
+.tl-item .metrica{font-family:var(--display);font-weight:700;color:var(--azul);font-style:normal}
+.tl-item.rev{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.tl-item.rev.in{opacity:1;transform:none}
+.cf-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start}
+@media(max-width:900px){.cf-grid{grid-template-columns:1fr;gap:2.5rem}}
+.cf-grid .timeline{margin-top:0}
+.cf-recap{background:var(--papel);border:1px solid var(--linha);border-radius:8px;padding:2.2rem;position:relative}
+.cf-recap .rr{font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--steel)}
+.cf-recap .big{font-family:var(--display);font-weight:700;font-size:2.6rem;color:var(--azul);margin:.2rem 0 .1rem;line-height:1;letter-spacing:-.02em}
+.cf-recap h3{font-weight:600;font-size:1.2rem;margin:.6rem 0 .5rem}
+.cf-recap p{font-size:.9rem;color:var(--steel);line-height:1.6}
+.cf-recap ul{margin:1.3rem 0 0;padding:1.2rem 0 0 0;border-top:1px solid var(--linha);list-style:none;font-size:.88rem;color:var(--steel);line-height:1.5}
+.cf-recap ul li{display:flex;gap:.6rem;padding:.35rem 0}
+.cf-recap ul li::before{content:'✓';color:var(--azul);font-weight:700}
+.cf-recap ul b{color:var(--grafite);font-weight:600}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .hero-docs{opacity:0}.hero-steps,.hero-payoff,.hero-tag,.arco-replay{opacity:1}.rub .ok,.rub.achado .badge{opacity:1;transform:none}.mapa-ufs span,.tl-item.rev{opacity:1;transform:none}.mapa-svg .dot{opacity:.9}}
+</style>
+<style>
+/* Arranjos das páginas de frente que a home não tem: o exemplo parado e o passo-a-passo. */
+.scan-grid{display:grid;grid-template-columns:1.5fr .6fr;gap:2.5rem;align-items:start;position:relative}
+.scan-doc{background:var(--papel);border:1px solid var(--linha);border-radius:8px;padding:1.6rem 1.8rem;position:relative;overflow:hidden}
+.scan-doc-top{display:flex;justify-content:space-between;font:600 .6rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--steel-soft);padding-bottom:.9rem;margin-bottom:.5rem;border-bottom:1px solid var(--linha)}
+@media(max-width:900px){
+  .hero>div[style*="grid"],.scan-grid{grid-template-columns:1fr!important}
+  .sec>div[style*="repeat(4"],.sec>div[style*="repeat(3"]{grid-template-columns:1fr 1fr!important}
+  .veredito{position:static}
+}
+@media(max-width:620px){.sec>div[style*="repeat("]{grid-template-columns:1fr!important}}
+</style>
+
+<style>
+/* o "Saiba mais" do cartão de serviço */
+.card-serv ul{margin-bottom:1.6rem}
+.card-serv .mais{margin-top:auto;font:600 .82rem var(--display);color:var(--azul);
+  display:inline-flex;align-items:center;gap:.4rem;align-self:flex-start}
+.card-serv .mais:hover{color:var(--azul-deep)}
+/* o menu Serviços que abre as 4 frentes */
+nav.menu .sub{position:relative}
+nav.menu .gatilho{font:inherit;color:var(--steel);background:none;border:none;padding:0;cursor:pointer}
+nav.menu .gatilho:hover,nav.menu .gatilho.on{color:var(--grafite)}
+nav.menu .sub>.caixa{display:none;position:absolute;top:calc(100% + 14px);left:-1rem;min-width:290px;
+  background:var(--papel);border:1px solid var(--linha);border-radius:6px;padding:.5rem;
+  box-shadow:0 18px 40px -18px rgba(0,0,0,.25);z-index:40}
+nav.menu .sub:hover>.caixa,nav.menu .sub:focus-within>.caixa{display:block}
+nav.menu .sub>.caixa::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+nav.menu .caixa a{display:flex;gap:.8rem;align-items:baseline;padding:.6rem .7rem;border-radius:4px;color:var(--grafite)}
+nav.menu .caixa a:hover{background:var(--osso)}
+nav.menu .caixa a::after{display:none}
+nav.menu .caixa .n{font:300 italic 1.05rem var(--display);color:var(--azul);min-width:1.6rem}
+nav.menu .caixa small{display:block;color:var(--steel-soft);font-size:.72rem}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Gestão mensal de boletos", "serviceType": "Auditoria de boletos de condomínio", "description": "Conferência de cada boleto e da prestação de contas do condomínio antes do pagamento, linha a linha. Parecer mensal: aprovar, ressalvas ou não aprovar.", "url": "https://www.regula360.com.br/gestao-mensal-de-boletos", "provider": {"@type": "ProfessionalService", "name": "Regula360", "url": "https://www.regula360.com.br/"}, "areaServed": {"@type": "Country", "name": "Brasil"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.regula360.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Serviços", "item": "https://www.regula360.com.br/#servicos"}, {"@type": "ListItem", "position": 3, "name": "Gestão mensal de boletos", "item": "https://www.regula360.com.br/gestao-mensal-de-boletos"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Preciso trocar de administradora?", "acceptedAnswer": {"@type": "Answer", "text": "Não. A Regula360 confere o que a sua administradora manda — não substitui ninguém. O parecer é seu, e é você que decide o que fazer com ele."}}, {"@type": "Question", "name": "E se estiver tudo certo?", "acceptedAnswer": {"@type": "Answer", "text": "Ótimo — o parecer APROVAR também tem valor: é a sua tranquilidade documentada, mês a mês, com data e assinatura."}}, {"@type": "Question", "name": "Quem assina o parecer?", "acceptedAnswer": {"@type": "Answer", "text": "Um dos sócios, nominalmente. Nada sai daqui assinado por \"equipe técnica\"."}}, {"@type": "Question", "name": "Atende fora de São Paulo?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. A conferência é documental, então o serviço é prestado em todo o território nacional."}}]}]}</script>
+
+<style>
+/* MENU NO CELULAR — abaixo de 880 px o menu de cima some; este é o que fica no lugar */
+.menu-cel{display:none;position:static}
+.menu-cel>summary{list-style:none;cursor:pointer;font:600 .9rem var(--display);color:var(--grafite);
+  border:1px solid var(--linha);border-radius:4px;padding:.55rem .8rem;display:flex;align-items:center;gap:.45rem}
+.menu-cel>summary::-webkit-details-marker{display:none}
+/* 🪤 o site estiliza TODA <summary> como pergunta frequente (o "+" que gira e vira "×").
+   Sem isto, o botão do menu herdava o "+" — a mesma família do defeito da caixinha LGPD. */
+.menu-cel>summary::after{content:none!important;display:none!important}
+.menu-cel>summary .ico{font-size:1.1rem;line-height:1}
+.menu-cel .gaveta{position:absolute;left:0;right:0;top:100%;background:var(--papel);border-bottom:1px solid var(--linha);
+  box-shadow:0 20px 40px -20px rgba(0,0,0,.3);padding:.6rem var(--gutter) 1.2rem;z-index:60}
+.menu-cel .gaveta a{display:block;padding:.75rem .2rem;border-bottom:1px solid var(--linha-soft);color:var(--grafite);font-size:.95rem}
+.menu-cel .gaveta .rotulo{font:600 .62rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--steel-soft);padding:.9rem .2rem .2rem}
+.menu-cel .gaveta a.frente{padding-left:1rem;color:var(--steel)}
+.menu-cel .gaveta a.frente b{color:var(--azul);font-weight:300;font-style:italic;margin-right:.5rem}
+.topo{position:sticky}
+.topo-in{position:relative}
+@media(max-width:880px){.menu-cel{display:block}}
+@media(max-width:820px){#falar .contato-grid{grid-template-columns:1fr!important;gap:2rem!important}}
+@media(max-width:520px){.btn-topo{display:none}}
+</style>
+<style>
+@media(max-width:820px){main [style*="grid-template-columns"]{grid-template-columns:1fr!important;gap:1.6rem!important}}
+@media(min-width:821px) and (max-width:1050px){main [style*="repeat(4"]{grid-template-columns:1fr 1fr!important}}
+</style>
+<style>
+nav.menu .sub.aberto>.caixa{display:block}
+</style>
+</head>
+<body>
+
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <line id="rtick" x1="30" y1="10.86" x2="30" y2="13.06" stroke="currentColor" stroke-width="0.79"/>
+  <line id="rlar" x1="30" y1="10.46" x2="30" y2="15.37" stroke="#C0653A" stroke-width="1.78"/>
+  <g id="sym-regua">
+    <!-- anel com VAO no topo (+-10deg). Geometria medida no simbolo oficial
+         04_Marca-Marketing/logo-regula360-simbolo-grafite.png -->
+    <path d="M33.82 8.334 A22.0 22.0 0 1 1 26.18 8.334" fill="none" stroke="currentColor"
+          stroke-width="2.57" stroke-linecap="round"/>
+    <use href="#rtick" transform="rotate(10 30 30)"/> <use href="#rtick" transform="rotate(20 30 30)"/> <use href="#rtick" transform="rotate(30 30 30)"/> <use href="#rtick" transform="rotate(40 30 30)"/> <use href="#rtick" transform="rotate(50 30 30)"/> <use href="#rtick" transform="rotate(60 30 30)"/>
+    <use href="#rtick" transform="rotate(70 30 30)"/> <use href="#rtick" transform="rotate(80 30 30)"/> <use href="#rtick" transform="rotate(100 30 30)"/> <use href="#rtick" transform="rotate(110 30 30)"/> <use href="#rtick" transform="rotate(120 30 30)"/> <use href="#rtick" transform="rotate(130 30 30)"/>
+    <use href="#rtick" transform="rotate(140 30 30)"/> <use href="#rtick" transform="rotate(150 30 30)"/> <use href="#rtick" transform="rotate(160 30 30)"/> <use href="#rtick" transform="rotate(170 30 30)"/> <use href="#rtick" transform="rotate(190 30 30)"/> <use href="#rtick" transform="rotate(200 30 30)"/>
+    <use href="#rtick" transform="rotate(210 30 30)"/> <use href="#rtick" transform="rotate(220 30 30)"/> <use href="#rtick" transform="rotate(230 30 30)"/> <use href="#rtick" transform="rotate(240 30 30)"/> <use href="#rtick" transform="rotate(250 30 30)"/> <use href="#rtick" transform="rotate(260 30 30)"/>
+    <use href="#rtick" transform="rotate(280 30 30)"/> <use href="#rtick" transform="rotate(290 30 30)"/> <use href="#rtick" transform="rotate(300 30 30)"/> <use href="#rtick" transform="rotate(310 30 30)"/> <use href="#rtick" transform="rotate(320 30 30)"/> <use href="#rtick" transform="rotate(330 30 30)"/>
+    <use href="#rtick" transform="rotate(340 30 30)"/> <use href="#rtick" transform="rotate(350 30 30)"/>
+    <use href="#rlar" transform="rotate(90 30 30)"/> <use href="#rlar" transform="rotate(180 30 30)"/> <use href="#rlar" transform="rotate(270 30 30)"/>
+    <line x1="30" y1="4.04" x2="30" y2="13.94" stroke="#C0653A" stroke-width="1.78"/>
+    <circle cx="30" cy="2.83" r="1.45" fill="#C0653A"/>
+  </g>
+  <g id="skyline"><path fill="#F4F0E8" d="M0 120 L0 70 L18 70 L18 45 L38 45 L38 62 L58 62 L58 30 L82 30 L82 55 L104 55 L104 40 L128 40 L128 66 L150 66 L150 20 L176 20 L176 58 L200 58 L200 48 L224 48 L224 70 L248 70 L248 38 L272 38 L272 64 L300 64 L300 120 Z"/></g>
+  <g id="doc-mini">
+    <rect x="1" y="1" width="118" height="148" rx="5" fill="#fff" stroke="rgba(52,56,61,.16)"/>
+    <path d="M1 6 a5 5 0 0 1 5 -5 h108 a5 5 0 0 1 5 5 v5 h-118 z" fill="#1C5A73" opacity=".45"/>
+    <g fill="#8A8F96"><rect x="12" y="24" width="72" height="5" rx="2.5"/><rect x="12" y="40" width="96" height="3" rx="1.5" opacity=".7"/><rect x="12" y="51" width="82" height="3" rx="1.5" opacity=".7"/><rect x="12" y="62" width="92" height="3" rx="1.5" opacity=".7"/><rect x="12" y="73" width="58" height="3" rx="1.5" opacity=".7"/><rect x="12" y="84" width="88" height="3" rx="1.5" opacity=".7"/><rect x="12" y="95" width="70" height="3" rx="1.5" opacity=".7"/></g>
+    <circle cx="93" cy="122" r="16" fill="none" stroke="#1C5A73" stroke-width="2" opacity=".55"/>
+    <path d="M85 122 l6 6 l12 -13" fill="none" stroke="#1C5A73" stroke-width="2.4" opacity=".6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</defs></svg>
+
+<header class="topo">
+  <div class="topo-in">
+    <a class="marca" href="/" aria-label="Regula360">
+      <svg class="logo-regua" viewBox="0 0 60 60"><use href="#sym-regua"/></svg>
+      <span class="nome">REGULA<b>360</b></span>
+    </a>
+    <nav class="menu"><a href="/">Início</a><span class="sub"><button type="button" class="gatilho on">Serviços ▾</button><div class="caixa"><a href="/diagnostico-e-painel"><span class="n">01</span><span>Diagnóstico &amp; Painel<small>até 30 dias</small></span></a><a href="/regularizacao-e-gestao-ativa"><span class="n">02</span><span>Regularização &amp; gestão ativa<small>contínuo</small></span></a><a href="/gestao-mensal-de-boletos"><span class="n">03</span><span>Gestão mensal de boletos<small>mensal</small></span></a><a href="/auditoria-e-recuperacao"><span class="n">04</span><span>Auditoria &amp; recuperação<small>24–36 meses</small></span></a></div></span><a href="/#quem-somos">Quem somos</a><a href="/#contato">Contato</a></nav>
+    <a class="btn btn-azul btn-topo" href="#falar">Quero meu diagnóstico</a>
+    <details class="menu-cel"><summary aria-label="Abrir o menu"><span class="ico">☰</span> Menu</summary><div class="gaveta" onclick="if(event.target.closest('a'))this.parentNode.open=false"><a href="/">Início</a><div class="rotulo">Serviços</div><a class="frente" href="/diagnostico-e-painel"><b>01</b>Diagnóstico e Painel</a><a class="frente" href="/regularizacao-e-gestao-ativa"><b>02</b>Regularização e gestão ativa</a><a class="frente" href="/gestao-mensal-de-boletos"><b>03</b>Gestão mensal de boletos</a><a class="frente" href="/auditoria-e-recuperacao"><b>04</b>Auditoria e recuperação</a><a href="/#quem-somos">Quem somos</a><a href="#falar">Quero meu diagnóstico</a></div></details>
+  </div>
+</header>
+
+
+<main>
+
+<!-- 1 · ABERTURA -->
+<section class="hero" style="padding-top:4.5rem;padding-bottom:2.5rem">
+  <p style="font:600 .72rem var(--display);letter-spacing:.06em;color:var(--steel-soft);margin-bottom:1.4rem">
+    <a href="/" style="color:var(--steel)">Início</a> <span style="opacity:.5">›</span>
+    <a href="/#servicos" style="color:var(--steel)">Serviços</a> <span style="opacity:.5">›</span>
+    <span style="color:var(--grafite)">Gestão mensal de boletos</span>
+  </p>
+  <div style="display:grid;grid-template-columns:1.25fr .75fr;gap:3.5rem;align-items:start">
+    <div>
+      <p class="olho">Frente 03 · mensal</p>
+      <h1 style="font-size:clamp(2.1rem,4.4vw,3.4rem)">Auditoria de boletos de condomínio, <em>antes</em> de você pagar.</h1>
+      <p class="sec-desc" style="margin-top:1.4rem;max-width:52ch">
+        Todo mês chega uma pilha de boletos e uma prestação de contas. Quase ninguém confere —
+        confere-se o total, não a linha. A Regula360 confere <b>linha a linha, contra base própria</b>,
+        e devolve um parecer com recomendação de pagar, contestar ou reter.
+      </p>
+      <div style="display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap">
+        <a class="btn btn-azul" href="#falar">Quero meu diagnóstico</a>
+        <a class="btn btn-linha" href="#exemplo">Ver um mês real</a>
+      </div>
+    </div>
+    <aside class="card-serv" style="margin-top:.5rem">
+      <div class="cs-top"><div class="num">03</div><span class="prazo">mensal</span></div>
+      <h3>Em resumo</h3>
+      <div class="recebe">Você recebe</div>
+      <ul>
+        <li>Conferência antes de pagar</li>
+        <li>Parecer: aprovar · ressalvas · não aprovar</li>
+        <li>Registro de divergências</li>
+      </ul>
+      <p style="margin-top:1.2rem;font-size:.8rem">Assinatura mensal, sem surpresa.<br>A análise inicial de 1 documento é sem custo.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- 2 · O PROBLEMA -->
+<section style="background:var(--papel);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)">
+  <div class="sec" style="padding-top:4rem;padding-bottom:4rem">
+    <div class="sec-cab" style="margin-bottom:2.2rem">
+      <p class="sec-olho">Por que isso importa</p>
+      <h2 class="sec-titulo">O erro não aparece no total. Aparece <em>na linha.</em></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem">
+      <div>
+        <div style="font:300 italic 2.3rem var(--display);color:var(--azul);line-height:1">01</div>
+        <h3 style="font-weight:600;font-size:1.05rem;margin:.5rem 0 .5rem">Preço fora da referência</h3>
+        <p style="font-size:.88rem;line-height:1.6;color:var(--steel);max-width:34ch">Um serviço cobrado acima do que a tipologia do imóvel comporta. Sozinho, nunca chama atenção. Repetido doze vezes, vira dinheiro.</p>
+      </div>
+      <div>
+        <div style="font:300 italic 2.3rem var(--display);color:var(--azul);line-height:1">02</div>
+        <h3 style="font-weight:600;font-size:1.05rem;margin:.5rem 0 .5rem">Duplicidade</h3>
+        <p style="font-size:.88rem;line-height:1.6;color:var(--steel);max-width:34ch">O mesmo contrato lançado duas vezes na mesma competência — por troca de administradora, por rateio refeito, por engano.</p>
+      </div>
+      <div>
+        <div style="font:300 italic 2.3rem var(--display);color:var(--azul);line-height:1">03</div>
+        <h3 style="font-weight:600;font-size:1.05rem;margin:.5rem 0 .5rem">Serviço sem lastro</h3>
+        <p style="font-size:.88rem;line-height:1.6;color:var(--steel);max-width:34ch">Uma despesa sem contrato, sem ordem de serviço e sem medição que a sustente. Paga-se porque veio no boleto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · COMO FUNCIONA -->
+<section class="sec">
+  <div class="sec-cab">
+    <p class="sec-olho">Como funciona</p>
+    <h2 class="sec-titulo">Quatro passos, todo mês, <em>no mesmo dia.</em></h2>
+    <p class="sec-desc">Você não muda nada na sua rotina: manda o que chegou e recebe o parecer antes do vencimento.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem">
+    <div style="border-left:2px solid var(--azul);padding-left:1.2rem">
+      <div style="font:600 .6rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--steel-soft)">Passo 1</div>
+      <h3 style="font-weight:600;font-size:1rem;margin:.4rem 0 .5rem">Você envia</h3>
+      <p style="font-size:.85rem;line-height:1.6;color:var(--steel)">Boletos e prestação de contas para <b style="color:var(--grafite)">documentos@regula360.com.br</b>. Foto serve.</p>
+    </div>
+    <div style="border-left:2px solid var(--linha);padding-left:1.2rem">
+      <div style="font:600 .6rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--steel-soft)">Passo 2</div>
+      <h3 style="font-weight:600;font-size:1rem;margin:.4rem 0 .5rem">Conferimos contra a base</h3>
+      <p style="font-size:.85rem;line-height:1.6;color:var(--steel)">22 categorias de despesa, comparadas com a referência da tipologia do seu imóvel.</p>
+    </div>
+    <div style="border-left:2px solid var(--linha);padding-left:1.2rem">
+      <div style="font:600 .6rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--steel-soft)">Passo 3</div>
+      <h3 style="font-weight:600;font-size:1rem;margin:.4rem 0 .5rem">O que destoa vira achado</h3>
+      <p style="font-size:.85rem;line-height:1.6;color:var(--steel)">Com o motivo escrito. Não é "revisar": é o que está errado e por quê.</p>
+    </div>
+    <div style="border-left:2px solid var(--linha);padding-left:1.2rem">
+      <div style="font:600 .6rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--steel-soft)">Passo 4</div>
+      <h3 style="font-weight:600;font-size:1rem;margin:.4rem 0 .5rem">Parecer assinado</h3>
+      <p style="font-size:.85rem;line-height:1.6;color:var(--steel)">Por um sócio, nominalmente. Nada sai daqui assinado por "equipe técnica".</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · O PARECER EM TRÊS POSIÇÕES -->
+<section class="parecer">
+  <div class="sec" style="padding-top:4.5rem;padding-bottom:4.5rem">
+    <div class="sec-cab">
+      <p class="sec-olho">O parecer</p>
+      <h2 class="sec-titulo">Você não recebe planilha. Recebe um <em>parecer.</em></h2>
+      <p class="sec-desc">São três posições, e só três. Cada uma vem com a recomendação do que fazer com o pagamento.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem">
+      <div style="border:1px solid var(--linha);border-top:3px solid var(--verde);border-radius:6px;padding:1.6rem;background:var(--papel)">
+        <div style="font:700 1.15rem var(--display);color:var(--verde);margin-bottom:.6rem">Aprovar</div>
+        <p style="font-size:.86rem;line-height:1.6;color:var(--steel)">Todas as rubricas dentro da referência. Recomendação: <b style="color:var(--grafite)">pagar</b>.</p>
+        <p style="font-size:.8rem;line-height:1.6;color:var(--steel-soft);margin-top:.8rem">O parecer aprovar também tem valor: é a sua tranquilidade documentada.</p>
+      </div>
+      <div style="border:1px solid var(--linha);border-top:3px solid var(--ambar);border-radius:6px;padding:1.6rem;background:var(--papel)">
+        <div style="font:700 1.15rem var(--display);color:var(--ambar);margin-bottom:.6rem">Aprovar com ressalvas</div>
+        <p style="font-size:.86rem;line-height:1.6;color:var(--steel)">Há achados, mas o pagamento não pode parar. Recomendação: <b style="color:var(--grafite)">pagar com contestação parcial</b> dos itens em ressalva.</p>
+      </div>
+      <div style="border:1px solid var(--linha);border-top:3px solid var(--vermelho);border-radius:6px;padding:1.6rem;background:var(--papel)">
+        <div style="font:700 1.15rem var(--display);color:var(--vermelho);margin-bottom:.6rem">Não aprovar</div>
+        <p style="font-size:.86rem;line-height:1.6;color:var(--steel)">O achado compromete o documento. Recomendação: <b style="color:var(--grafite)">reter e contestar</b> antes de pagar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · EXEMPLO DE UM MÊS -->
+<section class="sec" id="exemplo">
+  <div class="sec-cab">
+    <p class="sec-olho">Um mês, por inteiro</p>
+    <h2 class="sec-titulo">12 rubricas conferidas. <em>3 achados.</em></h2>
+    <p class="sec-desc">Exemplo de uma competência real de condomínio. Os valores são ilustrativos; o método é o mesmo de todo mês.</p>
+  </div>
+  <div class="scan-grid">
+    <div class="scan-doc">
+      <div class="scan-doc-top"><span>Prestação de contas · exemplo</span><span>Competência 05/2026</span></div>
+      <div class="rub lit"><span class="rn">Limpeza e conservação<span class="ok">✓ na referência</span></span><span class="rv">R$ 18.450</span></div>
+      <div class="rub lit"><span class="rn">Segurança patrimonial<span class="ok">✓ na referência</span></span><span class="rv">R$ 32.780</span></div>
+      <div class="rub lit achado"><span class="rn">Manutenção predial<span class="badge">ACHADO 1 · acima da referência da tipologia</span></span><span class="rv">R$ 39.680</span></div>
+      <div class="rub lit"><span class="rn">Administração<span class="ok">✓ na referência</span></span><span class="rv">R$ 8.900</span></div>
+      <div class="rub lit"><span class="rn">Água e esgoto<span class="ok">✓ na referência</span></span><span class="rv">R$ 9.870</span></div>
+      <div class="rub lit"><span class="rn">Energia (áreas comuns)<span class="ok">✓ na referência</span></span><span class="rv">R$ 14.220</span></div>
+      <div class="rub lit achado"><span class="rn">Conservação de elevadores<span class="badge">ACHADO 2 · duplicidade — mesmo contrato, dois lançamentos</span></span><span class="rv">R$ 6.400</span></div>
+      <div class="rub lit"><span class="rn">Jardinagem<span class="ok">✓ na referência</span></span><span class="rv">R$ 3.150</span></div>
+      <div class="rub lit"><span class="rn">Seguros<span class="ok">✓ na referência</span></span><span class="rv">R$ 2.980</span></div>
+      <div class="rub lit achado"><span class="rn">Serviços eventuais<span class="badge">ACHADO 3 · sem lastro contratual localizado</span></span><span class="rv">R$ 7.600</span></div>
+      <div class="rub lit"><span class="rn">Fundo de reserva<span class="ok">✓ na referência</span></span><span class="rv">R$ 5.000</span></div>
+      <div class="rub lit"><span class="rn">Despesas bancárias<span class="ok">✓ na referência</span></span><span class="rv">R$ 640</span></div>
+    </div>
+    <aside class="veredito" aria-label="Veredito do exemplo">
+      <div class="vt">Veredito do mês</div>
+      <div class="vv">Aprovar com ressalvas</div>
+      <div class="vlin"><span>Rubricas conferidas</span><b>12</b></div>
+      <div class="vlin"><span>Dentro da referência</span><b>9</b></div>
+      <div class="vlin"><span>Achados</span><b style="color:var(--vermelho)">3</b></div>
+      <div class="veco"><b>53.680</b>em revisão — o que entra em contestação neste exemplo (R$)</div>
+    </aside>
+  </div>
+</section>
+
+<!-- 6 · PERGUNTAS -->
+<section style="background:var(--papel);border-top:1px solid var(--linha)">
+  <div class="sec" style="padding-top:4.5rem;padding-bottom:4.5rem">
+    <div class="sec-cab"><p class="sec-olho">Perguntas</p><h2 class="sec-titulo">O que costumam perguntar.</h2></div>
+    <div class="faq">
+      <details open><summary>Preciso trocar de administradora?</summary><p>Não. A Regula360 confere o que a sua administradora manda — não substitui ninguém. O parecer é seu, e é você que decide o que fazer com ele.</p></details>
+      <details><summary>E se estiver tudo certo?</summary><p>Ótimo — o parecer APROVAR também tem valor: é a sua tranquilidade documentada, mês a mês, com data e assinatura.</p></details>
+      <details><summary>Quem assina o parecer?</summary><p>Um dos sócios, nominalmente. Nada sai daqui assinado por "equipe técnica".</p></details>
+      <details><summary>Atende fora de São Paulo?</summary><p>Sim. A conferência é documental, então o serviço é prestado em todo o território nacional.</p></details>
+    </div>
+  </div>
+</section>
+
+
+<!-- 7 · AS OUTRAS FRENTES -->
+<section class="sec" style="padding-top:1rem;padding-bottom:2rem">
+  <div style="padding:0">
+  <div class="sec-cab" style="margin-bottom:2rem"><p class="sec-olho">As outras frentes</p>
+    <h2 class="sec-titulo" style="font-size:1.7rem">Cada frente é independente. <em>Comece por esta.</em></h2></div>
+  <div class="servicos-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="card-serv"><div class="cs-top"><div class="num">01</div><span class="prazo">até 30 dias</span></div><h3>Diagnóstico &amp; Painel</h3><p>A operação inteira numa tela, com painel vivo de vencimentos e criticidade.</p><a class="mais" href="/diagnostico-e-painel">Ver como funciona →</a></div>
+    <div class="card-serv"><div class="cs-top"><div class="num">02</div><span class="prazo">contínuo</span></div><h3>Regularização &amp; gestão ativa</h3><p>Assumimos as pendências, com priorização por risco e interface direta com os órgãos.</p><a class="mais" href="/regularizacao-e-gestao-ativa">Ver como funciona →</a></div>
+    <div class="card-serv"><div class="cs-top"><div class="num">04</div><span class="prazo">24–36 meses</span></div><h3>Auditoria &amp; recuperação</h3><p>Auditoria histórica linha a linha, com economia comprovada.</p><a class="mais" href="/auditoria-e-recuperacao">Ver como funciona →</a></div>
+  </div>
+  </div>
+</section>
+
+<!-- 8 · CHAMADA -->
+<section class="contato" id="falar"><div class="sec"><div class="contato-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start">
+  <div>
+    <p class="sec-olho" style="color:var(--azul-luz)">Fale com a gente</p>
+    <h2 class="sec-titulo" style="color:var(--osso)">Mande a prestação do mês passado.</h2>
+    <p style="font-size:.95rem;line-height:1.65;color:rgba(244,240,232,.75);max-width:46ch;margin-top:1rem">A análise inicial de 1 documento é sem custo. Você recebe o parecer em 5 dias úteis, numa conversa de 20 minutos, sem compromisso.</p>
+    <p style="font-size:.85rem;color:rgba(244,240,232,.6);margin-top:1.4rem">Prefere e-mail? <b style="color:var(--osso)">documentos@regula360.com.br</b></p>
+  </div>
+  <div class="ficha" id="form-pagina">
+    <div class="rot">Abertura de análise · Gestão mensal de boletos</div>
+    <div class="rsub">Chega direto a um dos sócios. A análise inicial de 1 documento é sem custo.</div>
+    <div class="campo"><label for="f-nome">Nome</label><input type="text" id="f-nome" autocomplete="name"></div>
+    <div class="campo"><label for="f-email">E-mail</label><input type="email" id="f-email" autocomplete="email"></div>
+    <div class="dupla">
+      <div class="campo"><label for="f-tipo">Tipo de imóvel</label><select id="f-tipo"><option>Selecione…</option><option>Residencial padrão</option><option>Residencial alto padrão</option><option>Comercial</option><option>Uso misto</option><option>Logístico / galpão</option></select></div>
+      <div class="campo"><label for="f-m2">Área <small>(m²)</small></label><input type="text" inputmode="numeric" id="f-m2"></div>
+    </div>
+    <div class="campo"><label for="f-doc">Documento <small>(PDF · opcional)</small></label><input type="file" id="f-doc" accept=".pdf,application/pdf"></div>
+    <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <label class="lgpd"><input type="checkbox" id="f-lgpd"> Autorizo o uso destes dados exclusivamente para a análise solicitada. <a href="/privacidade" target="_blank" rel="noopener">Política de privacidade</a></label>
+    <button class="btn btn-azul" id="btn-enviar" type="button" style="width:100%;justify-content:center">Enviar para análise confidencial</button>
+    <div id="f-erro" role="alert" style="display:none;margin-top:14px;padding:14px 16px;border:1px solid #B23A2E;background:#FBECEA;border-radius:10px;font-size:.95rem;line-height:1.5;color:#7A2318"></div>
+    <div id="f-ok" role="status" style="display:none;margin-top:14px;padding:14px 16px;border:1px solid #1C5A73;background:#EAF3F6;border-radius:10px;font-size:.95rem;line-height:1.5;color:#12303b">
+      <b>✓ Recebido.</b> Seu protocolo é <b id="f-proto">—</b>. Um sócio confere contra a base e retorna em até 5 dias úteis — sem compromisso.
+    </div>
+  </div>
+</div></div></section>
+<script>
+// Teto do anexo no servidor (LEADS_ANEXO_MAX_BYTES). Repetido aqui só para
+// avisar ANTES de subir o arquivo — quem manda prestação de contas escaneada
+// passa de 10 MB com facilidade e não vai esperar o upload pra descobrir.
+const ANEXO_MAX=10*1024*1024;
+const fErro=document.getElementById('f-erro');
+function limparErro(){if(fErro)fErro.style.display='none'}
+function mostrarErro(msg){
+  if(!fErro)return;
+  fErro.innerHTML=msg;
+  fErro.style.display='block';
+  const r=fErro.getBoundingClientRect();
+  if(r.top<0||r.bottom>window.innerHeight)fErro.scrollIntoView({block:'center',behavior:'smooth'});
+}
+// O servidor recusa por motivo; sem traduzir, o site dizia "tente de novo" e a
+// pessoa repetia o mesmo arquivo pra sempre sem saber o que estava errado.
+function motivoDaRecusa(data,status){
+  const cod=data&&(data.error||data.erro);
+  if(cod==='arquivo_grande'||status===413)
+    return 'O PDF passa de 10 MB. Envie uma versão mais leve, ou mande o arquivo direto para <b>documentos@regula360.com.br</b> — a análise é a mesma.';
+  if(cod==='tipo_invalido'||status===415)
+    return 'O documento precisa estar em PDF. Se o seu arquivo for imagem ou planilha, mande para <b>documentos@regula360.com.br</b>.';
+  return 'Não foi possível enviar agora. Tente de novo ou escreva para <b>documentos@regula360.com.br</b>.';
+}
+
+document.getElementById('btn-enviar').addEventListener('click',async ()=>{
+  const v=id=>(document.getElementById(id)?.value||'').trim();
+  const btn=document.getElementById('btn-enviar');
+  // Honeypot: bot preencheu o campo escondido → finge sucesso e não faz nada.
+  if(document.getElementById('f-gotcha').value){return}
+  limparErro();
+  if(!document.getElementById('f-lgpd').checked){mostrarErro('Confirme a autorização de uso dos dados (LGPD) para continuar.');return}
+  const nome=v('f-nome'),email=v('f-email');
+  if(!nome||!email){mostrarErro('Preencha ao menos nome e e-mail.');return}
+  const tipo=v('f-tipo'),m2=v('f-m2');
+  const fd=new FormData();
+  fd.append('nome',nome);
+  fd.append('email',email);
+  fd.append('servico','Gestão mensal de boletos'); // de qual página veio: grava em leads.origem_detalhe
+  if(tipo&&tipo!=='Selecione…')fd.append('tipo_imovel',tipo);
+  if(m2)fd.append('area_m2',m2);
+  const ctx=[]; if(tipo&&tipo!=='Selecione…')ctx.push('Tipo: '+tipo); if(m2)ctx.push('Área: '+m2+' m²');
+  if(ctx.length)fd.append('mensagem',ctx.join(' · '));
+  const arq=document.getElementById('f-doc'),file=arq&&arq.files&&arq.files[0];
+  if(file&&file.size>ANEXO_MAX){mostrarErro(motivoDaRecusa({error:'arquivo_grande'}));return}
+  if(file)fd.append('anexo',file);
+  btn.disabled=true; const txt=btn.textContent; btn.textContent='Enviando…';
+  try{
+    const res=await fetch('/api/public/lead-regula',{method:'POST',body:fd,headers:{Accept:'application/json'}});
+    const data=await res.json().catch(()=>({}));
+    if(res.ok){
+      const proto=(data.id?String(data.id).slice(0,8):Date.now().toString(36)).toUpperCase();
+      const pe=document.getElementById('f-proto'); if(pe)pe.textContent='#'+proto;
+      ['f-nome','f-email','f-tipo','f-m2','f-doc'].forEach(id=>{const c=document.getElementById(id)?.closest('.campo'); if(c)c.style.display='none';});
+      const dupla=document.querySelector('.ficha .dupla'); if(dupla)dupla.style.display='none';
+      const lg=document.querySelector('.ficha .lgpd'); if(lg)lg.style.display='none';
+      btn.style.display='none';
+      const ok=document.getElementById('f-ok'); if(ok)ok.style.display='block';
+    }else{
+      btn.disabled=false; btn.textContent=txt;
+      mostrarErro(motivoDaRecusa(data,res.status));
+    }
+  }catch{
+    btn.disabled=false; btn.textContent=txt;
+    mostrarErro('Não foi possível enviar agora. Verifique a conexão e tente de novo, ou escreva para <b>documentos@regula360.com.br</b>.');
+  }
+});
+</script>
+
+</main>
+
+
+<footer class="rodape">
+  <div class="rodape-in">
+    <div>
+      <div class="marca" style="margin-bottom:1rem"><svg class="logo-regua" viewBox="0 0 60 60" style="width:34px;height:34px;color:var(--osso)"><use href="#sym-regua"/></svg><span class="nome">REGULA<b>360</b></span></div>
+      <p style="max-width:34ch;font-size:.9rem">A camada permanente que mantém sua operação regular, documentada e com custos sob controle.</p>
+    </div>
+    <div class="serv">
+      <div class="rot">Serviços</div>
+      <a href="/diagnostico-e-painel">Diagnóstico &amp; Painel</a>
+      <a href="/regularizacao-e-gestao-ativa">Regularização &amp; gestão ativa</a>
+      <a href="/gestao-mensal-de-boletos">Gestão mensal de boletos</a>
+      <a href="/auditoria-e-recuperacao">Auditoria &amp; recuperação</a>
+    </div>
+    <div>
+      <div class="rot">Registro</div>
+      <b>REGULA 360 CONSULTORIA E SERVICOS LTDA</b><br>
+      <span class="cnpj">CNPJ 67.239.086/0001-80</span><br>São Paulo/SP
+    </div>
+    <div>
+      <div class="rot">Canal</div>
+      <b>contato@regula360.com.br</b><br>regula360.com.br<br>
+      <a href="/privacidade">Política de privacidade</a> · <a href="https://portal.regula360.com.br">Área do cliente</a>
+    </div>
+  </div>
+  <div class="rodape-base"><span>© 2026 Regula360 · Da régua à regra. Da regra à regularidade.</span><span>Dados tratados conforme a LGPD (Lei 13.709/2018).</span></div>
+</footer>
+
+<script>
+/* "Serviços ▾": abre e fecha por clique (o Safari não dá foco a botão, então só :focus-within não bastava),
+   fecha ao clicar fora ou com Esc, e avisa leitor de tela pelo aria-expanded. */
+(function(){
+  var sub=document.querySelector('nav.menu .sub'); if(!sub)return;
+  var bt=sub.querySelector('.gatilho'); bt.setAttribute('aria-haspopup','true'); bt.setAttribute('aria-expanded','false');
+  function por(v){sub.classList.toggle('aberto',v);bt.setAttribute('aria-expanded',v?'true':'false');}
+  bt.addEventListener('click',function(e){e.stopPropagation();por(!sub.classList.contains('aberto'));});
+  document.addEventListener('click',function(e){if(!sub.contains(e.target))por(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')por(false);});
+})();
+</script>
+<!-- ===== Consentimento LGPD + coletor de tráfego (BI próprio, sem Google) ===== -->
+<style>
+/* 🔒 O AVISO DE COOKIES É #lgpd (id), NUNCA .lgpd (classe). De 03/07 a 18/09/2026 este bloco
+   usava .lgpd — o MESMO nome da caixinha "Autorizo o uso destes dados" do formulário — e
+   ela herdava position:fixed + opacity:0 + translateY(160%): ficava invisível, fora da tela.
+   Como o envio exige a caixinha marcada, o formulário não enviava. Zero leads no período. */
+#lgpd{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:80;max-width:var(--container);margin:0 auto;
+  display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  background:var(--grafite-deep);color:var(--osso);border:1px solid rgba(244,240,232,.14);border-radius:12px;
+  padding:1rem 1.25rem;box-shadow:0 18px 50px rgba(20,22,26,.35);
+  transform:translateY(160%);opacity:0;transition:transform .55s cubic-bezier(.16,1,.3,1),opacity .4s}
+#lgpd.on{transform:none;opacity:1}
+#lgpd p{font-size:.82rem;line-height:1.5;color:var(--osso-soft);margin:0;max-width:56ch}
+#lgpd p a{color:var(--azul-luz);text-decoration:underline}
+.lgpd-b{display:flex;gap:.6rem;flex-shrink:0}
+.lgpd-btn{font:600 .8rem var(--display);border-radius:8px;padding:.6rem 1.1rem;cursor:pointer;border:1px solid transparent}
+.lgpd-btn.ok{background:var(--azul);color:#fff}
+.lgpd-btn.ghost{background:transparent;color:var(--osso-soft);border-color:rgba(244,240,232,.28)}
+@media(max-width:640px){#lgpd{flex-direction:column;align-items:stretch}.lgpd-b{justify-content:stretch}.lgpd-btn{flex:1}}
+</style>
+<div class="lgpd" id="lgpd" role="dialog" aria-label="Aviso de privacidade">
+  <p>Usamos só dados de navegação para medir o alcance do site — sem Google, sem venda de dados. Você decide. <a href="/privacidade">Política de privacidade</a>.</p>
+  <div class="lgpd-b">
+    <button type="button" class="lgpd-btn ghost" id="lgpd-ess">Apenas essenciais</button>
+    <button type="button" class="lgpd-btn ok" id="lgpd-ok">Aceitar</button>
+  </div>
+</div>
+<script>
+(function(){
+  var TRACK='/api/public/track';
+  function vid(){var k='r360-vid',v=localStorage.getItem(k);
+    if(!v){v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2);localStorage.setItem(k,v);}return v;}
+  function q(n){try{return new URLSearchParams(location.search).get(n);}catch(e){return null;}}
+  // Coletor: só dispara com consentimento explícito. text/plain = requisição CORS
+  // "simples" (sem preflight); o servidor lê o corpo e faz JSON.parse.
+  window.r360track=function(ev){
+    if(localStorage.getItem('lgpd-consent')!=='accepted')return;
+    try{
+      var p=JSON.stringify({evento:ev||'pageview',path:location.pathname,referrer:document.referrer||null,
+        visitor_id:vid(),utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign')});
+      if(navigator.sendBeacon){navigator.sendBeacon(TRACK,new Blob([p],{type:'text/plain'}));}
+      else{fetch(TRACK,{method:'POST',body:p,headers:{'Content-Type':'text/plain'},keepalive:true}).catch(function(){});}
+    }catch(e){}
+  };
+  if(localStorage.getItem('lgpd-consent')==='accepted')window.r360track('pageview');
+  var b=document.getElementById('lgpd');
+  // O banner é inserido depois do script que liga [data-priv]; religa o link dele.
+  var dlg=document.getElementById('dlg-priv');
+  if(b&&dlg)b.querySelectorAll('[data-priv]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();if(dlg.showModal)dlg.showModal();});});
+  if(!localStorage.getItem('lgpd-consent')){setTimeout(function(){b.classList.add('on');},700);}else if(b){b.remove();}
+  function fechar(escolha){localStorage.setItem('lgpd-consent',escolha);
+    if(escolha==='accepted')window.r360track('pageview');
+    b.classList.remove('on');setTimeout(function(){if(b)b.remove();},550);}
+  var ok=document.getElementById('lgpd-ok'),ess=document.getElementById('lgpd-ess');
+  if(ok)ok.addEventListener('click',function(){fechar('accepted');});
+  if(ess)ess.addEventListener('click',function(){fechar('essential');});
+  // Eventos: clique em e-mail e envio do formulário.
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null;
+    if(a&&(a.getAttribute('href')||'').indexOf('mailto:')===0)window.r360track('click_email');
+  });
+  var env=document.getElementById('btn-enviar');
+  if(env)env.addEventListener('click',function(){window.r360track('form_enviado');});
+})();
+</script>
+
+</body>
+</html>
