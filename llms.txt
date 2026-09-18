@@ -1,6 +1,6 @@
 # Regula360
 
-> Governança documental e auditoria de custos para condomínios, imóveis e portfólios multiunidade, em São Paulo e nos estados onde os clientes operam. Mantém a documentação em dia e confere cada despesa contra base própria. CNPJ 67.239.086/0001-80.
+> Governança documental e auditoria de custos para condomínios, imóveis e portfólios multiunidade, em todo o Brasil. Mantém a documentação em dia e confere cada despesa contra base própria. CNPJ 67.239.086/0001-80.
 
 A Regula360 é a camada permanente que mantém imóveis — de uma unidade a um portfólio inteiro — regulares na documentação e com o custo medido. Tudo numa só tela: um painel vivo com o que vence, o que está em risco e o que já foi recuperado.
 
