@@ -1,0 +1,8 @@
+# O que está no repositório mas NÃO é site: o Vercel não publica.
+# 🟥 24/09: /scripts/ (as provas) estava aberto em www.regula360.com.br; no site da M5,
+# junto com ele, estava um CLAUDE.md com nota interna. Quem cobra esta lista é
+# scripts/prova-nada-interno.mjs. Sintaxe aceita pela prova: "/caminho" ou "*.ext".
+/scripts
+/node_modules
+/.claude
+*.md
