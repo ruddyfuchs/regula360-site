@@ -5,4 +5,5 @@
 /scripts
 /node_modules
 /.claude
+/.github
 *.md
