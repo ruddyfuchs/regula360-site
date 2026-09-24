@@ -37,9 +37,9 @@
 :root{
   --osso:#F4F0E8; --osso-soft:#EBE5D8; --papel:#FAF7F1;
   --grafite:#34383D; --grafite-soft:#454A50; --grafite-deep:#2A2E33;
-  --steel:#5A5F66; --steel-soft:#8A8F96;
-  --azul:#1C5A73; --azul-deep:#143F52; --azul-luz:#5AA8C6;
-  --verde:#2E7D52; --ambar:#B7791F; --vermelho:#B23A2E;
+  --steel:#5A5F66; --steel-soft:#8A8F96;--steel-soft-txt:#91959C;
+  --azul:#1C5A73; --azul-deep:#143F52; --azul-luz:#5AA8C6;--azul-luz-txt:#89C1D6;
+  --verde:#2E7D52; --ambar:#B7791F;--ambar-txt:#966319; --vermelho:#B23A2E;
   --linha:rgba(52,56,61,.12); --linha-soft:rgba(52,56,61,.06);
   --display:'Montserrat','Segoe UI',system-ui,-apple-system,sans-serif;
   --sans:'Montserrat','Segoe UI',system-ui,-apple-system,sans-serif;
@@ -171,7 +171,7 @@ h2.sec-titulo em{font-style:italic;font-weight:300;color:var(--azul)}
 .med-botoes{display:flex;justify-content:center;gap:.5rem;margin-top:1rem}
 .med-botoes button{font:600 .6rem var(--display);letter-spacing:.04em;border:1px solid var(--linha);background:transparent;color:var(--steel);border-radius:5px;padding:.5rem .7rem;cursor:pointer;transition:.2s}
 .med-botoes button[data-v="ok"][aria-pressed="true"]{border-color:var(--verde);color:var(--verde);background:rgba(46,125,82,.08)}
-.med-botoes button[data-v="rs"][aria-pressed="true"]{border-color:var(--ambar);color:var(--ambar);background:rgba(183,121,31,.1)}
+.med-botoes button[data-v="rs"][aria-pressed="true"]{border-color:var(--ambar-txt);color:var(--ambar-txt);background:rgba(183,121,31,.1)}
 .med-botoes button[data-v="no"][aria-pressed="true"]{border-color:var(--vermelho);color:var(--vermelho);background:rgba(178,58,46,.09)}
 .med-reco{font-size:.8rem;color:var(--steel);margin-top:.9rem}
 .med-reco b{color:var(--grafite);font-weight:600}
@@ -184,7 +184,7 @@ h2.sec-titulo em{font-style:italic;font-weight:300;color:var(--azul)}
 .stat:first-child{border-left:none;padding-left:0}
 .stat .n{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .stat .n em{font-style:italic;font-weight:300;color:var(--azul-luz)}
-.stat .l{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,240,232,.6);margin-top:.75rem}
+.stat .l{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,240,232,.66);margin-top:.75rem}
 
 /* gestão à vista */
 .gv{background:var(--papel);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
@@ -269,30 +269,30 @@ details p{margin:0 0 1.2rem;color:var(--steel);font-size:.92rem;max-width:64ch;l
 .contato{background:var(--grafite);color:var(--osso)}
 .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
 @media(max-width:880px){.contato-grid{grid-template-columns:1fr}}
-.contato .sec-olho{color:var(--azul-luz)}
+.contato .sec-olho{color:var(--azul-luz-txt)}
 .contato h2{color:var(--osso)}
 .contato h2 em{color:var(--azul-luz);font-style:italic;font-weight:300}
 .contato .frase{font-family:var(--display);font-style:italic;font-size:1.1rem;color:rgba(244,240,232,.7);border-left:2px solid var(--azul-luz);padding-left:1rem;margin:1.4rem 0;max-width:40ch}
 .contato .canal{font-size:.85rem;color:rgba(244,240,232,.7);margin-top:1.2rem}
 .contato .canal b{font-family:var(--display);color:var(--osso)}
 .ficha{background:var(--grafite-soft);border:1px solid rgba(244,240,232,.1);border-radius:6px;padding:2.2rem}
-.ficha .rot{font:600 .72rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.6);margin-bottom:.3rem}
-.ficha .rsub{font-size:.8rem;color:rgba(244,240,232,.6);margin-bottom:1.4rem;line-height:1.5}
+.ficha .rot{font:600 .72rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.66);margin-bottom:.3rem}
+.ficha .rsub{font-size:.8rem;color:rgba(244,240,232,.66);margin-bottom:1.4rem;line-height:1.5}
 .campo{margin-bottom:1rem}
 .dupla{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
 @media(max-width:420px){.dupla{grid-template-columns:1fr}}
-.campo label{display:block;font:600 .64rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:rgba(244,240,232,.6);margin-bottom:.4rem}
+.campo label{display:block;font:600 .64rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:rgba(244,240,232,.66);margin-bottom:.4rem}
 .campo input,.campo select,.campo textarea{width:100%;box-sizing:border-box;background:rgba(0,0,0,.15);border:1px solid rgba(244,240,232,.18);border-radius:3px;color:var(--osso);font:300 16px var(--sans);padding:.7rem}
 .campo select{background:var(--grafite)}
-.campo small{color:rgba(244,240,232,.5);text-transform:none;letter-spacing:0;font-weight:300}
+.campo small{color:rgba(244,240,232,.66);text-transform:none;letter-spacing:0;font-weight:300}
 .lgpd{display:flex;gap:.6rem;align-items:flex-start;font-size:.76rem;color:rgba(244,240,232,.7);margin:1rem 0}
-.lgpd a{color:var(--azul-luz)}
+.lgpd a{color:var(--azul-luz-txt)}
 .depois{margin-top:1rem;display:flex;flex-direction:column;gap:.5rem}
-.depois .p{display:flex;gap:.6rem;font-size:.74rem;color:rgba(244,240,232,.65)}
+.depois .p{display:flex;gap:.6rem;font-size:.74rem;color:rgba(244,240,232,.66)}
 .depois .p b{font:600 .62rem var(--display);color:var(--osso);border:1px solid rgba(244,240,232,.2);border-radius:3px;padding:.1rem .4rem;flex:none;height:fit-content}
 
 /* footer */
-footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:4rem var(--gutter) 2.5rem}
+footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.66);padding:4rem var(--gutter) 2.5rem}
 .rodape-in{max-width:var(--container);margin:0 auto;display:grid;grid-template-columns:2fr 1.1fr 1fr 1fr;gap:2.5rem}@media(max-width:1000px){.rodape-in{grid-template-columns:1fr 1fr}}.rodape .serv a{display:block;margin-bottom:.45rem;line-height:1.35}
 @media(max-width:760px){.rodape-in{grid-template-columns:1fr}}
 .rodape .marca .nome{color:var(--osso)}
@@ -348,11 +348,11 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 .scan-grid.on .scanline{animation:varre 3s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes varre{0%{opacity:1;top:-46px}90%{opacity:1}100%{opacity:0;top:100%}}
 .veredito{background:var(--grafite);color:var(--osso);border-radius:8px;padding:1.6rem;position:sticky;top:96px}
-.veredito .vt{font:600 .6rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.55)}
+.veredito .vt{font:600 .6rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.57)}
 .veredito .vv{font-family:var(--display);font-weight:700;font-size:1.3rem;color:var(--ambar);margin:.25rem 0 1.1rem;line-height:1.15}
 .veredito .vlin{display:flex;justify-content:space-between;gap:1rem;font-size:.76rem;padding:.55rem 0;border-top:1px solid rgba(244,240,232,.12);color:rgba(244,240,232,.7)}
 .veredito .vlin b{color:var(--osso);font-variant-numeric:tabular-nums;font-weight:600}
-.veredito .veco{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid rgba(244,240,232,.12);font-size:.68rem;letter-spacing:.02em;color:rgba(244,240,232,.55)}
+.veredito .veco{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid rgba(244,240,232,.12);font-size:.68rem;letter-spacing:.02em;color:rgba(244,240,232,.57)}
 .veredito .veco b{display:block;font-family:var(--display);font-weight:700;font-size:1.7rem;color:var(--azul-luz);font-variant-numeric:tabular-nums;margin-bottom:.15rem}
 
 /* ===== #3 motivos distintos por cartão de serviço ===== */
@@ -364,8 +364,8 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 
 /* ===== #5 Onde já atuamos — mapa do Brasil + atuação por ponto ===== */
 .mapa{background:linear-gradient(150deg,var(--grafite-soft),var(--grafite-deep));border-radius:6px;padding:1.8rem;color:var(--osso);position:relative;overflow:hidden}
-.mapa .mt{font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.55)}
-.mapa .msub{font-size:.8rem;color:rgba(244,240,232,.6);margin:.4rem 0 1.2rem;line-height:1.55;max-width:44ch}
+.mapa .mt{font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:rgba(244,240,232,.57)}
+.mapa .msub{font-size:.8rem;color:rgba(244,240,232,.66);margin:.4rem 0 1.2rem;line-height:1.55;max-width:44ch}
 .mapa-wrap{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:center}
 @media(max-width:520px){.mapa-wrap{grid-template-columns:1fr;justify-items:center}}
 .mapa-svg{width:210px;max-width:54vw;height:auto;display:block}
@@ -385,7 +385,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.6);padding:
 @keyframes ufIn{to{opacity:1;transform:none}}
 .mapa-num{display:flex;gap:1.8rem;margin-top:1.3rem;padding-top:1.2rem;border-top:1px solid rgba(244,240,232,.12)}
 .mapa-num .n{font-family:var(--display);font-weight:700;font-size:1.55rem;color:var(--azul-luz);font-variant-numeric:tabular-nums;line-height:1}
-.mapa-num .l{font-size:.62rem;color:rgba(244,240,232,.55);margin-top:.25rem}
+.mapa-num .l{font-size:.62rem;color:rgba(244,240,232,.57);margin-top:.25rem}
 
 /* ===== #6 Como funciona — timeline vertical ===== */
 .timeline{max-width:760px;margin-top:1rem;position:relative;padding-left:2.4rem}
@@ -493,6 +493,11 @@ header.topo{background:var(--grafite-deep);border-bottom-color:rgba(255,255,255,
 header.topo .marca .logo-regua{width:46px;height:46px;color:var(--osso)}
 header.topo .marca .nome{font-size:1.25rem;color:var(--osso)}
 header.topo .marca .nome b{color:var(--azul-luz)}
+/* 23/09: o rodapé é escuro igual ao topo e ficara com a regra base (azul sobre grafite, contraste 1,80). Mesmo remédio do topo. */
+.rodape .marca .nome b{color:var(--azul-luz)}
+.st.al,.pk.al .v{color:var(--ambar-txt)}
+/* variantes de TEXTO das cores de marca: mesma cor, luminosidade suficiente para 4,5:1. A cor decorativa continua a original. */
+.rodape .rot,.rodape-base .rot{color:var(--steel-soft-txt)}
 nav.menu>a,nav.menu .gatilho{color:rgba(244,240,232,.75)}
 nav.menu>a:hover,nav.menu>a.on,nav.menu .gatilho:hover,nav.menu .gatilho.on{color:var(--osso)}
 nav.menu a.on::after{background:var(--azul-luz)}
@@ -630,10 +635,10 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
 <!-- 7 · CHAMADA -->
 <section class="contato" id="falar"><div class="sec"><div class="contato-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start">
   <div>
-    <p class="sec-olho" style="color:var(--azul-luz)">Fale com a gente</p>
+    <p class="sec-olho" style="color:var(--azul-luz-txt)">Fale com a gente</p>
     <h2 class="sec-titulo" style="color:var(--osso)">Quanto você já pagou a mais?</h2>
     <p style="font-size:.95rem;line-height:1.65;color:rgba(244,240,232,.75);max-width:46ch;margin-top:1rem">Mande a última prestação de contas. A análise inicial é sem custo, e o parecer sai em 5 dias úteis.</p>
-    <p style="font-size:.85rem;color:rgba(244,240,232,.6);margin-top:1.4rem">Prefere e-mail? <b style="color:var(--osso)">documentos@regula360.com.br</b></p>
+    <p style="font-size:.85rem;color:rgba(244,240,232,.66);margin-top:1.4rem">Prefere e-mail? <b style="color:var(--osso)">documentos@regula360.com.br</b></p>
   </div>
   <div class="ficha" id="form-pagina">
     <div class="rot">Abertura de análise · Auditoria e recuperação</div>
