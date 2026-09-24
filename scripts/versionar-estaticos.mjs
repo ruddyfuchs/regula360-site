@@ -84,6 +84,15 @@ const carimbarUrl = (texto) => texto.replace(/url\((['"]?)([^'")]+)\1\)/g, (inte
   return `url(${aspas}${url.split('?')[0]}?v=${digital(arq)}${aspas})`;
 });
 
+// 🟥 declarados ANTES de qualquer laço (24/09). Moravam abaixo do laço dos .css, que
+// já os usa: em JavaScript, `const` antes da linha dele é erro, não vazio. Este site
+// não tem .css próprio, então o laço nunca rodou; no primeiro .css com url() o script
+// QUEBRARIA em vez de carimbar. A prova-carimbo-css cobra.
+const desatualizadas = [];
+const desatualizadasCss = [];
+const semCarimbo = new Map(); // arquivo -> páginas, só para o relatório
+let mudadas = 0;
+
 // os .css primeiro: o carimbo muda o conteúdo deles, e é o conteúdo que dá o hash
 // com que o HTML vai pedi-los. Na ordem inversa, o HTML pediria uma versão que já
 // não existe — e o portão ficaria vermelho para sempre.
@@ -97,11 +106,15 @@ for (const folha of readdirSync(RAIZ).filter((f) => f.endsWith('.css'))) {
 }
 digitais.clear();
 
-const paginas = readdirSync(RAIZ).filter((f) => f.endsWith('.html'));
-const desatualizadas = [];
-const desatualizadasCss = [];
-const semCarimbo = new Map(); // arquivo -> páginas, só para o relatório
-let mudadas = 0;
+// páginas em qualquer pasta, não só na raiz (24/09, trazido do site da M5, onde a
+// primeira página de campanha em `campanha/` ia ao ar sem carimbo nenhum).
+const FORA = new Set(['scripts', 'node_modules', '.git', '.github', '.vercel', '.claude']);
+const listarPaginas = (dir = '') => readdirSync(join(RAIZ, dir), { withFileTypes: true }).flatMap((e) => {
+  const rel = dir ? `${dir}/${e.name}` : e.name;
+  if (e.isDirectory()) return FORA.has(e.name) || e.name.startsWith('.') ? [] : listarPaginas(rel);
+  return e.name.endsWith('.html') ? [rel] : [];
+});
+const paginas = listarPaginas();
 
 for (const p of paginas) {
   const antes = readFileSync(join(RAIZ, p), 'utf8');
