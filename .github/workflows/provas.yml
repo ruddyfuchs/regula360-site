@@ -1,0 +1,84 @@
+# As provas do site rodam sozinhas: em todo PR, em todo merge e, depois de cada
+# publicação, contra o site NO AR. Mesmo desenho do site da M5 (24/09).
+#
+# A prévia do Vercel pede login, então o navegador da prova abre o site por
+# scripts/servidor-local.mjs, que serve como o Vercel (lê o vercel.json e o
+# .vercelignore) e NÃO repassa o /api para a produção.
+name: provas
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  deployment_status:
+
+permissions:
+  contents: read
+
+jobs:
+  arquivos:
+    name: provas de arquivo
+    if: github.event_name != 'deployment_status'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: versão dos arquivos (?v=) em dia
+        run: node scripts/versionar-estaticos.mjs --conferir
+      - name: carimbador funciona com .css novo e página em pasta
+        run: node scripts/prova-carimbo-css.mjs
+      - name: dados do negócio (Google) íntegros
+        run: node scripts/prova-dados-do-negocio.mjs
+      - name: perguntas frequentes = o que está na tela
+        run: node scripts/prova-faq.mjs
+      - name: ícones da marca
+        run: node scripts/prova-icones.mjs
+      - name: nada interno vai para o ar
+        run: node scripts/prova-nada-interno.mjs
+
+  navegador:
+    name: provas de navegador
+    if: github.event_name != 'deployment_status'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: instala o playwright (usa o Chrome que já vem na máquina) e o axe
+        run: npm install --no-save --no-audit --no-fund playwright@1.61.1 axe-core@4.10.2
+      - name: sobe o site como o Vercel serve
+        run: |
+          nohup node scripts/servidor-local.mjs 8080 > servidor.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf -o /dev/null http://localhost:8080/ && exit 0; sleep 1; done
+          cat servidor.log; exit 1
+      - name: nenhum bloco fora da margem
+        run: node scripts/prova-alinhamento.mjs http://localhost:8080
+      - name: nada baixado duas vezes, nada 404
+        run: node scripts/prova-rede-limpa.mjs http://localhost:8080
+      - name: acessibilidade e contraste (axe)
+        run: node scripts/prova-contraste.mjs http://localhost:8080 node_modules/axe-core/axe.min.js
+
+  no-ar:
+    name: conferência no ar (depois de publicar)
+    if: >-
+      github.event_name == 'deployment_status'
+      && github.event.deployment_status.state == 'success'
+      && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save --no-audit --no-fund playwright@1.61.1 axe-core@4.10.2
+      - name: nada interno no ar
+        run: node scripts/prova-nada-interno.mjs https://www.regula360.com.br
+      - name: nada baixado duas vezes, nada 404, no ar
+        run: node scripts/prova-rede-limpa.mjs https://www.regula360.com.br
+      - name: acessibilidade e contraste no ar
+        run: node scripts/prova-contraste.mjs https://www.regula360.com.br node_modules/axe-core/axe.min.js
