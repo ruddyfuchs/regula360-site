@@ -61,6 +61,33 @@ jobs:
       - name: acessibilidade e contraste (axe)
         run: node scripts/prova-contraste.mjs http://localhost:8080 node_modules/axe-core/axe.min.js
 
+  iphone:
+    name: provas no motor do iPhone (WebKit)
+    if: github.event_name != 'deployment_status'
+    runs-on: ubuntu-latest
+    env:
+      NAVEGADOR: webkit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: instala o playwright, o motor do Safari e o axe
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.61.1 axe-core@4.10.2
+          npx playwright install --with-deps webkit
+      - name: sobe o site como o Vercel serve
+        run: |
+          nohup node scripts/servidor-local.mjs 8080 > servidor.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf -o /dev/null http://localhost:8080/ && exit 0; sleep 1; done
+          cat servidor.log; exit 1
+      - name: nenhum bloco fora da margem, no iPhone
+        run: node scripts/prova-alinhamento.mjs http://localhost:8080
+      - name: nada baixado duas vezes, no iPhone
+        run: node scripts/prova-rede-limpa.mjs http://localhost:8080
+      - name: acessibilidade e contraste, no iPhone
+        run: node scripts/prova-contraste.mjs http://localhost:8080 node_modules/axe-core/axe.min.js
+
   no-ar:
     name: conferência no ar (depois de publicar)
     if: >-

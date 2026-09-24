@@ -15,7 +15,7 @@
  * Roda de onde o playwright estiver instalado:
  *   node caminho/para/scripts/prova-alinhamento.mjs [endereço]
  */
-import { chromium } from 'playwright';
+import { abrirNavegador } from './navegador.mjs';
 
 const BASE = process.argv[2] || 'https://www.regula360.com.br';
 const PAGS = ['', 'diagnostico-e-painel', 'regularizacao-e-gestao-ativa',
@@ -24,7 +24,7 @@ const JANELA = 1920;
 const FOLGA = 40; // bordas arredondadas, sombras e faixas decorativas
 const MINIMO = 3; // cabeçalho, uma seção e o rodapé, no mínimo
 
-const browser = await chromium.launch({ channel: 'chrome' });
+const browser = await abrirNavegador();
 const ctx = await browser.newContext({ viewport: { width: JANELA, height: 1000 } });
 const page = await ctx.newPage();
 const erros = [];

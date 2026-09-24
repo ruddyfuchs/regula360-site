@@ -27,7 +27,7 @@
  * Precisa do axe.min.js ao lado (baixado uma vez) e do playwright:
  *   node caminho/para/scripts/prova-contraste.mjs [endereço] [caminho/axe.min.js]
  */
-import { chromium } from 'playwright';
+import { abrirNavegador } from './navegador.mjs';
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -45,7 +45,7 @@ if (!existsSync(AXE)) {
 }
 const fonte = readFileSync(AXE, 'utf8');
 
-const browser = await chromium.launch({ channel: 'chrome' });
+const browser = await abrirNavegador();
 const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
 const page = await ctx.newPage();
 const erros = [];
