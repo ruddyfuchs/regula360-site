@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="Regula360">
+  <!-- O mostrador da Regula360, ENCORPADO para os tamanhos pequenos.
+       Nos tamanhos grandes (iPhone, Android, app instalado) vale o símbolo oficial,
+       com os 60 tracinhos: apple-touch-icon.png, icon-192.png e icon-512.png.
+       Cores: as que o SITE desenha (grafite #34383D, terracota #C0653A). -->
+  <rect width="60" height="60" fill="#ffffff"/>
+  <path d="M35.9 7.6 A24.2 24.2 0 1 1 24.1 7.6"
+        fill="none" stroke="#34383D" stroke-width="8.7" stroke-linecap="round"/>
+  <line x1="30" y1="4.2" x2="30" y2="23.4" stroke="#C0653A" stroke-width="7.5" stroke-linecap="round"/>
+</svg>
