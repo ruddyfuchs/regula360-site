@@ -399,6 +399,8 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.66);padding
 .tl-item .metrica{font-family:var(--display);font-weight:700;color:var(--azul);font-style:normal}
 .tl-item.rev{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
 .tl-item.rev.in{opacity:1;transform:none}
+/* 24/09: sem JavaScript os passos ficavam invisíveis para sempre (opacity:0 até o script revelar) */
+@media(scripting:none){.tl-item.rev{opacity:1;transform:none}}
 .cf-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:start}
 @media(max-width:900px){.cf-grid{grid-template-columns:1fr;gap:2.5rem}}
 .cf-grid .timeline{margin-top:0}
@@ -670,7 +672,7 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
     </div>
     <div class="campo"><label for="f-doc">Documento <small>(PDF · opcional)</small></label><input type="file" id="f-doc" accept=".pdf,application/pdf"></div>
     <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-    <label class="lgpd"><input type="checkbox" id="f-lgpd"> Autorizo o uso destes dados exclusivamente para a análise solicitada. <a href="/privacidade" target="_blank" rel="noopener">Política de privacidade</a></label>
+    <label class="lgpd"><input type="checkbox" id="f-lgpd"> <span>Autorizo o uso destes dados exclusivamente para a análise solicitada. <a href="/privacidade" target="_blank" rel="noopener">Política de privacidade</a></span></label>
     <button class="btn btn-azul" id="btn-enviar" type="button" style="width:100%;justify-content:center">Enviar para análise confidencial</button>
     <div id="f-erro" role="alert" style="display:none;margin-top:14px;padding:14px 16px;border:1px solid #B23A2E;background:#FBECEA;border-radius:10px;font-size:.95rem;line-height:1.5;color:#7A2318"></div>
     <div id="f-ok" role="status" style="display:none;margin-top:14px;padding:14px 16px;border:1px solid #1C5A73;background:#EAF3F6;border-radius:10px;font-size:.95rem;line-height:1.5;color:#12303b">

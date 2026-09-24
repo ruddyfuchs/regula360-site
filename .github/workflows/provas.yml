@@ -60,6 +60,10 @@ jobs:
         run: node scripts/prova-rede-limpa.mjs http://localhost:8080
       - name: acessibilidade e contraste (axe)
         run: node scripts/prova-contraste.mjs http://localhost:8080 node_modules/axe-core/axe.min.js
+      - name: nada invisível, com e sem JavaScript
+        run: node scripts/prova-nada-escondido.mjs http://localhost:8080
+      - name: frase de consentimento é uma frase só
+        run: node scripts/prova-consentimento.mjs http://localhost:8080
 
   iphone:
     name: provas no motor do iPhone (WebKit)
@@ -87,6 +91,10 @@ jobs:
         run: node scripts/prova-rede-limpa.mjs http://localhost:8080
       - name: acessibilidade e contraste, no iPhone
         run: node scripts/prova-contraste.mjs http://localhost:8080 node_modules/axe-core/axe.min.js
+      - name: nada invisível, no iPhone
+        run: node scripts/prova-nada-escondido.mjs http://localhost:8080
+      - name: frase de consentimento, no iPhone
+        run: node scripts/prova-consentimento.mjs http://localhost:8080
 
   no-ar:
     name: conferência no ar (depois de publicar)
@@ -109,3 +117,7 @@ jobs:
         run: node scripts/prova-rede-limpa.mjs https://www.regula360.com.br
       - name: acessibilidade e contraste no ar
         run: node scripts/prova-contraste.mjs https://www.regula360.com.br node_modules/axe-core/axe.min.js
+      - name: nada invisível, no ar
+        run: node scripts/prova-nada-escondido.mjs https://www.regula360.com.br
+      - name: frase de consentimento, no ar
+        run: node scripts/prova-consentimento.mjs https://www.regula360.com.br
