@@ -39,10 +39,24 @@ const ATIVO = /\.(css|js|mjs|png|jpe?g|webp|avif|gif|svg|ico|webmanifest|woff2?|
 const SITE = 'https://www.regula360.com.br/';
 const ABSOLUTAS = ['og-image.png'];
 
+// 🟥 O HASH PRECISA SER O MESMO EM QUALQUER MÁQUINA (23/09).
+// Descoberto logo depois do merge: o portão ficou VERMELHO num repositório recém
+// atualizado, sem ninguém ter tocado em nada. O Git reescreve o fim de linha no
+// checkout, e o `favicon.svg` vale 5432feec com LF e 62295b78 com CRLF. Duas
+// consequências, as duas ruins:
+//   · o portão acusa desatualizado em toda máquina que fizer checkout
+//   · recarimbar com o hash do Windows põe no HTML um número que NÃO corresponde
+//     ao arquivo que a Vercel serve, que vem do repositório, com LF
+// Então: arquivo de TEXTO tem o hash calculado com CRLF normalizado para LF, que é
+// como ele está guardado no repositório. Binário (png, jpg, webp) vai byte a byte —
+// normalizar bytes de imagem corromperia o cálculo.
+const TEXTO = /\.(css|js|mjs|svg|webmanifest|json|txt|xml)$/i;
 const digitais = new Map();
 const digital = (arq) => {
   if (!digitais.has(arq)) {
-    digitais.set(arq, createHash('sha1').update(readFileSync(join(RAIZ, arq))).digest('hex').slice(0, 8));
+    let conteudo = readFileSync(join(RAIZ, arq));
+    if (TEXTO.test(arq)) conteudo = Buffer.from(conteudo.toString('utf8').split('\r\n').join('\n'));
+    digitais.set(arq, createHash('sha1').update(conteudo).digest('hex').slice(0, 8));
   }
   return digitais.get(arq);
 };
