@@ -805,18 +805,23 @@ document.getElementById('btn-enviar').addEventListener('click',async ()=>{
   function vid(){var k='r360-vid',v=localStorage.getItem(k);
     if(!v){v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2);localStorage.setItem(k,v);}return v;}
   function q(n){try{return new URLSearchParams(location.search).get(n);}catch(e){return null;}}
-  // Coletor: só dispara com consentimento explícito. text/plain = requisição CORS
-  // "simples" (sem preflight); o servidor lê o corpo e faz JSON.parse.
+  // Coletor (01/10): toda visita conta. Sem aceite = contagem ANÔNIMA: sem ID de
+  // visitante, nada gravado no navegador, referrer só com o domínio. Com aceite,
+  // vai também o ID do aparelho. Robô e navegador automatizado não contam.
+  // text/plain = requisição CORS "simples" (sem preflight); o servidor faz JSON.parse.
+  var robo=navigator.webdriver||/bot|crawl|spider|slurp|preview|headless|lighthouse/i.test(navigator.userAgent);
   window.r360track=function(ev){
-    if(localStorage.getItem('lgpd-consent')!=='accepted')return;
+    if(robo)return;
     try{
-      var p=JSON.stringify({evento:ev||'pageview',path:location.pathname,referrer:document.referrer||null,
-        visitor_id:vid(),utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign')});
+      var ok=localStorage.getItem('lgpd-consent')==='accepted',ref=document.referrer||null;
+      if(ref&&!ok){try{ref=new URL(ref).origin;}catch(e){ref=null;}}
+      var p=JSON.stringify({evento:ev||'pageview',path:location.pathname,referrer:ref,
+        visitor_id:ok?vid():null,utm_source:q('utm_source'),utm_medium:q('utm_medium'),utm_campaign:q('utm_campaign')});
       if(navigator.sendBeacon){navigator.sendBeacon(TRACK,new Blob([p],{type:'text/plain'}));}
       else{fetch(TRACK,{method:'POST',body:p,headers:{'Content-Type':'text/plain'},keepalive:true}).catch(function(){});}
     }catch(e){}
   };
-  if(localStorage.getItem('lgpd-consent')==='accepted')window.r360track('pageview');
+  window.r360track('pageview');
   var b=document.getElementById('lgpd');
   // O banner é inserido depois do script que liga [data-priv]; religa o link dele.
   var dlg=document.getElementById('dlg-priv');
@@ -824,7 +829,7 @@ document.getElementById('btn-enviar').addEventListener('click',async ()=>{
     a.addEventListener('click',function(e){e.preventDefault();if(dlg.showModal)dlg.showModal();});});
   if(!localStorage.getItem('lgpd-consent')){setTimeout(function(){b.classList.add('on');},700);}else if(b){b.remove();}
   function fechar(escolha){localStorage.setItem('lgpd-consent',escolha);
-    if(escolha==='accepted')window.r360track('pageview');
+    // a visita já foi contada (anônima) no carregamento: não conta de novo aqui
     b.classList.remove('on');setTimeout(function(){if(b)b.remove();},550);}
   var ok=document.getElementById('lgpd-ok'),ess=document.getElementById('lgpd-ess');
   if(ok)ok.addEventListener('click',function(){fechar('accepted');});
