@@ -31,6 +31,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.regula360.com.br/guia-do-sindico</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.regula360.com.br/privacidade</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>yearly</changefreq>
