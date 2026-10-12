@@ -9,7 +9,7 @@
  * (`/api/public/regula/seguranca.json`, servido pela plataforma via rewrite da Vercel) e
  * reprova na diferença. Booleano `false` exige que o item correspondente saia da página.
  *
- * No fim ela SABOTA a si mesma: um número trocado e um booleano desligado têm que reprovar.
+ * No fim ela SABOTA a si mesma: um número trocado, um booleano desligado e a trava invertida têm que reprovar.
  *
  * Uso: node scripts/prova-seguranca.mjs [endereço]   (padrão: https://www.regula360.com.br)
  */
@@ -55,9 +55,11 @@ function julgar(h, d) {
   for (const k of ['passaporte_oculta_sensiveis', 'whatsapp_so_com_consentimento']) {
     if (d[k] === false && new RegExp(`data-se="${k}"(?![^>]*hidden)`).test(h)) erros.push(`${k}: a plataforma diz false e a página ainda afirma o fato`);
   }
+  // a trava da cópia: o que a página mostra SEM JavaScript tem que bater com a plataforma
   const honestoVisivel = /data-imutavel="nao"(?![^>]*hidden)/.test(h);
-  if (d.copia_imutavel_ligada === true && honestoVisivel) erros.push('copia_imutavel_ligada: a trava foi ligada e a página ainda diz que não temos');
-  if (d.copia_imutavel_ligada === false && !honestoVisivel) erros.push('copia_imutavel_ligada: a trava está desligada e a página não avisa');
+  const travaAfirmada = /data-imutavel="sim"(?![^>]*hidden)/.test(h);
+  if (d.copia_imutavel_ligada === true && (honestoVisivel || !travaAfirmada)) erros.push('copia_imutavel_ligada: a trava está ligada e a página não afirma (ou ainda diz que não temos)');
+  if (d.copia_imutavel_ligada === false && (!honestoVisivel || travaAfirmada)) erros.push('copia_imutavel_ligada: a trava está desligada e a página afirma que está ligada (ou não avisa)');
   return erros;
 }
 
@@ -74,6 +76,7 @@ const sab = [];
 const k1 = Object.keys(dados).find((k) => typeof dados[k] === 'number');
 if (k1 && !julgar(html, { ...dados, [k1]: dados[k1] + 1 }).length) sab.push(`não pegou ${k1} trocado`);
 if (!julgar(html, { ...dados, whatsapp_so_com_consentimento: false }).length) sab.push('não pegou booleano desligado');
+if (!julgar(html, { ...dados, copia_imutavel_ligada: !dados.copia_imutavel_ligada }).length) sab.push('não pegou a trava da cópia invertida');
 
 console.log(`${Object.keys(dados).length} campos no JSON · revisado em ${dados.revisado_em}`);
 if (erros.length || sab.length) {
@@ -81,4 +84,4 @@ if (erros.length || sab.length) {
   [...erros, ...sab.map((s) => 'SABOTAGEM ' + s)].forEach((e) => console.log('   ', e));
   process.exit(1);
 }
-console.log('✅ cada número da página bate com a plataforma, e a prova pega as 2 sabotagens');
+console.log('✅ cada número da página bate com a plataforma, e a prova pega as 3 sabotagens');

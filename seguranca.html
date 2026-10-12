@@ -632,9 +632,10 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
       <div class="seg-num"><span data-k="copia_diaria_dias" data-fmt="dias">90 dias</span></div>
       <div class="seg-leg">de cópias de segurança, uma por dia</div>
       <h3>Cópia de segurança todo dia</h3>
-      <p>Todo dia, de madrugada, uma cópia do banco vai para um armazenamento separado. Cada cópia é guardada por <span data-k="copia_diaria_dias" data-fmt="dias">90 dias</span>.</p>
+      <p>Todo dia, de madrugada, uma cópia do banco vai para um armazenamento separado. Cada cópia é guardada por <span data-k="copia_diaria_dias" data-fmt="dias">90 dias</span>.<span data-imutavel="sim"> Os últimos <span data-k="copia_imutavel_dias" data-fmt="dias">30 dias</span> ficam travados contra apagamento, mesmo por nós.</span></p>
       <details class="seg-det"><summary>Ver como funciona</summary><div class="seg-dentro"><ul><li>A cópia fica fora do sistema principal, em outro fornecedor.</li>
-        <li>Uma verificação diária confere se a cópia do dia chegou.</li>
+        <li data-imutavel="sim">A trava contra apagamento vem do próprio armazenamento: durante esse prazo, ninguém consegue apagar ou alterar a cópia, nem quem administra a Regula.</li>
+        <li>Uma verificação diária confere se a cópia do dia chegou e se a trava continua ligada.</li>
         <li>Depois do prazo a cópia é apagada, o que também ajuda a não guardar dado além do necessário.</li></ul></div></details>
     </article>
   </div>
@@ -649,8 +650,7 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
     <li data-se="whatsapp_so_com_consentimento"><span class="x">✕</span><div><b>Não mandamos WhatsApp sem sua autorização</b>Sem o seu consentimento registrado, os avisos vão só por e-mail.</div></li>
     <li><span class="x">✕</span><div><b>Não guardamos sua chave de integração</b>Guardamos só a impressão digital dela. Perdeu a chave? Crie outra e cancele a antiga.</div></li>
     <li><span class="x">✕</span><div><b>Não substituímos o órgão público</b>A Regula organiza e acompanha os documentos e prazos. Quem aprova licença, laudo ou vistoria é o órgão ou o profissional responsável.</div></li>
-    <li class="honesto" data-imutavel="nao"><span class="x">!</span><div><b>Ainda não temos cópia à prova de apagamento</b>A cópia diária existe, mas a trava que impede apagá-la antes do prazo ainda não está ligada. Está no nosso plano e esta página será atualizada quando estiver.</div></li>
-    <li data-imutavel="sim" hidden><span class="x">✓</span><div><b>Cópia à prova de apagamento</b>A trava que impede apagar a cópia diária antes do prazo está ligada.</div></li>
+    <li class="honesto" data-imutavel="nao" hidden><span class="x">!</span><div><b>A trava contra apagamento da cópia está desligada</b>A cópia diária continua sendo feita, mas no momento ela pode ser apagada antes do prazo. Esta página avisa enquanto for assim.</div></li>
   </ul>
 </section>
 
@@ -730,9 +730,10 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
       });
       // nunca afirmar o que deixou de ser verdade
       document.querySelectorAll('[data-se]').forEach(function(el){if(d[el.getAttribute('data-se')]===false)el.hidden=true});
-      if(d.copia_imutavel_ligada===true){
-        document.querySelectorAll('[data-imutavel="nao"]').forEach(function(el){el.hidden=true});
-        document.querySelectorAll('[data-imutavel="sim"]').forEach(function(el){el.hidden=false});
+      if(typeof d.copia_imutavel_ligada==='boolean'){
+        var lig=d.copia_imutavel_ligada;
+        document.querySelectorAll('[data-imutavel="nao"]').forEach(function(el){el.hidden=lig});
+        document.querySelectorAll('[data-imutavel="sim"]').forEach(function(el){el.hidden=!lig});
       }
     }).catch(function(){clearTimeout(t)});
 })();
