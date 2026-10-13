@@ -724,7 +724,7 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
         if(f==='mais')el.textContent='+'+v;
         else if(f==='min'){if(typeof v!=='number')return;el.textContent=(v%60===0?v/60+' min':v+' s')}
         else if(f==='dias')el.textContent=v+' dias';
-        else if(f==='data'){var p=String(v).split('-');if(p.length===3)el.textContent=p[2]+'/'+p[1]+'/'+p[0]}
+        else if(f==='data'){var s=String(v),p=s.split('-');if(p.length===3)el.textContent=p[2]+'/'+p[1]+'/'+p[0];else if(/^\d{2}\/\d{2}\/\d{4}$/.test(s))el.textContent=s}
         else if(f==='mailto'){if(!/^[^@\s]+@[^@\s]+$/.test(v))return;el.textContent=v;el.setAttribute('href','mailto:'+v+'?subject=Pedido%20LGPD')}
         else el.textContent=String(v);
       });

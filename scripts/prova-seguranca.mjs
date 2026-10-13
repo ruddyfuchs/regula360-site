@@ -69,6 +69,8 @@ if (!r.ok) {
   process.exit(1);
 }
 const dados = await r.json();
+// a data pode vir como 2026-10-12 ou 12/10/2026: compara sempre no formato ISO
+if (/^\d{2}\/\d{2}\/\d{4}$/.test(String(dados.revisado_em))) dados.revisado_em = dados.revisado_em.split('/').reverse().join('-');
 const erros = julgar(html, dados);
 
 // sabotagens: a prova tem que pegar
