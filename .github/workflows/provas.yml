@@ -37,6 +37,8 @@ jobs:
         run: node scripts/prova-icones.mjs
       - name: nada interno vai para o ar
         run: node scripts/prova-nada-interno.mjs
+      - name: números da página Segurança = os da plataforma
+        run: node scripts/prova-seguranca.mjs
 
   navegador:
     name: provas de navegador
@@ -121,3 +123,5 @@ jobs:
         run: node scripts/prova-nada-escondido.mjs https://www.regula360.com.br
       - name: frase de consentimento, no ar
         run: node scripts/prova-consentimento.mjs https://www.regula360.com.br
+      - name: números da página Segurança = os da plataforma, no ar
+        run: node scripts/prova-seguranca.mjs https://www.regula360.com.br
