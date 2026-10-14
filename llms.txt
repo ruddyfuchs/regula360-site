@@ -45,6 +45,17 @@ Empresa nova, com décadas de operação real por trás. Os sócios somam mais d
 - [Segurança](https://www.regula360.com.br/seguranca) — como os dados de cada empresa ficam protegidos: separação por empresa no banco de dados, histórico de mudanças, avisos assinados, chaves de integração com limite, teto de uso de IA, cópia de segurança diária, o que a Regula não faz e os direitos pela LGPD (contato@regula360.com.br).
 - [Política de Privacidade](https://www.regula360.com.br/privacidade) — tratamento de dados conforme a LGPD (Lei 13.709/2018).
 
+## Blog
+
+Artigos curtos para síndico, conselheiro e gestor de imóveis, escritos por Ruddy Fuchs, sócio da Regula360. Lista: https://www.regula360.com.br/blog
+
+- [Como conferir um boleto do condomínio antes de pagar](https://www.regula360.com.br/blog-como-conferir-boleto-do-condominio): Antes de pagar, confira quatro coisas: quem recebe, quanto, por quê e se o serviço aconteceu. Boleto com beneficiário diferente do contrato, valor que não bate com a medição ou sem nota fiscal é o primeiro sinal de problema.
+- [Assumi um prédio: por que revisar 24 meses de contas](https://www.regula360.com.br/blog-assumi-um-predio-revisar-24-meses): Quem assume a gestão de um prédio herda tudo o que veio antes, inclusive os erros. Revisar os últimos 24 meses de prestação de contas mostra se você está herdando algum problema. Feito isso uma vez, basta conferir os boletos e a prestação de cada mês, com os documentos acompanhados à parte.
+- [AVCB vencido: o que acontece e por onde começar](https://www.regula360.com.br/blog-avcb-vencido): O AVCB é o certificado do Corpo de Bombeiros que atesta que o prédio tem as condições de segurança contra incêndio exigidas. Com ele vencido, o prédio fica sujeito a fiscalização e multa e pode ter problema com o seguro. A renovação costuma exigir laudos e correções, então o ideal é começar meses antes do vencimento.
+- [Renovação do seguro: o que o síndico precisa conferir](https://www.regula360.com.br/blog-renovacao-do-seguro-do-condominio): O seguro do condomínio é obrigatório (Código Civil, art. 1.346) e todo ano a apólice é renovada. Na renovação, além do preço, vale conferir se o valor segurado acompanha o valor real do prédio, quais coberturas entraram e saíram e se a documentação que a seguradora vai pedir num sinistro está em dia.
+- [Os documentos que todo condomínio deveria ter à vista](https://www.regula360.com.br/blog-documentos-do-condominio-a-vista): Um condomínio acumula documentos com prazo de validade: AVCB, seguro, limpeza da caixa d'água, manutenção de elevadores e extintores, laudos de instalações e, quando há ar-condicionado coletivo, o PMOC. Cada um vence numa data diferente. O risco está no que ninguém acompanha, e a forma mais simples de evitar isso é ter todos numa lista única, com as datas à vista.
+- [Conselho fiscal e auditoria: quem faz o quê](https://www.regula360.com.br/blog-conselho-fiscal-e-auditoria): O conselho fiscal é formado por condôminos e dá parecer sobre as contas do síndico (Código Civil, art. 1.356). A auditoria é um trabalho técnico, com método e evidência, contratado quando se quer ir mais fundo. Um não substitui o outro: o conselho acompanha, a auditoria aprofunda.
+
 ## Detalhes
 
 - [Versão completa deste arquivo](https://www.regula360.com.br/llms-full.txt): o mesmo conteúdo com o texto integral de cada frente.

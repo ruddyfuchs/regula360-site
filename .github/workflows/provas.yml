@@ -27,6 +27,8 @@ jobs:
           node-version: 22
       - name: versão dos arquivos (?v=) em dia
         run: node scripts/versionar-estaticos.mjs --conferir
+      - name: blog gerado em dia com os artigos (conteudo-blog/*.md)
+        run: node scripts/gerar-blog.mjs --conferir
       - name: carimbador funciona com .css novo e página em pasta
         run: node scripts/prova-carimbo-css.mjs
       - name: dados do negócio (Google) íntegros
