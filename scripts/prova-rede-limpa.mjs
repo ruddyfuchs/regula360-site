@@ -12,7 +12,7 @@
 import { abrirNavegador } from './navegador.mjs';
 
 const BASE = process.argv[2] || 'https://www.regula360.com.br';
-const PAGS = ['', 'diagnostico-e-painel', 'regularizacao-e-gestao-ativa', 'gestao-mensal-de-boletos', 'auditoria-e-recuperacao', 'privacidade'];
+const PAGS = ['', 'diagnostico-e-painel', 'regularizacao-e-gestao-ativa', 'gestao-mensal-de-boletos', 'auditoria-e-recuperacao', 'privacidade', 'blog', 'blog-como-conferir-boleto-do-condominio'];
 
 const browser = await abrirNavegador();
 const erros = [];

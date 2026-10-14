@@ -605,9 +605,9 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
       <svg class="logo-regua" viewBox="0 0 60 60"><use href="#sym-regua"/></svg>
       <span class="nome">REGULA<b>360</b></span>
     </a>
-    <nav class="menu"><a href="#" class="on">Início</a><span class="sub"><button type="button" class="gatilho">Serviços ▾</button><div class="caixa"><a href="/diagnostico-e-painel"><span class="n">01</span><span>Diagnóstico &amp; Painel<small>até 30 dias</small></span></a><a href="/regularizacao-e-gestao-ativa"><span class="n">02</span><span>Regularização &amp; gestão ativa<small>contínuo</small></span></a><a href="/gestao-mensal-de-boletos"><span class="n">03</span><span>Gestão mensal de boletos<small>mensal</small></span></a><a href="/auditoria-e-recuperacao"><span class="n">04</span><span>Auditoria &amp; recuperação<small>24–36 meses</small></span></a></div></span><a href="#quem-somos">Quem somos</a><a href="/seguranca">Segurança</a><a href="#contato">Contato</a></nav>
+    <nav class="menu"><a href="#" class="on">Início</a><span class="sub"><button type="button" class="gatilho">Serviços ▾</button><div class="caixa"><a href="/diagnostico-e-painel"><span class="n">01</span><span>Diagnóstico &amp; Painel<small>até 30 dias</small></span></a><a href="/regularizacao-e-gestao-ativa"><span class="n">02</span><span>Regularização &amp; gestão ativa<small>contínuo</small></span></a><a href="/gestao-mensal-de-boletos"><span class="n">03</span><span>Gestão mensal de boletos<small>mensal</small></span></a><a href="/auditoria-e-recuperacao"><span class="n">04</span><span>Auditoria &amp; recuperação<small>24–36 meses</small></span></a></div></span><a href="#quem-somos">Quem somos</a><a href="/seguranca">Segurança</a><a href="/blog">Blog</a><a href="#contato">Contato</a></nav>
     <a class="btn btn-azul btn-topo" href="#contato">Quero meu diagnóstico</a>
-    <details class="menu-cel"><summary aria-label="Abrir o menu"><span class="ico">☰</span> Menu</summary><div class="gaveta" onclick="if(event.target.closest('a'))this.parentNode.open=false"><a href="#">Início</a><div class="rotulo">Serviços</div><a class="frente" href="/diagnostico-e-painel"><b>01</b>Diagnóstico e Painel</a><a class="frente" href="/regularizacao-e-gestao-ativa"><b>02</b>Regularização e gestão ativa</a><a class="frente" href="/gestao-mensal-de-boletos"><b>03</b>Gestão mensal de boletos</a><a class="frente" href="/auditoria-e-recuperacao"><b>04</b>Auditoria e recuperação</a><a href="#quem-somos">Quem somos</a><a href="/seguranca">Segurança</a><a href="#contato">Quero meu diagnóstico</a></div></details>
+    <details class="menu-cel"><summary aria-label="Abrir o menu"><span class="ico">☰</span> Menu</summary><div class="gaveta" onclick="if(event.target.closest('a'))this.parentNode.open=false"><a href="#">Início</a><div class="rotulo">Serviços</div><a class="frente" href="/diagnostico-e-painel"><b>01</b>Diagnóstico e Painel</a><a class="frente" href="/regularizacao-e-gestao-ativa"><b>02</b>Regularização e gestão ativa</a><a class="frente" href="/gestao-mensal-de-boletos"><b>03</b>Gestão mensal de boletos</a><a class="frente" href="/auditoria-e-recuperacao"><b>04</b>Auditoria e recuperação</a><a href="#quem-somos">Quem somos</a><a href="/seguranca">Segurança</a><a href="/blog">Blog</a><a href="#contato">Quero meu diagnóstico</a></div></details>
   </div>
 </header>
 
@@ -914,6 +914,36 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
   </div></div></section>
 </main>
 
+<!-- blog: GERADO por scripts/gerar-blog.mjs, não edite aqui -->
+<style>
+.rb-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.rb-card{display:flex;flex-direction:column;gap:.7rem;background:var(--papel);border:1px solid var(--linha);border-radius:6px;padding:1.6rem;color:var(--grafite);text-decoration:none;transition:border-color .3s}
+.rb-card:hover{border-color:var(--azul)}
+.rb-cat{font:600 .6rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
+.rb-card h3{font:600 1.15rem/1.3 var(--display);margin:0}
+.rb-meta{font-size:.8rem;color:var(--steel);margin-top:auto}
+.rb-num{font:300 italic 2rem var(--display);color:var(--azul);line-height:1}
+.ra{max-width:720px;margin:0 auto;padding:4rem var(--gutter) 2rem}
+.ra h1{font-size:clamp(2rem,4vw,2.9rem);margin:.8rem 0 1.2rem}
+.ra .autor{font-size:.85rem;color:var(--steel);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);padding:.9rem 0;margin-bottom:2rem}
+.ra .autor b{color:var(--grafite);font-weight:600}
+.ra h2{font-size:1.5rem;margin:2.2rem 0 .8rem}
+.ra p,.ra li{font-size:1.05rem;line-height:1.8;color:var(--grafite-soft)}
+.ra ul,.ra ol{padding-left:1.3rem}
+.ra .resumo{background:var(--osso-soft);border-left:4px solid var(--azul);padding:1.1rem 1.3rem;border-radius:4px;margin-bottom:1.8rem;font-size:1rem;line-height:1.7;color:var(--grafite)}
+.ra .resumo b{display:block;font:600 .62rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--azul);margin-bottom:.4rem}
+.ra .chamada{background:var(--grafite);color:var(--osso);border-radius:6px;padding:1.6rem 1.8rem;margin:2.4rem 0;display:flex;gap:1.2rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.ra .chamada b{color:var(--osso)}
+.ra .chamada p{color:rgba(244,240,232,.75);margin:.3rem 0 0;font-size:.92rem}
+.ra .partilha{font-size:.85rem;color:var(--steel);border-top:1px solid var(--linha);padding-top:1rem;margin-top:2rem}
+@media(max-width:880px){.rb-grade{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.rb-grade{grid-template-columns:1fr}}
+</style>
+<section style="background:var(--osso-soft);border-top:1px solid var(--linha)"><div class="sec" style="padding-top:5rem;padding-bottom:5rem">
+  <div style="display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap;margin-bottom:2rem"><div class="sec-cab" style="margin:0"><p class="sec-olho">Do blog</p><h2 class="sec-titulo">Contas e documentos <em>sem mistério.</em></h2></div><a href="/blog" style="font:600 .85rem var(--display);color:var(--azul)">Ver todos os artigos →</a></div>
+  <div class="rb-grade"><a class="rb-card" href="/blog-como-conferir-boleto-do-condominio"><span class="rb-num">01</span><span class="rb-cat">Boletos</span><h3>Como conferir um boleto do condomínio antes de pagar</h3><span class="rb-meta">14/10/2026 · 5 min de leitura</span></a><a class="rb-card" href="/blog-assumi-um-predio-revisar-24-meses"><span class="rb-num">02</span><span class="rb-cat">Contas</span><h3>Assumi um prédio: por que revisar 24 meses de contas</h3><span class="rb-meta">14/10/2026 · 6 min de leitura</span></a><a class="rb-card" href="/blog-avcb-vencido"><span class="rb-num">03</span><span class="rb-cat">Documentos</span><h3>AVCB vencido: o que acontece e por onde começar</h3><span class="rb-meta">14/10/2026 · 5 min de leitura</span></a></div>
+</div></section>
+<!-- /blog -->
 <footer class="rodape">
   <div class="rodape-in">
     <div>
@@ -935,7 +965,7 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
     <div>
       <div class="rot">Canal</div>
       <b>contato@regula360.com.br</b><br>regula360.com.br<br>
-      <a href="/guia-do-sindico">Guia do síndico</a><br><a href="/seguranca">Segurança</a><br><a href="/privacidade">Política de privacidade</a> · <a href="https://portal.regula360.com.br">Área do cliente</a>
+      <a href="/guia-do-sindico">Guia do síndico</a><br><a href="/seguranca">Segurança</a><br><a href="/blog">Blog</a><br><a href="/privacidade">Política de privacidade</a> · <a href="https://portal.regula360.com.br">Área do cliente</a>
     </div>
   </div>
   <div class="rodape-base"><span>© 2026 Regula360 · Da régua à regra. Da regra à regularidade.</span><span>Dados tratados conforme a LGPD (Lei 13.709/2018).</span></div>
