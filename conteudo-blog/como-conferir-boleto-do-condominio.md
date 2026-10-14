@@ -2,7 +2,7 @@ titulo: Como conferir um boleto do condomínio antes de pagar
 slug: como-conferir-boleto-do-condominio
 categoria: Boletos
 data: 2026-10-14
-ordem: 1
+ordem: 3
 minutos: 5
 servico: /gestao-mensal-de-boletos
 descricao: Quatro perguntas para fazer antes de pagar qualquer boleto do condomínio, e os sinais de alerta que pedem uma conferência mais funda.

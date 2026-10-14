@@ -2,7 +2,7 @@ titulo: Conselho fiscal e auditoria: quem faz o quê
 slug: conselho-fiscal-e-auditoria
 categoria: Contas
 data: 2026-10-14
-ordem: 6
+ordem: 8
 minutos: 4
 servico: /auditoria-e-recuperacao
 descricao: A diferença entre o conselho fiscal do condomínio e uma auditoria das contas, e quando vale ter os dois.
