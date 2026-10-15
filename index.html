@@ -568,6 +568,41 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
   ]
 }
 </script>
+<style>
+.hero{padding-top:3rem;padding-bottom:3rem}
+#arco{max-width:280px}
+.consulta{margin-top:2rem;position:relative;background:#fff;border:1px solid var(--linha);border-radius:8px;box-shadow:0 26px 54px -32px rgba(0,0,0,.28);padding:1.3rem 1.6rem}
+.consulta .pc{position:absolute;width:9px;height:9px;border:1px solid var(--steel-soft);opacity:.5}
+.consulta .pc.tl{top:8px;left:8px;border-right:0;border-bottom:0}.consulta .pc.tr{top:8px;right:8px;border-left:0;border-bottom:0}
+.consulta .pc.bl{bottom:8px;left:8px;border-right:0;border-top:0}.consulta .pc.br{bottom:8px;right:8px;border-left:0;border-top:0}
+.cq-corpo{display:grid;grid-template-columns:minmax(260px,1fr) 2.2fr;gap:2.2rem;align-items:end}
+.cq-olho{display:block;font-family:var(--display);font-weight:600;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--azul);margin-bottom:.55rem}
+.cq-abas{display:flex;flex-direction:column;gap:.3rem}
+.cq-aba{background:none;border:0;border-left:2px solid transparent;padding:.1rem 0 .1rem .7rem;text-align:left;font:600 .92rem/1.3 var(--display);color:var(--steel);cursor:pointer}
+.cq-aba[aria-selected=true]{color:var(--grafite);border-left-color:var(--azul);font-size:1.12rem}
+.cq-aba:hover{color:var(--grafite)}
+.cq-linha{display:grid;grid-template-columns:1.5fr 1fr auto;gap:.8rem;align-items:end}
+.cq-linha.dois{grid-template-columns:1fr auto}
+.cq-linha[hidden]{display:none}
+.cq-campo label{display:block;font-family:var(--display);font-weight:600;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:.35rem}
+.cq-campo select,.cq-campo input{width:100%;height:48px;border:1px solid rgba(52,56,61,.25);border-radius:2px;background:var(--papel);padding:0 .8rem;font:500 .95rem var(--sans);color:var(--grafite)}
+.cq-campo select:focus,.cq-campo input:focus{outline:2px solid var(--azul);outline-offset:1px}
+.consulta .btn{height:48px;justify-content:center;white-space:nowrap}
+.cq-res{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--linha);display:none}
+.cq-res.on{display:grid;grid-template-columns:1fr auto;gap:1.4rem 2.4rem;align-items:center}
+.cq-estado{display:inline-block;vertical-align:middle;margin-right:.6rem;font-family:var(--display);font-weight:600;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.35rem .6rem;border-radius:2px;white-space:nowrap}
+.cq-estado.ok{background:rgba(46,125,82,.07);color:var(--verde)}.cq-estado.atencao{background:rgba(183,121,31,.07);color:var(--ambar-txt)}.cq-estado.vencido{background:rgba(178,58,46,.07);color:var(--vermelho)}
+.cq-frase{font-size:1.05rem;color:var(--grafite);line-height:1.55}.cq-frase b{font-family:var(--display);font-weight:600}
+.cq-risco{margin-top:.7rem;border-left:3px solid var(--vermelho);padding:.15rem 0 .15rem .8rem;font-size:.92rem;line-height:1.5;color:var(--grafite)}
+.cq-risco b{font-family:var(--display);font-weight:600;color:var(--vermelho)}
+.cq-risco small{display:block;color:var(--steel);font-size:.74rem}
+.cq-acoes{display:flex;flex-direction:column;align-items:stretch;gap:.6rem;text-align:center}
+.cq-acoes a.link{font:600 .82rem var(--display);color:var(--azul);text-decoration:none}
+.cq-lista{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}.cq-lista span{font-size:.8rem;border:1px solid var(--linha);border-radius:2px;padding:.25rem .55rem;color:var(--grafite);background:var(--papel)}
+@media(max-width:1000px){.cq-corpo{grid-template-columns:1fr;gap:1.1rem}.cq-abas{flex-direction:row;gap:0;border-bottom:1px solid var(--linha)}.cq-aba,.cq-aba[aria-selected=true]{flex:1;border-left:0;border-bottom:2px solid transparent;padding:.2rem .2rem .55rem;font-size:.86rem}.cq-aba[aria-selected=true]{border-bottom-color:var(--azul)}}
+@media(max-width:900px){.hero{display:flex;flex-direction:column}.hero-grid{display:contents}.hero-grid>div:first-child{order:1}.consulta{order:2;margin-top:2rem}.hero-anim{order:3;margin-top:2.5rem}}
+@media(max-width:760px){.cq-linha,.cq-linha.dois{grid-template-columns:1fr}.cq-res.on{grid-template-columns:1fr}.consulta{padding:1.2rem}}
+</style>
 </head>
 <body>
 
@@ -641,6 +676,30 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
         <div class="hero-tag">Da régua à regra. Da regra à regularidade.</div>
         <button class="arco-replay" id="arco-replay" type="button">↻ ver a régua virar 360°</button>
       </div>
+    </div>
+    <div class="consulta" id="consulta">
+      <span class="pc tl"></span><span class="pc tr"></span><span class="pc bl"></span><span class="pc br"></span>
+      <div class="cq-corpo">
+        <div>
+          <span class="cq-olho">Grátis · sem cadastro · 5 segundos</span>
+          <div class="cq-abas" role="tablist">
+            <button class="cq-aba" role="tab" aria-selected="true" data-aba="v">Quando vence meu documento?</button>
+            <button class="cq-aba" role="tab" aria-selected="false" data-aba="l">O que meu imóvel precisa ter?</button>
+          </div>
+        </div>
+        <div>
+          <form class="cq-linha" id="cq-v" novalidate>
+            <div class="cq-campo"><label for="cq-doc">Documento</label><select id="cq-doc"><optgroup label="Mais consultados"><option value="002">AVCB (Bombeiros)</option><option value="056">Laudo de SPDA (para-raios)</option><option value="060">PMOC (ar-condicionado)</option><option value="045">Limpeza da caixa d’água</option><option value="027">Recarga de extintores</option><option value="051">Laudo das instalações elétricas</option><option value="050">Manutenção do sistema contra incêndio</option><option value="046">Análise da água potável</option></optgroup><optgroup label="Outros"><option value="064">Cadastro de grande gerador de resíduos</option><option value="315">Certificado do IBAMA (CTF/APP)</option><option value="062">Emissões e ruído do gerador</option><option value="229">Inspeção da iluminação de emergência</option><option value="230">Inspeção de extintores</option><option value="231">Inspeção de hidrantes</option><option value="306">Inspeção de vaso de pressão (NR-13)</option><option value="317">Inventário de resíduos industriais</option><option value="325">Laudo da cabine primária / subestação</option><option value="314">Licença de Operação (CETESB)</option><option value="044">Limpeza da caixa de gordura</option><option value="303">LTCAT</option><option value="034">Manutenção do gerador</option><option value="301">PGR (NR-01)</option><option value="037">Plano de emergência (PECI)</option><option value="Z01">Plano de resíduos sólidos (PGRS)</option><option value="047">Qualidade do ar interior</option><option value="302">Relatório anual do PCMSO (NR-07)</option></optgroup></select></div>
+            <div class="cq-campo"><label for="cq-data">Emitido em</label><input id="cq-data" type="date" required></div>
+            <button class="btn btn-azul" type="submit">Calcular</button>
+          </form>
+          <form class="cq-linha dois" id="cq-l" hidden novalidate>
+            <div class="cq-campo"><label for="cq-tipo">Tipo de imóvel (São Paulo)</label><select id="cq-tipo"><option value="condominio_residencial">Condomínio residencial</option><option value="predio_comercial">Prédio comercial</option><option value="shopping">Shopping</option><option value="loja">Loja</option><option value="galpao_cd">Galpão / centro de distribuição</option><option value="industria">Indústria</option></select></div>
+            <button class="btn btn-azul" type="submit">Ver a lista</button>
+          </form>
+        </div>
+      </div>
+      <div class="cq-res" id="cq-res" aria-live="polite"></div>
     </div>
   </section>
   <div class="regua-fio"></div>
@@ -886,6 +945,16 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
       <h2 class="sec-titulo">Comece por um <em>documento.</em></h2>
       <p class="frase">A pergunta não é se vale auditar. É quanto você já pagou a mais este ano sem saber.</p>
       <p class="canal">Prefere e-mail? Encaminhe direto para <b>documentos@regula360.com.br</b></p>
+      <div style="margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid rgba(244,240,232,.14)">
+        <p style="font-family:var(--display);font-weight:600;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--azul-luz-txt);margin:0 0 .5rem">Ainda não quer enviar?</p>
+        <p style="font-size:.92rem;color:rgba(244,240,232,.8);margin:0 0 1rem">Confira agora, grátis e sem cadastro.</p>
+        <div style="display:grid;gap:.6rem">
+          <a href="/quando-vence-meu-documento" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.1rem;border:1px solid rgba(244,240,232,.18);border-radius:2px;color:var(--osso);text-decoration:none">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--azul-luz-txt)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="1.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="M8.5 14.5l2.2 2.2 4.8-4.8"/></svg><span style="flex:1;min-width:0"><span style="display:block;font:600 1rem/1.3 var(--display)">Quando vence meu documento?</span><span style="display:block;font-size:.82rem;color:rgba(244,240,232,.7)">Vencimento, quando renovar e o que acontece se vencer.</span></span><span style="color:var(--azul-luz-txt);font-weight:600" aria-hidden="true">→</span></a>
+          <a href="/o-que-meu-imovel-precisa-ter" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.1rem;border:1px solid rgba(244,240,232,.18);border-radius:2px;color:var(--osso);text-decoration:none">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--azul-luz-txt)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17"/></svg><span style="flex:1;min-width:0"><span style="display:block;font:600 1rem/1.3 var(--display)">O que meu imóvel precisa ter?</span><span style="display:block;font-size:.82rem;color:rgba(244,240,232,.7)">Os documentos essenciais do seu tipo de imóvel.</span></span><span style="color:var(--azul-luz-txt);font-weight:600" aria-hidden="true">→</span></a>
+        </div>
+      </div>
     </div>
     <div class="ficha">
       <div class="rot">Abertura de análise · Nº ______</div>
@@ -1302,6 +1371,37 @@ document.getElementById('btn-enviar').addEventListener('click',async ()=>{
   bt.addEventListener('click',function(e){e.stopPropagation();por(!sub.classList.contains('aberto'));});
   document.addEventListener('click',function(e){if(!sub.contains(e.target))por(false);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')por(false);});
+})();
+</script>
+<script>
+(function(){
+var C={"229":"Inspeção da iluminação de emergência","230":"Inspeção de extintores","231":"Inspeção de hidrantes","301":"PGR (NR-01)","302":"Relatório anual do PCMSO (NR-07)","303":"LTCAT","304":"Prontuário elétrico (NR-10)","306":"Inspeção de vaso de pressão (NR-13)","307":"Prontuário de vasos de pressão (NR-13)","308":"Inventário de máquinas (NR-12)","314":"Licença de Operação (CETESB)","315":"Certificado do IBAMA (CTF/APP)","317":"Inventário de resíduos industriais","325":"Laudo da cabine primária / subestação","002":"AVCB (Bombeiros)","056":"Laudo de SPDA (para-raios)","060":"PMOC (ar-condicionado)","045":"Limpeza da caixa d’água","046":"Análise da água potável","027":"Recarga de extintores","051":"Laudo das instalações elétricas","050":"Manutenção do sistema contra incêndio","037":"Plano de emergência (PECI)","047":"Qualidade do ar interior","044":"Limpeza da caixa de gordura","034":"Manutenção do gerador","062":"Emissões e ruído do gerador","064":"Cadastro de grande gerador de resíduos","Z01":"Plano de resíduos sólidos (PGRS)","009":"Licença de operação do gerador (LMO)","013":"CADRI (resíduos)"};
+var $=function(i){return document.getElementById(i)},res=$('cq-res');if(!res)return;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function dBR(s){if(!s)return '';var p=s.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+function risco(c){if(!c)return '';var t=c.split(' — base')[0].replace(/^Se vencer:\s*/,''),m=t.match(/^(.*?)\s*\(([^)]*)\)\.?$/);
+  return '<div class="cq-risco"><b>Se vencer:</b> '+esc(m?m[1]:t)+(m?'<small>'+esc(m[2].replace(' — ',', '))+'</small>':'')+'</div>';}
+function acoes(a,b,href){return '<div class="cq-acoes"><a class="btn btn-linha" href="#contato">'+a+'</a><a class="link" href="'+href+'">'+b+'</a></div>';}
+function erro(t){res.innerHTML='<div class="cq-frase">'+esc(t)+'</div>';res.className='cq-res on';}
+function pedir(url,ok){res.style.opacity='.55';
+  fetch(url).then(function(x){return x.json().catch(function(){return null}).then(function(j){res.style.opacity='';
+    if(!x.ok||!j||!j.data)return erro(x.status===429?'Muitas consultas seguidas. Espere um minuto e tente de novo.':'Não conseguimos calcular agora. Tente de novo em instantes.');ok(j.data);})})
+  .catch(function(){res.style.opacity='';erro('Sem conexão agora. Confira a internet e tente de novo.');});}
+document.querySelectorAll('.cq-aba').forEach(function(b){b.onclick=function(){
+  document.querySelectorAll('.cq-aba').forEach(function(x){x.setAttribute('aria-selected',String(x===b))});
+  $('cq-v').hidden=b.dataset.aba!=='v';$('cq-l').hidden=b.dataset.aba!=='l';res.className='cq-res';}});
+$('cq-v').onsubmit=function(e){e.preventDefault();var c=$('cq-doc').value,v=$('cq-data').value;
+  if(!v){erro('Informe a data de emissão que está impressa no documento.');$('cq-data').focus();return;}
+  pedir('/api/public/regula/calculadora/vencimento?documento='+encodeURIComponent(c)+'&emissao='+v+'&uf=SP',function(d){
+    var nome=C[c]||d.documento,completo='/quando-vence-meu-documento?documento='+encodeURIComponent(c)+'&emissao='+v;
+    if(!d.vence_em){res.innerHTML='<div><div class="cq-frase">'+esc(d.frase)+'</div></div>'+acoes('Quero a Regula acompanhando →','Ver o cálculo completo',completo);res.className='cq-res on';return;}
+    var st=d.estado==='vencido'?['vencido','Vencido']:(d.estado==='comece_a_renovar'?['atencao','Hora de renovar']:['ok','Em dia']);
+    res.innerHTML='<div><div class="cq-frase"><span class="cq-estado '+st[0]+'">'+st[1]+'</span>Seu <b>'+esc(nome)+'</b> '+(d.estado==='vencido'?'venceu em <b>'+dBR(d.vence_em)+'</b>, há '+Math.abs(d.dias_ate_vencer)+' dias.':'vence em <b>'+dBR(d.vence_em)+'</b>. Comece a renovar até <b>'+dBR(d.comece_a_renovar_em)+'</b>.')+'</div>'+risco(d.consequencia)+'</div>'+acoes('Quero a Regula acompanhando →','Ver o cálculo completo',completo);
+    res.className='cq-res on';});};
+$('cq-l').onsubmit=function(e){e.preventDefault();var t=$('cq-tipo'),tv=t.value,tn=t.options[t.selectedIndex].text;
+  pedir('/api/public/regula/calculadora/documentos?tipo_imovel='+tv+'&uf=SP',function(d){var ds=d.documentos||[];
+    res.innerHTML='<div><div class="cq-frase"><b>'+esc(tn)+'</b> em São Paulo precisa de <b>'+ds.length+' documentos</b> em dia.</div><div class="cq-lista">'+ds.slice(0,6).map(function(x){return '<span>'+esc(C[x.codigo]||x.documento)+'</span>'}).join('')+(ds.length>6?'<span>+ '+(ds.length-6)+'</span>':'')+'</div></div>'+acoes('Quero saber quais eu tenho →','Ver a lista completa','/o-que-meu-imovel-precisa-ter?tipo='+tv);
+    res.className='cq-res on';});};
 })();
 </script>
 </body>

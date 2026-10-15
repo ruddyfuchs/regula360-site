@@ -22,7 +22,7 @@
 import { abrirNavegador } from './navegador.mjs';
 
 const BASE = process.argv[2] || 'https://www.regula360.com.br';
-const PAGS = ['', 'diagnostico-e-painel', 'regularizacao-e-gestao-ativa', 'gestao-mensal-de-boletos', 'auditoria-e-recuperacao', 'privacidade', 'guia-do-sindico', 'seguranca', 'blog', 'blog-como-conferir-boleto-do-condominio'];
+const PAGS = ['', 'diagnostico-e-painel', 'regularizacao-e-gestao-ativa', 'gestao-mensal-de-boletos', 'auditoria-e-recuperacao', 'privacidade', 'guia-do-sindico', 'seguranca', 'quando-vence-meu-documento', 'o-que-meu-imovel-precisa-ter', 'blog', 'blog-como-conferir-boleto-do-condominio'];
 const MINIMO = 5; // itens medidos por página, no mínimo (o Contato, quase só formulário, tem 7)
 
 const b = await abrirNavegador();
