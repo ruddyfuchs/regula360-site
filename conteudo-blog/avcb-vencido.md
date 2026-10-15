@@ -8,6 +8,7 @@ servico: /regularizacao-e-gestao-ativa
 descricao: O que é o AVCB, o que acontece quando ele vence e o que normalmente precisa estar em dia para a renovação.
 resumo: O AVCB é o certificado do Corpo de Bombeiros que atesta que o prédio tem as condições de segurança contra incêndio exigidas. Com ele vencido, o prédio fica sujeito a fiscalização e multa e pode ter problema com o seguro. A renovação costuma exigir laudos e correções, então o ideal é começar meses antes do vencimento.
 chamada: Quer saber como está a documentação do seu prédio? | O diagnóstico da Regula360 mostra o que vence e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
+calculadora: Quer saber quando vence o AVCB do seu prédio e até quando começar a renovar? | /quando-vence-meu-documento?documento=002 | Calcular o vencimento do AVCB
 ---
 ## O que é o AVCB
 

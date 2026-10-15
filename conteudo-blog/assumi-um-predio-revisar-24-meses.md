@@ -8,6 +8,7 @@ servico: /auditoria-e-recuperacao
 descricao: Quem assume a gestão de um prédio herda o passado dele. Por que revisar os últimos 24 meses de contas antes de planejar o futuro, e como fazer isso.
 resumo: Quem assume a gestão de um prédio herda tudo o que veio antes, inclusive os erros. Revisar os últimos 24 meses de prestação de contas mostra se você está herdando algum problema. Feito isso uma vez, basta conferir os boletos e a prestação de cada mês, com os documentos acompanhados à parte.
 chamada: Assumiu um prédio ou uma carteira? | A Regula360 revisa as contas do passado e acompanha o mês a mês. | /auditoria-e-recuperacao | Ver auditoria e recuperação
+calculadora: Acabou de assumir o prédio? Veja quais documentos ele precisa ter em dia. | /o-que-meu-imovel-precisa-ter | Ver o que o meu imóvel precisa ter
 ---
 ## Você herda o passado
 
