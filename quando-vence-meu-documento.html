@@ -554,6 +554,21 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
 .cx-tipos button{border:1px solid rgba(52,56,61,.25);border-radius:4px;padding:.7rem .8rem;font:400 .92rem var(--sans);background:#fff;color:var(--grafite);cursor:pointer;text-align:left}
 .cx-tipos button[aria-pressed=true]{border-color:var(--azul);background:rgba(28,90,115,.07);font-weight:600}
 .cx-carregando{opacity:.55;transition:opacity .2s}
+.cx-aviso-box{margin-top:1.4rem;border:1px solid var(--azul);border-radius:6px;padding:1.3rem 1.4rem;background:rgba(28,90,115,.04)}
+.cx-aviso-box h3{font:600 1.08rem/1.35 var(--display);margin:0 0 .3rem;color:var(--grafite)}
+.cx-aviso-box p{margin:0 0 1rem;font-size:.9rem;color:var(--steel);line-height:1.55}
+.cx-aviso-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.cx-aviso-grid label{display:block;font:600 .62rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:.3rem}
+.cx-aviso-grid input{width:100%;height:46px;border:1px solid rgba(52,56,61,.25);border-radius:4px;padding:0 .8rem;font:400 .95rem var(--sans);background:#fff;color:var(--grafite)}
+.cx-aviso-grid .inteiro{grid-column:1/-1}
+.cx-aviso-box .lgpd{display:flex;gap:.6rem;align-items:flex-start;font-size:.78rem;color:var(--steel);margin:.9rem 0}
+.cx-aviso-box .lgpd a{color:var(--azul);text-decoration:underline}
+.cx-aviso-box .btn{width:100%;justify-content:center}
+.cx-aviso-box .gotcha{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cx-aviso-msg{margin-top:.8rem;font-size:.88rem;color:var(--vermelho)}
+.cx-aviso-feito{margin-top:1.4rem;border:1px solid var(--verde);border-radius:6px;padding:1.2rem 1.4rem;background:rgba(46,125,82,.05);font-size:.95rem;color:var(--grafite);line-height:1.6}
+.cx-aviso-feito b{font-family:var(--display)}
+@media(max-width:560px){.cx-aviso-grid{grid-template-columns:1fr}}
 @media(max-width:880px){.cx-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -769,7 +784,31 @@ function mostrar(d,rot){var chip='';
   var h='<span class="cx-rot">'+(rot||'Resultado')+'</span><div class="cx-doc">'+esc(d.documento)+(rot?', emitido em '+dBR(d.emissao)+' em '+esc(d.uf):'')+'</div>';
   if(d.vence_em){h+='<div class="cx-big"><div><div class="n">'+dBR(d.vence_em)+'</div><div class="l">vence em</div></div>'+chip+'</div>'+linha('Comece a renovar até',dBR(d.comece_a_renovar_em))+linha('Validade',d.vigencia_meses?d.vigencia_meses+' meses':'')+linha('Base legal',d.base_legal)+cons(d.consequencia);}
   else{h+='<div class="cx-big"><span class="cx-chip cx-neutro">'+(d.estado==='nao_vence'?'Não vence':'Confira no documento')+'</span></div><p class="cx-frase">'+esc(d.frase)+'</p>'+linha('Base legal',d.base_legal);}
-  r.innerHTML=h;}
+  // Pedido de acompanhamento (fase 1, aprovado 15/10): vira lead no painel da Regula. Sem promessa de e-mail automático
+  // (não existe para quem não é cliente, nem descadastro). Só depois de um cálculo de verdade, nunca sob o exemplo.
+  if(!rot&&d.vence_em)h+='<div class="cx-aviso-box" id="av"><h3>Quer que a Regula acompanhe esse vencimento?</h3><p>Deixe seu nome e e-mail. Um sócio te procura antes da data, com esse vencimento e o que mais vence no seu prédio. Sem custo e sem compromisso.</p>'
+    +'<div class="cx-aviso-grid"><div><label for="av-nome">Nome</label><input id="av-nome" autocomplete="name"></div><div><label for="av-email">E-mail</label><input id="av-email" type="email" autocomplete="email"></div>'
+    +'<div class="inteiro"><label for="av-tel">WhatsApp (opcional)</label><input id="av-tel" type="tel" autocomplete="tel"></div></div>'
+    +'<div class="gotcha" aria-hidden="true"><label for="av-site">Não preencha</label><input id="av-site" tabindex="-1" autocomplete="off"></div>'
+    +'<label class="lgpd"><input type="checkbox" id="av-lgpd"> <span>Autorizo a Regula360 a me procurar sobre este vencimento. <a href="/privacidade">Política de privacidade</a></span></label>'
+    +'<button class="btn btn-azul" type="button" id="av-btn">Quero que me procurem</button><p class="cx-aviso-msg" id="av-msg" role="alert"></p></div>';
+  r.innerHTML=h;
+  if(!rot&&d.vence_em)ligarAviso(d);}
+function ligarAviso(d){var b=document.getElementById('av-btn'),msg=document.getElementById('av-msg');
+  b.addEventListener('click',function(){var v=function(i){return(document.getElementById(i).value||'').trim()};
+    msg.textContent='';if(v('av-site'))return;
+    var nome=v('av-nome'),email=v('av-email'),tel=v('av-tel');
+    if(nome.length<2||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.textContent='Preencha nome e um e-mail válido.';return}
+    if(!document.getElementById('av-lgpd').checked){msg.textContent='Marque a autorização para continuar.';return}
+    var hoje=new Date().toLocaleDateString('pt-BR',{timeZone:'America/Sao_Paulo'});
+    var fd=new FormData();fd.append('nome',nome);fd.append('email',email);if(tel)fd.append('telefone',tel);
+    fd.append('servico','Aviso de vencimento');
+    fd.append('mensagem',d.documento+(d.codigo?' ('+d.codigo+')':'')+', emitido em '+dBR(d.emissao)+(d.uf?', '+d.uf:'')+': vence em '+dBR(d.vence_em)+(d.comece_a_renovar_em?', comece a renovar até '+dBR(d.comece_a_renovar_em):'')+'. Consentiu em receber contato da Regula360 em '+hoje+' (caixa marcada no site, calculadora "Quando vence meu documento?").');
+    b.disabled=true;var t=b.textContent;b.textContent='Enviando…';
+    fetch('/api/public/lead-regula',{method:'POST',body:fd,headers:{Accept:'application/json'}})
+      .then(function(x){if(x.ok){document.getElementById('av').outerHTML='<div class="cx-aviso-feito"><b>Recebido, '+esc(nome.split(' ')[0])+'.</b> Um sócio da Regula360 vai te procurar antes de '+dBR(d.comece_a_renovar_em||d.vence_em)+', com esse vencimento e o que mais vence no seu prédio.</div>';return}
+        b.disabled=false;b.textContent=t;msg.textContent=x.status===429?'Muitos envios seguidos. Espere alguns minutos e tente de novo.':'Não foi possível enviar agora. Tente de novo ou escreva para documentos@regula360.com.br.'})
+      .catch(function(){b.disabled=false;b.textContent=t;msg.textContent='Sem conexão agora. Confira a internet e tente de novo.'});});}
 function erro(t){r.innerHTML='<span class="cx-rot">Resultado</span><p class="cx-erro" style="margin-top:.8rem">'+esc(t)+'</p>'}
 function calcular(){var c=codigo(),l=local($u.value);
   if(!c)return erro('Escolha um documento da lista (comece a digitar o nome).');
