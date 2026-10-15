@@ -111,6 +111,10 @@ const CSS = `<style>
 .ra .chamada{background:var(--grafite);color:var(--osso);border-radius:6px;padding:1.6rem 1.8rem;margin:2.4rem 0;display:flex;gap:1.2rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .ra .chamada b{color:var(--osso)}
 .ra .chamada p{color:rgba(244,240,232,.75);margin:.3rem 0 0;font-size:.92rem}
+.ra .calcule{background:var(--osso-soft);border-left:4px solid var(--azul);border-radius:4px;padding:1.1rem 1.3rem;margin:1.8rem 0;display:flex;flex-direction:column;gap:.35rem}
+.ra .calcule b{font:600 .62rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
+.ra .calcule span{font-size:1rem;color:var(--grafite);line-height:1.6}
+.ra .calcule a{font:600 .95rem var(--display);color:var(--azul)}
 .ra .partilha{font-size:.85rem;color:var(--steel);border-top:1px solid var(--linha);padding-top:1rem;margin-top:2rem}
 @media(max-width:880px){.rb-grade{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.rb-grade{grid-template-columns:1fr}}
@@ -146,7 +150,18 @@ for (const a of artigos) {
   const h2s = c.map((x, i) => (x.startsWith('<h2>') ? i : -1)).filter((i) => i > 0);
   const meio = h2s.length ? h2s.reduce((m, i) => (Math.abs(i - c.length / 2) < Math.abs(m - c.length / 2) ? i : m)) : Math.max(2, Math.floor(c.length / 2));
   // o quadro entra ANTES de um subtítulo, nunca entre o subtítulo e o texto dele
-  c.splice(meio, 0, `<div class="chamada"><div><b>${esc(cT)}</b><p>${esc(cS)}</p></div><a class="btn btn-azul" href="${cL}">${esc(cB)} →</a></div>`);
+  // "Calcule agora" (opcional, `calculadora: frase | link | botão`): antes do 1º subtítulo depois da abertura;
+  // se esse for o lugar do quadro de serviço, vai para o subtítulo seguinte. Entra primeiro o que está mais abaixo,
+  // para um splice não deslocar a posição do outro.
+  const quadros = [[meio, `<div class="chamada"><div><b>${esc(cT)}</b><p>${esc(cS)}</p></div><a class="btn btn-azul" href="${cL}">${esc(cB)} →</a></div>`]];
+  if (a.calculadora) {
+    const [kT, kL, kB] = a.calculadora.split('|').map((s) => s.trim());
+    if (!kT || !/^\/(quando-vence-meu-documento|o-que-meu-imovel-precisa-ter)(\?[a-z_=&0-9.]*)?$/.test(kL || '') || !kB) throw new Error(`blog-${a.slug}: "calculadora" é "frase | /quando-vence-meu-documento… ou /o-que-meu-imovel-precisa-ter… | botão"`);
+    const onde = h2s.find((i) => i !== meio);
+    if (onde === undefined) throw new Error(`blog-${a.slug}: sem subtítulo livre para o quadro da calculadora`);
+    quadros.push([onde, `<div class="calcule"><b>Calcule agora · grátis</b><span>${esc(kT)}</span><a href="${kL}">${esc(kB)} →</a></div>`]);
+  }
+  for (const [i, html] of quadros.sort((x, y) => y[0] - x[0])) c.splice(i, 0, html);
   const outros = artigos.filter((o) => o.slug !== a.slug).sort((x, y) => (y.categoria === a.categoria) - (x.categoria === a.categoria)).slice(0, 3);
   saidas.set(`blog-${a.slug}.html`, pagina(`${a.titulo} | Regula360`, a.descricao, url, 'article',
     { '@context': 'https://schema.org', '@graph': [trilha([['Início', `${SITE}/`], ['Blog', `${SITE}/blog`], [a.titulo, url]]),
