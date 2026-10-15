@@ -21,7 +21,8 @@ import { fileURLToPath } from 'node:url';
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = (process.argv[2] || 'https://www.regula360.com.br').replace(/\/$/, '');
 const API = `${BASE}/api/public/regula/calculadora`;
-const ler = (f) => readFileSync(join(RAIZ, f), 'utf8');
+// \r\n → \n: no Windows o git devolve CRLF, e a leitura do exemplo ficava vazia só ali (o CI, em Linux, passava).
+const ler = (f) => readFileSync(join(RAIZ, f), 'utf8').split('\r\n').join('\n');
 const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function pedir(url) {
@@ -53,6 +54,9 @@ function lerSite(home, p1, p2) {
 async function conferir(site, plataforma) {
   const erros = [];
   if (site.codigos.length < 5) erros.push(`seletor da página inicial com ${site.codigos.length} documentos: a prova não está lendo o site`);
+  // Prova cega não pode passar calada: sem o exemplo ou sem a lista lidos, nada abaixo estaria sendo medido.
+  if (!site.exemplo.includes('cx-big')) erros.push('a prova não achou o exemplo da "Quando vence" no HTML: não está lendo a página');
+  if (site.listaCond.length < 3) erros.push(`a prova leu ${site.listaCond.length} itens na lista de condomínio: não está lendo a página`);
   for (const c of site.codigos) {
     const v = plataforma.venc[c];
     if (!v || v.status !== 200 || !v.data?.vence_em) erros.push(`página inicial oferece o documento ${c}, e a plataforma responde ${v?.status ?? 'nada'}${v?.status === 200 ? ' sem vencimento' : ''}`);
@@ -86,6 +90,8 @@ const sab1 = await conferir({ ...site, codigos: [...site.codigos, 'NAO-EXISTE'] 
 const sab2 = await conferir({ ...site, exemplo: site.exemplo.split('36 meses').join('35 meses') }, plataforma);
 if (!sab1.some((e) => e.includes('NAO-EXISTE'))) erros.push('SABOTAGEM PASSOU: um código inventado no seletor não reprovou');
 if (!sab2.some((e) => e.includes('validade'))) erros.push('SABOTAGEM PASSOU: um prazo trocado no exemplo não reprovou');
+// a sabotagem só vale se o site SEM sabotagem passou nesse mesmo ponto (senão ela "pega" por acaso)
+if (erros.some((e) => e.includes('validade') || e.includes('não está lendo'))) erros.push('a sabotagem do exemplo não prova nada enquanto a leitura do exemplo falha');
 
 if (erros.length) { console.log(`❌ ${erros.length} problemas:\n    ` + erros.join('\n    ')); process.exit(1); }
 console.log('✅ as calculadoras do site batem com a plataforma, e a prova pega as 2 sabotagens');
