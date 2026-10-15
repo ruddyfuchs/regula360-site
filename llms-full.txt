@@ -121,3 +121,11 @@ Não existe lei que obrigue, mas a assembleia pode aprovar uma auditoria a qualq
 
 **Por quanto tempo guardar os documentos do condomínio?**
 Guarde no mínimo 5 anos os documentos fiscais e de pagamento. Contratos, plantas, laudos e documentos da obra devem ser guardados enquanto forem úteis ao prédio, o que na prática significa sempre.
+
+## Ferramentas gratuitas
+
+**Quando vence meu documento?** (https://www.regula360.com.br/quando-vence-meu-documento)
+Calculadora gratuita, sem cadastro. Escolha o documento entre 133 do catálogo (AVCB, laudo de SPDA, PMOC, limpeza da caixa d'água, recarga de extintores...), informe a data de emissão e o estado ou CEP do imóvel. Ela mostra a data de vencimento, até quando começar a renovar, a validade, a base legal e o que acontece se vencer. A conta é a mesma da plataforma da Regula360.
+
+**O que meu imóvel precisa ter?** (https://www.regula360.com.br/o-que-meu-imovel-precisa-ter)
+Lista gratuita, sem cadastro, dos documentos essenciais por tipo de imóvel (condomínio residencial, prédio comercial, loja, shopping, galpão ou centro de distribuição, indústria), com a validade de cada um no estado escolhido. Exemplo: um condomínio residencial em São Paulo tem 11 documentos essenciais.

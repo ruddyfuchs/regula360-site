@@ -41,6 +41,8 @@ jobs:
         run: node scripts/prova-nada-interno.mjs
       - name: números da página Segurança = os da plataforma
         run: node scripts/prova-seguranca.mjs
+      - name: calculadoras do site = catálogo e regras da plataforma
+        run: node scripts/prova-calculadoras.mjs https://m5group.pages.dev
 
   navegador:
     name: provas de navegador
@@ -127,3 +129,5 @@ jobs:
         run: node scripts/prova-consentimento.mjs https://www.regula360.com.br
       - name: números da página Segurança = os da plataforma, no ar
         run: node scripts/prova-seguranca.mjs https://www.regula360.com.br
+      - name: calculadoras do site = plataforma, no ar (pelo /api do próprio site)
+        run: node scripts/prova-calculadoras.mjs https://www.regula360.com.br
