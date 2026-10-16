@@ -1390,7 +1390,7 @@ function acoes(a,b,href){return '<div class="cq-acoes"><a class="btn btn-linha" 
 function erro(t){res.innerHTML='<div class="cq-frase">'+esc(t)+'</div>';res.className='cq-res on';}
 function pedir(url,ok){res.style.opacity='.55';
   fetch(url).then(function(x){return x.json().catch(function(){return null}).then(function(j){res.style.opacity='';
-    if(!x.ok||!j||!j.data)return erro(x.status===429?'Muitas consultas seguidas. Espere um minuto e tente de novo.':'Não conseguimos calcular agora. Tente de novo em instantes.');ok(j.data);})})
+    if(!x.ok||!j||!j.data)return erro(x.status===429?'Muitas consultas seguidas. Espere um minuto e tente de novo.':'Não conseguimos calcular agora. Tente de novo em instantes.');ok(j.data);if(window.r360track)r360track('calculadora_usada');})})
   .catch(function(){res.style.opacity='';erro('Sem conexão agora. Confira a internet e tente de novo.');});}
 document.querySelectorAll('.cq-aba').forEach(function(b){b.onclick=function(){
   document.querySelectorAll('.cq-aba').forEach(function(x){x.setAttribute('aria-selected',String(x===b))});
