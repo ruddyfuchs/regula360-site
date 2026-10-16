@@ -784,30 +784,38 @@ function mostrar(d,rot){var chip='';
   var h='<span class="cx-rot">'+(rot||'Resultado')+'</span><div class="cx-doc">'+esc(d.documento)+(rot?', emitido em '+dBR(d.emissao)+' em '+esc(d.uf):'')+'</div>';
   if(d.vence_em){h+='<div class="cx-big"><div><div class="n">'+dBR(d.vence_em)+'</div><div class="l">vence em</div></div>'+chip+'</div>'+linha('Comece a renovar até',dBR(d.comece_a_renovar_em))+linha('Validade',d.vigencia_meses?d.vigencia_meses+' meses':'')+linha('Base legal',d.base_legal)+cons(d.consequencia);}
   else{h+='<div class="cx-big"><span class="cx-chip cx-neutro">'+(d.estado==='nao_vence'?'Não vence':'Confira no documento')+'</span></div><p class="cx-frase">'+esc(d.frase)+'</p>'+linha('Base legal',d.base_legal);}
-  // Pedido de acompanhamento (fase 1, aprovado 15/10): vira lead no painel da Regula. Sem promessa de e-mail automático
-  // (não existe para quem não é cliente, nem descadastro). Só depois de um cálculo de verdade, nunca sob o exemplo.
-  if(!rot&&d.vence_em)h+='<div class="cx-aviso-box" id="av"><h3>Quer que a Regula acompanhe esse vencimento?</h3><p>Deixe seu nome e e-mail. Um sócio te procura antes da data, com esse vencimento e o que mais vence no seu prédio. Sem custo e sem compromisso.</p>'
+  // Aviso por e-mail (fase 2, no ar desde 16/10, M5Group#3025): /api/public/regula/aviso-vencimento com dupla confirmação
+  // e descadastro em todo e-mail. Junto vai o lead (fase 1) para um sócio acompanhar. Só depois de um cálculo de verdade.
+  if(!rot&&d.vence_em)h+='<div class="cx-aviso-box" id="av"><h3>Quer ser avisado antes de vencer?</h3><p>A gente te avisa por e-mail na hora de começar a renovar e de novo a 30, 15 e 7 dias. Você confirma o cadastro no primeiro e-mail e sai quando quiser. Sem custo.</p>'
     +'<div class="cx-aviso-grid"><div><label for="av-nome">Nome</label><input id="av-nome" autocomplete="name"></div><div><label for="av-email">E-mail</label><input id="av-email" type="email" autocomplete="email"></div>'
     +'<div class="inteiro"><label for="av-tel">WhatsApp (opcional)</label><input id="av-tel" type="tel" autocomplete="tel"></div></div>'
     +'<div class="gotcha" aria-hidden="true"><label for="av-site">Não preencha</label><input id="av-site" tabindex="-1" autocomplete="off"></div>'
-    +'<label class="lgpd"><input type="checkbox" id="av-lgpd"> <span>Autorizo a Regula360 a me procurar sobre este vencimento. <a href="/privacidade">Política de privacidade</a></span></label>'
-    +'<button class="btn btn-azul" type="button" id="av-btn">Quero que me procurem</button><p class="cx-aviso-msg" id="av-msg" role="alert"></p></div>';
+    +'<label class="lgpd"><input type="checkbox" id="av-lgpd"> <span>Autorizo a Regula360 a me enviar o aviso de vencimento deste documento por e-mail e a entrar em contato. <a href="/privacidade">Política de privacidade</a></span></label>'
+    +'<button class="btn btn-azul" type="button" id="av-btn">Quero ser avisado</button><p class="cx-aviso-msg" id="av-msg" role="alert"></p></div>';
   r.innerHTML=h;
   if(!rot&&d.vence_em)ligarAviso(d);}
 function ligarAviso(d){var b=document.getElementById('av-btn'),msg=document.getElementById('av-msg');
   b.addEventListener('click',function(){var v=function(i){return(document.getElementById(i).value||'').trim()};
     msg.textContent='';if(v('av-site'))return;
     var nome=v('av-nome'),email=v('av-email'),tel=v('av-tel');
-    if(nome.length<2||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){msg.textContent='Preencha nome e um e-mail válido.';return}
+    if(nome.length<2||!/^[^@s]+@[^@s]+.[^@s]+$/.test(email)){msg.textContent='Preencha nome e um e-mail válido.';return}
     if(!document.getElementById('av-lgpd').checked){msg.textContent='Marque a autorização para continuar.';return}
     var hoje=new Date().toLocaleDateString('pt-BR',{timeZone:'America/Sao_Paulo'});
-    var fd=new FormData();fd.append('nome',nome);fd.append('email',email);if(tel)fd.append('telefone',tel);
-    fd.append('servico','Aviso de vencimento');
-    fd.append('mensagem',d.documento+(d.codigo?' ('+d.codigo+')':'')+', emitido em '+dBR(d.emissao)+(d.uf?', '+d.uf:'')+': vence em '+dBR(d.vence_em)+(d.comece_a_renovar_em?', comece a renovar até '+dBR(d.comece_a_renovar_em):'')+'. Consentiu em receber contato da Regula360 em '+hoje+' (caixa marcada no site, calculadora "Quando vence meu documento?").');
+    var aceite='Aceitou receber da Regula360 o aviso de vencimento deste documento por e-mail e ser contatado (caixa marcada no site, calculadora "Quando vence meu documento?", '+hoje+').';
     b.disabled=true;var t=b.textContent;b.textContent='Enviando…';
-    fetch('/api/public/lead-regula',{method:'POST',body:fd,headers:{Accept:'application/json'}})
-      .then(function(x){if(x.ok){document.getElementById('av').outerHTML='<div class="cx-aviso-feito"><b>Recebido, '+esc(nome.split(' ')[0])+'.</b> Um sócio da Regula360 vai te procurar antes de '+dBR(d.comece_a_renovar_em||d.vence_em)+', com esse vencimento e o que mais vence no seu prédio.</div>';return}
-        b.disabled=false;b.textContent=t;msg.textContent=x.status===429?'Muitos envios seguidos. Espere alguns minutos e tente de novo.':'Não foi possível enviar agora. Tente de novo ou escreva para documentos@regula360.com.br.'})
+    var corpo={nome:nome,email:email,documento:d.codigo,emissao:d.emissao,consentimento:true,consentimento_texto:aceite,_gotcha:''};
+    if(d.uf)corpo.uf=d.uf;
+    fetch('/api/public/regula/aviso-vencimento',{method:'POST',body:JSON.stringify(corpo),headers:{'Content-Type':'application/json',Accept:'application/json'}})
+      .then(function(x){return x.json().catch(function(){return {}}).then(function(j){
+        if(x.ok){
+          // o lead (fase 1) segue junto, sem travar a tela: um sócio vê no painel
+          var fd=new FormData();fd.append('nome',nome);fd.append('email',email);if(tel)fd.append('telefone',tel);
+          fd.append('servico','Aviso de vencimento');
+          fd.append('mensagem',d.documento+(d.codigo?' ('+d.codigo+')':'')+', emitido em '+dBR(d.emissao)+(d.uf?', '+d.uf:'')+': vence em '+dBR(d.vence_em)+(d.comece_a_renovar_em?', comece a renovar até '+dBR(d.comece_a_renovar_em):'')+'. Pediu o aviso por e-mail. '+aceite);
+          fetch('/api/public/lead-regula',{method:'POST',body:fd,headers:{Accept:'application/json'}}).catch(function(){});
+          document.getElementById('av').outerHTML='<div class="cx-aviso-feito"><b>Pronto, '+esc(nome.split(' ')[0])+'.</b> '+esc(j.message||'Se o e-mail estiver certo, mandamos uma mensagem para confirmar o aviso. Os avisos só começam depois da confirmação.')+'</div>';return}
+        b.disabled=false;b.textContent=t;
+        msg.textContent=x.status===429?'Muitos envios seguidos. Espere alguns minutos e tente de novo.':(x.status===400&&j.error?'Não deu para cadastrar: '+j.error+'.':'Não foi possível cadastrar agora. Tente de novo ou escreva para documentos@regula360.com.br.');})})
       .catch(function(){b.disabled=false;b.textContent=t;msg.textContent='Sem conexão agora. Confira a internet e tente de novo.'});});}
 function erro(t){r.innerHTML='<span class="cx-rot">Resultado</span><p class="cx-erro" style="margin-top:.8rem">'+esc(t)+'</p>'}
 function calcular(){var c=codigo(),l=local($u.value);
