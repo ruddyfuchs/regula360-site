@@ -807,7 +807,7 @@ function ligarAviso(d){var b=document.getElementById('av-btn'),msg=document.getE
     if(d.uf)corpo.uf=d.uf;
     fetch('/api/public/regula/aviso-vencimento',{method:'POST',body:JSON.stringify(corpo),headers:{'Content-Type':'application/json',Accept:'application/json'}})
       .then(function(x){return x.json().catch(function(){return {}}).then(function(j){
-        if(x.ok){
+        if(x.ok){if(window.r360track)r360track('form_enviado');
           // o lead (fase 1) segue junto, sem travar a tela: um sócio vê no painel
           var fd=new FormData();fd.append('nome',nome);fd.append('email',email);if(tel)fd.append('telefone',tel);
           fd.append('servico','Aviso de vencimento');
@@ -824,7 +824,7 @@ function calcular(){var c=codigo(),l=local($u.value);
   if(!l)return erro('Informe o estado (ex.: SP) ou o CEP do imóvel.');
   r.classList.add('cx-carregando');
   fetch('/api/public/regula/calculadora/vencimento?documento='+encodeURIComponent(c)+'&emissao='+$e.value+'&'+l)
-    .then(function(x){return x.json().catch(function(){return null}).then(function(j){r.classList.remove('cx-carregando');if(!x.ok||!j||!j.data)return erro(erroDe(x,j));mostrar(j.data);if(innerWidth<880)r.scrollIntoView({behavior:'smooth',block:'start'});})})
+    .then(function(x){return x.json().catch(function(){return null}).then(function(j){r.classList.remove('cx-carregando');if(!x.ok||!j||!j.data)return erro(erroDe(x,j));mostrar(j.data);if(window.r360track)r360track('calculadora_usada');if(innerWidth<880)r.scrollIntoView({behavior:'smooth',block:'start'});})})
     .catch(function(){r.classList.remove('cx-carregando');erro('Sem conexão agora. Confira a internet e tente de novo.')});}
 f.addEventListener('submit',function(e){e.preventDefault();calcular()});
 try{var q=new URLSearchParams(location.search),qd=q.get('documento'),qe=q.get('emissao'),qu=q.get('uf');

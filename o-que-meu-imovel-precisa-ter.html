@@ -773,7 +773,7 @@ function listar(s){var t=tipo(),l=local($u.value);if(!t)return erro('Escolha o t
   r.classList.add('cx-carregando');
   fetch('/api/public/regula/calculadora/documentos?tipo_imovel='+t[0]+'&'+l)
     .then(function(x){return x.json().catch(function(){return null}).then(function(j){r.classList.remove('cx-carregando');
-      if(!x.ok||!j||!j.data)return s?null:erro(erroDe(x,j));var ds=j.data.documentos||[];
+      if(!x.ok||!j||!j.data)return s?null:erro(erroDe(x,j));var ds=j.data.documentos||[];if(!s&&window.r360track)r360track('calculadora_usada');
       r.innerHTML='<span class="cx-rot">'+esc(t[1])+(j.data.uf?' · '+esc(j.data.uf):'')+'</span><div class="cx-doc">'+ds.length+' documentos essenciais</div><ul class="cx-lista">'+ds.map(item).join('')+'</ul>';
       if(!s&&innerWidth<880)r.scrollIntoView({behavior:'smooth',block:'start'});})})
     .catch(function(){r.classList.remove('cx-carregando');if(!s)erro('Sem conexão agora. Confira a internet e tente de novo.')});}
