@@ -17,8 +17,8 @@ const PAGS = ['', 'diagnostico-e-painel', 'regularizacao-e-gestao-ativa', 'gesta
 const browser = await abrirNavegador();
 const erros = [];
 
-for (const p of PAGS) {
-  const nome = p || 'home';
+// Abre a página com cache frio e devolve o que foi baixado da própria origem, e o erro da abertura, se houve.
+async function medir(p) {
   // contexto novo por página: cache frio, que é o que o visitante novo vive
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
   const page = await ctx.newPage();
@@ -28,10 +28,24 @@ for (const p of PAGS) {
     if (u.origin !== new URL(BASE).origin) return;
     baixados.push({ arq: u.pathname, versao: u.searchParams.get('v'), status: r.status(), url: r.url() });
   });
-
-  await page.goto(`${BASE}/${p}`, { waitUntil: 'networkidle' }).catch(() => {});
+  let erroAbrir = null;
+  await page.goto(`${BASE}/${p}`, { waitUntil: 'networkidle' }).catch((e) => { erroAbrir = String(e.message || e).split(String.fromCharCode(10))[0]; });
   await page.waitForTimeout(500);
+  await ctx.close();
+  return { baixados, erroAbrir };
+}
 
+for (const p of PAGS) {
+  const nome = p || 'home';
+  let { baixados, erroAbrir } = await medir(p);
+  // 🪤 (16/10) Duas vezes a conferência logo depois de publicar acusou "home: nenhum estático capturado" e,
+  // rodada de novo, passou: a abertura falhava nos primeiros segundos do deploy e o erro era engolido em silêncio.
+  // Uma 2ª tentativa só quando NADA foi capturado; se falhar de novo, o erro real da abertura vai para a mensagem.
+  // O piso continua: página que nunca entrega estático reprova.
+  if (!baixados.some((b) => /\.[a-z0-9]+$/i.test(b.arq) && !b.arq.endsWith('/'))) {
+    await new Promise((r) => setTimeout(r, 5000));
+    ({ baixados, erroAbrir } = await medir(p));
+  }
   const porArquivo = new Map();
   for (const b of baixados) {
     if (b.status >= 400) erros.push(`${nome}: ${b.arq} respondeu ${b.status}`);
@@ -41,13 +55,12 @@ for (const p of PAGS) {
   }
   // 🟥 piso: sem estático capturado, a prova não mediu nada e sairia verde. Basta um
   // redirecionamento de domínio (sem www → www) para o filtro de origem descartar tudo.
-  if (!porArquivo.size) erros.push(`${nome}: nenhum estático capturado — a prova não está medindo a página`);
+  if (!porArquivo.size) erros.push(`${nome}: nenhum estático capturado em 2 tentativas — a prova não está medindo a página${erroAbrir ? ` (erro ao abrir: ${erroAbrir})` : ''}`);
   for (const [arq, versoes] of porArquivo) {
     if (versoes.size > 1) {
       erros.push(`${nome}: ${arq} foi baixado ${versoes.size}× com endereços diferentes — ${[...versoes].join(' e ')}`);
     }
   }
-  await ctx.close();
 }
 
 await browser.close();
