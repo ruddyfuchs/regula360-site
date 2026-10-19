@@ -1,11 +1,12 @@
 titulo: Renovação do seguro: o que o síndico precisa conferir
+titulo_seo: Renovação do seguro do condomínio
 slug: renovacao-do-seguro-do-condominio
 categoria: Seguro
 data: 2026-10-14
 ordem: 6
 minutos: 5
 servico: /auditoria-e-recuperacao
-descricao: O seguro do condomínio é obrigatório pelo Código Civil. O que conferir na renovação além do preço: valor segurado, coberturas e o que a seguradora vai pedir no sinistro.
+descricao: O seguro do condomínio é obrigatório pelo Código Civil. O que conferir na renovação além do preço: valor segurado, coberturas e o que pedem no sinistro.
 resumo: O seguro do condomínio é obrigatório (Código Civil, art. 1.346) e todo ano a apólice é renovada. Na renovação, além do preço, vale conferir se o valor segurado acompanha o valor real do prédio, quais coberturas entraram e saíram e se a documentação que a seguradora vai pedir num sinistro está em dia.
 chamada: Quer uma segunda conferência nas contas do condomínio? | A Regula360 confere contratos, apólices e despesas contra base própria. | /auditoria-e-recuperacao | Ver auditoria e recuperação
 ---

@@ -1,4 +1,5 @@
 titulo: Como conferir um boleto do condomínio antes de pagar
+titulo_seo: Como conferir o boleto do condomínio
 slug: como-conferir-boleto-do-condominio
 categoria: Boletos
 data: 2026-10-14

@@ -1,4 +1,5 @@
 titulo: Prestação de contas anual: o que precisa estar na pasta
+titulo_seo: Prestação de contas anual: o que vai na pasta
 slug: prestacao-de-contas-anual
 categoria: Contas
 data: 2026-10-14

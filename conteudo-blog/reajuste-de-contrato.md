@@ -1,4 +1,5 @@
 titulo: Reajuste de contrato: como conferir se o índice e a data estão certos
+titulo_seo: Reajuste de contrato: como conferir
 slug: reajuste-de-contrato
 categoria: Contratos
 data: 2026-10-14
