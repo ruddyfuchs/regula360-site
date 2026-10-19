@@ -1,4 +1,5 @@
 titulo: Assumi um prédio: por que revisar 24 meses de contas
+titulo_seo: Assumi um prédio: revisar 24 meses de contas
 slug: assumi-um-predio-revisar-24-meses
 categoria: Contas
 data: 2026-10-14

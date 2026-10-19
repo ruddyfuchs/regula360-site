@@ -1,4 +1,5 @@
 titulo: Os documentos que todo condomínio deveria ter à vista
+titulo_seo: Documentos do condomínio para ter à vista
 slug: documentos-do-condominio-a-vista
 categoria: Documentos
 data: 2026-10-14

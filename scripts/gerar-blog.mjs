@@ -41,6 +41,10 @@ function lerArtigo(txt, nome) {
   }
   if (!/^[a-z0-9-]+$/.test(cab.slug)) throw new Error(`${nome}: slug só com letras minúsculas, números e hífen`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(cab.data)) throw new Error(`${nome}: data no formato AAAA-MM-DD`);
+  // titulo_seo (opcional): o título que vai para o Google quando o título do artigo passa de 60 com o " | Regula360".
+  const tSeo = `${cab.titulo_seo || cab.titulo} | Regula360`;
+  if ([...tSeo].length > 60) throw new Error(`${nome}: "${tSeo}" tem ${[...tSeo].length} caracteres; o Google corta acima de 60. Encurte o titulo ou ponha titulo_seo`);
+  if ([...cab.descricao].length > 160) throw new Error(`${nome}: descricao com ${[...cab.descricao].length} caracteres; o Google corta acima de 160`);
   return { ...cab, corpo: t.slice(corte + 5).trim() };
 }
 
@@ -78,7 +82,7 @@ for (const a of artigos) {
 const base = readFileSync(join(RAIZ, 'guia-do-sindico.html'), 'utf8').split('\r\n').join('\n');
 const antesMain = base.slice(0, base.indexOf('<main>'));
 const depoisMain = base.slice(base.indexOf('</main>') + '</main>'.length);
-const T_GUIA = 'Guia do síndico: contas e documentos do condomínio | Regula360';
+const T_GUIA = 'Guia do síndico: contas e documentos | Regula360';
 const D_GUIA = 'Respostas curtas para o síndico: prestação de contas, boletos, AVCB, seguro obrigatório, auditoria e quais documentos manter em dia.';
 
 function pagina(titulo, desc, url, tipo, ld, miolo) {
@@ -163,7 +167,7 @@ for (const a of artigos) {
   }
   for (const [i, html] of quadros.sort((x, y) => y[0] - x[0])) c.splice(i, 0, html);
   const outros = artigos.filter((o) => o.slug !== a.slug).sort((x, y) => (y.categoria === a.categoria) - (x.categoria === a.categoria)).slice(0, 3);
-  saidas.set(`blog-${a.slug}.html`, pagina(`${a.titulo} | Regula360`, a.descricao, url, 'article',
+  saidas.set(`blog-${a.slug}.html`, pagina(`${a.titulo_seo || a.titulo} | Regula360`, a.descricao, url, 'article',
     { '@context': 'https://schema.org', '@graph': [trilha([['Início', `${SITE}/`], ['Blog', `${SITE}/blog`], [a.titulo, url]]),
       { '@type': 'BlogPosting', headline: a.titulo, description: a.descricao, url, mainEntityOfPage: url, datePublished: a.data,
         dateModified: a.atualizado || a.data, inLanguage: 'pt-BR', articleSection: a.categoria, author: autor, publisher: editora }] },

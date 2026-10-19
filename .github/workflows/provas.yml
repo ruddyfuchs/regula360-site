@@ -29,6 +29,10 @@ jobs:
         run: node scripts/versionar-estaticos.mjs --conferir
       - name: blog gerado em dia com os artigos (conteudo-blog/*.md)
         run: node scripts/gerar-blog.mjs --conferir
+      - name: título e descrição na medida do Google
+        run: node scripts/prova-medida-do-google.mjs
+      - name: a prova da medida acusa título longo (sabotagem)
+        run: "! node scripts/prova-medida-do-google.mjs --sabotar"
       - name: carimbador funciona com .css novo e página em pasta
         run: node scripts/prova-carimbo-css.mjs
       - name: dados do negócio (Google) íntegros
