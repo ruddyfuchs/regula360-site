@@ -1,0 +1,41 @@
+{
+  "conferido_em": "2026-10-21",
+  "regras": {
+    "002": {
+      "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
+      "nao_vence": false,
+      "vigencia_meses": 36,
+      "antecedencia_dias": 65,
+      "origem_da_validade": "regra_da_uf",
+      "base_legal": "IT-01 CB-PMESP",
+      "consequencia": "Se vencer: risco de interdição do prédio · o seguro predial deixa de cobrir · multa de R$ 5.000 a R$ 50.000 (faixa estimada; consulte o órgão). Base: Auto de infração CB-PMESP: varia por grau de risco/área (estimativa; consulte o órgão)"
+    },
+    "045": {
+      "documento": "Certificado de Limpeza e Desinfecção dos Reservatórios de Água Potável",
+      "nao_vence": false,
+      "vigencia_meses": 6,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "Portaria GM/MS 888/2021",
+      "consequencia": "Se vencer: multa de R$ 2.000 a R$ 1.500.000 (base legal). Base: Lei 6.437/1977, art. 2º (infração sanitária: R$ 2.000 a R$ 1,5 milhão conforme a gravidade)"
+    },
+    "056": {
+      "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 20,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NBR 5419",
+      "consequencia": "Se vencer: o seguro predial deixa de cobrir · multa de R$ 2.000 a R$ 20.000 (faixa estimada; consulte o órgão). Base: NBR 5419: laudo obrigatório; sem SPDA em dia o seguro do prédio cai (estimativa)"
+    },
+    "060": {
+      "documento": "PMOC (Plano de Manutenção, Operação e Controle)",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 15,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "Lei 13.589/2018 / NBR 13971",
+      "consequencia": "Se vencer: operação parada · multa de R$ 2.000 a R$ 1.500.000 (base legal). Base: Lei 13.589/2018 (PMOC obrigatório) + Lei 6.437/1977, art. 2º (infração sanitária; a vigilância pode interditar)"
+    }
+  }
+}
