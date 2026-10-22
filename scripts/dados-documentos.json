@@ -1,6 +1,15 @@
 {
   "conferido_em": "2026-10-21",
   "regras": {
+    "230": {
+      "documento": "Relatório de Inspeção de extintores (áreas comuns e privativas)",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NBR 12962:2016 (inspeção: 6 meses CO₂/cilindro expelente, 12 meses demais) + IT-21/2025 CBPMESP",
+      "consequencia": null
+    },
     "002": {
       "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
       "nao_vence": false,
@@ -10,6 +19,24 @@
       "base_legal": "IT-01 CB-PMESP",
       "consequencia": "Se vencer: risco de interdição do prédio · o seguro predial deixa de cobrir · multa de R$ 5.000 a R$ 50.000 (faixa estimada; consulte o órgão). Base: Auto de infração CB-PMESP: varia por grau de risco/área (estimativa; consulte o órgão)"
     },
+    "007": {
+      "documento": "Alvará de Funcionamento de Elevadores",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_da_uf",
+      "base_legal": "Lei SP 10.348/1987 + Decreto SP 47.334/2006 (RIA anual)",
+      "consequencia": null
+    },
+    "027": {
+      "documento": "Certificado de Recarga de Extintores",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2",
+      "consequencia": null
+    },
     "045": {
       "documento": "Certificado de Limpeza e Desinfecção dos Reservatórios de Água Potável",
       "nao_vence": false,
@@ -18,6 +45,15 @@
       "origem_da_validade": "regra_nacional",
       "base_legal": "Portaria GM/MS 888/2021",
       "consequencia": "Se vencer: multa de R$ 2.000 a R$ 1.500.000 (base legal). Base: Lei 6.437/1977, art. 2º (infração sanitária: R$ 2.000 a R$ 1,5 milhão conforme a gravidade)"
+    },
+    "046": {
+      "documento": "Análise da Água Potável da caixa d água",
+      "nao_vence": false,
+      "vigencia_meses": 6,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "Portaria GM/MS 888/2021",
+      "consequencia": "Se vencer: operação parada · multa de R$ 2.000 a R$ 1.500.000 (base legal). Base: Lei 6.437/1977, art. 2º (infração sanitária; a vigilância pode interditar o estabelecimento) + Portaria GM/MS 888/2021 (potabilidade)"
     },
     "056": {
       "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",
