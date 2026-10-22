@@ -116,4 +116,12 @@
     <priority>0.6</priority>
   </url>
   <!-- /blog -->
+  <!-- documentos -->
+  <url>
+    <loc>https://www.regula360.com.br/laudo-de-spda-validade</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- /documentos -->
 </urlset>

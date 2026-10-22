@@ -47,6 +47,12 @@ Empresa nova, com décadas de operação real por trás. Os sócios somam mais d
 - [O que meu imóvel precisa ter?](https://www.regula360.com.br/o-que-meu-imovel-precisa-ter) — lista gratuita dos documentos essenciais por tipo de imóvel (condomínio residencial, prédio comercial, loja, shopping, galpão, indústria), com a validade de cada um no estado.
 - [Política de Privacidade](https://www.regula360.com.br/privacidade) — tratamento de dados conforme a LGPD (Lei 13.709/2018).
 
+## Validade de documentos
+
+Uma página por documento com prazo: validade, quando começar a renovar, o que acontece se vencer e a calculadora já preenchida.
+
+- [Laudo de SPDA: validade, quando renovar e o que precisa ter](https://www.regula360.com.br/laudo-de-spda-validade): vale 12 meses (1 ano) (NBR 5419).
+
 ## Blog
 
 Artigos curtos para síndico, conselheiro e gestor de imóveis, escritos por Ruddy Fuchs, sócio da Regula360. Lista: https://www.regula360.com.br/blog

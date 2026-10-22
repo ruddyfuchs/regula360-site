@@ -416,6 +416,7 @@ footer.rodape{background:var(--grafite-deep);color:rgba(244,240,232,.66);padding
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
   .hero-docs{opacity:0}.hero-steps,.hero-payoff,.hero-tag,.arco-replay{opacity:1}.rub .ok,.rub.achado .badge{opacity:1;transform:none}.mapa-ufs span,.tl-item.rev{opacity:1;transform:none}.mapa-svg .dot{opacity:.9}}
+.cx-saiba{margin:1rem 0 0;font-size:.95rem}.cx-saiba a{font:600 .95rem var(--display);color:var(--azul)}
 </style>
 <style>
 /* Arranjos das páginas de frente que a home não tem: o exemplo parado e o passo-a-passo. */
@@ -571,6 +572,7 @@ header.topo .btn-topo:hover{background:#fff;color:var(--azul-deep)}
 @media(max-width:560px){.cx-aviso-grid{grid-template-columns:1fr}}
 @media(max-width:880px){.cx-grid{grid-template-columns:1fr}}
 </style>
+<!-- paginas-de-documento: GERADO por scripts/gerar-documentos.mjs, não edite aqui --><script>window.R360_DOC={"056":["/laudo-de-spda-validade","o laudo de SPDA"]};</script><!-- /paginas-de-documento -->
 </head>
 <body>
 
@@ -782,7 +784,9 @@ function mostrar(d,rot){var chip='';
   else if(d.estado==='comece_a_renovar')chip='<span class="cx-chip cx-renovar">Hora de renovar · faltam '+d.dias_ate_vencer+' dias</span>';
   else if(d.estado==='vencido')chip='<span class="cx-chip cx-vencido">Vencido há '+Math.abs(d.dias_ate_vencer)+' dias</span>';
   var h='<span class="cx-rot">'+(rot||'Resultado')+'</span><div class="cx-doc">'+esc(d.documento)+(rot?', emitido em '+dBR(d.emissao)+' em '+esc(d.uf):'')+'</div>';
-  if(d.vence_em){h+='<div class="cx-big"><div><div class="n">'+dBR(d.vence_em)+'</div><div class="l">vence em</div></div>'+chip+'</div>'+linha('Comece a renovar até',dBR(d.comece_a_renovar_em))+linha('Validade',d.vigencia_meses?d.vigencia_meses+' meses':'')+linha('Base legal',d.base_legal)+cons(d.consequencia);}
+  if(d.vence_em){h+='<div class="cx-big"><div><div class="n">'+dBR(d.vence_em)+'</div><div class="l">vence em</div></div>'+chip+'</div>'+linha('Comece a renovar até',dBR(d.comece_a_renovar_em))+linha('Validade',d.vigencia_meses?d.vigencia_meses+' meses':'')+linha('Base legal',d.base_legal)+cons(d.consequencia);
+    // página do documento (gerada por scripts/gerar-documentos.mjs, que também escreve window.R360_DOC no <head>)
+    var pg=window.R360_DOC&&window.R360_DOC[d.codigo];if(pg)h+='<p class="cx-saiba"><a href="'+pg[0]+'">Saiba mais sobre '+esc(pg[1])+': validade, o que precisa ter e o que acontece se vencer →</a></p>';}
   else{h+='<div class="cx-big"><span class="cx-chip cx-neutro">'+(d.estado==='nao_vence'?'Não vence':'Confira no documento')+'</span></div><p class="cx-frase">'+esc(d.frase)+'</p>'+linha('Base legal',d.base_legal);}
   // Aviso por e-mail (fase 2, no ar desde 16/10, M5Group#3025): /api/public/regula/aviso-vencimento com dupla confirmação
   // e descadastro em todo e-mail. Junto vai o lead (fase 1) para um sócio acompanhar. Só depois de um cálculo de verdade.
