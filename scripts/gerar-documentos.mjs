@@ -101,6 +101,7 @@ if (atualizar || aoVivo) {
 }
 for (const c of codigos) if (!dados.regras[c]) throw new Error(`sem a regra do documento ${c} em scripts/dados-documentos.json: rode --atualizar`);
 
+const baseCurta = (b) => b.replace(/\s*\([^)]*\)/g, '').replace(/ (?:item|itens) [\d.]+( e [\d.]+)*/g, '').trim();
 const maiuscula = (s) => s[0].toUpperCase() + s.slice(1);
 const de = (s) => s.replace(/^(os|as|o|a) /, (m, a) => `d${a} `);
 const prazo = (m) => (m % 12 === 0 && m >= 12 ? `${m} meses (${m / 12 === 1 ? '1 ano' : `${m / 12} anos`})` : `${m} meses`);
@@ -172,7 +173,9 @@ for (const d of docs) {
   const antesTxt = antes % 30 === 0 && antes >= 60 ? `${antes / 30} meses` : `${antes} dias`;
   const respRenovar = `Comece a renovar pelo menos ${antesTxt} antes do vencimento.`;
   const [cT, cS, cL, cB] = d.chamada.split('|').map((s) => s.trim());
-  const c = corpoHtml(d.corpo);
+  // {{validade}} e {{renovar}} no texto vêm da MESMA regra do quadro: o número nunca fica escrito à mão no .md
+  if (/\b\d+ (dias|meses) antes do vencimento/.test(d.corpo)) throw new Error(`${d.slug}: prazo escrito à mão no texto; use {{renovar}}`);
+  const c = corpoHtml(d.corpo.split('{{validade}}').join(prazo(r.vigencia_meses)).split('{{renovar}}').join(antesTxt));
   const h2s = c.map((x, i) => (x.startsWith('<h2>') ? i : -1)).filter((i) => i > 0);
   const meio = h2s.length ? h2s.reduce((m, i) => (Math.abs(i - c.length / 2) < Math.abs(m - c.length / 2) ? i : m)) : Math.floor(c.length / 2);
   c.splice(meio, 0, `<div class="chamada"><div><b>${esc(cT)}</b><p>${esc(cS)}</p></div><a class="btn btn-azul" href="${cL}">${esc(cB)} →</a></div>`);
@@ -193,9 +196,9 @@ for (const d of docs) {
   <span class="rb-cat">Validade de documentos</span>
   <h1>${esc(d.titulo)}</h1>
   <div class="rd-resp" id="resposta"><b>Resposta rápida</b>
-    <div class="rd-3"><div><small>Validade</small><strong>${prazo(r.vigencia_meses)}</strong></div><div><small>Comece a renovar</small><strong>${antesTxt} antes</strong></div><div><small>Base</small><strong>${esc(r.base_legal)}</strong></div></div>
+    <div class="rd-3"><div><small>Validade</small><strong>${prazo(r.vigencia_meses)}</strong></div><div><small>Comece a renovar</small><strong>${antesTxt} antes</strong></div><div><small>Base</small><strong>${esc(baseCurta(r.base_legal))}</strong></div></div>
     ${risco ? `<p class="rd-risco"><b>Se vencer:</b> ${esc(risco)}</p>` : ''}
-    <p class="rd-fonte">${ondeVale} Mesma regra da calculadora da Regula360, conferida em ${dataBR(dados.conferido_em)}.</p>
+    <p class="rd-fonte">${baseCurta(r.base_legal) !== r.base_legal ? `Base completa: ${esc(r.base_legal)}. ` : ''}${ondeVale} Mesma regra da calculadora da Regula360, conferida em ${dataBR(dados.conferido_em)}.</p>
   </div>
   <form class="rd-calc" action="/quando-vence-meu-documento" method="get">
     <input type="hidden" name="documento" value="${esc(d.codigo)}"><input type="hidden" name="uf" value="SP">
