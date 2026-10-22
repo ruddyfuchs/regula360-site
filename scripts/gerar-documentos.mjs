@@ -174,7 +174,7 @@ for (const d of docs) {
   const respRenovar = `Comece a renovar pelo menos ${antesTxt} antes do vencimento.`;
   const [cT, cS, cL, cB] = d.chamada.split('|').map((s) => s.trim());
   // {{validade}} e {{renovar}} no texto vêm da MESMA regra do quadro: o número nunca fica escrito à mão no .md
-  if (/\b\d+ (dias|meses) antes do vencimento/.test(d.corpo)) throw new Error(`${d.slug}: prazo escrito à mão no texto; use {{renovar}}`);
+  if (/\b\d+ (dias|meses) antes do (vencimento|prazo)/.test(d.corpo)) throw new Error(`${d.slug}: prazo escrito à mão no texto; use {{renovar}}`);
   const c = corpoHtml(d.corpo.split('{{validade}}').join(prazo(r.vigencia_meses)).split('{{renovar}}').join(antesTxt));
   const h2s = c.map((x, i) => (x.startsWith('<h2>') ? i : -1)).filter((i) => i > 0);
   const meio = h2s.length ? h2s.reduce((m, i) => (Math.abs(i - c.length / 2) < Math.abs(m - c.length / 2) ? i : m)) : Math.floor(c.length / 2);
