@@ -59,4 +59,4 @@ Se o prédio estiver trocando de empresa de manutenção ou se houve troca relev
 
 ## Como não deixar vencer
 
-O PMOC é um entre os documentos com prazo que o prédio acumula, e costuma ficar com a empresa de manutenção do ar-condicionado, longe dos olhos do síndico ou do gestor. A forma mais simples de não ser surpreendido é tê-lo na mesma lista do AVCB, da limpeza da caixa d'água e dos demais laudos, com a data de vencimento, quem é o responsável por revisar e um aviso 15 dias antes do prazo. Assim a revisão acontece em dia, junto com os registros de manutenção do ano.
+O PMOC é um entre os documentos com prazo que o prédio acumula, e costuma ficar com a empresa de manutenção do ar-condicionado, longe dos olhos do síndico ou do gestor. A forma mais simples de não ser surpreendido é tê-lo na mesma lista do AVCB, da limpeza da caixa d'água e dos demais laudos, com a data de vencimento, quem é o responsável por revisar e um aviso {{renovar}} antes do prazo. Assim a revisão acontece em dia, junto com os registros de manutenção do ano.

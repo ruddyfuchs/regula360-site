@@ -60,4 +60,4 @@ Agendar com antecedência também permite escolher um dia de menor consumo, o qu
 
 ## Como não deixar vencer
 
-A limpeza da caixa d'água é o documento de prazo mais curto entre os principais do prédio, e por isso é o que mais escapa. A forma mais simples de não ser surpreendido é ter o certificado de limpeza e a análise da água na mesma lista do AVCB, do PMOC e dos demais documentos, com a data de vencimento, quem é o responsável por agendar e um aviso 30 dias antes do prazo. Assim as duas limpezas do ano acontecem em dia, e a análise vem logo atrás.
+A limpeza da caixa d'água é o documento de prazo mais curto entre os principais do prédio, e por isso é o que mais escapa. A forma mais simples de não ser surpreendido é ter o certificado de limpeza e a análise da água na mesma lista do AVCB, do PMOC e dos demais documentos, com a data de vencimento, quem é o responsável por agendar e um aviso {{renovar}} antes do prazo. Assim as duas limpezas do ano acontecem em dia, e a análise vem logo atrás.

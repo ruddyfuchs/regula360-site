@@ -62,4 +62,4 @@ A regra usada aqui é começar {{renovar}} antes do vencimento. Nesse prazo, val
 
 ## Como não deixar vencer
 
-O alvará dos elevadores costuma ficar inteiramente nas mãos da conservadora, e o prédio só percebe o atraso quando alguém pede o documento. A forma mais simples de não ser surpreendido é ter o RIA de cada elevador na mesma lista do AVCB, do laudo de SPDA e dos demais documentos, com a data de vencimento, quem é o responsável por cobrar e um aviso 30 dias antes do prazo. Assim a inspeção anual acontece em dia, e o prédio tem a cópia em mãos.
+O alvará dos elevadores costuma ficar inteiramente nas mãos da conservadora, e o prédio só percebe o atraso quando alguém pede o documento. A forma mais simples de não ser surpreendido é ter o RIA de cada elevador na mesma lista do AVCB, do laudo de SPDA e dos demais documentos, com a data de vencimento, quem é o responsável por cobrar e um aviso {{renovar}} antes do prazo. Assim a inspeção anual acontece em dia, e o prédio tem a cópia em mãos.

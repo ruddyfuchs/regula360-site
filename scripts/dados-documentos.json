@@ -1,6 +1,15 @@
 {
   "conferido_em": "2026-10-21",
   "regras": {
+    "229": {
+      "documento": "Relatório de inspeção da iluminação de emergência",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NBR 10898:2023 (ensaio anual de autonomia; checagens semestrais) + IT-18/2025 CBPMESP item 2.2",
+      "consequencia": null
+    },
     "230": {
       "documento": "Relatório de Inspeção de extintores (áreas comuns e privativas)",
       "nao_vence": false,
@@ -8,6 +17,15 @@
       "antecedencia_dias": 30,
       "origem_da_validade": "regra_nacional",
       "base_legal": "NBR 12962:2016 (inspeção: 6 meses CO₂/cilindro expelente, 12 meses demais) + IT-21/2025 CBPMESP",
+      "consequencia": null
+    },
+    "231": {
+      "documento": "Relatório de inspeção de hidrantes e VGAs",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NBR 13714:2000 Anexo C itens C.2 e C.3.1 + NBR 12779 + IT-22/2025 CBPMESP Anexo F",
       "consequencia": null
     },
     "002": {
@@ -37,6 +55,15 @@
       "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2",
       "consequencia": null
     },
+    "037": {
+      "documento": "PECI - Plano de Emergência contra Incêndio",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_da_uf",
+      "base_legal": "IT-16/2025 CBPMESP item 5.8.1.3",
+      "consequencia": null
+    },
     "045": {
       "documento": "Certificado de Limpeza e Desinfecção dos Reservatórios de Água Potável",
       "nao_vence": false,
@@ -54,6 +81,24 @@
       "origem_da_validade": "regra_nacional",
       "base_legal": "Portaria GM/MS 888/2021",
       "consequencia": "Se vencer: operação parada · multa de R$ 2.000 a R$ 1.500.000 (base legal). Base: Lei 6.437/1977, art. 2º (infração sanitária; a vigilância pode interditar o estabelecimento) + Portaria GM/MS 888/2021 (potabilidade)"
+    },
+    "049": {
+      "documento": "Certificado do Controle de Pragas",
+      "nao_vence": false,
+      "vigencia_meses": 6,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "Boas práticas de controle de vetores",
+      "consequencia": "Se vencer: multa de R$ 2.000 a R$ 1.500.000 (base legal). Base: Lei 6.437/1977, art. 2º (infração sanitária: R$ 2.000 a R$ 1,5 milhão conforme a gravidade)"
+    },
+    "051": {
+      "documento": "Laudo / Relatório de Regularidade das Instalações Elétricas (PAME - Parada Anual)",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 20,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NR-10 / NBR 5410",
+      "consequencia": "Se vencer: operação parada · o seguro predial deixa de cobrir · multa de R$ 3.000 a R$ 30.000 (faixa estimada; consulte o órgão). Base: NR-10 / NBR 5410: auto de infração do MTE + risco de embargo (estimativa)"
     },
     "056": {
       "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",

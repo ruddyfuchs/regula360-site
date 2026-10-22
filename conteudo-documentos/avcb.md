@@ -65,4 +65,4 @@ Na próxima renovação, esse conjunto economiza tempo e evita refazer o que já
 
 ## Como não deixar vencer
 
-O AVCB depende de outros documentos, e cada um vence numa data. A forma mais simples de não ser surpreendido é ter o AVCB na mesma lista do laudo de SPDA, da recarga dos extintores, do alvará dos elevadores e dos demais itens, com a data de vencimento, quem é o responsável por renovar e um aviso 65 dias antes do prazo. Assim cada pendência aparece com tempo, e a renovação acontece antes do vencimento.
+O AVCB depende de outros documentos, e cada um vence numa data. A forma mais simples de não ser surpreendido é ter o AVCB na mesma lista do laudo de SPDA, da recarga dos extintores, do alvará dos elevadores e dos demais itens, com a data de vencimento, quem é o responsável por renovar e um aviso {{renovar}} antes do prazo. Assim cada pendência aparece com tempo, e a renovação acontece antes do vencimento.

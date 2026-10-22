@@ -59,4 +59,4 @@ A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá t
 
 ## Como não deixar vencer
 
-A recarga dos extintores é um entre os documentos com prazo que o prédio acumula, e o teste hidrostático é fácil de esquecer porque acontece raramente. A forma mais simples de não ser surpreendido é ter a recarga, a inspeção e o teste na mesma lista do AVCB e dos demais laudos, com a data de vencimento, quem é o responsável por agendar e um aviso 30 dias antes do prazo. Assim a manutenção acontece antes do vencimento, e o AVCB não espera por ela.
+A recarga dos extintores é um entre os documentos com prazo que o prédio acumula, e o teste hidrostático é fácil de esquecer porque acontece raramente. A forma mais simples de não ser surpreendido é ter a recarga, a inspeção e o teste na mesma lista do AVCB e dos demais laudos, com a data de vencimento, quem é o responsável por agendar e um aviso {{renovar}} antes do prazo. Assim a manutenção acontece antes do vencimento, e o AVCB não espera por ela.
