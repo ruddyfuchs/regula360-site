@@ -29,6 +29,10 @@ jobs:
         run: node scripts/versionar-estaticos.mjs --conferir
       - name: blog gerado em dia com os artigos (conteudo-blog/*.md)
         run: node scripts/gerar-blog.mjs --conferir
+      - name: páginas por documento geradas em dia (conteudo-documentos/*.md)
+        run: node scripts/gerar-documentos.mjs --conferir
+      - name: regra das páginas por documento igual à da plataforma
+        run: node scripts/gerar-documentos.mjs --ao-vivo https://m5group.pages.dev
       - name: título e descrição na medida do Google
         run: node scripts/prova-medida-do-google.mjs
       - name: a prova da medida acusa título longo (sabotagem)

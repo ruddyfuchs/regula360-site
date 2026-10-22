@@ -36,7 +36,7 @@ const BASE = process.argv[2] || 'https://www.regula360.com.br';
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const AXE = process.argv[3] || join(AQUI, 'axe.min.js');
 const PAGS = ['', 'diagnostico-e-painel', 'regularizacao-e-gestao-ativa',
-  'gestao-mensal-de-boletos', 'auditoria-e-recuperacao', 'privacidade', 'guia-do-sindico', 'seguranca', 'quando-vence-meu-documento', 'o-que-meu-imovel-precisa-ter', 'blog', 'blog-como-conferir-boleto-do-condominio'];
+  'gestao-mensal-de-boletos', 'auditoria-e-recuperacao', 'privacidade', 'guia-do-sindico', 'seguranca', 'quando-vence-meu-documento', 'laudo-de-spda-validade', 'o-que-meu-imovel-precisa-ter', 'blog', 'blog-como-conferir-boleto-do-condominio'];
 
 if (!existsSync(AXE)) {
   console.log(`❌ não achei o axe.min.js em ${AXE}`);

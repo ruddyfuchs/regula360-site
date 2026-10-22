@@ -8,6 +8,8 @@ descricao: Validade do laudo de SPDA (para-raios), quando começar a renovar, o 
 resumo: SPDA é o sistema de proteção contra descargas atmosféricas, o para-raios do prédio. O laudo é a inspeção feita por engenheiro, com ART, que diz se o sistema está íntegro. Vencido ou sem ART, ele costuma travar a renovação do AVCB.
 chamada: Quer saber como estão os laudos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 002, 060, 045
+renovar_antes_dias: 60
+renovar_antes_motivo: decisão do Ruddy em 21/10; a plataforma diz 20 dias, pouco para inspecionar, corrigir e emitir laudo novo. Consultar a SISTEMA REGULA depois do redesign.
 ---
 ## O que é o SPDA
 

@@ -19,7 +19,7 @@ import { abrirNavegador } from './navegador.mjs';
 
 const BASE = process.argv[2] || 'https://www.regula360.com.br';
 const PAGS = ['', 'diagnostico-e-painel', 'regularizacao-e-gestao-ativa',
-  'gestao-mensal-de-boletos', 'auditoria-e-recuperacao', 'privacidade', 'guia-do-sindico', 'seguranca', 'quando-vence-meu-documento', 'o-que-meu-imovel-precisa-ter', 'blog', 'blog-como-conferir-boleto-do-condominio'];
+  'gestao-mensal-de-boletos', 'auditoria-e-recuperacao', 'privacidade', 'guia-do-sindico', 'seguranca', 'quando-vence-meu-documento', 'laudo-de-spda-validade', 'o-que-meu-imovel-precisa-ter', 'blog', 'blog-como-conferir-boleto-do-condominio'];
 const JANELA = 1920;
 const FOLGA = 40; // bordas arredondadas, sombras e faixas decorativas
 const MINIMO = 3; // cabeçalho, uma seção e o rodapé, no mínimo

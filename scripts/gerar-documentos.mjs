@@ -165,7 +165,12 @@ for (const d of docs) {
   const risco = seVencer(r.consequencia);
   const ondeVale = r.origem_da_validade === 'regra_da_uf' ? 'Regra do estado de São Paulo; em outros estados o prazo pode ser outro.' : 'Regra nacional, igual em todos os estados.';
   const respValidade = `${maiuscula(d.chamado)} vale ${prazo(r.vigencia_meses)} a partir da emissão (${r.base_legal}).`;
-  const respRenovar = `Comece a renovar pelo menos ${r.antecedencia_dias} dias antes do vencimento.`;
+  const PERGUNTAS = () => [[`Qual a validade ${de(d.chamado)}?`, `${respValidade} ${ondeVale}`], [`Quando começar a renovar ${d.chamado}?`, respRenovar]]; // sem 'o que acontece se vencer': a prova-faq proíbe preço (R$) em pergunta; o risco fica no quadro de cima
+  // renovar_antes_dias (opcional no .md): decisão do Ruddy quando a antecedência da plataforma é curta demais
+  // para a vida real; vale só nesta página e fica registrado para a plataforma revisar (ver o .md).
+  const antes = Number(d.renovar_antes_dias) || r.antecedencia_dias;
+  const antesTxt = antes % 30 === 0 && antes >= 60 ? `${antes / 30} meses` : `${antes} dias`;
+  const respRenovar = `Comece a renovar pelo menos ${antesTxt} antes do vencimento.`;
   const [cT, cS, cL, cB] = d.chamada.split('|').map((s) => s.trim());
   const c = corpoHtml(d.corpo);
   const h2s = c.map((x, i) => (x.startsWith('<h2>') ? i : -1)).filter((i) => i > 0);
@@ -181,18 +186,14 @@ for (const d of docs) {
     { '@type': 'BreadcrumbList', itemListElement: [['Início', `${SITE}/`], ['Quando vence meu documento?', `${SITE}/quando-vence-meu-documento`], [d.nome, url]].map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: u })) },
     { '@type': 'Article', headline: d.titulo, description: d.descricao, url, mainEntityOfPage: url, dateModified: dados.conferido_em, inLanguage: 'pt-BR',
       author: { '@type': 'Organization', name: 'Regula360', url: `${SITE}/` }, publisher: { '@type': 'Organization', name: 'Regula360', url: `${SITE}/` } },
-    { '@type': 'FAQPage', mainEntity: [
-      { '@type': 'Question', name: `Qual a validade ${de(d.chamado)}?`, acceptedAnswer: { '@type': 'Answer', text: `${respValidade} ${ondeVale}` } },
-      { '@type': 'Question', name: `Quando começar a renovar ${d.chamado}?`, acceptedAnswer: { '@type': 'Answer', text: respRenovar } },
-      ...(risco ? [{ '@type': 'Question', name: `O que acontece se ${d.chamado} vencer?`, acceptedAnswer: { '@type': 'Answer', text: risco } }] : []),
-    ] }] };
+    { '@type': 'FAQPage', mainEntity: PERGUNTAS().map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] };
   saidas.set(`${d.slug}.html`, pagina(`${d.titulo_seo || d.titulo} | Regula360`, d.descricao, url, ld,
     `<article class="ra">
   <p style="font:600 .72rem var(--display);letter-spacing:.06em;color:var(--steel)"><a href="/" style="color:var(--steel)">Início</a> <span style="opacity:.5">›</span> <a href="/quando-vence-meu-documento" style="color:var(--steel)">Quando vence meu documento?</a> <span style="opacity:.5">›</span> <span style="color:var(--grafite)">${esc(d.nome)}</span></p>
   <span class="rb-cat">Validade de documentos</span>
   <h1>${esc(d.titulo)}</h1>
   <div class="rd-resp" id="resposta"><b>Resposta rápida</b>
-    <div class="rd-3"><div><small>Validade</small><strong>${prazo(r.vigencia_meses)}</strong></div><div><small>Comece a renovar</small><strong>${r.antecedencia_dias} dias antes</strong></div><div><small>Base</small><strong>${esc(r.base_legal)}</strong></div></div>
+    <div class="rd-3"><div><small>Validade</small><strong>${prazo(r.vigencia_meses)}</strong></div><div><small>Comece a renovar</small><strong>${antesTxt} antes</strong></div><div><small>Base</small><strong>${esc(r.base_legal)}</strong></div></div>
     ${risco ? `<p class="rd-risco"><b>Se vencer:</b> ${esc(risco)}</p>` : ''}
     <p class="rd-fonte">${ondeVale} Mesma regra da calculadora da Regula360, conferida em ${dataBR(dados.conferido_em)}.</p>
   </div>
@@ -203,6 +204,8 @@ for (const d of docs) {
   </form>
   <div class="resumo"><b>Em 20 segundos</b>${esc(d.resumo)}</div>
   ${c.join('\n  ')}
+  <h2>Perguntas rápidas</h2>
+  ${PERGUNTAS().map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join(' ')}
   <h2>Outros documentos com prazo</h2>
   <ul class="rd-outros">${outros.join('')}<li><a href="/o-que-meu-imovel-precisa-ter">Ver a lista completa do seu tipo de imóvel<span>→</span></a></li></ul>
 </article>`));
@@ -217,6 +220,36 @@ function gravar(f, conteudo) {
   console.log(`gerado: ${f}`);
 }
 for (const [f, c] of saidas) gravar(f, c);
+
+// ── o caminho até as páginas: sem link, nem visitante nem Google acha a página (o guia da M5 ficou 14 dias invisível) ──
+function entreMarcadores(arquivo, abre, fecha, miolo, antesDe) {
+  let t = (disco(arquivo) ?? '').split('\r\n').join('\n');
+  const i = t.indexOf(abre);
+  if (i >= 0) t = t.slice(0, i) + abre + miolo + fecha + t.slice(t.indexOf(fecha, i) + fecha.length);
+  else {
+    const k = t.indexOf(antesDe);
+    if (k < 0) throw new Error(`${arquivo}: não achei onde pôr o bloco (${antesDe})`);
+    t = t.slice(0, k) + abre + miolo + fecha + '\n' + t.slice(k);
+  }
+  gravar(arquivo, t);
+}
+// 1) a calculadora: depois de calcular um documento que tem página, mostra "Saiba mais sobre…"
+const mapa = Object.fromEntries(docs.map((d) => [d.codigo, [`/${d.slug}`, d.chamado]]));
+entreMarcadores('quando-vence-meu-documento.html', '<!-- paginas-de-documento: GERADO por scripts/gerar-documentos.mjs, não edite aqui -->', '<!-- /paginas-de-documento -->',
+  `<script>window.R360_DOC=${JSON.stringify(mapa)};</script>`, '</head>');
+// 2) o mapa do site
+entreMarcadores('sitemap.xml', '  <!-- documentos -->', '  <!-- /documentos -->', '\n' +
+  docs.map((d) => `  <url>\n    <loc>${SITE}/${d.slug}</loc>\n    <lastmod>${dados.conferido_em}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`).join('\n') + '\n', '</urlset>');
+// 3) o resumo para IAs (llms.txt)
+{
+  const secao = ['## Validade de documentos', '', 'Uma página por documento com prazo: validade, quando começar a renovar, o que acontece se vencer e a calculadora já preenchida.', '',
+    ...docs.map((d) => { const r = dados.regras[d.codigo]; return `- [${d.titulo}](${SITE}/${d.slug}): vale ${prazo(r.vigencia_meses)} (${r.base_legal}).`; }), '', ''].join('\n');
+  let t = (disco('llms.txt') ?? '').split('\r\n').join('\n');
+  t = t.replace(/## Validade de documentos\n[\s\S]*?(?=## )/, '');
+  const k = t.indexOf('## Blog');
+  if (k < 0) throw new Error('llms.txt: não achei "## Blog"');
+  gravar('llms.txt', t.slice(0, k) + secao + t.slice(k));
+}
 
 if (conferir) {
   if (fora.length) {
