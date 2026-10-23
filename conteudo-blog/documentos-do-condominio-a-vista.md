@@ -9,6 +9,7 @@ servico: /diagnostico-e-painel
 descricao: Os documentos com vencimento que mais aparecem num condomínio e por que acompanhá-los numa lista única, com a data à vista.
 resumo: Um condomínio acumula documentos com prazo de validade: AVCB, seguro, limpeza da caixa d'água, manutenção de elevadores e extintores, laudos de instalações e, quando há ar-condicionado coletivo, o PMOC. Cada um vence numa data diferente. O risco está no que ninguém acompanha, e a forma mais simples de evitar isso é ter todos numa lista única, com as datas à vista.
 chamada: Quer ver os documentos do seu prédio numa tela só? | O diagnóstico da Regula360 monta o inventário com os vencimentos. | /diagnostico-e-painel | Ver diagnóstico e painel
+documentos: 002, 056, 060, 045, 027, 007
 calculadora: Veja a lista dos documentos essenciais de um condomínio em São Paulo, com a validade de cada um. | /o-que-meu-imovel-precisa-ter?tipo=condominio_residencial | Ver a lista do meu condomínio
 ---
 ## Por que "à vista"

@@ -51,7 +51,13 @@ const page = await ctx.newPage();
 const erros = [];
 let medidos = 0;
 
-for (const p of PAGS) {
+// PARTE=n/m (env): roda só 1 de cada m páginas, para o CI dividir a prova em jobs paralelos.
+// 🪤 23/10: com as páginas por documento a prova passou de 11 min no pós-deploy; dividida, cada parte fica em poucos minutos.
+const [PARTE, PARTES] = (process.env.PARTE || '1/1').split('/').map(Number);
+if (!(PARTES >= 1 && PARTE >= 1 && PARTE <= PARTES)) { console.log(`❌ PARTE inválida: ${process.env.PARTE}`); process.exit(1); }
+const MINHAS = PAGS.filter((_, i) => i % PARTES === PARTE - 1);
+if (PARTES > 1) console.log(`parte ${PARTE}/${PARTES}: ${MINHAS.length} de ${PAGS.length} páginas`);
+for (const p of MINHAS) {
   const nome = p || 'home';
   await page.goto(`${BASE}/${p}`, { waitUntil: 'load' });
   // 🪤 ESPERAR A ANIMAÇÃO TERMINAR. O aviso de cookies entra com transição de

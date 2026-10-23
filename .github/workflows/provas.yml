@@ -83,6 +83,11 @@ jobs:
     name: provas no motor do iPhone (WebKit)
     if: github.event_name != 'deployment_status'
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+    # 23/10: o apt-get do --with-deps no runner ficou lento a ponto de travar o job 50+ min; a imagem oficial
+    # do Playwright já vem com o WebKit e as dependências do sistema instalados (mesma versão do npm abaixo).
+    container:
+      image: mcr.microsoft.com/playwright:v1.61.1-noble
     env:
       NAVEGADOR: webkit
     steps:
@@ -93,11 +98,11 @@ jobs:
       - name: instala o playwright, o motor do Safari e o axe
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.61.1 axe-core@4.10.2
-          npx playwright install --with-deps webkit
+          npx playwright install webkit
       - name: sobe o site como o Vercel serve
         run: |
           nohup node scripts/servidor-local.mjs 8080 > servidor.log 2>&1 &
-          for i in $(seq 1 30); do curl -sf -o /dev/null http://localhost:8080/ && exit 0; sleep 1; done
+          for i in $(seq 1 30); do node -e "fetch('http://localhost:8080/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))" && exit 0; sleep 1; done
           cat servidor.log; exit 1
       - name: nenhum bloco fora da margem, no iPhone
         run: node scripts/prova-alinhamento.mjs http://localhost:8080
@@ -117,6 +122,7 @@ jobs:
       && github.event.deployment_status.state == 'success'
       && github.event.deployment.environment == 'Production'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -129,8 +135,6 @@ jobs:
         run: node scripts/prova-nada-interno.mjs https://www.regula360.com.br
       - name: nada baixado duas vezes, nada 404, no ar
         run: node scripts/prova-rede-limpa.mjs https://www.regula360.com.br
-      - name: acessibilidade e contraste no ar
-        run: node scripts/prova-contraste.mjs https://www.regula360.com.br node_modules/axe-core/axe.min.js
       - name: nada invisível, no ar
         run: node scripts/prova-nada-escondido.mjs https://www.regula360.com.br
       - name: frase de consentimento, no ar
@@ -139,3 +143,30 @@ jobs:
         run: node scripts/prova-seguranca.mjs https://www.regula360.com.br
       - name: calculadoras do site = plataforma, no ar (pelo /api do próprio site)
         run: node scripts/prova-calculadoras.mjs https://www.regula360.com.br
+
+  # 23/10: o axe sozinho levava 11+ min no pós-deploy e crescia a cada lote de páginas por documento.
+  # Dividido em 3 partes paralelas (PARTE=n/3 escolhe 1 de cada 3 páginas); juntas cobrem todas.
+  no-ar-contraste:
+    name: acessibilidade e contraste no ar (parte ${{ matrix.parte }}/3)
+    if: >-
+      github.event_name == 'deployment_status'
+      && github.event.deployment_status.state == 'success'
+      && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        parte: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save --no-audit --no-fund playwright@1.61.1 axe-core@4.10.2
+      - name: acessibilidade e contraste no ar
+        env:
+          PARTE: ${{ matrix.parte }}/3
+        run: node scripts/prova-contraste.mjs https://www.regula360.com.br node_modules/axe-core/axe.min.js
