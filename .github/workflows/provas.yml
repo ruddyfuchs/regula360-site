@@ -83,6 +83,7 @@ jobs:
     name: provas no motor do iPhone (WebKit)
     if: github.event_name != 'deployment_status'
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     env:
       NAVEGADOR: webkit
     steps:
@@ -93,7 +94,8 @@ jobs:
       - name: instala o playwright, o motor do Safari e o axe
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.61.1 axe-core@4.10.2
-          npx playwright install --with-deps webkit
+          # 23/10: o apt-get do --with-deps travou 2x por 50+ min no runner. Limite de 6 min por tentativa, até 3 tentativas.
+          for i in 1 2 3; do timeout 360 npx playwright install --with-deps webkit && break; echo "tentativa $i falhou, de novo"; [ $i = 3 ] && exit 1; done
       - name: sobe o site como o Vercel serve
         run: |
           nohup node scripts/servidor-local.mjs 8080 > servidor.log 2>&1 &
