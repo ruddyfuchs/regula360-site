@@ -78,6 +78,16 @@ for (const a of artigos) {
   slugs.add(a.slug);
 }
 
+// ── páginas por documento (para o quadro "documentos:"): codigo → slug e nome, e a regra guardada ──
+const DOCS = new Map();
+for (const f of readdirSync(join(RAIZ, 'conteudo-documentos')).filter((x) => x.endsWith('.md'))) {
+  const cab = Object.fromEntries(readFileSync(join(RAIZ, 'conteudo-documentos', f), 'utf8').split('\r\n').join('\n').split('\n---\n')[0]
+    .split('\n').map((l) => [l.slice(0, l.indexOf(':')).trim(), l.slice(l.indexOf(':') + 1).trim()]));
+  DOCS.set(cab.codigo, { slug: cab.slug, nome: cab.nome });
+}
+const REGRAS = JSON.parse(readFileSync(join(RAIZ, 'scripts', 'dados-documentos.json'), 'utf8')).regras;
+const prazoDoc = (m) => (m % 12 === 0 && m >= 12 ? `${m} meses (${m / 12 === 1 ? '1 ano' : `${m / 12} anos`})` : `${m} meses`);
+
 // ── casca: a página do Guia do síndico, sem os dados estruturados nem o miolo dela ──
 const base = readFileSync(join(RAIZ, 'guia-do-sindico.html'), 'utf8').split('\r\n').join('\n');
 const antesMain = base.slice(0, base.indexOf('<main>'));
@@ -119,6 +129,13 @@ const CSS = `<style>
 .ra .calcule b{font:600 .62rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
 .ra .calcule span{font-size:1rem;color:var(--grafite);line-height:1.6}
 .ra .calcule a{font:600 .95rem var(--display);color:var(--azul)}
+.ra .docs-citados{background:var(--papel);border:1px solid var(--linha);border-top:4px solid var(--azul);border-radius:6px;padding:1.1rem 1.3rem;margin:2rem 0}
+.ra .docs-citados b{display:block;font:600 .62rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--azul);margin-bottom:.6rem}
+.ra .docs-citados ul{list-style:none;padding:0;margin:0;display:grid;gap:.4rem}
+.ra .docs-citados li{font-size:1rem}
+.ra .docs-citados a{display:flex;justify-content:space-between;gap:1rem;color:var(--grafite);text-decoration:none;border-bottom:1px solid var(--linha);padding:.45rem 0}
+.ra .docs-citados a:hover{color:var(--azul)}
+.ra .docs-citados span{color:var(--steel);white-space:nowrap}
 .ra .partilha{font-size:.85rem;color:var(--steel);border-top:1px solid var(--linha);padding-top:1rem;margin-top:2rem}
 @media(max-width:880px){.rb-grade{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.rb-grade{grid-template-columns:1fr}}
@@ -166,6 +183,16 @@ for (const a of artigos) {
     quadros.push([onde, `<div class="calcule"><b>Calcule agora · grátis</b><span>${esc(kT)}</span><a href="${kL}">${esc(kB)} →</a></div>`]);
   }
   for (const [i, html] of quadros.sort((x, y) => y[0] - x[0])) c.splice(i, 0, html);
+  // "documentos: 002, 056" (opcional): quadro com o prazo e o link da página de cada documento citado.
+  // Prazo vem da mesma regra das páginas por documento (scripts/dados-documentos.json): um fato, uma vez.
+  if (a.documentos) {
+    const itens = a.documentos.split(',').map((s) => s.trim()).filter(Boolean).map((cod) => {
+      const d = DOCS.get(cod);
+      if (!d) throw new Error(`blog-${a.slug}: documento ${cod} não tem página em conteudo-documentos`);
+      return `<li><a href="/${d.slug}">${esc(d.nome)}<span>vale ${prazoDoc(REGRAS[cod].vigencia_meses)} →</span></a></li>`;
+    });
+    c.push(`<div class="docs-citados"><b>Prazos dos documentos deste artigo</b><ul>${itens.join('')}</ul></div>`);
+  }
   const outros = artigos.filter((o) => o.slug !== a.slug).sort((x, y) => (y.categoria === a.categoria) - (x.categoria === a.categoria)).slice(0, 3);
   saidas.set(`blog-${a.slug}.html`, pagina(`${a.titulo_seo || a.titulo} | Regula360`, a.descricao, url, 'article',
     { '@context': 'https://schema.org', '@graph': [trilha([['Início', `${SITE}/`], ['Blog', `${SITE}/blog`], [a.titulo, url]]),
