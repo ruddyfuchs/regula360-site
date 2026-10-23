@@ -190,4 +190,42 @@
     <priority>0.7</priority>
   </url>
   <!-- /documentos -->
+  <!-- tipos -->
+  <url>
+    <loc>https://www.regula360.com.br/documentos-obrigatorios-condominio</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/documentos-obrigatorios-galpao</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/documentos-obrigatorios-industria</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/documentos-obrigatorios-loja</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/documentos-obrigatorios-predio-comercial</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/documentos-obrigatorios-shopping</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- /tipos -->
 </urlset>

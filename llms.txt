@@ -47,6 +47,17 @@ Empresa nova, com décadas de operação real por trás. Os sócios somam mais d
 - [O que meu imóvel precisa ter?](https://www.regula360.com.br/o-que-meu-imovel-precisa-ter) — lista gratuita dos documentos essenciais por tipo de imóvel (condomínio residencial, prédio comercial, loja, shopping, galpão, indústria), com a validade de cada um no estado.
 - [Política de Privacidade](https://www.regula360.com.br/privacidade) — tratamento de dados conforme a LGPD (Lei 13.709/2018).
 
+## Documentos por tipo de imóvel
+
+A lista de documentos com prazo de cada tipo de imóvel em São Paulo, com a validade de cada um.
+
+- [Documentos obrigatórios do condomínio: a lista com a validade de cada um](https://www.regula360.com.br/documentos-obrigatorios-condominio): 14 documentos com prazo.
+- [Documentos obrigatórios do galpão e do CD: a lista com a validade de cada um](https://www.regula360.com.br/documentos-obrigatorios-galpao): 15 documentos com prazo.
+- [Documentos obrigatórios da indústria: a lista com a validade de cada um](https://www.regula360.com.br/documentos-obrigatorios-industria): 25 documentos com prazo.
+- [Documentos obrigatórios da loja: a lista com a validade de cada um](https://www.regula360.com.br/documentos-obrigatorios-loja): 12 documentos com prazo.
+- [Documentos obrigatórios do prédio comercial: a lista com a validade de cada um](https://www.regula360.com.br/documentos-obrigatorios-predio-comercial): 17 documentos com prazo.
+- [Documentos obrigatórios do shopping: a lista com a validade de cada um](https://www.regula360.com.br/documentos-obrigatorios-shopping): 17 documentos com prazo.
+
 ## Validade de documentos
 
 Uma página por documento com prazo: validade, quando começar a renovar, o que acontece se vencer e a calculadora já preenchida.
