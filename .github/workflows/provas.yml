@@ -33,6 +33,10 @@ jobs:
         run: node scripts/gerar-documentos.mjs --conferir
       - name: regra das páginas por documento igual à da plataforma
         run: node scripts/gerar-documentos.mjs --ao-vivo https://m5group.pages.dev
+      - name: páginas por tipo de imóvel geradas em dia (conteudo-tipos/*.md)
+        run: node scripts/gerar-tipos.mjs --conferir
+      - name: lista das páginas por tipo igual à da plataforma
+        run: node scripts/gerar-tipos.mjs --ao-vivo https://m5group.pages.dev
       - name: título e descrição na medida do Google
         run: node scripts/prova-medida-do-google.mjs
       - name: a prova da medida acusa título longo (sabotagem)
@@ -73,7 +77,11 @@ jobs:
       - name: nada baixado duas vezes, nada 404
         run: node scripts/prova-rede-limpa.mjs http://localhost:8080
       - name: acessibilidade e contraste (axe)
-        run: node scripts/prova-contraste.mjs http://localhost:8080 node_modules/axe-core/axe.min.js
+        # 23/10: o axe numa passada só levava a maior parte dos ~15 min do job; 3 partes em paralelo.
+        run: |
+          for n in 1 2 3; do PARTE=$n/3 node scripts/prova-contraste.mjs http://localhost:8080 node_modules/axe-core/axe.min.js > contraste-$n.log 2>&1 & done
+          falhou=0; for j in $(jobs -p); do wait $j || falhou=1; done
+          cat contraste-1.log contraste-2.log contraste-3.log; exit $falhou
       - name: nada invisível, com e sem JavaScript
         run: node scripts/prova-nada-escondido.mjs http://localhost:8080
       - name: frase de consentimento é uma frase só
@@ -109,7 +117,11 @@ jobs:
       - name: nada baixado duas vezes, no iPhone
         run: node scripts/prova-rede-limpa.mjs http://localhost:8080
       - name: acessibilidade e contraste, no iPhone
-        run: node scripts/prova-contraste.mjs http://localhost:8080 node_modules/axe-core/axe.min.js
+        # 23/10: o axe numa passada só levava a maior parte dos ~15 min do job; 3 partes em paralelo.
+        run: |
+          for n in 1 2 3; do PARTE=$n/3 node scripts/prova-contraste.mjs http://localhost:8080 node_modules/axe-core/axe.min.js > contraste-$n.log 2>&1 & done
+          falhou=0; for j in $(jobs -p); do wait $j || falhou=1; done
+          cat contraste-1.log contraste-2.log contraste-3.log; exit $falhou
       - name: nada invisível, no iPhone
         run: node scripts/prova-nada-escondido.mjs http://localhost:8080
       - name: frase de consentimento, no iPhone

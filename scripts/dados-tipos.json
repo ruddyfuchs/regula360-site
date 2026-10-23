@@ -1,0 +1,801 @@
+{
+  "conferido_em": "2026-10-23",
+  "listas": {
+    "condominio_residencial": [
+      {
+        "codigo": "002",
+        "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
+        "vigencia_meses": 36,
+        "nao_vence": false,
+        "base_legal": "IT-01 CB-PMESP"
+      },
+      {
+        "codigo": "007",
+        "documento": "Alvará de Funcionamento de Elevadores",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "Lei SP 10.348/1987 + Decreto SP 47.334/2006 (RIA anual)"
+      },
+      {
+        "codigo": "007.03",
+        "documento": "RIA - ART",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "SP: Decreto 47.334/2006 (RIA anual) + Lei 6.496/1977 (ART); RJ: Lei 2.743/1999 art. 71"
+      },
+      {
+        "codigo": "027",
+        "documento": "Certificado de Recarga de Extintores",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2"
+      },
+      {
+        "codigo": "037",
+        "documento": "PECI - Plano de Emergência contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-16/2025 CBPMESP item 5.8.1.3"
+      },
+      {
+        "codigo": "045",
+        "documento": "Certificado de Limpeza e Desinfecção dos Reservatórios de Água Potável",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "046",
+        "documento": "Análise da Água Potável da caixa d água",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "049",
+        "documento": "Certificado do Controle de Pragas",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Boas práticas de controle de vetores"
+      },
+      {
+        "codigo": "050",
+        "documento": "Atestado de Manutenção do Sistema de Seg. Contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-17/2025 CBPMESP itens 4.4.1.3 e 4.4.1.4.2 + IT-01/2025 item 6.2.1"
+      },
+      {
+        "codigo": "051",
+        "documento": "Laudo / Relatório de Regularidade das Instalações Elétricas (PAME - Parada Anual)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NR-10 / NBR 5410"
+      },
+      {
+        "codigo": "056",
+        "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 5419"
+      },
+      {
+        "codigo": "229",
+        "documento": "Relatório de inspeção da iluminação de emergência",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 10898:2023 (ensaio anual de autonomia; checagens semestrais) + IT-18/2025 CBPMESP item 2.2"
+      },
+      {
+        "codigo": "230",
+        "documento": "Relatório de Inspeção de extintores (áreas comuns e privativas)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (inspeção: 6 meses CO₂/cilindro expelente, 12 meses demais) + IT-21/2025 CBPMESP"
+      },
+      {
+        "codigo": "231",
+        "documento": "Relatório de inspeção de hidrantes e VGAs",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 13714:2000 Anexo C itens C.2 e C.3.1 + NBR 12779 + IT-22/2025 CBPMESP Anexo F"
+      }
+    ],
+    "galpao_cd": [
+      {
+        "codigo": "002",
+        "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
+        "vigencia_meses": 36,
+        "nao_vence": false,
+        "base_legal": "IT-01 CB-PMESP"
+      },
+      {
+        "codigo": "009",
+        "documento": "LMO - Licença Municipal de Operação do Grupo Moto Gerador",
+        "vigencia_meses": null,
+        "nao_vence": false,
+        "base_legal": null
+      },
+      {
+        "codigo": "027",
+        "documento": "Certificado de Recarga de Extintores",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2"
+      },
+      {
+        "codigo": "034",
+        "documento": "Atestado de Manutenção do Grupo Moto Gerador",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT 01/2025 CBPMESP (atestado de manutenção para AVCB) + ABNT NBR 5674:2012; NBR ISO 8528"
+      },
+      {
+        "codigo": "037",
+        "documento": "PECI - Plano de Emergência contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-16/2025 CBPMESP item 5.8.1.3"
+      },
+      {
+        "codigo": "044",
+        "documento": "Certificado de limpeza de caixa de gordura",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Lei SP 10.083/1998 e Lei municipal SP 13.725/2004: sem periodicidade localizada"
+      },
+      {
+        "codigo": "045",
+        "documento": "Certificado de Limpeza e Desinfecção dos Reservatórios de Água Potável",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "046",
+        "documento": "Análise da Água Potável da caixa d água",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "049",
+        "documento": "Certificado do Controle de Pragas",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Boas práticas de controle de vetores"
+      },
+      {
+        "codigo": "050",
+        "documento": "Atestado de Manutenção do Sistema de Seg. Contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-17/2025 CBPMESP itens 4.4.1.3 e 4.4.1.4.2 + IT-01/2025 item 6.2.1"
+      },
+      {
+        "codigo": "051",
+        "documento": "Laudo / Relatório de Regularidade das Instalações Elétricas (PAME - Parada Anual)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NR-10 / NBR 5410"
+      },
+      {
+        "codigo": "056",
+        "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 5419"
+      },
+      {
+        "codigo": "062",
+        "documento": "Laudo de emissão poluentes e ruído dos geradores (SP)",
+        "vigencia_meses": null,
+        "nao_vence": false,
+        "base_legal": null
+      },
+      {
+        "codigo": "064",
+        "documento": "Cadastro de grande gerador de resíduos (condomínio em SP) ou (coletor em RJ)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "SP: Decreto 58.701/2019 art. 3 (cadastro AMLURB válido 1 ano) + Lei 13.478/2002 art. 123; RJ: Lei 3.273/2001 art. 66 (ratificação a cada 12 meses)"
+      },
+      {
+        "codigo": "229",
+        "documento": "Relatório de inspeção da iluminação de emergência",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 10898:2023 (ensaio anual de autonomia; checagens semestrais) + IT-18/2025 CBPMESP item 2.2"
+      },
+      {
+        "codigo": "230",
+        "documento": "Relatório de Inspeção de extintores (áreas comuns e privativas)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (inspeção: 6 meses CO₂/cilindro expelente, 12 meses demais) + IT-21/2025 CBPMESP"
+      },
+      {
+        "codigo": "231",
+        "documento": "Relatório de inspeção de hidrantes e VGAs",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 13714:2000 Anexo C itens C.2 e C.3.1 + NBR 12779 + IT-22/2025 CBPMESP Anexo F"
+      }
+    ],
+    "industria": [
+      {
+        "codigo": "002",
+        "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
+        "vigencia_meses": 36,
+        "nao_vence": false,
+        "base_legal": "IT-01 CB-PMESP"
+      },
+      {
+        "codigo": "009",
+        "documento": "LMO - Licença Municipal de Operação do Grupo Moto Gerador",
+        "vigencia_meses": null,
+        "nao_vence": false,
+        "base_legal": null
+      },
+      {
+        "codigo": "013",
+        "documento": "Cadri - (próprio ou de terceiros)",
+        "vigencia_meses": null,
+        "nao_vence": false,
+        "base_legal": "Decisão de Diretoria CETESB 020/2025/C (CADRI 1 a 5 anos conforme fator W, ou até esgotar o volume)"
+      },
+      {
+        "codigo": "027",
+        "documento": "Certificado de Recarga de Extintores",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2"
+      },
+      {
+        "codigo": "034",
+        "documento": "Atestado de Manutenção do Grupo Moto Gerador",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT 01/2025 CBPMESP (atestado de manutenção para AVCB) + ABNT NBR 5674:2012; NBR ISO 8528"
+      },
+      {
+        "codigo": "037",
+        "documento": "PECI - Plano de Emergência contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-16/2025 CBPMESP item 5.8.1.3"
+      },
+      {
+        "codigo": "044",
+        "documento": "Certificado de limpeza de caixa de gordura",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Lei SP 10.083/1998 e Lei municipal SP 13.725/2004: sem periodicidade localizada"
+      },
+      {
+        "codigo": "045",
+        "documento": "Certificado de Limpeza e Desinfecção dos Reservatórios de Água Potável",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "046",
+        "documento": "Análise da Água Potável da caixa d água",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "049",
+        "documento": "Certificado do Controle de Pragas",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Boas práticas de controle de vetores"
+      },
+      {
+        "codigo": "050",
+        "documento": "Atestado de Manutenção do Sistema de Seg. Contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-17/2025 CBPMESP itens 4.4.1.3 e 4.4.1.4.2 + IT-01/2025 item 6.2.1"
+      },
+      {
+        "codigo": "051",
+        "documento": "Laudo / Relatório de Regularidade das Instalações Elétricas (PAME - Parada Anual)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NR-10 / NBR 5410"
+      },
+      {
+        "codigo": "056",
+        "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 5419"
+      },
+      {
+        "codigo": "060",
+        "documento": "PMOC (Plano de Manutenção, Operação e Controle)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "Lei 13.589/2018 / NBR 13971"
+      },
+      {
+        "codigo": "062",
+        "documento": "Laudo de emissão poluentes e ruído dos geradores (SP)",
+        "vigencia_meses": null,
+        "nao_vence": false,
+        "base_legal": null
+      },
+      {
+        "codigo": "064",
+        "documento": "Cadastro de grande gerador de resíduos (condomínio em SP) ou (coletor em RJ)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "SP: Decreto 58.701/2019 art. 3 (cadastro AMLURB válido 1 ano) + Lei 13.478/2002 art. 123; RJ: Lei 3.273/2001 art. 66 (ratificação a cada 12 meses)"
+      },
+      {
+        "codigo": "229",
+        "documento": "Relatório de inspeção da iluminação de emergência",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 10898:2023 (ensaio anual de autonomia; checagens semestrais) + IT-18/2025 CBPMESP item 2.2"
+      },
+      {
+        "codigo": "230",
+        "documento": "Relatório de Inspeção de extintores (áreas comuns e privativas)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (inspeção: 6 meses CO₂/cilindro expelente, 12 meses demais) + IT-21/2025 CBPMESP"
+      },
+      {
+        "codigo": "231",
+        "documento": "Relatório de inspeção de hidrantes e VGAs",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 13714:2000 Anexo C itens C.2 e C.3.1 + NBR 12779 + IT-22/2025 CBPMESP Anexo F"
+      },
+      {
+        "codigo": "301",
+        "documento": "PGR - Programa de Gerenciamento de Riscos (NR-01)",
+        "vigencia_meses": 24,
+        "nao_vence": false,
+        "base_legal": "NR-01, item 1.5.4.4.6"
+      },
+      {
+        "codigo": "302",
+        "documento": "Relatório analítico anual do PCMSO (NR-07)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NR-07, item 7.6.2"
+      },
+      {
+        "codigo": "303",
+        "documento": "LTCAT - Laudo Técnico das Condições Ambientais do Trabalho",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "Lei 8.213/1991, art. 58; IN PRES/INSS 128/2022"
+      },
+      {
+        "codigo": "304",
+        "documento": "PIE - Prontuário das Instalações Elétricas (NR-10)",
+        "vigencia_meses": null,
+        "nao_vence": true,
+        "base_legal": null
+      },
+      {
+        "codigo": "306",
+        "documento": "Relatório de inspeção de segurança de vaso de pressão (NR-13)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NR-13, item 13.5.4.1"
+      },
+      {
+        "codigo": "307",
+        "documento": "Prontuário de caldeiras e vasos de pressão (NR-13)",
+        "vigencia_meses": null,
+        "nao_vence": true,
+        "base_legal": null
+      },
+      {
+        "codigo": "308",
+        "documento": "Inventário de máquinas e equipamentos (NR-12)",
+        "vigencia_meses": null,
+        "nao_vence": true,
+        "base_legal": null
+      },
+      {
+        "codigo": "314",
+        "documento": "LO - Licença de Operação ambiental (CETESB / órgão estadual)",
+        "vigencia_meses": 60,
+        "nao_vence": false,
+        "base_legal": "Decreto estadual SP 47.397/2002, art. 1º; Lei 9.605/1998, art. 60"
+      },
+      {
+        "codigo": "315",
+        "documento": "Certificado de Regularidade do IBAMA (CTF/APP)",
+        "vigencia_meses": 3,
+        "nao_vence": false,
+        "base_legal": "Lei 6.938/1981, art. 17, II; IN IBAMA 6/2013"
+      },
+      {
+        "codigo": "317",
+        "documento": "Inventário anual de resíduos sólidos industriais",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "Resolução CONAMA 313/2002; condicionantes CETESB"
+      },
+      {
+        "codigo": "325",
+        "documento": "Laudo de inspeção da cabine primária / subestação (NBR 14039), com ART",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NR-10, itens 10.2.4 e 10.4.4"
+      },
+      {
+        "codigo": "Z01",
+        "documento": "Plano de Gerenciamento de Resíduos de Sólidos( PGRS)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "Lei 12.305/2010 art. 20-21 + SP: Decreto 58.701/2019 art. 3 (cadastro/PGRS válido 1 ano, renovável); RJ: Lei 3.273/2001"
+      }
+    ],
+    "loja": [
+      {
+        "codigo": "002",
+        "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
+        "vigencia_meses": 36,
+        "nao_vence": false,
+        "base_legal": "IT-01 CB-PMESP"
+      },
+      {
+        "codigo": "027",
+        "documento": "Certificado de Recarga de Extintores",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2"
+      },
+      {
+        "codigo": "037",
+        "documento": "PECI - Plano de Emergência contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-16/2025 CBPMESP item 5.8.1.3"
+      },
+      {
+        "codigo": "045",
+        "documento": "Certificado de Limpeza e Desinfecção dos Reservatórios de Água Potável",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "046",
+        "documento": "Análise da Água Potável da caixa d água",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "049",
+        "documento": "Certificado do Controle de Pragas",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Boas práticas de controle de vetores"
+      },
+      {
+        "codigo": "050",
+        "documento": "Atestado de Manutenção do Sistema de Seg. Contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-17/2025 CBPMESP itens 4.4.1.3 e 4.4.1.4.2 + IT-01/2025 item 6.2.1"
+      },
+      {
+        "codigo": "051",
+        "documento": "Laudo / Relatório de Regularidade das Instalações Elétricas (PAME - Parada Anual)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NR-10 / NBR 5410"
+      },
+      {
+        "codigo": "056",
+        "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 5419"
+      },
+      {
+        "codigo": "229",
+        "documento": "Relatório de inspeção da iluminação de emergência",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 10898:2023 (ensaio anual de autonomia; checagens semestrais) + IT-18/2025 CBPMESP item 2.2"
+      },
+      {
+        "codigo": "230",
+        "documento": "Relatório de Inspeção de extintores (áreas comuns e privativas)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (inspeção: 6 meses CO₂/cilindro expelente, 12 meses demais) + IT-21/2025 CBPMESP"
+      },
+      {
+        "codigo": "231",
+        "documento": "Relatório de inspeção de hidrantes e VGAs",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 13714:2000 Anexo C itens C.2 e C.3.1 + NBR 12779 + IT-22/2025 CBPMESP Anexo F"
+      }
+    ],
+    "predio_comercial": [
+      {
+        "codigo": "002",
+        "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
+        "vigencia_meses": 36,
+        "nao_vence": false,
+        "base_legal": "IT-01 CB-PMESP"
+      },
+      {
+        "codigo": "007",
+        "documento": "Alvará de Funcionamento de Elevadores",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "Lei SP 10.348/1987 + Decreto SP 47.334/2006 (RIA anual)"
+      },
+      {
+        "codigo": "007.03",
+        "documento": "RIA - ART",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "SP: Decreto 47.334/2006 (RIA anual) + Lei 6.496/1977 (ART); RJ: Lei 2.743/1999 art. 71"
+      },
+      {
+        "codigo": "009",
+        "documento": "LMO - Licença Municipal de Operação do Grupo Moto Gerador",
+        "vigencia_meses": null,
+        "nao_vence": false,
+        "base_legal": null
+      },
+      {
+        "codigo": "027",
+        "documento": "Certificado de Recarga de Extintores",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2"
+      },
+      {
+        "codigo": "034",
+        "documento": "Atestado de Manutenção do Grupo Moto Gerador",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT 01/2025 CBPMESP (atestado de manutenção para AVCB) + ABNT NBR 5674:2012; NBR ISO 8528"
+      },
+      {
+        "codigo": "037",
+        "documento": "PECI - Plano de Emergência contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-16/2025 CBPMESP item 5.8.1.3"
+      },
+      {
+        "codigo": "045",
+        "documento": "Certificado de Limpeza e Desinfecção dos Reservatórios de Água Potável",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "046",
+        "documento": "Análise da Água Potável da caixa d água",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "047",
+        "documento": "Laudo da Qualidade do Ar Interior - NBR 17037 (ex-RE nº 9 ANVISA, revogada)",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "ABNT NBR 17037:2023 (amostragem semestral; substitui a RE 9/2003, revogada pela RDC ANVISA 886/2024) + Lei 13.589/2018 art. 1º + Portaria GM/MS 3.523/1998 art. 6º"
+      },
+      {
+        "codigo": "049",
+        "documento": "Certificado do Controle de Pragas",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Boas práticas de controle de vetores"
+      },
+      {
+        "codigo": "050",
+        "documento": "Atestado de Manutenção do Sistema de Seg. Contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-17/2025 CBPMESP itens 4.4.1.3 e 4.4.1.4.2 + IT-01/2025 item 6.2.1"
+      },
+      {
+        "codigo": "051",
+        "documento": "Laudo / Relatório de Regularidade das Instalações Elétricas (PAME - Parada Anual)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NR-10 / NBR 5410"
+      },
+      {
+        "codigo": "056",
+        "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 5419"
+      },
+      {
+        "codigo": "060",
+        "documento": "PMOC (Plano de Manutenção, Operação e Controle)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "Lei 13.589/2018 / NBR 13971"
+      },
+      {
+        "codigo": "062",
+        "documento": "Laudo de emissão poluentes e ruído dos geradores (SP)",
+        "vigencia_meses": null,
+        "nao_vence": false,
+        "base_legal": null
+      },
+      {
+        "codigo": "229",
+        "documento": "Relatório de inspeção da iluminação de emergência",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 10898:2023 (ensaio anual de autonomia; checagens semestrais) + IT-18/2025 CBPMESP item 2.2"
+      },
+      {
+        "codigo": "230",
+        "documento": "Relatório de Inspeção de extintores (áreas comuns e privativas)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (inspeção: 6 meses CO₂/cilindro expelente, 12 meses demais) + IT-21/2025 CBPMESP"
+      },
+      {
+        "codigo": "231",
+        "documento": "Relatório de inspeção de hidrantes e VGAs",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 13714:2000 Anexo C itens C.2 e C.3.1 + NBR 12779 + IT-22/2025 CBPMESP Anexo F"
+      }
+    ],
+    "shopping": [
+      {
+        "codigo": "002",
+        "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
+        "vigencia_meses": 36,
+        "nao_vence": false,
+        "base_legal": "IT-01 CB-PMESP"
+      },
+      {
+        "codigo": "009",
+        "documento": "LMO - Licença Municipal de Operação do Grupo Moto Gerador",
+        "vigencia_meses": null,
+        "nao_vence": false,
+        "base_legal": null
+      },
+      {
+        "codigo": "027",
+        "documento": "Certificado de Recarga de Extintores",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2"
+      },
+      {
+        "codigo": "034",
+        "documento": "Atestado de Manutenção do Grupo Moto Gerador",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT 01/2025 CBPMESP (atestado de manutenção para AVCB) + ABNT NBR 5674:2012; NBR ISO 8528"
+      },
+      {
+        "codigo": "037",
+        "documento": "PECI - Plano de Emergência contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-16/2025 CBPMESP item 5.8.1.3"
+      },
+      {
+        "codigo": "044",
+        "documento": "Certificado de limpeza de caixa de gordura",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Lei SP 10.083/1998 e Lei municipal SP 13.725/2004: sem periodicidade localizada"
+      },
+      {
+        "codigo": "045",
+        "documento": "Certificado de Limpeza e Desinfecção dos Reservatórios de Água Potável",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "046",
+        "documento": "Análise da Água Potável da caixa d água",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Portaria GM/MS 888/2021"
+      },
+      {
+        "codigo": "047",
+        "documento": "Laudo da Qualidade do Ar Interior - NBR 17037 (ex-RE nº 9 ANVISA, revogada)",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "ABNT NBR 17037:2023 (amostragem semestral; substitui a RE 9/2003, revogada pela RDC ANVISA 886/2024) + Lei 13.589/2018 art. 1º + Portaria GM/MS 3.523/1998 art. 6º"
+      },
+      {
+        "codigo": "049",
+        "documento": "Certificado do Controle de Pragas",
+        "vigencia_meses": 6,
+        "nao_vence": false,
+        "base_legal": "Boas práticas de controle de vetores"
+      },
+      {
+        "codigo": "050",
+        "documento": "Atestado de Manutenção do Sistema de Seg. Contra Incêndio",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "IT-17/2025 CBPMESP itens 4.4.1.3 e 4.4.1.4.2 + IT-01/2025 item 6.2.1"
+      },
+      {
+        "codigo": "051",
+        "documento": "Laudo / Relatório de Regularidade das Instalações Elétricas (PAME - Parada Anual)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NR-10 / NBR 5410"
+      },
+      {
+        "codigo": "056",
+        "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 5419"
+      },
+      {
+        "codigo": "060",
+        "documento": "PMOC (Plano de Manutenção, Operação e Controle)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "Lei 13.589/2018 / NBR 13971"
+      },
+      {
+        "codigo": "062",
+        "documento": "Laudo de emissão poluentes e ruído dos geradores (SP)",
+        "vigencia_meses": null,
+        "nao_vence": false,
+        "base_legal": null
+      },
+      {
+        "codigo": "064",
+        "documento": "Cadastro de grande gerador de resíduos (condomínio em SP) ou (coletor em RJ)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "SP: Decreto 58.701/2019 art. 3 (cadastro AMLURB válido 1 ano) + Lei 13.478/2002 art. 123; RJ: Lei 3.273/2001 art. 66 (ratificação a cada 12 meses)"
+      },
+      {
+        "codigo": "229",
+        "documento": "Relatório de inspeção da iluminação de emergência",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 10898:2023 (ensaio anual de autonomia; checagens semestrais) + IT-18/2025 CBPMESP item 2.2"
+      },
+      {
+        "codigo": "230",
+        "documento": "Relatório de Inspeção de extintores (áreas comuns e privativas)",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 12962:2016 (inspeção: 6 meses CO₂/cilindro expelente, 12 meses demais) + IT-21/2025 CBPMESP"
+      },
+      {
+        "codigo": "231",
+        "documento": "Relatório de inspeção de hidrantes e VGAs",
+        "vigencia_meses": 12,
+        "nao_vence": false,
+        "base_legal": "NBR 13714:2000 Anexo C itens C.2 e C.3.1 + NBR 12779 + IT-22/2025 CBPMESP Anexo F"
+      }
+    ]
+  }
+}
