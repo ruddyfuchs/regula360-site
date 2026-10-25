@@ -156,6 +156,26 @@ jobs:
       - name: calculadoras do site = plataforma, no ar (pelo /api do próprio site)
         run: node scripts/prova-calculadoras.mjs https://www.regula360.com.br
 
+  # 25/10: o Bing (e o ChatGPT/Copilot, que buscam nele) fica sabendo da página nova sem envio à mão.
+  # Job à parte: se o IndexNow cair, fica vermelho sozinho e não esconde as conferências do site.
+  indexnow:
+    name: avisar o Bing das páginas que mudaram (IndexNow)
+    if: >-
+      github.event_name == 'deployment_status'
+      && github.event.deployment_status.state == 'success'
+      && github.event.deployment.environment == 'Production'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/avisar-indexnow.mjs
+
   # 23/10: o axe sozinho levava 11+ min no pós-deploy e crescia a cada lote de páginas por documento.
   # Dividido em 3 partes paralelas (PARTE=n/3 escolhe 1 de cada 3 páginas); juntas cobrem todas.
   no-ar-contraste:
