@@ -160,6 +160,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.regula360.com.br/ctf-ibama-validade</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.regula360.com.br/controle-de-pragas-validade</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -173,6 +179,18 @@
   </url>
   <url>
     <loc>https://www.regula360.com.br/iluminacao-de-emergencia-validade</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/vasos-de-pressao-validade</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/inventario-de-residuos-validade</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -202,6 +220,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.regula360.com.br/licenca-de-operacao-cetesb-validade</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/ltcat-validade</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.regula360.com.br/peci-validade</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -221,6 +251,12 @@
   </url>
   <url>
     <loc>https://www.regula360.com.br/recarga-de-extintores-validade</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/pcmso-validade</loc>
     <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

@@ -37,6 +37,60 @@
       "base_legal": "NR-01, item 1.5.4.4.6",
       "consequencia": null
     },
+    "302": {
+      "documento": "Relatório analítico anual do PCMSO (NR-07)",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NR-07, item 7.6.2",
+      "consequencia": null
+    },
+    "303": {
+      "documento": "LTCAT - Laudo Técnico das Condições Ambientais do Trabalho",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "Lei 8.213/1991, art. 58; IN PRES/INSS 128/2022",
+      "consequencia": null
+    },
+    "306": {
+      "documento": "Relatório de inspeção de segurança de vaso de pressão (NR-13)",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 15,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NR-13, item 13.5.4.1",
+      "consequencia": "Se vencer: risco de interdição do prédio · operação parada. Base: CLT art. 161 (interdição do equipamento) + NR-28"
+    },
+    "314": {
+      "documento": "LO - Licença de Operação ambiental (CETESB / órgão estadual)",
+      "nao_vence": false,
+      "vigencia_meses": 60,
+      "antecedencia_dias": 120,
+      "origem_da_validade": "regra_da_uf",
+      "base_legal": "Decreto estadual SP 47.397/2002, art. 1º; Lei 9.605/1998, art. 60",
+      "consequencia": "Se vencer: risco de interdição do prédio · multa de R$ 500 a R$ 10.000.000 (base legal). Base: Operar sem licença ou em desacordo: Lei 9.605/1998, art. 60; Decreto 6.514/2008, art. 66 (R$ 500 a R$ 10 milhões) + embargo/interdição"
+    },
+    "315": {
+      "documento": "Certificado de Regularidade do IBAMA (CTF/APP)",
+      "nao_vence": false,
+      "vigencia_meses": 3,
+      "antecedencia_dias": 5,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "Lei 6.938/1981, art. 17, II; IN IBAMA 6/2013",
+      "consequencia": null
+    },
+    "317": {
+      "documento": "Inventário anual de resíduos sólidos industriais",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 20,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "Resolução CONAMA 313/2002; condicionantes CETESB",
+      "consequencia": null
+    },
     "325": {
       "documento": "Laudo de inspeção da cabine primária / subestação (NBR 14039), com ART",
       "nao_vence": false,
