@@ -69,17 +69,23 @@ Uma página por documento com prazo: validade, quando começar a renovar, o que 
 - [AVCB: validade, quando começar a renovar e o que costuma travar](https://www.regula360.com.br/avcb-validade): vale 36 meses (3 anos) (IT-01 CB-PMESP).
 - [Cadastro de grande gerador de resíduos: validade, quem se enquadra e como renovar](https://www.regula360.com.br/grande-gerador-de-residuos-validade): vale 12 meses (1 ano) (SP: Decreto 58.701/2019 art. 3 (cadastro AMLURB válido 1 ano) + Lei 13.478/2002 art. 123; RJ: Lei 3.273/2001 art. 66 (ratificação a cada 12 meses)).
 - [Limpeza da caixa d'água: validade do certificado, análise da água e o que conferir](https://www.regula360.com.br/limpeza-caixa-dagua-validade): vale 6 meses (Portaria GM/MS 888/2021).
+- [Certificado de Regularidade do IBAMA (CTF/APP): validade, quem precisa e como manter em dia](https://www.regula360.com.br/ctf-ibama-validade): vale 3 meses (Lei 6.938/1981, art. 17, II; IN IBAMA 6/2013).
 - [Controle de pragas: validade do certificado, o que conferir e quando agendar](https://www.regula360.com.br/controle-de-pragas-validade): vale 6 meses (Boas práticas de controle de vetores).
 - [Hidrantes e mangueiras: validade da inspeção, testes e o que conferir](https://www.regula360.com.br/hidrantes-validade): vale 12 meses (1 ano) (NBR 13714:2000 Anexo C itens C.2 e C.3.1 + NBR 12779 + IT-22/2025 CBPMESP Anexo F).
 - [Iluminação de emergência: validade, ensaio de autonomia e o que conferir](https://www.regula360.com.br/iluminacao-de-emergencia-validade): vale 12 meses (1 ano) (NBR 10898:2023 (ensaio anual de autonomia; checagens semestrais) + IT-18/2025 CBPMESP item 2.2).
+- [Inspeção de vasos de pressão (NR-13): validade, quem precisa e o que é verificado](https://www.regula360.com.br/vasos-de-pressao-validade): vale 12 meses (1 ano) (NR-13, item 13.5.4.1).
+- [Inventário de resíduos industriais: validade, quem precisa e o que ele informa](https://www.regula360.com.br/inventario-de-residuos-validade): vale 12 meses (1 ano) (Resolução CONAMA 313/2002; condicionantes CETESB).
 - [Laudo da cabine primária: validade, o que é inspecionado e como planejar o desligamento](https://www.regula360.com.br/cabine-primaria-validade): vale 12 meses (1 ano) (NR-10, itens 10.2.4 e 10.4.4).
 - [Laudo das instalações elétricas: validade, prontuário e o que conferir](https://www.regula360.com.br/laudo-instalacoes-eletricas-validade): vale 12 meses (1 ano) (NR-10 / NBR 5410).
 - [Laudo de qualidade do ar interior: validade, o que é medido e a diferença para o PMOC](https://www.regula360.com.br/qualidade-do-ar-interior-validade): vale 6 meses (ABNT NBR 17037:2023 (amostragem semestral; substitui a RE 9/2003, revogada pela RDC ANVISA 886/2024) + Lei 13.589/2018 art. 1º + Portaria GM/MS 3.523/1998 art. 6º).
 - [Laudo de SPDA: validade, quando renovar e o que precisa ter](https://www.regula360.com.br/laudo-de-spda-validade): vale 12 meses (1 ano) (NBR 5419).
+- [Licença de Operação da CETESB: validade, quem precisa e como acompanhar a renovação](https://www.regula360.com.br/licenca-de-operacao-cetesb-validade): vale 60 meses (5 anos) (Decreto estadual SP 47.397/2002, art. 1º; Lei 9.605/1998, art. 60).
+- [LTCAT: validade, para que serve e quando precisa ser atualizado](https://www.regula360.com.br/ltcat-validade): vale 12 meses (1 ano) (Lei 8.213/1991, art. 58; IN PRES/INSS 128/2022).
 - [PECI: validade do plano de emergência, brigada, simulado e AVCB](https://www.regula360.com.br/peci-validade): vale 12 meses (1 ano) (IT-16/2025 CBPMESP item 5.8.1.3).
 - [PGR: validade, quem precisa ter e quando revisar antes do prazo](https://www.regula360.com.br/pgr-validade): vale 24 meses (2 anos) (NR-01, item 1.5.4.4.6).
 - [PMOC: validade, quem é obrigado e o que o plano precisa ter](https://www.regula360.com.br/pmoc-validade): vale 12 meses (1 ano) (Lei 13.589/2018 / NBR 13971).
 - [Recarga de extintores: validade, inspeção, manutenção e teste hidrostático](https://www.regula360.com.br/recarga-de-extintores-validade): vale 12 meses (1 ano) (NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2).
+- [Relatório anual do PCMSO: validade, o que ele traz e a diferença para o PGR](https://www.regula360.com.br/pcmso-validade): vale 12 meses (1 ano) (NR-07, item 7.6.2).
 
 ## Blog
 
