@@ -35,9 +35,20 @@ function lerDoc(txt, nome) {
   const corte = t.indexOf('\n---\n');
   if (corte < 0) throw new Error(`${nome}: falta a linha --- entre o cabeçalho e o texto`);
   const cab = {};
+  const perguntas = [];
   for (const linha of t.slice(0, corte).split('\n')) {
     const i = linha.indexOf(':');
-    if (i > 0) cab[linha.slice(0, i).trim()] = linha.slice(i + 1).trim();
+    if (i <= 0) continue;
+    const k = linha.slice(0, i).trim();
+    const v = linha.slice(i + 1).trim();
+    // "pergunta: Qual…? | resposta" pode repetir: cada linha vira mais uma pergunta rápida (tela + FAQPage),
+    // escrita para a busca real que traz gente à página (Search Console), não para a régua
+    if (k === 'pergunta') {
+      const [q, r] = v.split('|').map((s) => s.trim());
+      if (!q?.endsWith('?') || !r) throw new Error(`${nome}: "pergunta" é "Pergunta? | resposta"`);
+      if (/R\$/.test(q + r)) throw new Error(`${nome}: pergunta rápida sem preço (R$); o risco fica no quadro de cima`);
+      perguntas.push([q, r]);
+    } else cab[k] = v;
   }
   for (const k of ['codigo', 'slug', 'nome', 'chamado', 'titulo', 'descricao', 'resumo', 'chamada']) {
     if (!cab[k]) throw new Error(`${nome}: falta "${k}" no cabeçalho`);
@@ -46,8 +57,9 @@ function lerDoc(txt, nome) {
   if (!/^(o|a|os|as) /.test(cab.chamado)) throw new Error(`${nome}: "chamado" começa com o artigo (ex.: "o laudo de SPDA", "a licença…")`);
   const tSeo = `${cab.titulo_seo || cab.titulo} | Regula360`;
   if ([...tSeo].length > 60) throw new Error(`${nome}: "${tSeo}" tem ${[...tSeo].length} caracteres; o Google corta acima de 60`);
-  if ([...cab.descricao].length > 160 || [...cab.descricao].length < 120) throw new Error(`${nome}: descricao com ${[...cab.descricao].length} caracteres; a medida é de 120 a 160 (régua do painel Saúde do site)`);
-  return { ...cab, relacionados: (cab.relacionados || '').split(',').map((s) => s.trim()).filter(Boolean), corpo: t.slice(corte + 5).trim() };
+  // com {{validade_curta}} a medida só sai depois de trocar pelo número da regra (ver o laço de geração)
+  if (!cab.descricao.includes('{{') && ([...cab.descricao].length > 160 || [...cab.descricao].length < 120)) throw new Error(`${nome}: descricao com ${[...cab.descricao].length} caracteres; a medida é de 120 a 160 (régua do painel Saúde do site)`);
+  return { ...cab, perguntas, relacionados: (cab.relacionados || '').split(',').map((s) => s.trim()).filter(Boolean), corpo: t.slice(corte + 5).trim() };
 }
 
 function corpoHtml(md) {
@@ -105,6 +117,7 @@ const baseCurta = (b) => b.replace(/\s*\([^)]*\)/g, '').replace(/ (?:item|itens)
 const maiuscula = (s) => s[0].toUpperCase() + s.slice(1);
 const de = (s) => s.replace(/^(os|as|o|a) /, (m, a) => `d${a} `);
 const prazo = (m) => (m % 12 === 0 && m >= 12 ? `${m} meses (${m / 12 === 1 ? '1 ano' : `${m / 12} anos`})` : `${m} meses`);
+const prazoCurto = (m) => (m % 12 === 0 && m >= 12 ? (m / 12 === 1 ? '1 ano' : `${m / 12} anos`) : `${m} meses`);
 function seVencer(cons) {
   if (!cons) return null;
   return cons.split(' Base: ')[0].replace(/^Se vencer:\s*/, '').trim();
@@ -166,7 +179,11 @@ for (const d of docs) {
   const risco = seVencer(r.consequencia);
   const ondeVale = r.origem_da_validade === 'regra_da_uf' ? 'Regra do estado de São Paulo; em outros estados o prazo pode ser outro.' : 'Regra nacional, igual em todos os estados.';
   const respValidade = `${maiuscula(d.chamado)} vale ${prazo(r.vigencia_meses)} a partir da emissão (${r.base_legal}).`;
-  const PERGUNTAS = () => [[`Qual a validade ${de(d.chamado)}?`, `${respValidade} ${ondeVale}`], [`Quando começar a renovar ${d.chamado}?`, respRenovar]]; // sem 'o que acontece se vencer': a prova-faq proíbe preço (R$) em pergunta; o risco fica no quadro de cima
+  const comNumeros = (s) => s.split('{{validade_curta}}').join(prazoCurto(r.vigencia_meses)).split('{{validade}}').join(prazo(r.vigencia_meses));
+  const PERGUNTAS = () => [[`Qual a validade ${de(d.chamado)}?`, `${respValidade} ${ondeVale}`], [`Quando começar a renovar ${d.chamado}?`, respRenovar],
+    ...d.perguntas.map(([q, a]) => [comNumeros(q), comNumeros(a)])]; // sem 'o que acontece se vencer': a prova-faq proíbe preço (R$) em pergunta; o risco fica no quadro de cima
+  d.descricao = comNumeros(d.descricao);
+  if ([...d.descricao].length > 160 || [...d.descricao].length < 120) throw new Error(`${d.slug}: descricao com ${[...d.descricao].length} caracteres depois de trocar os números; a medida é de 120 a 160`);
   // renovar_antes_dias (opcional no .md): decisão do Ruddy quando a antecedência da plataforma é curta demais
   // para a vida real; vale só nesta página e fica registrado para a plataforma revisar (ver o .md).
   const antes = Number(d.renovar_antes_dias) || r.antecedencia_dias;

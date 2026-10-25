@@ -3,11 +3,13 @@ slug: pmoc-validade
 nome: PMOC
 chamado: o PMOC
 titulo: PMOC: validade, quem é obrigado e o que o plano precisa ter
-titulo_seo: PMOC: validade, quem precisa e quando renovar
-descricao: Validade do PMOC, quem é obrigado a ter, o papel do responsável técnico e o que o plano precisa trazer. Calcule quando revisar o do seu prédio.
+titulo_seo: Validade do PMOC: quem precisa e quando renovar
+descricao: O PMOC vale {{validade_curta}} e é obrigatório em ambiente climatizado de uso coletivo (Lei 13.589). Veja quem assina, o que o plano traz e calcule o seu.
 resumo: PMOC é o Plano de Manutenção, Operação e Controle dos sistemas de ar-condicionado. A Lei 13.589/2018 o exige em ambientes climatizados de uso público e coletivo. O plano é assinado por responsável técnico habilitado e revisado todo ano, junto com o registro das manutenções feitas.
 chamada: Quer saber como estão os documentos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 045, 056, 002
+pergunta: Condomínio residencial precisa de PMOC? | Depende das áreas comuns climatizadas, como salão de festas, academia ou portaria. A lei vale para ambientes climatizados de uso coletivo; confira com o responsável técnico se o seu prédio se enquadra.
+pergunta: Quem pode assinar o PMOC? | Um responsável técnico habilitado, em geral engenheiro, com a responsabilidade registrada no conselho profissional. Ele não precisa ser quem executa a limpeza todo mês.
 ---
 ## O que é o PMOC
 
