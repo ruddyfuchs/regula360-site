@@ -38,7 +38,7 @@ const tipos = readdirSync(join(RAIZ, 'conteudo-tipos')).filter((f) => f.endsWith
 for (const t of tipos) {
   const tSeo = `${t.titulo_seo || t.titulo} | Regula360`;
   if ([...tSeo].length > 60) throw new Error(`${t.slug}: título do Google com ${[...tSeo].length} caracteres`);
-  if ([...t.descricao].length > 160) throw new Error(`${t.slug}: descrição com ${[...t.descricao].length} caracteres`);
+  if ([...t.descricao].length > 160 || [...t.descricao].length < 120) throw new Error(`${t.slug}: descrição com ${[...t.descricao].length} caracteres; a medida é de 120 a 160 (régua do painel Saúde do site)`);
   if (/\b\d+ (dias|meses|anos)\b/.test(t.corpo)) throw new Error(`${t.slug}: prazo escrito à mão no texto; a lista já mostra a validade`);
 }
 // páginas por documento: codigo → slug e nome curto

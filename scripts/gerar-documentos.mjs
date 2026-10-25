@@ -46,7 +46,7 @@ function lerDoc(txt, nome) {
   if (!/^(o|a|os|as) /.test(cab.chamado)) throw new Error(`${nome}: "chamado" começa com o artigo (ex.: "o laudo de SPDA", "a licença…")`);
   const tSeo = `${cab.titulo_seo || cab.titulo} | Regula360`;
   if ([...tSeo].length > 60) throw new Error(`${nome}: "${tSeo}" tem ${[...tSeo].length} caracteres; o Google corta acima de 60`);
-  if ([...cab.descricao].length > 160) throw new Error(`${nome}: descricao com ${[...cab.descricao].length} caracteres; o Google corta acima de 160`);
+  if ([...cab.descricao].length > 160 || [...cab.descricao].length < 120) throw new Error(`${nome}: descricao com ${[...cab.descricao].length} caracteres; a medida é de 120 a 160 (régua do painel Saúde do site)`);
   return { ...cab, relacionados: (cab.relacionados || '').split(',').map((s) => s.trim()).filter(Boolean), corpo: t.slice(corte + 5).trim() };
 }
 

@@ -44,7 +44,7 @@ function lerArtigo(txt, nome) {
   // titulo_seo (opcional): o título que vai para o Google quando o título do artigo passa de 60 com o " | Regula360".
   const tSeo = `${cab.titulo_seo || cab.titulo} | Regula360`;
   if ([...tSeo].length > 60) throw new Error(`${nome}: "${tSeo}" tem ${[...tSeo].length} caracteres; o Google corta acima de 60. Encurte o titulo ou ponha titulo_seo`);
-  if ([...cab.descricao].length > 160) throw new Error(`${nome}: descricao com ${[...cab.descricao].length} caracteres; o Google corta acima de 160`);
+  if ([...cab.descricao].length > 160 || [...cab.descricao].length < 120) throw new Error(`${nome}: descricao com ${[...cab.descricao].length} caracteres; a medida é de 120 a 160 (régua do painel Saúde do site)`);
   return { ...cab, corpo: t.slice(corte + 5).trim() };
 }
 

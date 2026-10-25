@@ -5,7 +5,7 @@ data: 2026-10-14
 ordem: 8
 minutos: 4
 servico: /auditoria-e-recuperacao
-descricao: A diferença entre o conselho fiscal do condomínio e uma auditoria das contas, e quando vale ter os dois.
+descricao: A diferença entre o conselho fiscal do condomínio e uma auditoria das contas, o que cada um confere e quando vale a pena ter os dois juntos.
 resumo: O conselho fiscal é formado por condôminos e dá parecer sobre as contas do síndico (Código Civil, art. 1.356). A auditoria é um trabalho técnico, com método e evidência, contratado quando se quer ir mais fundo. Um não substitui o outro: o conselho acompanha, a auditoria aprofunda.
 chamada: Quer uma conferência técnica das contas do condomínio? | A Regula360 audita com evidência em cada achado. | /auditoria-e-recuperacao | Ver auditoria e recuperação
 ---
