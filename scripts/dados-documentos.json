@@ -109,6 +109,15 @@
       "base_legal": "IT-01 CB-PMESP",
       "consequencia": "Se vencer: risco de interdição do prédio · o seguro predial deixa de cobrir · multa de R$ 5.000 a R$ 50.000 (faixa estimada; consulte o órgão). Base: Auto de infração CB-PMESP: varia por grau de risco/área (estimativa; consulte o órgão)"
     },
+    "003": {
+      "documento": "Laudo de análise de água de condensação e /ou água gelada",
+      "nao_vence": false,
+      "vigencia_meses": 6,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "Portaria GM/MS 3.523/1998, art. 6º; Lei 13.589/2018, art. 1º",
+      "consequencia": "Se vencer: multa de R$ 2.000 a R$ 1.500.000 (base legal). Base: Lei 6.437/1977, art. 2º (infração sanitária: R$ 2.000 a R$ 1,5 milhão conforme a gravidade)"
+    },
     "007": {
       "documento": "Alvará de Funcionamento de Elevadores",
       "nao_vence": false,
@@ -127,6 +136,15 @@
       "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2",
       "consequencia": null
     },
+    "028": {
+      "documento": "Certificado de Teste Hidrostático-Mangueiras de Incêndio (NBR 12779)",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "ABNT NBR 12779:2009 item 5 (inspeção e manutenção anuais) + IT 22/2025 CBPMESP",
+      "consequencia": null
+    },
     "034": {
       "documento": "Atestado de Manutenção do Grupo Moto Gerador",
       "nao_vence": false,
@@ -143,6 +161,24 @@
       "antecedencia_dias": 30,
       "origem_da_validade": "regra_da_uf",
       "base_legal": "IT-16/2025 CBPMESP item 5.8.1.3",
+      "consequencia": null
+    },
+    "039": {
+      "documento": "Certificado ou Relatório  de Plano de Abandono do Local de Trabalho (PALT)",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "IT 16/2025 CBPMESP (plano de emergência; exercício simulado anual) + ABNT NBR 15219:2020 item 5",
+      "consequencia": null
+    },
+    "042": {
+      "documento": "Atestado do Funcionamento do Sistema de Pressurização das Escadas",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "IT 13/2025 CBPMESP + ABNT NBR 14880:2014 (teste funcional periódico; laudo anual exigido na renovação do AVCB)",
       "consequencia": null
     },
     "045": {
@@ -198,6 +234,15 @@
       "origem_da_validade": "regra_nacional",
       "base_legal": "NR-10 / NBR 5410",
       "consequencia": "Se vencer: operação parada · o seguro predial deixa de cobrir · multa de R$ 3.000 a R$ 30.000 (faixa estimada; consulte o órgão). Base: NR-10 / NBR 5410: auto de infração do MTE + risco de embargo (estimativa)"
+    },
+    "055": {
+      "documento": "Laudo de Termografia",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NR-10 item 10.2.4 (prontuário) + ABNT NBR 15572/15866 (termografia) + NBR 5410 item 8 (recomendação anual)",
+      "consequencia": null
     },
     "056": {
       "documento": "Laudo de SPDA (Sistema de Proteção contra Descargas Atmosféricas) - NBR 5419/2015",

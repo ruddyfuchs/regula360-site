@@ -3,11 +3,13 @@ slug: recarga-de-extintores-validade
 nome: Recarga de extintores
 chamado: a recarga dos extintores
 titulo: Recarga de extintores: validade, inspeção, manutenção e teste hidrostático
-titulo_seo: Recarga de extintores: validade e prazos
-descricao: Validade da recarga de extintores, a diferença entre inspeção, manutenção e teste hidrostático e o que conferir no selo. Calcule o vencimento dos seus.
+titulo_seo: Validade da recarga de extintor: prazos e selo
+descricao: A recarga do extintor vale {{validade_curta}}, e o teste hidrostático é feito a cada 5 anos. Veja o que conferir no selo e na etiqueta e calcule o vencimento dos seus.
 resumo: Os extintores do prédio passam por três cuidados diferentes: a inspeção periódica, a manutenção com recarga, feita todo ano, e o teste hidrostático, em intervalo maior. A referência é a NBR 12962:2016, e a IT-21 do Corpo de Bombeiros de São Paulo cobra os extintores em dia na renovação do AVCB.
 chamada: Quer saber como estão os documentos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 230, 002, 056
+pergunta: Qual a diferença entre recarga e teste hidrostático? | A recarga é a manutenção periódica feita por empresa especializada. O teste hidrostático é o ensaio do cilindro sob pressão, em geral a cada 5 anos, conforme a NBR 12962.
+pergunta: Extintor usado precisa de recarga antes do vencimento? | Sim. Depois de qualquer uso, mesmo parcial, ou com lacre rompido, pressão fora da faixa ou dano, o extintor vai para recarga sem esperar a data.
 ---
 ## Por que o extintor tem prazo
 

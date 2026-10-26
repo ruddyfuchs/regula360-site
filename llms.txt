@@ -64,6 +64,7 @@ Uma página por documento com prazo: validade, quando começar a renovar, o que 
 
 - [Alvará de elevadores em São Paulo: validade, RIA anual e quem cuida de cada parte](https://www.regula360.com.br/alvara-de-elevadores-validade): vale 12 meses (1 ano) (Lei SP 10.348/1987 + Decreto SP 47.334/2006 (RIA anual)).
 - [Análise da água do prédio: validade, o que é medido e como ler o laudo](https://www.regula360.com.br/analise-da-agua-validade): vale 6 meses (Portaria GM/MS 888/2021).
+- [Análise da água de condensação e água gelada: validade, quem precisa e o que é analisado](https://www.regula360.com.br/agua-de-condensacao-validade): vale 6 meses (Portaria GM/MS 3.523/1998, art. 6º; Lei 13.589/2018, art. 1º).
 - [Atestado de manutenção do gerador: validade, o que é testado e por que pesa no AVCB](https://www.regula360.com.br/manutencao-do-gerador-validade): vale 12 meses (1 ano) (IT 01/2025 CBPMESP (atestado de manutenção para AVCB) + ABNT NBR 5674:2012; NBR ISO 8528).
 - [Atestado de manutenção do sistema de incêndio: validade, o que cobre e o papel no AVCB](https://www.regula360.com.br/sistema-de-incendio-validade): vale 12 meses (1 ano) (IT-17/2025 CBPMESP itens 4.4.1.3 e 4.4.1.4.2 + IT-01/2025 item 6.2.1).
 - [AVCB: validade, quando começar a renovar e o que costuma travar](https://www.regula360.com.br/avcb-validade): vale 36 meses (3 anos) (IT-01 CB-PMESP).
@@ -79,11 +80,15 @@ Uma página por documento com prazo: validade, quando começar a renovar, o que 
 - [Laudo das instalações elétricas: validade, prontuário e o que conferir](https://www.regula360.com.br/laudo-instalacoes-eletricas-validade): vale 12 meses (1 ano) (NR-10 / NBR 5410).
 - [Laudo de qualidade do ar interior: validade, o que é medido e a diferença para o PMOC](https://www.regula360.com.br/qualidade-do-ar-interior-validade): vale 6 meses (ABNT NBR 17037:2023 (amostragem semestral; substitui a RE 9/2003, revogada pela RDC ANVISA 886/2024) + Lei 13.589/2018 art. 1º + Portaria GM/MS 3.523/1998 art. 6º).
 - [Laudo de SPDA: validade, quando renovar e o que precisa ter](https://www.regula360.com.br/laudo-de-spda-validade): vale 12 meses (1 ano) (NBR 5419).
+- [Laudo de termografia: validade, para que serve e o que o relatório precisa trazer](https://www.regula360.com.br/laudo-de-termografia-validade): vale 12 meses (1 ano) (NR-10 item 10.2.4 (prontuário) + ABNT NBR 15572/15866 (termografia) + NBR 5410 item 8 (recomendação anual)).
 - [Licença de Operação da CETESB: validade, quem precisa e como acompanhar a renovação](https://www.regula360.com.br/licenca-de-operacao-cetesb-validade): vale 60 meses (5 anos) (Decreto estadual SP 47.397/2002, art. 1º; Lei 9.605/1998, art. 60).
 - [LTCAT: validade, para que serve e quando precisa ser atualizado](https://www.regula360.com.br/ltcat-validade): vale 12 meses (1 ano) (Lei 8.213/1991, art. 58; IN PRES/INSS 128/2022).
+- [Mangueiras de incêndio: validade da manutenção, teste hidrostático e o que conferir](https://www.regula360.com.br/mangueiras-de-incendio-validade): vale 12 meses (1 ano) (ABNT NBR 12779:2009 item 5 (inspeção e manutenção anuais) + IT 22/2025 CBPMESP).
 - [PECI: validade do plano de emergência, brigada, simulado e AVCB](https://www.regula360.com.br/peci-validade): vale 12 meses (1 ano) (IT-16/2025 CBPMESP item 5.8.1.3).
 - [PGR: validade, quem precisa ter e quando revisar antes do prazo](https://www.regula360.com.br/pgr-validade): vale 24 meses (2 anos) (NR-01, item 1.5.4.4.6).
+- [Plano de abandono e simulado de evacuação: validade, o que registrar e quem participa](https://www.regula360.com.br/simulado-de-abandono-validade): vale 12 meses (1 ano) (IT 16/2025 CBPMESP (plano de emergência; exercício simulado anual) + ABNT NBR 15219:2020 item 5).
 - [PMOC: validade, quem é obrigado e o que o plano precisa ter](https://www.regula360.com.br/pmoc-validade): vale 12 meses (1 ano) (Lei 13.589/2018 / NBR 13971).
+- [Pressurização de escadas: validade do atestado, como funciona e o que é testado](https://www.regula360.com.br/pressurizacao-de-escadas-validade): vale 12 meses (1 ano) (IT 13/2025 CBPMESP + ABNT NBR 14880:2014 (teste funcional periódico; laudo anual exigido na renovação do AVCB)).
 - [Recarga de extintores: validade, inspeção, manutenção e teste hidrostático](https://www.regula360.com.br/recarga-de-extintores-validade): vale 12 meses (1 ano) (NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2).
 - [Relatório anual do PCMSO: validade, o que ele traz e a diferença para o PGR](https://www.regula360.com.br/pcmso-validade): vale 12 meses (1 ano) (NR-07, item 7.6.2).
 

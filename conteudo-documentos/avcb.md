@@ -3,11 +3,13 @@ slug: avcb-validade
 nome: AVCB
 chamado: o AVCB
 titulo: AVCB: validade, quando começar a renovar e o que costuma travar
-titulo_seo: AVCB: validade e quando começar a renovar
-descricao: Validade do AVCB em São Paulo, quando começar a renovar, o que costuma travar a renovação e onde conferir a data certa. Calcule o vencimento do seu.
+titulo_seo: Validade do AVCB em SP: quando renovar
+descricao: O AVCB em São Paulo costuma valer {{validade_curta}}, mas vale a data impressa nele. Veja quando começar a renovar, o que trava a vistoria e calcule o vencimento.
 resumo: O AVCB é o documento do Corpo de Bombeiros que atesta que o prédio cumpre as exigências de segurança contra incêndio. Em São Paulo, a validade mais comum é de 3 anos, mas a data que vale é a impressa no próprio documento. A renovação depende de vários laudos e sistemas em dia, por isso começa antes do vencimento.
 chamada: Quer saber como está a documentação do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 056, 027, 007
+pergunta: Onde vejo a validade do meu AVCB? | A data vem impressa no próprio AVCB e pode variar conforme a ocupação aprovada para o prédio. Se ela for diferente da referência, vale a data impressa.
+pergunta: Por que a renovação do AVCB demora? | Porque os sistemas de segurança precisam estar em dia e comprovados: extintores, hidrantes, iluminação de emergência, alarme e laudos com ART. Cada um tem o seu próprio prazo.
 ---
 ## O que é o AVCB
 

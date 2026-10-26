@@ -3,11 +3,13 @@ slug: limpeza-caixa-dagua-validade
 nome: Certificado de limpeza da caixa d'água
 chamado: o certificado de limpeza da caixa d'água
 titulo: Limpeza da caixa d'água: validade do certificado, análise da água e o que conferir
-titulo_seo: Limpeza da caixa d'água: validade e prazo
-descricao: De quanto em quanto tempo limpar a caixa d'água, o que o certificado precisa trazer e por que a análise da água é outro documento. Calcule o vencimento.
+titulo_seo: Limpeza de caixa d'água: a cada quanto tempo?
+descricao: A limpeza da caixa d'água vale {{validade_curta}}: são duas por ano. Veja o que o certificado precisa ter, por que a análise da água é à parte e calcule a sua.
 resumo: A limpeza dos reservatórios de água do prédio é feita a cada 6 meses e gera um certificado da empresa que executou o serviço. A análise da água é um documento separado, com o mesmo prazo. Os dois mostram que a água que chega às torneiras está sendo cuidada.
 chamada: Quer saber como estão os documentos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 046, 060, 002
+pergunta: De quanto em quanto tempo limpar a caixa d'água? | A referência é a cada {{validade_curta}}, ou seja, duas vezes por ano. Obra na cobertura, falta prolongada de água ou reclamação de cor, cheiro ou gosto pedem limpeza fora do calendário.
+pergunta: A análise da água substitui o certificado de limpeza? | Não. A limpeza mostra que o reservatório foi cuidado; a análise, feita por laboratório, mostra como a água está. São dois documentos, e um não substitui o outro.
 ---
 ## Por que a caixa d'água tem prazo
 
