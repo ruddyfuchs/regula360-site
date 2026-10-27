@@ -3,7 +3,7 @@ titulo_seo: Assumi um prédio: revisar 24 meses de contas
 slug: assumi-um-predio-revisar-24-meses
 categoria: Contas
 data: 2026-10-14
-ordem: 4
+ordem: 5
 minutos: 6
 servico: /auditoria-e-recuperacao
 descricao: Quem assume a gestão de um prédio herda o passado dele. Por que revisar os últimos 24 meses de contas antes de planejar o futuro, e como fazer isso.

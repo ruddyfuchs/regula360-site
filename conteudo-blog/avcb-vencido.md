@@ -2,7 +2,7 @@ titulo: AVCB vencido: o que acontece e por onde começar
 slug: avcb-vencido
 categoria: Documentos
 data: 2026-10-14
-ordem: 5
+ordem: 6
 minutos: 5
 servico: /regularizacao-e-gestao-ativa
 descricao: O que é o AVCB, o que acontece quando ele vence e quais laudos e documentos normalmente precisam estar em dia para conseguir a renovação.

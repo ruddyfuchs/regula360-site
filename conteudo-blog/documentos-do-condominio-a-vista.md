@@ -3,7 +3,7 @@ titulo_seo: Documentos do condomínio para ter à vista
 slug: documentos-do-condominio-a-vista
 categoria: Documentos
 data: 2026-10-14
-ordem: 7
+ordem: 8
 minutos: 6
 servico: /diagnostico-e-painel
 descricao: Os documentos com vencimento que mais aparecem num condomínio e por que acompanhá-los numa lista única, com a data à vista.
