@@ -3,7 +3,7 @@ titulo_seo: Reajuste de contrato: como conferir
 slug: reajuste-de-contrato
 categoria: Contratos
 data: 2026-10-14
-ordem: 2
+ordem: 3
 minutos: 5
 servico: /gestao-mensal-de-boletos
 descricao: Todo ano os contratos do condomínio são reajustados. Como conferir se o índice, a data e a conta do reajuste estão certos antes de pagar o valor novo.

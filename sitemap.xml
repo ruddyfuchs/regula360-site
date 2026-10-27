@@ -63,9 +63,15 @@
   <!-- blog -->
   <url>
     <loc>https://www.regula360.com.br/blog</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/blog-alvara-de-elevadores-e-ria</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/blog-prestacao-de-contas-anual</loc>
@@ -119,175 +125,175 @@
   <!-- documentos -->
   <url>
     <loc>https://www.regula360.com.br/alvara-de-elevadores-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/analise-da-agua-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/agua-de-condensacao-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/manutencao-do-gerador-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/sistema-de-incendio-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/avcb-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/grande-gerador-de-residuos-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/limpeza-caixa-dagua-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/ctf-ibama-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/controle-de-pragas-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/hidrantes-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/iluminacao-de-emergencia-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/vasos-de-pressao-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/inventario-de-residuos-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/cabine-primaria-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/laudo-instalacoes-eletricas-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/qualidade-do-ar-interior-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/laudo-de-spda-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/laudo-de-termografia-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/licenca-de-operacao-cetesb-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/ltcat-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/mangueiras-de-incendio-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/peci-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/pgr-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/simulado-de-abandono-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/pmoc-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/pressurizacao-de-escadas-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/recarga-de-extintores-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.regula360.com.br/pcmso-validade</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

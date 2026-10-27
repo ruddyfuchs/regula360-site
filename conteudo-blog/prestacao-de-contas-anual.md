@@ -3,7 +3,7 @@ titulo_seo: Prestação de contas anual: o que vai na pasta
 slug: prestacao-de-contas-anual
 categoria: Contas
 data: 2026-10-14
-ordem: 1
+ordem: 2
 minutos: 5
 servico: /auditoria-e-recuperacao
 descricao: O síndico presta contas todo ano à assembleia. O que a pasta da prestação de contas precisa ter para ser conferida de verdade.

@@ -3,7 +3,7 @@ titulo_seo: Renovação do seguro do condomínio
 slug: renovacao-do-seguro-do-condominio
 categoria: Seguro
 data: 2026-10-14
-ordem: 6
+ordem: 7
 minutos: 5
 servico: /auditoria-e-recuperacao
 descricao: O seguro do condomínio é obrigatório pelo Código Civil. O que conferir na renovação além do preço: valor segurado, coberturas e o que pedem no sinistro.
