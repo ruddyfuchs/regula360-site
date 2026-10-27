@@ -1,5 +1,5 @@
 {
-  "conferido_em": "2026-10-25",
+  "conferido_em": "2026-10-27",
   "regras": {
     "229": {
       "documento": "Relatório de inspeção da iluminação de emergência",
@@ -71,7 +71,7 @@
       "antecedencia_dias": 120,
       "origem_da_validade": "regra_da_uf",
       "base_legal": "Decreto estadual SP 47.397/2002, art. 1º; Lei 9.605/1998, art. 60",
-      "consequencia": "Se vencer: risco de interdição do prédio · multa de R$ 500 a R$ 10.000.000 (base legal). Base: Operar sem licença ou em desacordo: Lei 9.605/1998, art. 60; Decreto 6.514/2008, art. 66 (R$ 500 a R$ 10 milhões) + embargo/interdição"
+      "consequencia": "Se vencer: risco de interdição do prédio · multa de R$ 384 a R$ 384.200 (base legal). Base: art. 81, II, e art. 84, I (em UFESP, Comunicado DICAR nº 88/2025 (DOE-SP 18/12/2025))"
     },
     "315": {
       "documento": "Certificado de Regularidade do IBAMA (CTF/APP)",
@@ -80,7 +80,7 @@
       "antecedencia_dias": 5,
       "origem_da_validade": "regra_nacional",
       "base_legal": "Lei 6.938/1981, art. 17, II; IN IBAMA 6/2013",
-      "consequencia": null
+      "consequencia": "Se vencer: multa de R$ 50 a R$ 50.000.000 (base legal). Base: art. 9º"
     },
     "317": {
       "documento": "Inventário anual de resíduos sólidos industriais",
@@ -89,7 +89,7 @@
       "antecedencia_dias": 20,
       "origem_da_validade": "regra_nacional",
       "base_legal": "Resolução CONAMA 313/2002; condicionantes CETESB",
-      "consequencia": null
+      "consequencia": "Se vencer: multa de R$ 384 a R$ 384.200 (base legal). Base: art. 81, II, e art. 84, I (em UFESP, Comunicado DICAR nº 88/2025 (DOE-SP 18/12/2025))"
     },
     "325": {
       "documento": "Laudo de inspeção da cabine primária / subestação (NBR 14039), com ART",
