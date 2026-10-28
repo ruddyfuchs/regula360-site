@@ -80,10 +80,49 @@ if (k1 && !julgar(html, { ...dados, [k1]: dados[k1] + 1 }).length) sab.push(`nã
 if (!julgar(html, { ...dados, whatsapp_so_com_consentimento: false }).length) sab.push('não pegou booleano desligado');
 if (!julgar(html, { ...dados, copia_imutavel_ligada: !dados.copia_imutavel_ligada }).length) sab.push('não pegou a trava da cópia invertida');
 
+// ── acurácia da IA e teste de separação (28/10): o mesmo contrato, outro JSON ──
+// A página só pode mostrar campo que a plataforma publicou (ela já tira o que fica abaixo
+// de 90%) e cada número escrito no HTML tem que bater com o publicado.
+function brData(s) { const p = String(s).slice(0, 10).split('-'); return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : null; }
+function julgarConfianca(h, c) {
+  const e = [];
+  const mostrados = [...h.matchAll(/<div class="ac-item" data-campo="([a-z_]+)"><div class="ac-pct">(\d+)%<\/div><div class="ac-rot">([^<]+)<\/div><div class="ac-conta">(\d+) de (\d+) conferidos<\/div><\/div>/g)]
+    .map(([, campo, pct, rotulo, acertos, conferidos]) => ({ campo, pct: +pct, rotulo, acertos: +acertos, conferidos: +conferidos }));
+  const publicados = (c.acuracia || []).filter((a) => a.pct >= 90);
+  for (const m of mostrados) {
+    const p = publicados.find((a) => a.campo === m.campo);
+    if (!p) { e.push(`acurácia ${m.campo}: a página mostra, mas a plataforma não publica (ou está abaixo de 90%)`); continue; }
+    for (const k of ['pct', 'rotulo', 'acertos', 'conferidos']) if (p[k] !== m[k]) e.push(`acurácia ${m.campo}.${k}: página diz ${m[k]}, a plataforma diz ${p[k]}`);
+  }
+  for (const p of publicados) if (!mostrados.some((m) => m.campo === p.campo)) e.push(`acurácia ${p.campo}: a plataforma publica, mas a página não mostra`);
+  const span = (k) => (h.match(new RegExp(`data-${k}">([^<]*)<`)) || [])[1];
+  if (span('ac="amostra_por_rodada') !== String(c.amostra_por_rodada)) e.push(`amostra_por_rodada: página diz ${span('ac="amostra_por_rodada')}, a plataforma diz ${c.amostra_por_rodada}`);
+  if (span('ac="base') !== c.base) e.push(`base: página diz "${span('ac="base')}", a plataforma diz "${c.base}"`);
+  if (span('ac="atualizado_em') !== brData(c.atualizado_em)) e.push(`atualizado_em: página diz ${span('ac="atualizado_em')}, a plataforma diz ${brData(c.atualizado_em)}`);
+  const i = c.isolamento || {};
+  if (i.teste_por_publicacao !== true || i.vazamentos !== 0) e.push('isolamento: a plataforma não confirma teste por publicação com 0 vazamentos e a página afirma');
+  for (const k of ['acessos', 'telas', 'papeis', 'vazamentos']) {
+    const v = span(`iso="${k}`);
+    if (v === undefined || Number(v.replace(/\./g, '')) !== i[k]) e.push(`isolamento ${k}: página diz ${v}, a plataforma diz ${i[k]}`);
+  }
+  if (span('iso="data_teste') !== brData(i.data_teste)) e.push(`isolamento data_teste: página diz ${span('iso="data_teste')}, a plataforma diz ${brData(i.data_teste)}`);
+  return e;
+}
+const rc = await fetch(`${BASE}/api/public/regula/confianca`, { headers: { accept: 'application/json' } }).catch((e) => ({ ok: false, status: e.message }));
+if (!rc.ok) erros.push(`o JSON de confiança não respondeu (${rc.status}) em ${BASE}/api/public/regula/confianca`);
+else {
+  const conf = await rc.json();
+  erros.push(...julgarConfianca(html, conf));
+  const a0 = conf.acuracia?.[0];
+  if (a0 && !julgarConfianca(html, { ...conf, acuracia: [{ ...a0, pct: a0.pct === 100 ? 99 : a0.pct + 1 }, ...conf.acuracia.slice(1)] }).length) sab.push('não pegou acurácia trocada');
+  if (a0 && !julgarConfianca(html, { ...conf, acuracia: conf.acuracia.slice(1) }).length) sab.push('não pegou campo que a plataforma deixou de publicar');
+  if (!julgarConfianca(html, { ...conf, isolamento: { ...conf.isolamento, vazamentos: 1 } }).length) sab.push('não pegou vazamento no teste de separação');
+}
+
 console.log(`${Object.keys(dados).length} campos no JSON · revisado em ${dados.revisado_em}`);
 if (erros.length || sab.length) {
   console.log(`❌ ${erros.length + sab.length} problemas:`);
   [...erros, ...sab.map((s) => 'SABOTAGEM ' + s)].forEach((e) => console.log('   ', e));
   process.exit(1);
 }
-console.log('✅ cada número da página bate com a plataforma, e a prova pega as 3 sabotagens');
+console.log('✅ cada número da página bate com a plataforma (segurança, acurácia da IA e teste de separação), e a prova pega as 6 sabotagens');

@@ -1,5 +1,5 @@
 {
-  "conferido_em": "2026-10-27",
+  "conferido_em": "2026-10-28",
   "regras": {
     "229": {
       "documento": "Relatório de inspeção da iluminação de emergência",
@@ -17,7 +17,7 @@
       "antecedencia_dias": 30,
       "origem_da_validade": "regra_nacional",
       "base_legal": "NBR 12962:2016 (inspeção: 6 meses CO₂/cilindro expelente, 12 meses demais) + IT-21/2025 CBPMESP",
-      "consequencia": null
+      "consequencia": "Se vencer: multa de R$ 384 a R$ 384.200 (base legal). Base: LC 1.257/2015, art. 27, § 3º; Decreto 69.118/2024, arts. 43 a 45 e Anexo C (em UFESP, Comunicado DICAR nº 88/2025 (DOE-SP 18/12/2025))"
     },
     "231": {
       "documento": "Relatório de inspeção de hidrantes e VGAs",
@@ -26,7 +26,7 @@
       "antecedencia_dias": 30,
       "origem_da_validade": "regra_nacional",
       "base_legal": "NBR 13714:2000 Anexo C itens C.2 e C.3.1 + NBR 12779 + IT-22/2025 CBPMESP Anexo F",
-      "consequencia": null
+      "consequencia": "Se vencer: multa de R$ 384 a R$ 384.200 (base legal). Base: LC 1.257/2015, art. 27, § 3º; Decreto 69.118/2024, arts. 43 a 45 e Anexo C (em UFESP, Comunicado DICAR nº 88/2025 (DOE-SP 18/12/2025))"
     },
     "301": {
       "documento": "PGR - Programa de Gerenciamento de Riscos (NR-01)",
@@ -35,7 +35,7 @@
       "antecedencia_dias": 30,
       "origem_da_validade": "regra_nacional",
       "base_legal": "NR-01, item 1.5.4.4.6",
-      "consequencia": null
+      "consequencia": "Se vencer: multa de R$ 670 a R$ 6.708 (faixa estimada; consulte o órgão). Base: NR-28 (Portaria 3.214/78), anexos I-II: multa graduada por no de empregados e gravidade (1-4), em UFIR; faixa estimada, varia por porte."
     },
     "302": {
       "documento": "Relatório analítico anual do PCMSO (NR-07)",
@@ -44,7 +44,7 @@
       "antecedencia_dias": 30,
       "origem_da_validade": "regra_nacional",
       "base_legal": "NR-07, item 7.6.2",
-      "consequencia": null
+      "consequencia": "Se vencer: multa de R$ 670 a R$ 6.708 (faixa estimada; consulte o órgão). Base: NR-28 (Portaria 3.214/78), anexos I-II: multa graduada por no de empregados e gravidade (1-4), em UFIR; faixa estimada, varia por porte."
     },
     "303": {
       "documento": "LTCAT - Laudo Técnico das Condições Ambientais do Trabalho",
@@ -53,7 +53,7 @@
       "antecedencia_dias": 30,
       "origem_da_validade": "regra_nacional",
       "base_legal": "Lei 8.213/1991, art. 58; IN PRES/INSS 128/2022",
-      "consequencia": null
+      "consequencia": "Se vencer: multa de R$ 670 a R$ 6.708 (faixa estimada; consulte o órgão). Base: NR-28 (Portaria 3.214/78), anexos I-II: multa graduada por no de empregados e gravidade (1-4), em UFIR; faixa estimada, varia por porte."
     },
     "306": {
       "documento": "Relatório de inspeção de segurança de vaso de pressão (NR-13)",
@@ -134,7 +134,7 @@
       "antecedencia_dias": 30,
       "origem_da_validade": "regra_nacional",
       "base_legal": "NBR 12962:2016 (manutenção 2º nível ≤ 12 meses) + IT-21/2025 CBPMESP item 4.3.2",
-      "consequencia": null
+      "consequencia": "Se vencer: multa de R$ 384 a R$ 384.200 (base legal). Base: LC 1.257/2015, art. 27, § 3º; Decreto 69.118/2024, arts. 43 a 45 e Anexo C (em UFESP, Comunicado DICAR nº 88/2025 (DOE-SP 18/12/2025))"
     },
     "028": {
       "documento": "Certificado de Teste Hidrostático-Mangueiras de Incêndio (NBR 12779)",
@@ -170,7 +170,7 @@
       "antecedencia_dias": 30,
       "origem_da_validade": "regra_nacional",
       "base_legal": "IT 16/2025 CBPMESP (plano de emergência; exercício simulado anual) + ABNT NBR 15219:2020 item 5",
-      "consequencia": null
+      "consequencia": "Se vencer: multa de R$ 670 a R$ 6.708 (faixa estimada; consulte o órgão). Base: NR-28 (Portaria 3.214/78), anexos I-II: multa graduada por no de empregados e gravidade (1-4), em UFIR; faixa estimada, varia por porte."
     },
     "042": {
       "documento": "Atestado do Funcionamento do Sistema de Pressurização das Escadas",
