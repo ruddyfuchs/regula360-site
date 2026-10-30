@@ -54,7 +54,7 @@ A iluminação de emergência é um dos itens conferidos na vistoria do Corpo de
 
 ## Quando começar a agendar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de agendar o ensaio, trocar baterias e luminárias com defeito e receber o relatório final antes da data.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de agendar o ensaio, trocar baterias e luminárias com defeito e receber o relatório final antes da data.
 
 ## Como não deixar vencer
 

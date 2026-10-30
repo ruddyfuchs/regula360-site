@@ -56,4 +56,4 @@ Se o vaso não pertence a nenhum desses casos especiais, ou se não há certeza 
 
 ## Como não deixar vencer
 
-Vaso de pressão costuma ficar num canto da área técnica, funcionando sem chamar atenção, até a inspeção vencer. A forma mais simples de não ser surpreendido é ter cada vaso na mesma lista do laudo da cabine primária, do PGR e dos demais documentos, com a data da próxima inspeção, quem é o responsável e um aviso {{renovar}} antes do prazo. A regra usada aqui é começar {{renovar}} antes do vencimento, tempo para contratar, parar o equipamento quando o exame interno pede e corrigir o que a inspeção apontar.
+Vaso de pressão costuma ficar num canto da área técnica, funcionando sem chamar atenção, até a inspeção vencer. A forma mais simples de não ser surpreendido é ter cada vaso na mesma lista do laudo da cabine primária, do PGR e dos demais documentos, com a data da próxima inspeção, quem é o responsável e um aviso {{renovar}} antes do prazo. A estimativa usada aqui é começar {{renovar}} antes do vencimento, tempo para contratar, parar o equipamento quando o exame interno pede e corrigir o que a inspeção apontar.

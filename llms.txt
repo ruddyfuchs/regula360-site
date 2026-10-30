@@ -21,7 +21,7 @@ Cada frente é independente — o cliente começa pela dor maior e liga as outra
 
 ## O que é conferido
 
-- **Governança documental** — mais de 120 tipos de documento por unidade, cada um com base legal, status e vencimento. Documento vencido ou incompatível com o uso vira risco de interdição, multa e seguro negado.
+- **Governança documental** — mais de 120 tipos de documento por unidade, cada um com base legal, status e vencimento. Documento vencido ou incompatível com o uso vira risco de interdição, multa e seguro questionado.
 - **Segurança e incêndio** — AVCB, CLCB, CA, extintores, hidrantes, brigada, iluminação de emergência.
 - **Elétrica e SPDA** — laudo SPDA (NBR 5419), termografia, ART (NR-10), grupo gerador.
 - **Predial e civil** — habite-se, inspeção predial, fachada, ART/RRT, elevadores.

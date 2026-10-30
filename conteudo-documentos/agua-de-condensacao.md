@@ -52,4 +52,4 @@ Guarde juntos o laudo do laboratório, os registros do tratamento químico feito
 
 ## Como não deixar vencer
 
-A análise da água do ar-condicionado costuma ficar com a empresa de manutenção, longe dos olhos do síndico ou do gestor. A forma mais simples de não ser surpreendido é tê-la na mesma lista do PMOC, da qualidade do ar interior e dos demais documentos, com a data de vencimento, quem é o responsável e um aviso {{renovar}} antes do prazo. A regra usada aqui é começar {{renovar}} antes do vencimento, tempo de agendar a coleta e receber o laudo antes da data.
+A análise da água do ar-condicionado costuma ficar com a empresa de manutenção, longe dos olhos do síndico ou do gestor. A forma mais simples de não ser surpreendido é tê-la na mesma lista do PMOC, da qualidade do ar interior e dos demais documentos, com a data de vencimento, quem é o responsável e um aviso {{renovar}} antes do prazo. A estimativa usada aqui é começar {{renovar}} antes do vencimento, tempo de agendar a coleta e receber o laudo antes da data.

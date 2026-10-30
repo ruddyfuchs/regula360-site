@@ -66,7 +66,7 @@ Num mês típico de exemplo: 12 rubricas conferidas, 9 dentro da referência, 3 
 
 ## A governança documental
 
-Mais de 120 tipos de documento por unidade, cada um com base legal, status e vencimento. Documento vencido ou incompatível com o uso vira risco de interdição, multa e seguro negado.
+Mais de 120 tipos de documento por unidade, cada um com base legal, status e vencimento. Documento vencido ou incompatível com o uso vira risco de interdição, multa e seguro questionado.
 
 - **Segurança e incêndio** — AVCB, CLCB, CA, extintores, hidrantes, brigada, iluminação de emergência.
 - **Elétrica e SPDA** — laudo SPDA (NBR 5419), termografia, ART (NR-10), grupo gerador.

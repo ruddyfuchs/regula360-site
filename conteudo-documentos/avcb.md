@@ -50,7 +50,7 @@ Cada um desses itens tem o seu próprio prazo, e quase nunca eles vencem juntos.
 
 ## Quando começar a renovar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo serve para levantar o que está pendente, contratar as correções com os profissionais habilitados, reunir os laudos e dar entrada no processo com folga.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Esse prazo serve para levantar o que está pendente, contratar as correções com os profissionais habilitados, reunir os laudos e dar entrada no processo com folga.
 
 Se, ao começar, você descobrir que um laudo importante está vencido ou que há uma obra a fazer, o prazo pode não bastar. Por isso a lista dos demais documentos precisa estar à vista bem antes desses 65 dias.
 

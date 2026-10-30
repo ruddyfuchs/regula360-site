@@ -66,7 +66,7 @@ O sistema de hidrantes é um dos itens que o Corpo de Bombeiros confere na visto
 
 ## Quando começar a agendar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de agendar a inspeção, trocar mangueiras e peças reprovadas e receber o relatório final com tudo em dia.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de agendar a inspeção, trocar mangueiras e peças reprovadas e receber o relatório final com tudo em dia.
 
 ## Como não deixar vencer
 

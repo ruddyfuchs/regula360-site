@@ -53,4 +53,4 @@ Depois de obra que mexa na escada, nos dutos ou na casa de máquinas, vale refaz
 
 ## Como não deixar vencer
 
-A pressurização fica numa casa de máquinas que pouca gente visita, e o problema só aparece no teste. A forma mais simples de não ser surpreendido é ter o atestado na mesma lista do AVCB, da iluminação de emergência, dos hidrantes e dos demais documentos, com a data de vencimento, quem é o responsável e um aviso {{renovar}} antes do prazo. A regra usada aqui é começar {{renovar}} antes do vencimento, tempo de fazer o teste e corrigir o que ele apontar antes da renovação do AVCB.
+A pressurização fica numa casa de máquinas que pouca gente visita, e o problema só aparece no teste. A forma mais simples de não ser surpreendido é ter o atestado na mesma lista do AVCB, da iluminação de emergência, dos hidrantes e dos demais documentos, com a data de vencimento, quem é o responsável e um aviso {{renovar}} antes do prazo. A estimativa usada aqui é começar {{renovar}} antes do vencimento, tempo de fazer o teste e corrigir o que ele apontar antes da renovação do AVCB.

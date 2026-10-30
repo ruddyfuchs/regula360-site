@@ -57,7 +57,7 @@ O PECI e o AVCB andam juntos. O AVCB atesta que o prédio tem os sistemas de seg
 
 ## Quando começar a revisar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de conferir se as plantas e as rotas ainda correspondem ao prédio, atualizar a lista da brigada, agendar treinamento e simulado e emitir o plano revisado.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de conferir se as plantas e as rotas ainda correspondem ao prédio, atualizar a lista da brigada, agendar treinamento e simulado e emitir o plano revisado.
 
 ## Como não deixar vencer
 

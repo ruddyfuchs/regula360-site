@@ -58,4 +58,4 @@ Pontos classificados como graves pedem correção imediata e, depois da correç�
 
 ## Como não deixar vencer
 
-A termografia costuma ser lembrada só quando o seguro pede. A forma mais simples de não ser surpreendido é ter o laudo de termografia na mesma lista do laudo das instalações elétricas, do laudo de SPDA e dos demais documentos, com a data de vencimento, quem é o responsável e um aviso {{renovar}} antes do prazo. A regra usada aqui é começar {{renovar}} antes do vencimento, tempo de contratar, fazer a inspeção num dia de carga normal e corrigir o que ela apontar.
+A termografia costuma ser lembrada só quando o seguro pede. A forma mais simples de não ser surpreendido é ter o laudo de termografia na mesma lista do laudo das instalações elétricas, do laudo de SPDA e dos demais documentos, com a data de vencimento, quem é o responsável e um aviso {{renovar}} antes do prazo. A estimativa usada aqui é começar {{renovar}} antes do vencimento, tempo de contratar, fazer a inspeção num dia de carga normal e corrigir o que ela apontar.

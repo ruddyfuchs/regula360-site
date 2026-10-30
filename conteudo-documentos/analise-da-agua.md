@@ -62,7 +62,7 @@ Resultado fora do padrão não se arquiva. A causa precisa ser investigada com o
 
 ## Quando começar a agendar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de combinar a coleta com o laboratório, alinhar com a data da limpeza da caixa d'água e receber o laudo antes da data.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de combinar a coleta com o laboratório, alinhar com a data da limpeza da caixa d'água e receber o laudo antes da data.
 
 ## Como não deixar vencer
 

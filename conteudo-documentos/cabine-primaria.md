@@ -65,4 +65,4 @@ A referência usada aqui é de {{validade}}. A NR-10 pede inspeção periódica 
 
 ## Como não deixar vencer
 
-O laudo da cabine depende de um desligamento planejado, e isso não se resolve em poucos dias. A forma mais simples de não ser surpreendido é tê-lo na mesma lista do laudo das instalações elétricas, do SPDA, da manutenção do gerador e dos demais documentos, com a data de vencimento, quem é o responsável por renovar e um aviso {{renovar}} antes do prazo. A regra usada aqui é começar {{renovar}} antes do vencimento, tempo para contratar, marcar o desligamento, avisar os ocupantes e corrigir o que o laudo apontar.
+O laudo da cabine depende de um desligamento planejado, e isso não se resolve em poucos dias. A forma mais simples de não ser surpreendido é tê-lo na mesma lista do laudo das instalações elétricas, do SPDA, da manutenção do gerador e dos demais documentos, com a data de vencimento, quem é o responsável por renovar e um aviso {{renovar}} antes do prazo. A estimativa usada aqui é começar {{renovar}} antes do vencimento, tempo para contratar, marcar o desligamento, avisar os ocupantes e corrigir o que o laudo apontar.

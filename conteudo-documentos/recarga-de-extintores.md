@@ -57,7 +57,7 @@ Os extintores são um dos sistemas de segurança mais visíveis numa vistoria. E
 
 ## Quando começar a agendar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de pedir orçamento, combinar a retirada e a devolução dos extintores e, se a empresa levar os equipamentos, garantir que o prédio não fique sem proteção. Em geral, a empresa deixa extintores reserva no lugar enquanto faz o serviço.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de pedir orçamento, combinar a retirada e a devolução dos extintores e, se a empresa levar os equipamentos, garantir que o prédio não fique sem proteção. Em geral, a empresa deixa extintores reserva no lugar enquanto faz o serviço.
 
 ## Como não deixar vencer
 

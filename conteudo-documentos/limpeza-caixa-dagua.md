@@ -56,7 +56,7 @@ O certificado de limpeza e a análise da água costumam ser pedidos em situaçõ
 
 ## Quando começar a agendar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de pedir orçamento, combinar a data com a empresa e avisar os moradores ou usuários, já que a limpeza exige esvaziar o reservatório e interromper o abastecimento por algumas horas.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de pedir orçamento, combinar a data com a empresa e avisar os moradores ou usuários, já que a limpeza exige esvaziar o reservatório e interromper o abastecimento por algumas horas.
 
 Agendar com antecedência também permite escolher um dia de menor consumo, o que reduz o incômodo para quem está no prédio.
 
