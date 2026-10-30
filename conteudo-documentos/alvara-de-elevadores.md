@@ -60,7 +60,7 @@ Confira também se a conservadora contratada é a mesma que aparece nos registro
 
 ## Quando começar a cobrar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Nesse prazo, vale perguntar à conservadora quando a inspeção está marcada, se há alguma pendência que precisa ser resolvida antes e quando o relatório será encaminhado.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Nesse prazo, vale perguntar à conservadora quando a inspeção está marcada, se há alguma pendência que precisa ser resolvida antes e quando o relatório será encaminhado.
 
 ## Como não deixar vencer
 

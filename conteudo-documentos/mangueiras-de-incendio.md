@@ -61,4 +61,4 @@ Os hidrantes são um dos sistemas que o Corpo de Bombeiros confere na vistoria. 
 
 ## Como não deixar vencer
 
-A manutenção das mangueiras costuma acontecer junto com a dos extintores, e por isso é fácil esquecer quando a empresa muda. A forma mais simples de não ser surpreendido é ter as mangueiras na mesma lista do AVCB, dos hidrantes e dos extintores, com a data de vencimento, quem é o responsável por agendar e um aviso {{renovar}} antes do prazo. A regra usada aqui é começar {{renovar}} antes do vencimento, tempo de pedir orçamento e combinar a retirada sem deixar abrigos vazios.
+A manutenção das mangueiras costuma acontecer junto com a dos extintores, e por isso é fácil esquecer quando a empresa muda. A forma mais simples de não ser surpreendido é ter as mangueiras na mesma lista do AVCB, dos hidrantes e dos extintores, com a data de vencimento, quem é o responsável por agendar e um aviso {{renovar}} antes do prazo. A estimativa usada aqui é começar {{renovar}} antes do vencimento, tempo de pedir orçamento e combinar a retirada sem deixar abrigos vazios.

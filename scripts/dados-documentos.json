@@ -1,5 +1,5 @@
 {
-  "conferido_em": "2026-10-28",
+  "conferido_em": "2026-10-29",
   "regras": {
     "229": {
       "documento": "Relatório de inspeção da iluminação de emergência",
@@ -107,7 +107,7 @@
       "antecedencia_dias": 65,
       "origem_da_validade": "regra_da_uf",
       "base_legal": "IT-01 CB-PMESP",
-      "consequencia": "Se vencer: risco de interdição do prédio · o seguro predial deixa de cobrir · multa de R$ 5.000 a R$ 50.000 (faixa estimada; consulte o órgão). Base: Auto de infração CB-PMESP: varia por grau de risco/área (estimativa; consulte o órgão)"
+      "consequencia": "Se vencer: risco de interdição do prédio · o seguro predial deixa de cobrir · multa de R$ 384 a R$ 384.200 (base legal). Base: LC 1.257/2015, art. 27, § 3º; Decreto 69.118/2024, arts. 43 a 45 e Anexo C (em UFESP, Comunicado DICAR nº 88/2025 (DOE-SP 18/12/2025))"
     },
     "003": {
       "documento": "Laudo de análise de água de condensação e /ou água gelada",

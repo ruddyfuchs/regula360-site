@@ -55,7 +55,7 @@ Além da revisão anual do plano, o que mantém o PMOC vivo é o registro das ma
 
 ## Quando começar a revisar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. O prazo é curto porque, em geral, a revisão é feita pela mesma empresa que já cuida da manutenção: ela atualiza o inventário, ajusta as tarefas e o responsável técnico assina de novo.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. O prazo é curto porque, em geral, a revisão é feita pela mesma empresa que já cuida da manutenção: ela atualiza o inventário, ajusta as tarefas e o responsável técnico assina de novo.
 
 Se o prédio estiver trocando de empresa de manutenção ou se houve troca relevante de equipamentos no ano, vale começar antes, porque o levantamento vai ser maior.
 

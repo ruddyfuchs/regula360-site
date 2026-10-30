@@ -54,4 +54,4 @@ Algumas ocupações e situações pedem exercícios com frequência maior. Vale 
 
 ## Como não deixar vencer
 
-O simulado é fácil de adiar, porque exige parar o prédio por alguns minutos e combinar com todo mundo. A forma mais simples de não ser surpreendido é ter o plano de abandono na mesma lista da brigada de incêndio, do AVCB e dos demais documentos, com a data de vencimento, quem é o responsável e um aviso {{renovar}} antes do prazo. A regra usada aqui é começar {{renovar}} antes do vencimento, tempo de marcar a data, avisar os ocupantes e preparar a brigada.
+O simulado é fácil de adiar, porque exige parar o prédio por alguns minutos e combinar com todo mundo. A forma mais simples de não ser surpreendido é ter o plano de abandono na mesma lista da brigada de incêndio, do AVCB e dos demais documentos, com a data de vencimento, quem é o responsável e um aviso {{renovar}} antes do prazo. A estimativa usada aqui é começar {{renovar}} antes do vencimento, tempo de marcar a data, avisar os ocupantes e preparar a brigada.

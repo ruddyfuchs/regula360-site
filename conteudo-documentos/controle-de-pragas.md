@@ -58,7 +58,7 @@ A aplicação deve ser feita sem contaminar reservatórios, caixas de gordura co
 
 ## Quando começar a agendar
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de pedir orçamento, combinar a data com a empresa e avisar moradores e usuários, já que algumas áreas precisam ficar fechadas por algumas horas depois da aplicação.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Esse prazo dá tempo de pedir orçamento, combinar a data com a empresa e avisar moradores e usuários, já que algumas áreas precisam ficar fechadas por algumas horas depois da aplicação.
 
 ## Como não deixar vencer
 

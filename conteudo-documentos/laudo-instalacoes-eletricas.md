@@ -30,7 +30,7 @@ A NR-10 pede que as instalações sejam mantidas em condições seguras e que as
 
 A referência usada aqui é de {{validade}}. É o intervalo que seguradoras, auditorias e o processo do AVCB costumam aceitar, e o mais usado em prédios de São Paulo. Uma nova inspeção também é recomendada depois de reforma, troca de quadro, aumento de carga ou qualquer ocorrência elétrica relevante.
 
-A regra usada aqui é começar {{renovar}} antes do vencimento. Esse prazo serve para inspecionar, contratar as correções que o laudo apontar e emitir o laudo final.
+A estimativa usada aqui é começar {{renovar}} antes do vencimento. Esse prazo serve para inspecionar, contratar as correções que o laudo apontar e emitir o laudo final.
 
 ## O que é o prontuário de instalações elétricas
 
