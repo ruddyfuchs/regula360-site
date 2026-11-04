@@ -48,8 +48,12 @@ function lerSite(home, p1, p2) {
     tiposP2: [...p2.matchAll(/data-tipo="([^"]+)"/g)].map((m) => m[1]),
     exemplo: ex ? ex[0] : '',
     listaCond: lst ? [...lst[1].matchAll(/<span class="d">([^<]+)<\/span>/g)].map((m) => desfaz(m[1])) : [],
+    // a consequência escrita em cada item ("" quando o item não tem)
+    riscoCond: lst ? Object.fromEntries([...lst[1].matchAll(/<li><span class="d">([^<]+)<\/span>(.*?)<\/li>/g)].map((m) => [desfaz(m[1]), desfaz((m[2].match(/<span class="r">([^<]*)<\/span>/) || [])[1] || '')])) : {},
   };
 }
+// "Se vencer: X. Base: Y" → "Se vencer: X." (a mesma leitura do scripts/atualizar-calculadoras.mjs)
+function efeito(c) { if (!c) return ''; const i = c.indexOf('. Base: '); const e = i >= 0 ? c.slice(0, i + 1) : c.trim(); return /[.!]$/.test(e) ? e : e + '.'; }
 
 async function conferir(site, plataforma) {
   const erros = [];
@@ -69,6 +73,12 @@ async function conferir(site, plataforma) {
   if (!ex) erros.push('a plataforma não calculou o exemplo (AVCB, 10/03/2024, SP)');
   else for (const [rot, val] of [['vencimento', dBR(ex.vence_em)], ['renovar até', dBR(ex.comece_a_renovar_em)], ['validade', `${ex.vigencia_meses} meses`], ['base legal', ex.base_legal]]) {
     if (!site.exemplo.includes(val)) erros.push(`exemplo da "Quando vence" está velho: a plataforma diz ${rot} = ${val}, a página não`);
+  }
+  // 04/11: a consequência também fica escrita; a frase velha ("o seguro predial deixa de cobrir") passou calada por aqui
+  if (ex) { const e = efeito(ex.consequencia).replace(/^Se vencer: /, ''); if (!desfaz(site.exemplo).includes(e)) erros.push(`exemplo da "Quando vence" com a consequência velha: a plataforma diz "${e}"`); }
+  for (const d of plataforma.tipos.condominio_residencial?.data?.documentos || []) {
+    if (!(d.documento in site.riscoCond)) continue;
+    if (site.riscoCond[d.documento] !== efeito(d.consequencia)) erros.push(`lista de condomínio, ${d.documento}: a página diz "${site.riscoCond[d.documento]}", a plataforma diz "${efeito(d.consequencia)}". Rode: node scripts/atualizar-calculadoras.mjs`);
   }
   const vivo = (plataforma.tipos.condominio_residencial?.data?.documentos || []).map((d) => d.documento);
   const falta = vivo.filter((n) => !site.listaCond.includes(n)), sobra = site.listaCond.filter((n) => !vivo.includes(n));
@@ -90,8 +100,11 @@ const sab1 = await conferir({ ...site, codigos: [...site.codigos, 'NAO-EXISTE'] 
 const sab2 = await conferir({ ...site, exemplo: site.exemplo.split('36 meses').join('35 meses') }, plataforma);
 if (!sab1.some((e) => e.includes('NAO-EXISTE'))) erros.push('SABOTAGEM PASSOU: um código inventado no seletor não reprovou');
 if (!sab2.some((e) => e.includes('validade'))) erros.push('SABOTAGEM PASSOU: um prazo trocado no exemplo não reprovou');
+const umItem = Object.keys(site.riscoCond).find((n) => site.riscoCond[n]);
+const sab3 = await conferir({ ...site, riscoCond: { ...site.riscoCond, [umItem]: 'Se vencer: o seguro predial deixa de cobrir.' } }, plataforma);
+if (!umItem || !sab3.some((e) => e.includes('lista de condomínio,'))) erros.push('SABOTAGEM PASSOU: uma consequência velha na lista de condomínio não reprovou');
 // a sabotagem só vale se o site SEM sabotagem passou nesse mesmo ponto (senão ela "pega" por acaso)
 if (erros.some((e) => e.includes('validade') || e.includes('não está lendo'))) erros.push('a sabotagem do exemplo não prova nada enquanto a leitura do exemplo falha');
 
 if (erros.length) { console.log(`❌ ${erros.length} problemas:\n    ` + erros.join('\n    ')); process.exit(1); }
-console.log('✅ as calculadoras do site batem com a plataforma, e a prova pega as 2 sabotagens');
+console.log('✅ as calculadoras do site batem com a plataforma (prazos e consequências), e a prova pega as 3 sabotagens');
