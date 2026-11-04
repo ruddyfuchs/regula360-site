@@ -1391,7 +1391,7 @@ var C={"229":"Inspeção da iluminação de emergência","230":"Inspeção de ex
 var $=function(i){return document.getElementById(i)},res=$('cq-res');if(!res)return;
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function dBR(s){if(!s)return '';var p=s.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
-function risco(c){if(!c)return '';var t=c.split(' — base')[0].replace(/^Se vencer:\s*/,''),m=t.match(/^(.*?)\s*\(([^)]*)\)\.?$/);
+function risco(c){if(!c)return '';var t=c.split(/\. Base: | — base/)[0].replace(/^Se vencer:\s*/,''),m=t.match(/^(.*?)\s*\(([^)]*)\)\.?$/);
   return '<div class="cq-risco"><b>Se vencer:</b> '+esc(m?m[1]:t)+(m?'<small>'+esc(m[2].replace(' — ',', '))+'</small>':'')+'</div>';}
 function acoes(a,b,href){return '<div class="cq-acoes"><a class="btn btn-linha" href="#contato">'+a+'</a><a class="link" href="'+href+'">'+b+'</a></div>';}
 function erro(t){res.innerHTML='<div class="cq-frase">'+esc(t)+'</div>';res.className='cq-res on';}
