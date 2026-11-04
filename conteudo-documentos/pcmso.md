@@ -3,8 +3,8 @@ slug: pcmso-validade
 nome: Relatório anual do PCMSO
 chamado: o relatório analítico do PCMSO
 titulo: Relatório anual do PCMSO: validade, o que ele traz e a diferença para o PGR
-titulo_seo: PCMSO: validade do relatório anual
-descricao: Validade do relatório analítico do PCMSO, o que a NR-07 pede que ele traga, quem precisa ter e como ele se liga ao PGR. Veja quando vence o da sua empresa.
+titulo_seo: Validade do PCMSO: o relatório anual da NR-07
+descricao: O relatório analítico do PCMSO vale {{validade_curta}} e quem tem empregados precisa dele (NR-07). Veja o que ele traz, a diferença para o PGR e calcule o seu.
 resumo: O PCMSO, Programa de Controle Médico de Saúde Ocupacional, é o programa da NR-07 que acompanha a saúde dos empregados a partir dos riscos do trabalho. Todo ano, o médico responsável elabora o relatório analítico, que reúne os exames feitos, os resultados fora do normal e as doenças relacionadas ao trabalho, e compara com o ano anterior. Ele é diferente do PGR: o PGR identifica os riscos, o PCMSO acompanha a saúde de quem está exposto a eles.
 chamada: Quer saber como estão os documentos da sua empresa? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 301, 303, 051

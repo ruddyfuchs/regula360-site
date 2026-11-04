@@ -3,8 +3,8 @@ slug: pgr-validade
 nome: PGR (Programa de Gerenciamento de Riscos)
 chamado: o PGR
 titulo: PGR: validade, quem precisa ter e quando revisar antes do prazo
-titulo_seo: PGR: validade e quando revisar
-descricao: Validade do PGR, o que é o inventário de riscos e o plano de ação, quem precisa ter e quando a NR-01 manda revisar antes do prazo. Veja o vencimento do seu.
+titulo_seo: Qual a validade do PGR e quando revisar
+descricao: O PGR vale {{validade_curta}} pela NR-01, mas precisa ser revisado antes se o trabalho mudar ou houver acidente. Veja quem precisa ter e calcule o vencimento.
 resumo: O PGR, Programa de Gerenciamento de Riscos, é o documento previsto na NR-01 que identifica os riscos do trabalho e define o que será feito para controlá-los. Ele é formado pelo inventário de riscos e pelo plano de ação. Quem tem empregados precisa dele, e a revisão acontece no prazo da norma ou antes, quando o trabalho muda ou ocorre um acidente.
 chamada: Quer saber como estão os documentos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 051, 037, 325

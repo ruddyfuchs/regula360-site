@@ -76,6 +76,7 @@ nav.menu a.on::after{content:'';position:absolute;left:0;right:0;bottom:-6px;hei
 .btn-azul:hover{background:var(--azul-deep)}
 .btn-linha{border:1px solid var(--grafite);color:var(--grafite);background:transparent}
 .btn-linha:hover{background:var(--grafite);color:var(--osso)}
+.cx-opcoes{display:flex;flex-direction:column;gap:.5rem;margin-top:.8rem}.cx-opcoes .btn{text-align:left;white-space:normal;justify-content:flex-start}
 .btn-topo{padding:.7rem 1.3rem;font-size:.85rem}
 @media(max-width:960px){nav.menu{display:none}}
 
@@ -778,6 +779,10 @@ var POR_NOME={"habite-se ou auto de conclusão do edifício":"001","ca - certifi
 var f=document.getElementById('f1'),r=document.getElementById('r1'),$d=document.getElementById('doc'),$e=document.getElementById('em'),$u=document.getElementById('uf');
 function codigo(){var v=$d.value.trim().toLowerCase();if(!v)return null;if(POR_NOME[v])return POR_NOME[v];
   var achou=Object.keys(POR_NOME).filter(function(k){return k.indexOf(v)>=0});return achou.length===1?POR_NOME[achou[0]]:null}
+// Quem digita só "SPDA" bate em mais de um nome da lista: em vez do erro, mostra os parecidos para escolher com um toque.
+function semAcento(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+function parecidos(){var v=semAcento($d.value.trim());if(v.length<2)return [];
+  return [].map.call(document.getElementById('docs').options,function(o){return o.value}).filter(function(n){return semAcento(n).indexOf(v)>=0})}
 function linha(a,b){return b?'<div class="cx-linha"><span>'+a+'</span><b>'+esc(b)+'</b></div>':''}
 function mostrar(d,rot){var chip='';
   if(d.estado==='em_dia')chip='<span class="cx-chip cx-ok">Em dia · faltam '+d.dias_ate_vencer+' dias</span>';
@@ -823,7 +828,11 @@ function ligarAviso(d){var b=document.getElementById('av-btn'),msg=document.getE
       .catch(function(){b.disabled=false;b.textContent=t;msg.textContent='Sem conexão agora. Confira a internet e tente de novo.'});});}
 function erro(t){r.innerHTML='<span class="cx-rot">Resultado</span><p class="cx-erro" style="margin-top:.8rem">'+esc(t)+'</p>'}
 function calcular(){var c=codigo(),l=local($u.value);
-  if(!c)return erro('Escolha um documento da lista (comece a digitar o nome).');
+  if(!c){var p=parecidos();
+    if(p.length===1){$d.value=p[0];return calcular()}
+    if(p.length>1&&p.length<=8){r.innerHTML='<span class="cx-rot">Resultado</span><p class="cx-erro" style="margin-top:.8rem">Qual destes documentos?</p><div class="cx-opcoes">'+p.map(function(n){return '<button type="button" class="btn btn-linha" data-doc="'+esc(n)+'">'+esc(n)+'</button>'}).join('')+'</div>';
+      [].forEach.call(r.querySelectorAll('[data-doc]'),function(b){b.addEventListener('click',function(){$d.value=b.getAttribute('data-doc');calcular()})});return}
+    return erro('Escolha um documento da lista (comece a digitar o nome).')}
   if(!$e.value)return erro('Informe a data de emissão que está no documento.');
   if(!l)return erro('Informe o estado (ex.: SP) ou o CEP do imóvel.');
   r.classList.add('cx-carregando');
