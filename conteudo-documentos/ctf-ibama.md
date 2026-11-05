@@ -3,8 +3,8 @@ slug: ctf-ibama-validade
 nome: Certificado de Regularidade do IBAMA (CTF/APP)
 chamado: o certificado de regularidade do IBAMA
 titulo: Certificado de Regularidade do IBAMA (CTF/APP): validade, quem precisa e como manter em dia
-titulo_seo: Certificado do IBAMA (CTF/APP): validade
-descricao: Validade do Certificado de Regularidade do IBAMA, o que é o Cadastro Técnico Federal, o relatório anual de atividades e quando o certificado é pedido.
+titulo_seo: Certificado de regularidade do IBAMA: validade
+descricao: O Certificado de Regularidade do IBAMA (CTF/APP) vale {{validade_curta}}. Veja quem precisa, o relatório anual de atividades e quando o certificado é pedido.
 resumo: O Cadastro Técnico Federal de Atividades Potencialmente Poluidoras, o CTF/APP, é o registro no IBAMA de quem exerce atividade que pode poluir ou que usa recursos ambientais. Ele está na Lei 6.938/1981, art. 17, II, e é regulamentado pela IN IBAMA 6/2013. Quem está em dia com as obrigações do cadastro pode emitir o Certificado de Regularidade, que vale pouco tempo e precisa ser emitido de novo quando pedido.
 chamada: Quer saber como estão os documentos da sua empresa? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 314, 317, 064

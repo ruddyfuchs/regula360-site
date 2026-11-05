@@ -3,7 +3,7 @@ slug: alvara-de-elevadores-validade
 nome: Alvará de elevadores
 chamado: o alvará dos elevadores
 titulo: Alvará de elevadores em São Paulo: validade, RIA anual e quem cuida de cada parte
-titulo_seo: Alvará de elevador em SP: validade e RIA anual
+titulo_seo: RIA do elevador em SP: validade e alvará
 descricao: O RIA do elevador em São Paulo vale {{validade_curta}} e é emitido pela conservadora. Veja quem faz o quê, o que pedir à empresa e calcule o vencimento do seu.
 resumo: Na cidade de São Paulo, os elevadores dependem de licença da prefeitura e de um Relatório de Inspeção Anual, o RIA, feito pela empresa conservadora. A regra vem da Lei 10.348/1987 e do Decreto 47.334/2006. Sem o RIA em dia, o equipamento fica irregular perante a prefeitura.
 chamada: Quer saber como estão os documentos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel

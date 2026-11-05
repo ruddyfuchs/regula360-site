@@ -3,8 +3,8 @@ slug: ltcat-validade
 nome: LTCAT
 chamado: o LTCAT
 titulo: LTCAT: validade, para que serve e quando precisa ser atualizado
-titulo_seo: LTCAT: validade e quando atualizar
-descricao: Validade do LTCAT, para que ele serve, a ligação com o PPP e a aposentadoria especial, e quando a mudança no trabalho pede atualização. Veja o prazo do seu.
+titulo_seo: LTCAT vale por quanto tempo? Validade e revisão
+descricao: O LTCAT vale {{validade_curta}} e precisa ser revisto antes se o trabalho mudar. Veja para que ele serve, a ligação com o PPP e calcule o vencimento do seu.
 resumo: O LTCAT, Laudo Técnico das Condições Ambientais do Trabalho, registra se os empregados ficam expostos a agentes nocivos à saúde. Ele é a base do PPP, o documento que o INSS usa para analisar a aposentadoria especial. A Lei 8.213/1991, no art. 58, e a IN PRES/INSS 128/2022 pedem que ele seja mantido atualizado. A lei não fixa uma validade de calendário única, e a revisão anual é a referência para não deixar o laudo ficar para trás.
 chamada: Quer saber como estão os documentos da sua empresa? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 301, 302, 051
