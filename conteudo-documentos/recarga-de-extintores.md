@@ -3,8 +3,8 @@ slug: recarga-de-extintores-validade
 nome: Recarga de extintores
 chamado: a recarga dos extintores
 titulo: Recarga de extintores: validade, inspeção, manutenção e teste hidrostático
-titulo_seo: Validade da recarga de extintor: prazos e selo
-descricao: A recarga do extintor vale {{validade_curta}}, e o teste hidrostático é feito a cada 5 anos. Veja o que conferir no selo e na etiqueta e calcule o vencimento dos seus.
+titulo_seo: Recarga de extintor: validade e certificado
+descricao: A recarga do extintor vale {{validade_curta}} e o teste hidrostático é a cada 5 anos. Veja o que o certificado de recarga traz e calcule o vencimento dos seus.
 resumo: Os extintores do prédio passam por três cuidados diferentes: a inspeção periódica, a manutenção com recarga, feita todo ano, e o teste hidrostático, em intervalo maior. A referência é a NBR 12962:2016, e a IT-21 do Corpo de Bombeiros de São Paulo cobra os extintores em dia na renovação do AVCB.
 chamada: Quer saber como estão os documentos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 230, 002, 056

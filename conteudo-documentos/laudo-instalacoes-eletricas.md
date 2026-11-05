@@ -3,8 +3,8 @@ slug: laudo-instalacoes-eletricas-validade
 nome: Laudo das instalações elétricas
 chamado: o laudo das instalações elétricas
 titulo: Laudo das instalações elétricas: validade, prontuário e o que conferir
-titulo_seo: Laudo elétrico do prédio: validade e prazos
-descricao: Validade do laudo das instalações elétricas, o que é o prontuário da NR-10, como a inspeção é feita e o que o laudo precisa trazer. Calcule o vencimento.
+titulo_seo: Validade do laudo elétrico do prédio (NR-10)
+descricao: O laudo das instalações elétricas vale {{validade_curta}}. Veja o que é o prontuário da NR-10, como a inspeção é feita, o que o laudo traz e calcule o seu.
 resumo: O laudo das instalações elétricas registra a inspeção dos quadros, cabos, proteções e aterramento do prédio, feita por profissional habilitado e com ART. As referências são a NR-10, que trata da segurança em eletricidade, e a ABNT NBR 5410, que trata das instalações de baixa tensão. Vencido ou com pendências abertas, ele costuma pesar na renovação do AVCB e no seguro.
 chamada: Quer saber como estão os laudos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 056, 002, 229

@@ -3,8 +3,8 @@ slug: qualidade-do-ar-interior-validade
 nome: Laudo de qualidade do ar interior
 chamado: o laudo de qualidade do ar interior
 titulo: Laudo de qualidade do ar interior: validade, o que é medido e a diferença para o PMOC
-titulo_seo: Qualidade do ar interior: validade do laudo
-descricao: Validade do laudo de qualidade do ar interior, o que é medido, a diferença para o PMOC e quem precisa. Veja quando renovar o do seu prédio climatizado.
+titulo_seo: Laudo de qualidade do ar: validade e prazo
+descricao: O laudo de qualidade do ar interior vale {{validade_curta}} em prédio climatizado de uso coletivo. Veja o que é medido, a diferença para o PMOC e calcule o seu.
 resumo: O laudo de qualidade do ar interior é a medição do ar dentro de ambientes climatizados de uso coletivo, com coleta de amostras e análise. A referência técnica atual é a ABNT NBR 17037:2023, ao lado da Lei 13.589/2018 e da Portaria GM/MS 3.523/1998. Ele é diferente do PMOC: o plano organiza a manutenção, o laudo mostra como o ar está.
 chamada: Quer saber como estão os documentos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 060, 045, 046

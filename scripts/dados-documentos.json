@@ -109,6 +109,24 @@
       "base_legal": "IT-01 CB-PMESP",
       "consequencia": "Se vencer: risco de interdição do prédio · pode comprometer a cobertura do seguro predial · multa de R$ 384 a R$ 384.200 (base legal). Base: LC 1.257/2015, art. 27, § 3º; Decreto 69.118/2024, arts. 43 a 45 e Anexo C (em UFESP, Comunicado DICAR nº 88/2025 (DOE-SP 18/12/2025))"
     },
+    "002@BA": {
+      "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_da_uf",
+      "base_legal": "Lei 12.929/2013 + Decreto 16.302/2015 (CBMBA)",
+      "consequencia": null
+    },
+    "002@MG": {
+      "documento": "CA - Certificado de Aprovação do Corpo de Bombeiros (RJ) ou AVCB (SP)",
+      "nao_vence": false,
+      "vigencia_meses": 60,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_da_uf",
+      "base_legal": "Lei Estadual 14.130/2001 + Decreto 47.998/2020 (RSCIP-MG) + Instruções Técnicas do CBMMG",
+      "consequencia": null
+    },
     "003": {
       "documento": "Laudo de análise de água de condensação e /ou água gelada",
       "nao_vence": false,
@@ -270,6 +288,15 @@
       "origem_da_validade": "regra_nacional",
       "base_legal": "SP: Decreto 58.701/2019 art. 3 (cadastro AMLURB válido 1 ano) + Lei 13.478/2002 art. 123; RJ: Lei 3.273/2001 art. 66 (ratificação a cada 12 meses)",
       "consequencia": null
+    },
+    "066": {
+      "documento": "Laudo do teste arrancamento do sistema de ancoragem",
+      "nao_vence": false,
+      "vigencia_meses": 12,
+      "antecedencia_dias": 30,
+      "origem_da_validade": "regra_nacional",
+      "base_legal": "NR-35 Anexo II item 5 (inspeção periódica não superior a 12 meses) + ABNT NBR 16325-3:2018",
+      "consequencia": "Se vencer: operação parada. Base: NR-35 (trabalho em altura; sistema de ancoragem) + CLT art. 161 e NR-3: interdição / embargo em grave e iminente risco; penalidades na NR-28"
     }
   }
 }

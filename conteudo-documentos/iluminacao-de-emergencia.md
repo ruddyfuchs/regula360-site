@@ -3,8 +3,8 @@ slug: iluminacao-de-emergencia-validade
 nome: Iluminação de emergência
 chamado: o relatório da iluminação de emergência
 titulo: Iluminação de emergência: validade, ensaio de autonomia e o que conferir
-titulo_seo: Iluminação de emergência: validade e testes
-descricao: Validade do relatório da iluminação de emergência, o ensaio de autonomia, as checagens ao longo do ano e o peso no AVCB. Calcule o vencimento do seu.
+titulo_seo: Iluminação de emergência: validade da inspeção
+descricao: A inspeção da iluminação de emergência vale {{validade_curta}}. Veja o ensaio de autonomia, as checagens do ano, o peso no AVCB e calcule o vencimento da sua.
 resumo: A iluminação de emergência acende quando falta energia e mostra o caminho até a saída. A ABNT NBR 10898:2023 prevê checagens periódicas e um ensaio de autonomia, e a IT-18/2025 do Corpo de Bombeiros de São Paulo cobra o sistema funcionando na vistoria do AVCB. O relatório de inspeção é o documento que comprova que o sistema foi testado.
 chamada: Quer saber como está a documentação do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 231, 002, 027

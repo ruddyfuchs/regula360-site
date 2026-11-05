@@ -3,8 +3,8 @@ slug: mangueiras-de-incendio-validade
 nome: Mangueiras de incêndio (NBR 12779)
 chamado: a manutenção das mangueiras de incêndio
 titulo: Mangueiras de incêndio: validade da manutenção, teste hidrostático e o que conferir
-titulo_seo: Mangueira de incêndio: validade e teste
-descricao: A manutenção das mangueiras de incêndio vale {{validade_curta}} e inclui o teste hidrostático (NBR 12779). Veja o que conferir no certificado e calcule o vencimento.
+titulo_seo: Validade da mangueira de incêndio e do teste
+descricao: A mangueira de incêndio tem validade: a inspeção vale {{validade_curta}} e inclui o teste hidrostático da NBR 12779. Veja o que conferir e calcule o seu.
 resumo: As mangueiras ficam enroladas nos abrigos de hidrante por meses sem uso, e é aí que ressecam, racham e perdem a vedação das conexões. A NBR 12779 trata da inspeção e da manutenção delas, com ensaio hidrostático feito por empresa especializada. Em São Paulo, a IT-22 do Corpo de Bombeiros cobra que o sistema de hidrantes esteja em dia, e a mangueira faz parte dele.
 chamada: Quer saber como estão os documentos do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
 relacionados: 231, 027, 002
