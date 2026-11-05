@@ -172,6 +172,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.regula360.com.br/avcb-validade-mg</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/avcb-validade-ba</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.regula360.com.br/grande-gerador-de-residuos-validade</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -245,6 +257,12 @@
   </url>
   <url>
     <loc>https://www.regula360.com.br/laudo-de-termografia-validade</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.regula360.com.br/laudo-de-ancoragem-validade</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

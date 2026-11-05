@@ -86,13 +86,19 @@ const docs = readdirSync(join(RAIZ, 'conteudo-documentos')).filter((f) => f.ends
 
 // ── a regra de cada documento, como a calculadora a usa (só o que não depende da data) ──
 const CAMPOS = ['documento', 'nao_vence', 'vigencia_meses', 'antecedencia_dias', 'origem_da_validade', 'base_legal', 'consequencia'];
-async function regraAoVivo(codigo) {
-  const r = await fetch(`${API}/api/public/regula/calculadora/vencimento?documento=${codigo}&emissao=2026-01-10&uf=SP`);
+// Página de um estado (cabeçalho "uf: MG"): a regra é a da plataforma PARA ESSE ESTADO, guardada como "002@MG".
+// Sem "uf", vale SP, como sempre foi (a chave continua só o código).
+const UF_NOME = { AC: 'Acre', AL: 'Alagoas', AP: 'Amapá', AM: 'Amazonas', BA: 'Bahia', CE: 'Ceará', DF: 'Distrito Federal', ES: 'Espírito Santo', GO: 'Goiás', MA: 'Maranhão', MT: 'Mato Grosso', MS: 'Mato Grosso do Sul', MG: 'Minas Gerais', PA: 'Pará', PB: 'Paraíba', PR: 'Paraná', PE: 'Pernambuco', PI: 'Piauí', RJ: 'Rio de Janeiro', RN: 'Rio Grande do Norte', RS: 'Rio Grande do Sul', RO: 'Rondônia', RR: 'Roraima', SC: 'Santa Catarina', SP: 'São Paulo', SE: 'Sergipe', TO: 'Tocantins' };
+const chave = (d) => (d.uf && d.uf !== 'SP' ? `${d.codigo}@${d.uf}` : d.codigo);
+async function regraAoVivo(ch) {
+  const [codigo, uf = 'SP'] = ch.split('@');
+  const r = await fetch(`${API}/api/public/regula/calculadora/vencimento?documento=${codigo}&emissao=2026-01-10&uf=${uf}`);
   const j = await r.json().catch(() => null);
-  if (!r.ok || !j?.data) throw new Error(`plataforma não respondeu a regra do documento ${codigo} (HTTP ${r.status})`);
+  if (!r.ok || !j?.data) throw new Error(`plataforma não respondeu a regra do documento ${ch} (HTTP ${r.status})`);
   return Object.fromEntries(CAMPOS.map((k) => [k, j.data[k] ?? null]));
 }
-const codigos = [...new Set(docs.flatMap((d) => [d.codigo, ...d.relacionados]))].sort();
+for (const d of docs) if (d.uf && !UF_NOME[d.uf]) throw new Error(`${d.slug}: uf "${d.uf}" não é sigla de estado`);
+const codigos = [...new Set(docs.flatMap((d) => [chave(d), ...d.relacionados]))].sort();
 let dados = existsSync(DADOS) ? JSON.parse(readFileSync(DADOS, 'utf8')) : { regras: {} };
 if (atualizar || aoVivo) {
   const vivo = {};
@@ -169,15 +175,19 @@ function pagina(titulo, desc, url, ld, miolo) {
   return `${h}<main>\n${miolo}\n</main>${depoisMain}`;
 }
 
-const porCodigo = new Map(docs.map((d) => [d.codigo, d]));
+// "relacionados" aponta para a página de SP do código; a de outro estado nunca toma o lugar dela
+const porCodigo = new Map(docs.filter((d) => chave(d) === d.codigo).map((d) => [d.codigo, d]));
 const dataBR = (iso) => iso.split('-').reverse().join('/');
 const saidas = new Map();
 for (const d of docs) {
-  const r = dados.regras[d.codigo];
+  const r = dados.regras[chave(d)];
   if (r.nao_vence) throw new Error(`${d.slug}: o documento ${d.codigo} não vence; página de validade não faz sentido`);
+  // estado sem prazo na plataforma ("depende do documento") não ganha página: o quadro diria um número que não existe
+  if (!r.vigencia_meses) throw new Error(`${d.slug}: a plataforma não tem prazo para ${chave(d)}; sem regra, sem página`);
   const url = `${SITE}/${d.slug}`;
   const risco = seVencer(r.consequencia);
-  const ondeVale = r.origem_da_validade === 'regra_da_uf' ? 'Regra do estado de São Paulo; em outros estados o prazo pode ser outro.' : 'Regra nacional, igual em todos os estados.';
+  const ufPag = d.uf || 'SP';
+  const ondeVale = r.origem_da_validade === 'regra_da_uf' ? `Regra do estado de ${UF_NOME[ufPag]}; em outros estados o prazo pode ser outro.` : 'Regra nacional, igual em todos os estados.';
   const respValidade = `${maiuscula(d.chamado)} vale ${prazo(r.vigencia_meses)} a partir da emissão (${r.base_legal}).`;
   const comNumeros = (s) => s.split('{{validade_curta}}').join(prazoCurto(r.vigencia_meses)).split('{{validade}}').join(prazo(r.vigencia_meses));
   const PERGUNTAS = () => [[`Qual a validade ${de(d.chamado)}?`, `${respValidade} ${ondeVale}`], [`Quando começar a renovar ${d.chamado}?`, respRenovar],
@@ -218,11 +228,11 @@ for (const d of docs) {
     <p class="rd-fonte">${baseCurta(r.base_legal) !== r.base_legal ? `Base completa: ${esc(r.base_legal)}. ` : ''}${ondeVale} Mesma regra da calculadora da Regula360, conferida em ${dataBR(dados.conferido_em)}.</p>
   </div>
   <form class="rd-calc" action="/quando-vence-meu-documento" method="get">
-    <input type="hidden" name="documento" value="${esc(d.codigo)}"><input type="hidden" name="uf" value="SP">
+    <input type="hidden" name="documento" value="${esc(d.codigo)}"><input type="hidden" name="uf" value="${ufPag}">
     <label>Quando vence o seu? Informe a data de emissão:<input type="date" name="emissao" required></label>
     <button class="btn btn-azul" type="submit">Calcular o vencimento →</button>
   </form>
-  <div class="resumo"><b>Em 20 segundos</b>${esc(d.resumo)}</div>
+  <div class="resumo"><b>Em 20 segundos</b>${esc(comNumeros(d.resumo))}</div>
   ${c.join('\n  ')}
   <h2>Perguntas rápidas</h2>
   ${PERGUNTAS().map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join(' ')}
@@ -254,7 +264,7 @@ function entreMarcadores(arquivo, abre, fecha, miolo, antesDe) {
   gravar(arquivo, t);
 }
 // 1) a calculadora: depois de calcular um documento que tem página, mostra "Saiba mais sobre…"
-const mapa = Object.fromEntries(docs.map((d) => [d.codigo, [`/${d.slug}`, d.chamado]]));
+const mapa = Object.fromEntries(docs.filter((d) => chave(d) === d.codigo).map((d) => [d.codigo, [`/${d.slug}`, d.chamado]]));
 entreMarcadores('quando-vence-meu-documento.html', '<!-- paginas-de-documento: GERADO por scripts/gerar-documentos.mjs, não edite aqui -->', '<!-- /paginas-de-documento -->',
   `<script>window.R360_DOC=${JSON.stringify(mapa)};</script>`, '</head>');
 // 2) o mapa do site
@@ -263,7 +273,7 @@ entreMarcadores('sitemap.xml', '  <!-- documentos -->', '  <!-- /documentos -->'
 // 3) o resumo para IAs (llms.txt)
 {
   const secao = ['## Validade de documentos', '', 'Uma página por documento com prazo: validade, quando começar a renovar, o que acontece se vencer e a calculadora já preenchida.', '',
-    ...docs.map((d) => { const r = dados.regras[d.codigo]; return `- [${d.titulo}](${SITE}/${d.slug}): vale ${prazo(r.vigencia_meses)} (${r.base_legal}).`; }), '', ''].join('\n');
+    ...docs.map((d) => { const r = dados.regras[chave(d)]; return `- [${d.titulo}](${SITE}/${d.slug}): vale ${prazo(r.vigencia_meses)} (${r.base_legal}).`; }), '', ''].join('\n');
   let t = (disco('llms.txt') ?? '').split('\r\n').join('\n');
   t = t.replace(/## Validade de documentos\n[\s\S]*?(?=## )/, '');
   const k = t.indexOf('## Blog');
