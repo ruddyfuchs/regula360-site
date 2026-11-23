@@ -56,7 +56,7 @@ function lerDoc(txt, nome) {
   if (!/^[a-z0-9-]+$/.test(cab.slug)) throw new Error(`${nome}: slug só com letras minúsculas, números e hífen`);
   if (!/^(o|a|os|as) /.test(cab.chamado)) throw new Error(`${nome}: "chamado" começa com o artigo (ex.: "o laudo de SPDA", "a licença…")`);
   const tSeo = `${cab.titulo_seo || cab.titulo} | Regula360`;
-  if ([...tSeo].length > 60) throw new Error(`${nome}: "${tSeo}" tem ${[...tSeo].length} caracteres; o Google corta acima de 60`);
+  if (!tSeo.includes('{{') && [...tSeo].length > 60) throw new Error(`${nome}: "${tSeo}" tem ${[...tSeo].length} caracteres; o Google corta acima de 60`);
   // com {{validade_curta}} a medida só sai depois de trocar pelo número da regra (ver o laço de geração)
   if (!cab.descricao.includes('{{') && ([...cab.descricao].length > 160 || [...cab.descricao].length < 120)) throw new Error(`${nome}: descricao com ${[...cab.descricao].length} caracteres; a medida é de 120 a 160 (régua do painel Saúde do site)`);
   return { ...cab, perguntas, relacionados: (cab.relacionados || '').split(',').map((s) => s.trim()).filter(Boolean), corpo: t.slice(corte + 5).trim() };
@@ -193,6 +193,7 @@ for (const d of docs) {
   const PERGUNTAS = () => [[`Qual a validade ${de(d.chamado)}?`, `${respValidade} ${ondeVale}`], [`Quando começar a renovar ${d.chamado}?`, respRenovar],
     ...d.perguntas.map(([q, a]) => [comNumeros(q), comNumeros(a)])]; // sem 'o que acontece se vencer': a prova-faq proíbe preço (R$) em pergunta; o risco fica no quadro de cima
   d.descricao = comNumeros(d.descricao);
+  if (d.titulo_seo) { d.titulo_seo = comNumeros(d.titulo_seo); if ([...d.titulo_seo].length + 12 > 60) throw new Error(`${d.slug}: titulo_seo com ${[...d.titulo_seo].length + 12} caracteres depois de trocar os números; o Google corta acima de 60`); }
   if ([...d.descricao].length > 160 || [...d.descricao].length < 120) throw new Error(`${d.slug}: descricao com ${[...d.descricao].length} caracteres depois de trocar os números; a medida é de 120 a 160`);
   // renovar_antes_dias (opcional no .md): decisão do Ruddy quando a antecedência da plataforma é curta demais
   // para a vida real; vale só nesta página e fica registrado para a plataforma revisar (ver o .md).
