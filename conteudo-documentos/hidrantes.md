@@ -3,7 +3,7 @@ slug: hidrantes-validade
 nome: Hidrantes e mangueiras
 chamado: o relatório de inspeção dos hidrantes
 titulo: Hidrantes e mangueiras: validade da inspeção, testes e o que conferir
-titulo_seo: Mangueira de hidrante tem validade? Veja o prazo
+titulo_seo: Mangueira de hidrante vale {{validade_curta}}: veja o prazo
 descricao: A inspeção dos hidrantes e mangueiras vale {{validade_curta}}. Veja o que é testado, o que o relatório traz, por que ele pesa no AVCB e calcule o vencimento.
 resumo: O sistema de hidrantes leva água sob pressão até os pavimentos para o combate a incêndio. As referências são a ABNT NBR 13714, para o sistema, a ABNT NBR 12779, para as mangueiras, e a IT-22/2025 do Corpo de Bombeiros de São Paulo. O relatório de inspeção comprova que bomba, registros, mangueiras e esguichos foram testados.
 chamada: Quer saber como está a documentação do seu prédio? | O diagnóstico da Regula360 lista cada documento com a data de vencimento e o que está em risco. | /diagnostico-e-painel | Ver diagnóstico e painel
